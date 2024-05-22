@@ -1,9 +1,9 @@
 <div class='dashboard'>
-    <div class="dashboard-nav">
-        <header>
-            <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-            <a href="#"  class="brand-logo"><i  class="fas fa-anchor"></i> <span>Credit Repair</span></a>
-        </header>
+    <div class="dashboard-nav"> 
+        <header> 
+            <a href="#"  class="brand-logo"><i  class="fas fa-credit-card"></i> <span>Credit Repair</span></a>
+        </header> 
+        
 
         <nav class="dashboard-nav-list">
             <a href="{{ route('home') }}" :active="request()->routeIs('home')" class="dashboard-nav-item active"><i class="fas fa-house-user"></i> Home </a> 
@@ -20,6 +20,7 @@
         </nav> 
 
     </div>
+    <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
     <div class="dashboard-content">
         @yield('content')
     </div>

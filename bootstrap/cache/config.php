@@ -198,8 +198,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\framework/cache/data',
+        'path' => 'C:\\git\\ascents-credit-repair\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\git\\ascents-credit-repair\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -372,13 +372,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\app',
+        'root' => 'C:\\git\\ascents-credit-repair\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\app/public',
+        'root' => 'C:\\git\\ascents-credit-repair\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -398,7 +398,7 @@
     ),
     'links' => 
     array (
-      'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\public\\storage' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\app/public',
+      'C:\\git\\ascents-credit-repair\\public\\storage' => 'C:\\git\\ascents-credit-repair\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -439,14 +439,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\logs/laravel.log',
+        'path' => 'C:\\git\\ascents-credit-repair\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\logs/laravel.log',
+        'path' => 'C:\\git\\ascents-credit-repair\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -511,7 +511,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\logs/laravel.log',
+        'path' => 'C:\\git\\ascents-credit-repair\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -587,7 +587,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\resources\\views/vendor/mail',
+        0 => 'C:\\git\\ascents-credit-repair\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -700,7 +700,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\framework/sessions',
+    'files' => 'C:\\git\\ascents-credit-repair\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -721,9 +721,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\resources\\views',
+      0 => 'C:\\git\\ascents-credit-repair\\resources\\views',
     ),
-    'compiled' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair\\storage\\framework\\views',
+    'compiled' => 'C:\\git\\ascents-credit-repair\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -808,7 +808,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'C:\\PROJECTS\\CreditRepairApp\\credit-repair',
+    'remote_sites_path' => 'C:\\git\\ascents-credit-repair',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

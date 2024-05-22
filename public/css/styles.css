@@ -137,7 +137,7 @@ h1, .h1 {
 .dashboard-nav {
     min-width: 238px;
     /*position: fixed;*/
-    position: auto;
+    position: relative;
     left: 0;
     top: 0;
     bottom: 0;
@@ -170,6 +170,13 @@ h1, .h1 {
 .dashboard-nav header .menu-toggle {
     display: none;
     margin-right: auto;
+}
+
+/*Only display the menu toggle on smaller screens */
+@media (min-width: 768px) {
+    .dashboard-nav header .menu-toggle {
+        display: none; /* Hide on larger screens */
+    }
 }
 
 .dashboard-nav a {

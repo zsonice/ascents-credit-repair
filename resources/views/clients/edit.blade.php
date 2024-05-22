@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <x-app-layout>  
+    @extends('layouts.app')
+    @section('content')
+    {{-- <x-app-layout>  
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Edit Client') }}
             </h2>
-        </x-slot>
+        </x-slot> --}}
             <div class="container">
                 <h1 class="my-4">Edit client</h1>
                 
@@ -32,6 +34,7 @@
                     <a href="{{ route('clients.index') }}" class="btn btn-secondary">Back</a>
                 </form>
             </div>
-    </x-app-layout> 
+    {{-- </x-app-layout>  --}}
+    @endsection('content')
 </body>
 </html>

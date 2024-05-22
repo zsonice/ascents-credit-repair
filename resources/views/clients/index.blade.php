@@ -13,10 +13,22 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg"> 
                     <div class="p-6 text-gray-900"> 
                         {{-- <a href="{{ route('clients.create') }}" class="btn btn-primary mb-4">Add New client</a> --}}
-                               <!-- Button to open the modal -->
-                        <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addClientModal">
-                            Add New Client
-                        </button>   
+                               <!-- Button to open the modal --> 
+
+                        <nav class="navbar navbar-light  ">
+
+                            
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                              </form>
+
+                            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addClientModal">
+                                Add New Client
+                            </button>   
+
+
+                          </nav>
                         
                         @if ($clients->count() > 0)
                             <table class="table table-bordered">
@@ -127,6 +139,27 @@
                                 </div>
                             </div>  
                     </div> 
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+
                 </div>
             </div>
         </div>
