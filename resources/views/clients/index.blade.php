@@ -7,30 +7,77 @@
 <body>  
 @extends('layouts.app')
     @section('content')
-        <div class="py-4">
-            {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8"> --}}
-            <div class="max-w-full mx-auto sm:px-6 lg:px-8"> 
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg"> 
-                    <div class="p-6 text-gray-900"> 
-                        {{-- <a href="{{ route('clients.create') }}" class="btn btn-primary mb-4">Add New client</a> --}}
-                               <!-- Button to open the modal --> 
+    
+    <nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+ 
+    </a>
+    <ul class="nav justify-content-end">
 
-                        <nav class="navbar navbar-light  ">
+<li class="nav-item">
+<a class="btn btn-app">
+                  
+                  <i class="fas fa-users"></i> Clients
+                  <span class="badge bg-info">85</span>
+                </a>
 
-                            
-                            <form class="form-inline">
+</li>
+<li class="nav-item">
+  <a class="btn btn-app">
+                  
+                  <i class="fas fa-envelope"></i> Inbox
+               <span class="badge bg-warning">12</span> </a>
+  </li>
+  <li class="nav-item">
+  <a class="btn btn-app">
+                  
+                  <i class="fas fa-bullhorn"></i> Notifications
+              <span class="badge bg-danger">97</span>  </a>
+  </li>
+ 
+</ul>
+  </div>
+</nav>
+
+
+<div class="hello">
+        <div class="row">
+    
+            <div>
+                <div class="card">
+                     <div class="card-body">
+                   
+                         <nav class="navbar">
+  <div class="container-fluid">
+  <form class="form-inline">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                              </form>
+ </form>
+   
+    
+    <ul class="nav justify-content-end">
 
-                            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#addClientModal">
+<li class="nav-item">
+<a class="btn btn-app">
+                  
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">
                                 Add New Client
-                            </button>   
 
+                            </button> 
+                </a>
 
-                          </nav>
-                        
-                        @if ($clients->count() > 0)
+</li>
+</ul>
+  </div>
+</nav>
+<br>
+                    
+
+                       
+                   
+                        <div>
+                             @if ($clients->count() > 0)
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -72,12 +119,40 @@
                                 </tbody>
                             </table>
                         @else
-                            <p>No clients found.</p>
+                        <br>
+                            <h6 style="text-align:center">No clients found.</h6>
+                            <br>
                         @endif
 
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
 
-                         <!-- Add Client Modal -->
-                        <div class="modal fade" id="addClientModal" tabindex="-1" role="dialog" aria-labelledby="addClientModalLabel" aria-hidden="true">
+                </div>
+            </div>
+        </div>
+               
+
+                        
+      
+    @endsection
+  <div class="modal fade" id="addClientModal" tabindex="-1" role="dialog" aria-labelledby="addClientModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -139,35 +214,10 @@
                                 </div>
                             </div>  
                     </div> 
-
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-
-                </div>
-            </div>
-        </div>
-    @endsection
-
 {{--        
     </x-app-layout>   --}}
-    
+     <!-- Add Client Modal -->
+   
  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
