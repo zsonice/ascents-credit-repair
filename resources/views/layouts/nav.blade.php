@@ -129,6 +129,37 @@
     
 
     <div class="text">
+    <nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+ 
+    </a>
+    <ul class="nav justify-content-end">
+
+<li class="nav-item">
+<a class="btn btn-app">
+                  
+                  <i class="fas fa-users"></i> Clients
+                  <span class="badge bg-info">85</span>
+                </a>
+
+</li>
+<li class="nav-item">
+  <a class="btn btn-app">
+                  
+                  <i class="fas fa-envelope"></i> Inbox
+               <span class="badge bg-warning">12</span> </a>
+  </li>
+  <li class="nav-item">
+  <a class="btn btn-app">
+                  
+                  <i class="fas fa-bullhorn"></i> Notifications
+              <span class="badge bg-danger">97</span>  </a>
+  </li>
+ 
+</ul>
+  </div>
+</nav>
         @yield('content')
     </div>
 </section>

@@ -30,10 +30,11 @@
 }
 
 body{
-    height: 100vh;
-    background: var(--body-color);
+
+    background: var(--primary-color-light);
     transition: var(--tran-05);
 }
+
 body.dark{
     --body-color: #18191A;
     --side-bar-color: #242526;
@@ -440,4 +441,19 @@ div.p{
     transform:translatex(0px) translatey(0px);
    }
    
+   /* Card body */
+.col-md-8 .card .card-body{
+ column-count:2;
+ justify-content: center;
+ padding: 33px;
+}
+
+.hello .d-grid i{
+    color: var(--primary-color);
+    font-size: 30px;
+}
+/* Button */
+.hello .card .btn-primary{
+    float:right;
+   }
    
