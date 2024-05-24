@@ -400,7 +400,10 @@ div.card .card-footer{
     background: var(--primary-color);
     color: var(--side-bar-color);
 }
-
+body.dark .hello .card .btn-outline-primary:hover{
+    background: var(--primary-color);
+    color: var(--header);
+}
 .row-links .btn {
     text-align: left;
     justify-content: left;
@@ -457,3 +460,19 @@ div.p{
     float:right;
    }
    
+   .nav .nav-item a{
+    color: var(--header-text);
+   }
+
+body.dark .card{
+    background: var(--header);
+}
+body.dark .card-header,
+body.dark .card-footer
+{
+    background: var(--header);
+}
+body.dark .card .card-body .navbar{
+    background: transparent;
+    transition: var(--tran-04);
+}
