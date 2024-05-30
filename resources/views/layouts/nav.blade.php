@@ -27,7 +27,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="/img/5s.png" alt="logo">
+                    <img src="/img/5sdark.png" alt="logo">
                 </span>
 
                 <div class="text header-text">
@@ -43,7 +43,7 @@
             <div class="menu">
                     <li class="search-box">
                         <i class='bx bx-search icon' ></i>
-                        <input type="text" placeholder="Search...">
+                        <input type="text" placeholder="Search">
                     </li>
                 <ul class="menu-links">
                     <li class="nav-link">

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Credit Repair</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">     
-</head>
+
 <body>  
 @extends('layouts.app')
     @section('content')
@@ -20,14 +17,39 @@
                    
                          <nav class="navbar">
   <div class="container-fluid">
-  <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
- </form>
-   
+
+ <ul class="nav justify-content-left">
+
+<li class="nav-item">
+<a class="btn btn-app">
+                    <span class="badge bg-info"></span>
+                    <i class='bx bx-import'></i> &nbsp; Import
+           
+                </a>
+
+</li>
+<li class="nav-item">
+  <a class="btn btn-app">
+                    <span class="badge bg-warning"></span> 
+                    <i class='bx bx-export'></i>&nbsp; Export
+             </a>
+  </li>
+  <li class="nav-item">
+  <a class="btn btn-app">
+                   <span class="badge bg-danger"></span> 
+                   <i class="bi bi-printer-fill"></i>&nbsp;Print
+              </a>
+  </li>
+ 
+</ul>
     
     <ul class="nav justify-content-end">
+    <li class="nav-item">   
+                        <input type="text" placeholder="Search">
+                             </li>
+                </a>
 
+</li>
 <li class="nav-item">
 <a class="btn btn-app">
                   
@@ -41,14 +63,13 @@
 </ul>
   </div>
 </nav>
-<br>
-                    
+             
 
                        
                    
                         <div>
                              @if ($clients->count() > 0)
-                            <table class="table table-bordered">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Client Name</th>
@@ -76,12 +97,12 @@
                                             <td>zzzzzzzzzzzzzz</td>
                                             <td>zzzzzzzzzzzzzz</td>
                                             <td> 
-                                                <a href="{{ route('clients.show', $client) }}" class="btn btn-info btn-sm">View</a>
-                                                <a href="{{ route('clients.edit', $client) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="{{ route('clients.show', $client) }}" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
+                                                <a href="{{ route('clients.edit', $client) }}" class="btn btn-warning btn-sm"><i class='bx bxs-edit' ></i></a>
                                                 <form action="{{ route('clients.destroy', $client) }}" method="POST" style="display: inline-block;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class='bx bxs-trash' ></i></button>
                                                 </form>
                                             </td>
                                         </tr>
