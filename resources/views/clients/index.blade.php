@@ -67,7 +67,7 @@
 
                        
                    
-                        <div>
+<div style='overflow-x:auto'>
                              @if ($clients->count() > 0)
                             <table class="table table-hover">
                                 <thead>
@@ -97,12 +97,12 @@
                                             <td>zzzzzzzzzzzzzz</td>
                                             <td>zzzzzzzzzzzzzz</td>
                                             <td> 
-                                                <a href="{{ route('clients.show', $client) }}" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
-                                                <a href="{{ route('clients.edit', $client) }}" class="btn btn-warning btn-sm"><i class='bx bxs-edit' ></i></a>
+                                                <a href="{{ route('clients.show', $client) }}" class="btn"><i class="bi bi-eye-fill"></i></a>
+                                                <a href="{{ route('clients.edit', $client) }}" class="btn"><i class='bx bxs-edit' ></i></a>
                                                 <form action="{{ route('clients.destroy', $client) }}" method="POST" style="display: inline-block;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class='bx bxs-trash' ></i></button>
+                                                    <button type="submit" class="btn"><i class='bx bxs-trash' ></i></button>
                                                 </form>
                                             </td>
                                         </tr>

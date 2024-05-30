@@ -22,6 +22,7 @@
     --header-text:#343b3c;
     --dark-text:#343b3c;
     --dark-primary:#d51264;
+    --light-primary:#FFEFF8;
 
 
     /* transition */
@@ -595,9 +596,12 @@ body.dark .card .card-body .navbar{
     line-height:1.7em;
    }
 
-   .table tr .btn-info,
-   .table tr .btn-warning{
-    color:var(--header);
+   .table tr .btn{
+    color:var(--primary-color);
+    background: transparent;
    }
-   
+   .table tbody tr:hover td{
+        background: var(--light-primary);
+        border: none;
+   }
    
