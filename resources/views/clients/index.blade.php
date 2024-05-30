@@ -197,7 +197,7 @@
                                             
                                             <!-- Modal buttons -->
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="submit" class="primary">Create</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </form>
