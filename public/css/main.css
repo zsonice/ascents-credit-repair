@@ -22,7 +22,7 @@
     --header-text:#343b3c;
     --dark-text:#343b3c;
     --dark-primary:#d51264;
-    --light-primary:#FFEFF8;
+    --light-primary:#ffdae9;
 
 
     /* transition */
@@ -638,3 +638,20 @@ body.dark .card .card-body .navbar{
    .modal-body .form-group label{
     font-weight: 500;
    }
+   .home .nav .badge{
+    
+    top: -15px;
+    left: -10px;
+    font-size: 10px;
+    border-radius: 35%;
+    border: solid 1px var(--text-color);
+ 
+
+   }
+    .home .nav .btn-app i {
+    justify-content: center;
+    text-align: center; 
+    font-size: 20px;
+
+   }
+  

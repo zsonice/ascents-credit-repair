@@ -136,25 +136,29 @@
     </a>
     <ul class="nav justify-content-end">
 
+
+
 <li class="nav-item">
 <a class="btn btn-app">
                   
-                  <i class="fas fa-users"></i> Clients
-                  <span class="badge bg-info">85</span>
+<i class='bx bxs-notepad' ></i>
+<span class="badge bg-danger">7</span> </a>
                 </a>
 
 </li>
+
 <li class="nav-item">
   <a class="btn btn-app">
                   
-                  <i class="fas fa-envelope"></i> Inbox
-               <span class="badge bg-warning">12</span> </a>
+  <i class='bx bxs-conversation' ></i>
+               <span class="badge bg-danger">12</span> </a>
   </li>
+
   <li class="nav-item">
   <a class="btn btn-app">
                   
-                  <i class="fas fa-bullhorn"></i> Notifications
-              <span class="badge bg-danger">97</span>  </a>
+  <i class='bx bxs-bell' ></i>
+              <span class="badge bg-danger">19</span>  </a>
   </li>
  
 </ul>
