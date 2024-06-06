@@ -690,9 +690,7 @@ body.dark .card .card-body .navbar{
     color: #000;
     text-decoration-line: underline;
 }
-.col-md-12 .d-grid .btn p{
-    padding-left: 40px;
-}
+
 
 .pagination{
     --bs-pagination-hover-color: var(--dark-primary);
@@ -703,3 +701,17 @@ body.dark .card .card-body .navbar{
 .nav .nav-item a:hover{
     color: var(--light-primary);
 }
+/* Button */
+.hello h6 a{
+    font-weight:500;
+    color:var(--primary-color);
+    text-decoration:underline;
+
+    text-align: center;
+    justify-content: center;
+  
+   }
+   .hello h6 a:hover{
+     color:var(--dark-primary);
+
+   }

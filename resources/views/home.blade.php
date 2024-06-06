@@ -29,9 +29,9 @@
     <h6> Personal Tasks </h6>
                          </div>
                              <div class="todo">
-                                <br>
+                        <br>     
     <p> You have no tasks</p>
-    <br>
+<br>
     
     
                              </div>
@@ -105,7 +105,7 @@
 </button>
     <button type="button" class="btn">
     <i class='bx bxs-certification' ></i></i>&nbsp;
-    <b>Get CRC Certified</b>
+    <b>Get Five S Certified</b>
     <br>
     <p>Get FREE step-by-step training</p>
 </button>
@@ -149,12 +149,36 @@
              
             
         </div>
-   
+        <div class="card">
+            <div class="card-body">
+      
+                <div class="card-header">
+                    <div>
+                        <div class="row m-b-34">
+                            <div class="col-6">
+                                <h6>Business Status</h6>
+                            </div>
+                            <div class="col-6 text-right">
+                       
+                               <h6> <a class="btn btn-app">View Dashboard</a></h6>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="chart">
+                <div id="chart">
+                    
+                </div>
+
+            </div>
+         </div>
 
 </div>
    
    
            
 
-
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 @endsection
