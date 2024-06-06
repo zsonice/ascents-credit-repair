@@ -654,4 +654,12 @@ body.dark .card .card-body .navbar{
     font-size: 20px;
 
    }
-  
+  .bottom-content{
+    border-top:solid 1px var(--text-color) ;
+    
+  }
+  .bottom-content .nav-link a:hover{
+    background: var(--header);
+    color: var(--side-bar-color);
+    transition: var(--tran-03);
+  }

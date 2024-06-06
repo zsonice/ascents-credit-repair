@@ -95,6 +95,17 @@
                
             </div>
             <div class="bottom-content">
+
+            <li class="nav-link">
+                        <a href="#">
+                        <i class='bx bxs-help-circle icon' ></i>
+                        <span class="text nav-text">
+                            Help & Support
+                        </span>
+                        </a>
+
+                    </li>
+                    
                 <form method="POST" action="{{ route('logout') }}">
                         <li class="">
                             
