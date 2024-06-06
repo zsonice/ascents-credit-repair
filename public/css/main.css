@@ -21,7 +21,7 @@
     --header: #fff;
     --header-text:#343b3c;
     --dark-text:#343b3c;
-    --dark-primary:#d51264;
+    --dark-primary:#a10c4b;
     --light-primary:#ffdae9;
 
 
@@ -258,7 +258,7 @@ body.dark .sidebar header .toggle{
 
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
-    color: var(--text-color);
+    color: var(--dark-text);
 }
 
 .sidebar li a:hover .icon,
@@ -267,7 +267,7 @@ body.dark .sidebar li a:hover .text{
 
 }
 .menu-bar form a:hover{
-    background: var(--hover);
+    background: var(--header);
 }
 
 .sidebar .menu-bar{
@@ -408,7 +408,7 @@ div.card .card-footer{
 }
 .hello .card .btn-outline-primary{
     color: var(--dark-text);
-    border-color: var(--primary-color);
+    border: 1px solid var(--primary-color)!important;
 }
 .hello .card .btn-outline-primary:hover{
     background: var(--primary-color);
@@ -436,7 +436,20 @@ div.p{
 .hello .card .btn-primary{
     background: var(--primary-color);
     border-style: none;
+    justify-content: center;
+    text-align: center;
 }
+.card-body .nav .btn-primary{
+    min-height:40px;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 400;
+    justify-content: center!important;
+    text-align: center!important;
+   }
+
+   
 .hello .card .btn-primary:hover{
     background: var(--dark-primary);
     border-style: none;
@@ -663,3 +676,30 @@ body.dark .card .card-body .navbar{
     color: var(--side-bar-color);
     transition: var(--tran-03);
   }
+.btn{
+    border:none!important;
+}
+.card-body .nav .btn-app:hover{
+    color: var(--dark-primary);
+}
+.col-md-12 .d-grid .btn:hover{
+    color:var(--header-text);
+   
+}
+.col-md-12 .d-grid .btn p:hover{
+    color: #000;
+    text-decoration-line: underline;
+}
+.col-md-12 .d-grid .btn p{
+    padding-left: 40px;
+}
+
+.pagination{
+    --bs-pagination-hover-color: var(--dark-primary);
+    --bs-pagination-focus-color: var(--side-bar-color);
+    --bs-pagination-focus-box-shadow: none;
+}
+
+.nav .nav-item a:hover{
+    color: var(--light-primary);
+}

@@ -54,7 +54,7 @@
 <a class="btn btn-app">
                   
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">
-                                Add Client
+        Add Client / Lead
 
                             </button> 
                 </a>
