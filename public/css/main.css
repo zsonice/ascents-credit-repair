@@ -181,10 +181,11 @@ header .image-text .header-text{
     transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
-    background: var(--primary-color-light);
+    background: var(--hover);
     display: flex;
     align-items:center;
     justify-content:center;
+    border: 1px solid var(--primary-color);
     border-radius: 50%;
     color: var(--side-bar-color);
     font-size: 22px;
@@ -198,7 +199,7 @@ header .image-text .header-text{
 
 body.dark .sidebar header .toggle{
     transform: rotate(180deg);
-    color: var(--text-color);
+    color: var(--dark-text);
 }
 
 
@@ -382,6 +383,7 @@ body.dark .navbar a{
 
 div.card{
     margin: 10px;
+    display: flex;
 }
 
 div.card .card-header{
@@ -476,7 +478,7 @@ div.p{
    }
    
    /* Card body */
-.col-md-8 .card .card-body{
+   .col .card .card-body{
  column-count:2;
  justify-content: center;
  padding: 33px;
@@ -704,8 +706,9 @@ body.dark .card .card-body .navbar{
 /* Button */
 .hello h6 a{
     font-weight:500;
-    color:var(--primary-color);
-    text-decoration:underline;
+    color:var(--primary-color); 
+    cursor: pointer;
+    font-size: 14px;
 
     text-align: center;
     justify-content: center;
@@ -713,5 +716,59 @@ body.dark .card .card-body .navbar{
    }
    .hello h6 a:hover{
      color:var(--dark-primary);
-
+    text-decoration:underline;
    }
+
+   .todo .col-tasks .btn-app{
+    font-weight:500;
+    color:var(--primary-color); 
+    cursor: pointer;
+    font-size: 14px;
+   
+
+    text-align: center;
+    justify-content: center;
+    float: right;
+   }
+   .todo .col-tasks .btn-app:hover{
+    color:var(--dark-primary);
+    text-decoration:underline;
+   }
+
+
+   
+   /* Table Data */
+   .col-md-4 .card .table tr td{
+    font-size:14px!important;
+    font-weight:400;
+    line-height:2em;
+    text-align:left;
+   }
+   .col-md-4 .card .table tbody tr:hover td{
+background: white;
+    color: var(--dark-primary);
+    transition: var(--tran-05);
+   }
+   .col-md-4 .card .table tbody tr td{
+    border-bottom: none;
+
+   cursor: pointer;
+}
+@media (max-width: 800px) {
+    .card {
+      flex-direction: column;
+    }
+  }
+  .hello .card .col-tasks{
+    columns: 1;
+  }
+/* Card */
+
+   /* Paragraph */
+.hello .card-header p{
+    font-size:13px;
+    padding-left:10px;
+    padding-right:10px;
+    color:#7c7c7c;
+   }
+   

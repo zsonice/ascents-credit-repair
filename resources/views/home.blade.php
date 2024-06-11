@@ -29,23 +29,44 @@
     <h6> Personal Tasks </h6>
                          </div>
                              <div class="todo">
-                        <br>     
-    <p> You have no tasks</p>
-<br>
+                     
+                             <div style='overflow-x:auto'>
+                       
+                            <table class="table">
+                             
+                                <tbody>
+                             
+                                        <tr>    
+                                       <td>Assign tasks to team members</td>
+                                            <td> 
+                                                <a href="" class="btn"><i class='bx bxs-edit' ></i></a>
+                                                <form action="" method="POST" style="display: inline-block;">
+                                              
+                                                    <button type="submit" class="btn"><i class='bx bxs-trash' ></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                       
+                                </tbody>
+                            </table>
+                    
+             
+              
+
     
     
                              </div>
-                             <div class="card-footer">
-  
-                             <button type="button" class="btn btn-primary"><i class="bi bi-calendar-plus-fill"></i> &nbsp;New Task</button>
-                           
-                         </div>
+                            <div class="col-tasks">
+                     <a class="btn btn-app">View All Tasks</a>
+                    
+                
+                            </div>
                       </div>
                 </div>
                 
             </div>
-            
-            <div class="col-md-8">  
+</div>
+            <div class="col">  
                 <div class="card">
                      <div class="card-body">
                         <div class="row">
@@ -149,6 +170,7 @@
              
             
         </div>
+        
         <div class="card">
             <div class="card-body">
       
@@ -158,23 +180,103 @@
                             <div class="col-6">
                                 <h6>Business Status</h6>
                             </div>
-                            <div class="col-6 text-right">
+                        <div class="col-6 text-right">
                        
                                <h6> <a class="btn btn-app">View Dashboard</a></h6>
                         
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-            <div class="chart">
+                         </div>
+                     </div>
+                 </div>
+             </div> <div class="chart">
                 <div id="chart">
                     
                 </div>
+        </div>
+           
 
             </div>
-         </div>
-
+            
+    </div>
+    <div class="card">
+            <div class="card-body">
+      
+                <div class="card-header">
+                    <div>
+                        <div class="row m-b-34">
+                            <div class="col-6">
+                                <h6>Recent Login Activity</h6>
+                            </div>
+                        <div class="col-6 text-right">
+                       
+                               <h6> <a class="btn btn-app">View Full History</a></h6>
+                        
+                        </div>
+                                <div>
+                                <p>If you observe any unfamiliar activity: update your password to secure your account or reach out to customer care for further assistance. To ensure the security of your account and client data, IDs and passwords must remain confidential and cannot be used to log in from two different locations or devices at the same time.</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div style='overflow-y:auto'>
+                     
+                     <table class="table table-hover">
+                         <thead>
+                             <tr>
+                                 <th>User</th>
+                                 <th>IP Address</th>
+                                 <th>Access Type</th>
+                                 <th>Login</th>
+                                 <th>Logout</th>
+                                 <th>Location</th>
+                                 
+                             </tr>
+                         </thead>
+                         <tbody>
+                         
+                                 <tr>    
+                                     <td>sgaas.aila@gmail.com</td> 
+                                     <td>103.149.37.177</td> 
+                                     <td>Browser</td>
+                                     <td>06/11/2024 06:56 PM</td>
+                                     <td>-</td>
+                                     <td>PH</td>
+                                  
+                                  
+                                 </tr>
+                                 <tr>    
+                                     <td>admin1@gmail.com</td> 
+                                     <td>192.168.37.177</td> 
+                                     <td>Mobile</td>
+                                     <td>06/16/2024 10:56 AM</td>
+                                     <td>-</td>
+                                     <td>US</td>
+                                  
+                                  
+                                 </tr>
+                                 <tr>    
+                                     <td>du123@gmail.com</td> 
+                                     <td>192.168.0.1</td> 
+                                     <td>Browser</td>
+                                     <td>06/18/2024 12:02 PM</td>
+                                     <td>-</td>
+                                     <td>US</td>
+                                  
+                                  
+                                 </tr>
+                         
+                         
+                         </tbody>
+                     </table>
+        
+</div> 
+            </div>
+          
+           
+           
+ 
+    
+    </div>
+    
 </div>
    
    
