@@ -18,3 +18,11 @@ inputs.forEach(input => {
 	input.addEventListener("focus", addcl);
 	input.addEventListener("blur", remcl);
 });
+
+/* Search - onkeypress */
+function submitOnEnter(event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		document.getElementById('search-form').submit();
+	}
+}

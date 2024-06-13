@@ -7,10 +7,25 @@ use App\Models\Client;
 
 class ClientController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $clients = client::all();
-        return view('clients.index', compact('clients'));
+      // Default pagination: retrieve 5 items per page
+      $clients = Client::paginate(5);
+
+      // Check if the request has a search parameter
+      if ($request->has('query')) {
+          // Get the search query, default to an empty string if not present
+          $query = $request->input('query', '');
+
+          // Perform a search query and paginate the results
+          $clients = Client::where('first_name', 'LIKE', "%{$query}%")->paginate(5);
+
+          // Pass the search query to the view
+          return view('clients.index', compact('clients', 'query'));
+      }
+
+      // Return the view with the clients and an empty search query
+      return view('clients.index', compact('clients'))->with('query', '');
     }
 
     public function create()

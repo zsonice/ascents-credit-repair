@@ -46,24 +46,18 @@
                         <input type="text" placeholder="Search">
                     </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
-                    <a href="{{ route('home') }}" :active="request()->routeIs('home')" >
-                        <i class='bx bxs-home icon' ></i>
-                        <span class="text nav-text">
-                            Home
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-link">
-                    <a href="{{ route('clients.index') }}" :active="request()->routeIs('clients')" >
-                        <i class='bx bxs-user-account icon' ></i>
-                        <span class="text nav-text">
-                            Clients
-                        </span>
-                        </a>
-
-                    </li>
+                    <li class="nav-link"> 
+                            <a href="{{ route('home') }}" id="nav-home">
+                                <i class='bx bxs-home icon'></i>
+                                <span class="text nav-text">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-link"> 
+                            <a href="{{ route('clients.index') }}" id="nav-clients">
+                                <i class='bx bxs-user-account icon'></i>
+                                <span class="text nav-text">Clients</span>
+                            </a> 
+                        </li>
                     <li class="nav-link">
                     <a href="{{ route('mycompany') }}" :active="request()->routeIs('mycompany')" >
                         <i class='bx bxs-buildings icon' ></i>

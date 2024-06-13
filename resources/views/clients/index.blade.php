@@ -8,64 +8,53 @@
    
 
 <div class="hello">
-<h1 class="welcome"> Clients</h1>
-        <div class="row">
-    
+    <h1 class="welcome"> Clients</h1>
+        <div class="row"> 
             <div>
                 <div class="card">
-                     <div class="card-body">
-                   
-                         <nav class="navbar">
-  <div class="container-fluid">
+                     <div class="card-body"> 
+                        <nav class="navbar">
+                            <div class="container-fluid">
 
- <ul class="nav justify-content-left">
+                                <ul class="nav justify-content-left"> 
+                                    <li class="nav-item">
+                                        <a class="btn btn-app" data-toggle="modal" data-target="#importCreditReportModal">
+                                            <span class="badge bg-info"></span>
+                                            <i class='bx bx-import'></i> &nbsp; Import 
+                                        </a> 
+                                    </li>
 
-<li class="nav-item">
-<a class="btn btn-app">
-                    <span class="badge bg-info"></span>
-                    <i class='bx bx-import'></i> &nbsp; Import
-           
-                </a>
-
-</li>
-<li class="nav-item">
-  <a class="btn btn-app">
-                    <span class="badge bg-warning"></span> 
-                    <i class='bx bx-export'></i>&nbsp; Export
-             </a>
-  </li>
-  <li class="nav-item">
-  <a class="btn btn-app">
-                   <span class="badge bg-danger"></span> 
-                   <i class="bi bi-printer-fill"></i>&nbsp;Print
-              </a>
-  </li>
- 
-</ul>
-    
-    <ul class="nav justify-content-end">
-    <li class="nav-item">   
-                        <input type="text" placeholder="Search">
-                             </li>
-                </a>
-
-</li>
-<li class="nav-item">
-<a class="btn btn-app">
-                  
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">
-        Add Client / Lead
-
-                            </button> 
-                </a>
-
-</li>
-</ul>
-  </div>
-</nav>
-             
-
-                       
+                                    <li class="nav-item">
+                                        <a class="btn btn-app" data-toggle="modal" data-target="#exportCreditReportModal">
+                                            <span class="badge bg-warning"></span> 
+                                            <i class='bx bx-export'></i>&nbsp; Export
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="btn btn-app">
+                                            <span class="badge bg-danger"></span> 
+                                            <i class="bi bi-printer-fill"></i>&nbsp;Print
+                                    </a>
+                                    </li> 
+                                </ul>
+                                
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">   
+                                        {{-- <input type="text" placeholder="Search"> --}}
+                                        <form id="search-form" action="{{ route('clients.index') }}" method="GET">
+                                            <input type="text" name="query" placeholder="Search" onkeypress="submitOnEnter(event)">
+                                        </form>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="btn btn-app"> 
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">
+                                                    Add Client / Lead
+                                            </button> 
+                                        </a> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav> 
                    
 <div style='overflow-x:auto'>
                              @if ($clients->count() > 0)
@@ -91,11 +80,11 @@
                                             <td>{{ $client->user->name ?? 'Unknown' }}</td> 
                                             <td>{{ $client->created_at }}</td>
                                             <td>{{ $client->start_date }}</td>
-                                            <td>zzzzzzzzzzzzzz</td>
-                                            <td>zzzzzzzzzzzzzz</td>
-                                            <td>zzzzzzzzzzzzzz</td>
-                                            <td>zzzzzzzzzzzzzz</td>
-                                            <td>zzzzzzzzzzzzzz</td>
+                                            <td>Last login {{ $client->updated_at }}</td>
+                                            <td>Onboarding stage </td>
+                                            <td>Client status {{ $client->status }}</td>
+                                            <td>Billing status </td>
+                                            <td>Plan name </td>
                                             <td> 
                                                 <a href="{{ route('clients.show', $client) }}" class="btn"><i class="bi bi-eye-fill"></i></a>
                                                 <a href="{{ route('clients.edit', $client) }}" class="btn"><i class='bx bxs-edit' ></i></a>
@@ -115,23 +104,37 @@
                             <br>
                         @endif
 
-                    <nav aria-label="Page navigation example">
+                    <nav aria-label="Page navigation">
                         <ul class="pagination">
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
+                            {{-- Previous Page Link --}}
+                            @if ($clients->onFirstPage())
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                                <span class="page-link" aria-hidden="true">&laquo;</span>
+                            </li>
+                            @else
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $clients->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&laquo;</a>
+                                </li>
+                            @endif
+                             {{-- Pagination Elements --}}
+                            @foreach ($clients->links()->elements[0] as $page => $url)
+                                @if ($page == $clients->currentPage())
+                                    <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
+                                @else
+                                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                    @endif
+                            @endforeach
+
+                            {{-- Next Page Link --}}
+                            @if ($clients->hasMorePages())
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $clients->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&raquo;</a>
+                                </li>
+                            @else
+                                <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                                    <span class="page-link" aria-hidden="true">&raquo;</span>
+                                </li>
+                            @endif   
                         </ul>
                       </nav>
 
@@ -208,7 +211,61 @@
 {{--        
     </x-app-layout>   --}}
      <!-- Add Client Modal -->
-   
+     
+      <!-- Import Credit Modal -->
+      <div class="modal fade" id="importCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="importCreditModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importCreditModalLabel">Import Credit Report</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                       <!-- Form for importing credit report -->
+                       <form action="{{ route('clients.store') }}" method="POST" id="importCreditReportForm">
+                        @csrf
+                        <div class="form-group">
+                            <label for="CRRepProvider">Choose Provider: </label>
+                        </br>
+                            <select name="CRRepProvider" id="CRRepProvider">
+                                <option value="identityIQ">IdentityIQ</option> 
+                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="CRRepID">Credit Report Source Code: </label>
+                            <textarea id="CRRepID" name="CRRepID" rows="4" cols="50"></textarea>
+                        </div>
+                        
+                       </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Credit Modal -->
+    <div class="modal fade" id="exportCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="exportCreditModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exportCreditModalLabel">Export Credit Report</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                       <!-- Form for exporting credit-->
+                       <form action="{{ route('clients.store') }}" method="POST" id="exportCreditReportForm">
+                        @csrf
+
+                        
+                       </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 

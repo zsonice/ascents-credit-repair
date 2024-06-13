@@ -523,7 +523,12 @@ body.dark .card .card-body .navbar{
 }
 .menu-links .nav-link a:hover{
     background-color: var(--header);
+} 
+
+.menu-links .nav-link.active { 
+     background-color: green ; 
 }
+
 .card .card-body .navbar{
     background: transparent;
 }
@@ -562,6 +567,11 @@ body.dark .card .card-body .navbar{
    .pagination li a{
     color:#ed146f;
    }
+
+   .pagination li.page-item.active span {
+        background-color:#ed146f !important;
+        border-color:#ed146f !important;
+    }
    
    .menu .search-box input[type=text]{
     color:var(--header-text);
