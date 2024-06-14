@@ -781,4 +781,14 @@ background: white;
     padding-right:10px;
     color:#7c7c7c;
    }
+.menu-links .nav-link.active{
+    background: white!important;
+    color: #ED146f!important;
+    transition: var(--tran-03);
+   }
+   .menu-links .nav-link.active i,
+   .menu-links .nav-link.active span{
+    color: #ED146f;
+    transition: var(--tran-03);
+   }
    
