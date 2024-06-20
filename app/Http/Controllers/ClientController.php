@@ -118,4 +118,10 @@ class ClientController extends Controller
         // Redirect back to the index route with a success message
         return redirect()->route('clients.index')->with('success', 'Client created successfully.');
     }
+
+    public function getNames()
+    {
+        $names = Client::select('id', 'first_name as text')->get();
+        return response()->json($names);
+    }
 }

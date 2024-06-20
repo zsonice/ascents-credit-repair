@@ -59,7 +59,7 @@
                             </a> 
                         </li>
                     <li class="nav-link">
-                    <a href="{{ route('mycompany') }}" :active="request()->routeIs('mycompany')" >
+                    <a href="{{ route('mycompany') }}" id="nav-clients">  {{-- :active="request()->routeIs('mycompany')"  --}}
                         <i class='bx bxs-buildings icon' ></i>
                         <span class="text nav-text">
                             My Company

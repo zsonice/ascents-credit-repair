@@ -15,8 +15,22 @@
                      <div class="card-body"> 
                         <nav class="navbar">
                             <div class="container-fluid">
-
+                                 
                                 <ul class="nav justify-content-left"> 
+                                    <li class="nav-item">
+                                        <a class="btn btn-app" data-toggle="modal" data-target="#filterCondition">
+                                            <span class="badge bg-info"></span>
+                                            <i class='bx bx-filter'></i> &nbsp; Filter 
+                                        </a> 
+                                    </li>    
+
+                                    {{-- <li class="nav-item">
+                                        <a class="btn btn-app" data-toggle="modal" data-target="#densityOpt">
+                                            <span class="badge bg-warning"></span>
+                                            <i class='bx bx-coin-stack'></i> &nbsp; Density 
+                                        </a> 
+                                    </li>     --}}
+
                                     <li class="nav-item">
                                         <a class="btn btn-app" data-toggle="modal" data-target="#importCreditReportModal">
                                             <span class="badge bg-info"></span>
@@ -31,10 +45,10 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="btn btn-app">
-                                            <span class="badge bg-danger"></span> 
-                                            <i class="bi bi-printer-fill"></i>&nbsp;Print
-                                    </a>
+                                        <a class="btn btn-app">
+                                                <span class="badge bg-danger"></span> 
+                                                <i class="bi bi-printer-fill"></i>&nbsp;Print
+                                        </a>
                                     </li> 
                                 </ul>
                                 
@@ -56,7 +70,7 @@
                             </div>
                         </nav> 
                    
-<div style='overflow-x:auto'>
+<div id="clientTable" style='overflow-x:auto'>
                              @if ($clients->count() > 0)
                             <table class="table table-hover">
                                 <thead>
@@ -211,6 +225,47 @@
 {{--        
     </x-app-layout>   --}}
      <!-- Add Client Modal -->
+
+     <!-- filter -->
+     <div class="modal fade" id="filterCondition" tabindex="-1" role="dialog" aria-labelledby="filterConditionLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterConditionLabel">Filter Condition</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="filterForm">
+                        <div class="form-group">
+                            <label for="nameSelect">Name</label>
+                            <select class="form-control selectpicker" id="nameSelect" data-live-search="true" style="width: 100%;" enabled>
+                                <!-- Options will be loaded here -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDateFrom">Start Date (From)</label>
+                            <input type="date" class="form-control" id="startDateFrom">
+                        </div>
+                        <div class="form-group">
+                            <label for="startDateTo">Start Date (To)</label>
+                            <input type="date" class="form-control" id="startDateTo">
+                        </div>
+                        <div class="form-group">
+                            <label for="addedDateFrom">Added Date (From)</label>
+                            <input type="date" class="form-control" id="addedDateFrom">
+                        </div>
+                        <div class="form-group">
+                            <label for="addedDateTo">Added Date (To)</label>
+                            <input type="date" class="form-control" id="addedDateTo">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
      
       <!-- Import Credit Modal -->
       <div class="modal fade" id="importCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="importCreditModalLabel" aria-hidden="true">
@@ -264,10 +319,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
- 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    </div> 
+    
 </body>
 </html>
