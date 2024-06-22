@@ -364,6 +364,7 @@ body.dark .switch::before{
     font-size: 32px;
     
     padding-left: 30px;
+    margin-bottom: 5px;
 }
 .navbar-brand{
 padding-left: 30px;
@@ -382,7 +383,7 @@ body.dark .navbar a{
 }
 
 div.card{
-    margin: 10px;
+    margin-bottom: 10px;
     display: flex;
 }
 
@@ -390,7 +391,7 @@ div.card .card-header{
     font-size: 16px;
     padding-left: 10px;
     margin-bottom: 10px;
-   background: var(--header);
+   background: transparent;
    color: var(--header-text);
 }
 div.card .card-footer{
@@ -626,8 +627,9 @@ body.dark .card .card-body .navbar{
     background: transparent;
    }
    .table tbody tr:hover td{
-        background: var(--light-primary);
+        background: #f5f8fa!important;
         border: none;
+    
    }
    .modal-header{
     background: var(--primary-color);
@@ -755,7 +757,7 @@ body.dark .card .card-body .navbar{
     text-align:left;
    }
    .col-md-4 .card .table tbody tr:hover td{
-background: white;
+background: transparent;
     color: var(--dark-primary);
     transition: var(--tran-05);
    }
@@ -791,4 +793,66 @@ background: white;
     color: #ED146f;
     transition: var(--tran-03);
    }
+   /* Column 4/12 */
+.hello .col-md-4{
+    display:grid;
+   }
+   .hello .col-md-3{
+    display:grid;
+   }
+
+   .card{
    
+    border-radius: 3px!important;
+ 
+   }
+   .nav-company{
+    padding: 2px 10px 10px 30px;
+    color: var(--header-text);
+
+    border-bottom: 1px solid #818181;
+ 
+   }
+   .nav-company .nav-ctext{
+    color: #818181;
+    font-size: 14px;
+
+   }
+  
+   .d-grid a i{
+    font-size:22px !important;
+   }
+.d-grid nav{
+    margin-bottom: 30px;
+}
+.d-grid ul li:active{
+    color: var(--header-text);
+   background-color: var(--light-primary);
+
+   }
+   .col{
+    display: grid;
+   }
+  /* Card body */
+.col .card #col1{
+    column-count:1;
+   }
+#col1 p{
+    color: #7c7c7c;
+}
+.nav-company:hover{
+    color: var(--header-text);
+    background-color: var(--light-primary);
+    cursor: pointer;
+}
+.d-grid ul .nav-company.active{
+    border-radius: 3px;
+    background-color: var(--light-primary);
+    cursor: pointer;
+}
+.d-grid ul .nav-company.active span{
+    border-radius: 3px;
+ color: var(--header-text);
+}
+
+
