@@ -77,7 +77,7 @@
 
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('profile.edit') }}">
                         <i class='bx bxs-user-circle icon'></i>
                         <span class="text nav-text">
                             Profile
