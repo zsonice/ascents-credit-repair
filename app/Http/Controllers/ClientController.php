@@ -7,26 +7,67 @@ use App\Models\Client;
 
 class ClientController extends Controller
 {
+    // public function index(Request $request)
+    // {
+    //   // Default pagination: retrieve 5 items per page
+    //   $clients = Client::paginate(5);
+
+    //   // Check if the request has a search parameter
+    //   if ($request->has('query')) {
+    //       // Get the search query, default to an empty string if not present
+    //       $query = $request->input('query', '');
+
+    //       // Perform a search query and paginate the results
+    //       $clients = Client::where('first_name', 'LIKE', "%{$query}%")->paginate(5);
+
+    //       // Pass the search query to the view
+    //       return view('clients.index', compact('clients', 'query'));
+    //   }
+
+    //   // Return the view with the clients and an empty search query
+    //   return view('clients.index', compact('clients'))->with('query', '');
+    // }
+
     public function index(Request $request)
     {
-      // Default pagination: retrieve 5 items per page
-      $clients = Client::paginate(5);
+        $query = Client::query();
 
-      // Check if the request has a search parameter
-      if ($request->has('query')) {
-          // Get the search query, default to an empty string if not present
-          $query = $request->input('query', '');
+         // Fetch available names for the select input
+        $availableNames = Client::distinct()->pluck('first_name');
 
-          // Perform a search query and paginate the results
-          $clients = Client::where('first_name', 'LIKE', "%{$query}%")->paginate(5);
+        // Apply filters
+        if ($request->has('query') && $request->query('query') != '') {
+            $queryParam = $request->query('query');
+            $query->where('first_name', 'LIKE', "%{$queryParam}%");
+        }          
+        if ($request->has('nameSelect') && $request->nameSelect != '') {
+            $query->where('first_name', $request->nameSelect);
+        }
+        if ($request->has('startDateFrom') && $request->startDateFrom != '') {
+            $query->whereDate('start_date', '>=', $request->startDateFrom);
+        }
+        if ($request->has('startDateTo') && $request->startDateTo != '') {
+            $query->whereDate('start_date', '<=', $request->startDateTo);
+        }
+        if ($request->has('addedDateFrom') && $request->addedDateFrom != '') {
+            $query->whereDate('created_at', '>=', $request->addedDateFrom);
+        }
+        if ($request->has('addedDateTo') && $request->addedDateTo != '') {
+            $query->whereDate('created_at', '<=', $request->addedDateTo);
+        }
 
-          // Pass the search query to the view
-          return view('clients.index', compact('clients', 'query'));
-      }
+        // Paginate the results
+        $clients = $query->paginate(5);
 
-      // Return the view with the clients and an empty search query
-      return view('clients.index', compact('clients'))->with('query', '');
-    }
+        // Return the view with the clients and filter parameters
+        return view('clients.index', compact('clients', 'availableNames'))
+            ->with('query', $request->query ?? '')
+            ->with('nameSelect', $request->nameSelect ?? '')
+            ->with('startDateFrom', $request->startDateFrom ?? '')
+            ->with('startDateTo', $request->startDateTo ?? '')
+            ->with('addedDateFrom', $request->addedDateFrom ?? '')
+            ->with('addedDateTo', $request->addedDateTo ?? '');
+    } 
 
     public function create()
     {

@@ -67,6 +67,6 @@
         <script src="{{ asset('js/navbar.js') }}"></script>
         <script src="/js/jscript.js"> </script>
 
-        <script src="/js/apply-filter.js"> </script>
+        {{-- <script src="/js/apply-filter.js"> </script> --}}
     </body>
 </html>

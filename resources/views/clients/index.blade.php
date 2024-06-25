@@ -237,31 +237,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="filterForm">
+                    <form id="filterForm" action="{{ route('clients.index') }}" method="GET">
                         <div class="form-group">
                             <label for="nameSelect">Name</label>
-                            <select class="form-control selectpicker" id="nameSelect" data-live-search="true" style="width: 100%;" enabled>
-                                <!-- Options will be loaded here -->
+                            <select class="form-control selectpicker" id="nameSelect" name="nameSelect" data-live-search="true" style="width: 100%;">
+                                <option value="">Nothing selected</option>
+                                @foreach ($availableNames as $name)
+                                    <option value="{{ $name }}" {{ (request('nameSelect') == $name) ? 'selected' : '' }}>
+                                        {{ $name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <label for="startDateFrom">Start Date (From)</label>
-                            <input type="date" class="form-control" id="startDateFrom">
+                            <input type="date" class="form-control" id="startDateFrom" name="startDateFrom" value="{{ request('startDateFrom') }}">
                         </div>
                         <div class="form-group">
                             <label for="startDateTo">Start Date (To)</label>
-                            <input type="date" class="form-control" id="startDateTo">
+                            <input type="date" class="form-control" id="startDateTo" name="startDateTo" value="{{ request('startDateTo') }}">
                         </div>
                         <div class="form-group">
                             <label for="addedDateFrom">Added Date (From)</label>
-                            <input type="date" class="form-control" id="addedDateFrom">
+                            <input type="date" class="form-control" id="addedDateFrom" name="addedDateFrom" value="{{ request('addedDateFrom') }}">
                         </div>
                         <div class="form-group">
                             <label for="addedDateTo">Added Date (To)</label>
-                            <input type="date" class="form-control" id="addedDateTo">
+                            <input type="date" class="form-control" id="addedDateTo" name="addedDateTo" value="{{ request('addedDateTo') }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Apply Filters</button>
-                    </form>
+                    </form> 
                 </div>
             </div>
         </div>
