@@ -17,6 +17,8 @@ body{
 	z-index: -1;
 }
 
+
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -38,6 +40,7 @@ body{
 	align-items: center;
 	text-align: center;
 }
+
 
 .img img{
 	width: 500px;
@@ -258,6 +261,16 @@ a:hover{
  text-align:center;
  font-size: 16px;
 }
+#name{
+	text-align:center;
+	font-size: 16px;
+   }
+#password_confirmation{
+
+		text-align:center;
+		font-size: 16px;
+	
+}
 
 .wrapper{
 	
@@ -334,7 +347,13 @@ div .wrapper{
 #password{
  width:91%;
 }
+#name{
+	width:91%;
+   }
 
+   #password_confirmation{
+	width:91%;
+   }
 /* Email */
 
 
