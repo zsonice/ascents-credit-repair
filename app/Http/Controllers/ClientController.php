@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Support\Facades\Response;
 
 class ClientController extends Controller
 {
@@ -160,9 +161,35 @@ class ClientController extends Controller
         return redirect()->route('clients.index')->with('success', 'Client created successfully.');
     }
 
-    public function getNames()
+    // public function getNames()
+    // {
+    //     $names = Client::select('id', 'first_name as text')->get();
+    //     return response()->json($names);
+    // }
+
+    public function exportToCsv()
     {
-        $names = Client::select('id', 'first_name as text')->get();
-        return response()->json($names);
+        $clients = Client::all();
+
+        $csvFileName = 'clients.csv';
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$csvFileName\"",
+        ];
+
+        $columns = ['ID', 'Name', 'Email', 'Phone'];
+
+        $callback = function() use ($clients, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($clients as $client) {
+                fputcsv($file, [$client->id, $client->first_name, $client->email, $client->phone]);
+            }
+
+            fclose($file);
+        };
+
+        return Response::stream($callback, 200, $headers);
     }
 }

@@ -304,27 +304,29 @@
         </div>
     </div>
 
-    <!-- Export Credit Modal -->
-    <div class="modal fade" id="exportCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="exportCreditModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exportCreditModalLabel">Export Credit Report</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                       <!-- Form for exporting credit-->
-                       <form action="{{ route('clients.store') }}" method="POST" id="exportCreditReportForm">
-                        @csrf
+<!-- Export Credit Modal -->
+<div class="modal fade" id="exportCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="exportCreditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exportCreditModalLabel">Export Credit Report</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form for exporting credit -->
+                <form id="exportCreditReportForm">
+                    @csrf
 
-                        
-                       </form>
-                </div>
+                    <!-- Export button -->
+                    <a href="{{ route('clients.export') }}" class="btn btn-primary">Export to CSV</a> 
+                </form>
             </div>
         </div>
-    </div> 
+    </div>
+</div>
+
     
 </body>
 </html>

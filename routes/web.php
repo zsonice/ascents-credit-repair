@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/get-names', [ClientController::class, 'getNames']);
+// Route::get('/get-names', [ClientController::class, 'getNames']);
+
+Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export'); 
 
 require __DIR__.'/auth.php';
