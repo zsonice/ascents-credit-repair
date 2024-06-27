@@ -29,6 +29,7 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
+    Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export');
     Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');  
     Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');  
     Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');  
@@ -46,10 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Route::get('/get-names', [ClientController::class, 'getNames']);
-
-Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export'); 
+}); 
 
 require __DIR__.'/auth.php';
