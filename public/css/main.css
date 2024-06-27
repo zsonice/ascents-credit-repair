@@ -855,4 +855,100 @@ background: transparent;
  color: var(--header-text);
 }
 
+.modal p{
+font-size: 12px;
+color: var(--header-text);
+margin-bottom: 20px;
+justify-content: center;
+}
+.modal p a{
+color: var(--primary-color);
+transition: var(--tran-03);
+}
+.modal .form-group input[type=text],
+.modal .form-group input[type=email],
+.modal .form-group select
+{
+    border: none;
+    border-bottom: solid 2px #7c7c7c!important;   
+    border-radius: 0!important;
+}
+.modal .form-group input[type=date]{
+    border: solid 1px #7c7c7c!important;
+    border-radius: 2px!important;
+}
+.modal .form-group input[type=text]:focus,
+.modal .form-group input[type=email]:focus,
+.modal .form-group input[type=date]:focus,
+.modal .form-group select:focus{
+    box-shadow: none!important;
+    border: none!important;
+    outline: none!important;
+}
+.modal .form-group input[type=text]:hover,
+.modal .form-group input[type=email]:hover,
+.modal .form-group select:hover{
+    border-bottom: solid 2px var(--primary-color)!important;   
+}
 
+.modal .form-group input[type=text]:focus,
+.modal .form-group input[type=email]:focus,
+.modal .form-group select:focus{
+    border-bottom: solid 2px var(--primary-color)!important;   
+}
+.modal .form-group input[type=date]:focus{
+    border: solid 2px var(--primary-color)!important;   
+}
+.modal .form-group label{
+    font-size: 13px;
+    color: var(--header-text);
+    font-weight: 600;
+}
+.modal .form-group{
+    margin-bottom: 10px;
+}
+.modal-xl{
+    margin-top: 50px;
+    border-radius: 2px!important;
+   
+}
+.modal-xl .modal-body{
+    padding: 20px;
+
+
+}
+.modal .form-group select{
+    font-size: 14px;
+    border-radius: 2px;
+   width: 158px;
+   text-align: center;
+
+}
+.modal .form-group select:focus{
+border-radius: 3px;
+}
+.modal-xl .form-group {
+    display: block;
+
+}
+   
+.modal .form-group input[type=date]:hover{
+    border: solid 2px var(--primary-color)!important;   
+}
+.form-group .col-md-2{
+   
+    justify-content: space-between;
+    margin-top: -50;
+}
+.modal .form-group input[name=country]:hover{
+    border-bottom: solid 2px #7c7c7c!important;   
+  
+}
+.modal .form-group input[name=country]{
+    background: transparent!important;
+    color: #7c7c7c!important;
+}
+.form-group #statediv{
+padding-bottom: 8px!important;
+
+}

@@ -161,61 +161,202 @@
       
     @endsection
   <div class="modal fade" id="addClientModal" tabindex="-1" role="dialog" aria-labelledby="addClientModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="addClientModalLabel">Add New Client</h5>
+                                        <h5 class="modal-title" id="addClientModalLabel">Add Lead/Client</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
+                                        <p>When you add a new client, enable Portal Access so they can finish their onboarding and order their reports. After onboarding is complete, you can import their report and conduct a credit audit. You can also import and audit a lead without using the portal, but you'll need to provide them with a credit monitoring service to sign up for. Got your first client and unsure what to do next?<a href="#"> Click here. </a></p>
                                         <!-- Form for adding a new client -->
                                         <form action="{{ route('clients.store') }}" method="POST" id="addClientForm">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="firstname">First Name:</label>
-                                                <input type="text" name="firstname" id="firstname" class="form-control" required>
-                                                <label for="middlename">Middle Name:</label>
-                                                <input type="text" name="middlename" id="middlename" class="form-control" required>
-                                                <label for="lastname">Last Name:</label>
-                                                <input type="text" name="lastname" id="lastname" class="form-control" required>
-                                            </div>
-                                            
+                                            <div class="row align-items-center">
+  <div class="col">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" autofocus id="firstname" class="form-control" required>
+  </div>
+  <div class="col">
+  <label for="middlename">Middle Name</label>
+  <input type="text" name="middlename" id="middlename" class="form-control" required>                                        
+  </div>
+  <div class="col">
+  <label for="lastname">Last Name</label>
+  <input type="text" name="lastname" id="lastname" class="form-control" required>                                                                       
+  </div>
+</div>
+
+</div>
+<div class="form-group">
+<div class="row align-items-center">
+<div class="col-md-4">
+    <label for="firstname">Suffix</label>
+    <input type="text" name="suffix" autofocus id="suffix" class="form-control" >
+  </div>
+  <div class="col-md-4">
+  <label for="middlename">Email Address</label>
+  <input type="email" name="email" id="email" class="form-control" required>                                        
+  </div>
+  <div class="col-md-2">
+  <label for="lastname">Last 4 of SSN</label>
+  <input type="text" name="lastname" id="lastname" class="form-control" required>                                                                       
+  </div>
+  <div class="col-md-2">
+  <label for="lastname">Date of Birth</label>
+  <input type="date" name="birthdate" id="birthdate" class="form-control" required>                                                                       
+  </div>
+                                    </div></div>
+                                    <br>
+<hr>
+<br>
+<div class="form-group">
+<div class="row align-items-center">
+<div class="col-md-4">
+    <label for="mailing">Mailing Address</label>
+    <input type="text" name="mailing" autofocus id="mailing" class="form-control" >
+  </div>
+  <div class="col-md-4">
+  <label for="city">City</label>
+  <input type="text" name="city" id="city" class="form-control" required>                                        
+  </div>
+  <div class="col-md-2" id="statediv">
+  <label for="state">State</label>
+  <select name="state" id="state" required>
+  <option value="" disabled selected>Select</option>
+  <option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+  </select>                                                                    
+  </div>
+  <div class="col-md-2">
+  <label for="zip">Zip Code</label>
+  <input type="text" name="zip" id="zip" class="form-control" required>                                                                       
+  </div>
+                                    </div></div>
+
+                                    <div class="form-group">
+<div class="row align-items-center">
+<div class="col-md-4">
+    <label for="country">Country</label>
+    <input type="text" name="country" autofocus id="country" class="form-control" value="United States" disabled >
+  </div>
+  <div class="col-md-2">
+  <label for="pmobile">Phone (Mobile)</label>
+  <input type="text" name="mobile" id="mobile" class="form-control" required>                                        
+  </div>
+  <div class="col-md-2">
+  <label for="palternate">Phone (Alternate)</label>
+  <input type="text" name="palternate" id="palternate" class="form-control" required>                                                                       
+  </div>
+  <div class="col-md-2">
+  <label for="pwork">Phone (Work)</label>
+  <input type="text" name="pwork" id="pwork" class="form-control" required>   
+                                                                      
+  </div>
+  <div class="col-md-2">
+  <label for="fax">Fax</label>
+  <input type="text" name="fax" id="fax" class="form-control">   
+                                                                      
+  </div>
+
+                                    </div></div>
+
+                                      
+<br>
+<hr>
+<br>
+                                 
                                             <div class="form-group">
-                                                <label for="team_members">Assigned To:</label>
-                                                <input type="text" name="team_members" id="team_members" class="form-control">
+                                            <div class="row align-items-center">
+                                            <div class="col">
+                                                <label for="team_members">Assigned To</label>
+                                                <input type="text" name="team_members" id="team_members" class="form-control" required >
                                             </div>
                                             
+                                            <div class="col">
+                                                <label for="referred_by">Referred By</label>
+                                                <input type="text" name="referred_by" id="referred_by" class="form-control" required>
+                                            </div>
+                                            
+                                    </div>
+                                    </div>
                                             <div class="form-group">
-                                                <label for="referred_by">Referred By:</label>
-                                                <input type="text" name="referred_by" id="referred_by" class="form-control">
+                                            <div class="row align-items-center">
+                                            <div class="col">
+                                                <label for="date_added">Date Added</label>
+                                                <input type="date" name="date_added" id="date_added" class="form-control" required>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label for="date_added">Date Added:</label>
-                                                <input type="date" name="date_added" id="date_added" class="form-control">
+                                            <div class="col">
+                                                <label for="start_date">Start Date</label>
+                                                <input type="date" name="start_date" id="start_date" class="form-control" required>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label for="start_date">Start Date:</label>
-                                                <input type="date" name="start_date" id="start_date" class="form-control">
+                                            <div class="col">
+                                                <label for="last_login_date">Last Login Date</label>
+                                                <input type="date" name="last_login_date" id="last_login_date" class="form-control" required>
                                             </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="last_login_date">Last Login Date:</label>
-                                                <input type="date" name="last_login_date" id="last_login_date" class="form-control">
-                                            </div>
-                                            
-                                            {{-- <div class="form-group">
-                                                <label for="onboarding_stage">Onboarding Stage:</label>
-                                                <input type="text" name="onboarding_stage" id="onboarding_stage" class="form-control">
-                                            </div> --}}
+                                    </div>
+                                    </div>
+                                       
                                             
                                             <!-- Modal buttons -->
-                                            <div class="modal-footer">
-                                                <button type="submit" class="primary">Create</button>
+                                            <div class="modal-footer"> 
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="primary">Create</button>
+                                               
                                             </div>
                                         </form>
                                     </div>
