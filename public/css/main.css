@@ -912,16 +912,25 @@ transition: var(--tran-03);
     border-radius: 2px!important;
    
 }
+
+
 .modal-xl .modal-body{
     padding: 20px;
 
 
 }
-.modal .form-group select{
+.modal .form-group .col-md-2 select{
     font-size: 14px;
     border-radius: 2px;
    width: 158px;
-   text-align: center;
+   text-align: left;
+
+}
+.modal .form-group .col select{
+    font-size: 14px;
+    border-radius: 2px;
+
+   text-align:left;
 
 }
 .modal .form-group select:focus{
@@ -940,6 +949,11 @@ border-radius: 3px;
     justify-content: space-between;
     margin-top: -50;
 }
+.form-group .col-md-6{
+   
+    justify-content: space-between;
+    margin-top: -50;
+}
 .modal .form-group input[name=country]:hover{
     border-bottom: solid 2px #7c7c7c!important;   
   
@@ -948,7 +962,28 @@ border-radius: 3px;
     background: transparent!important;
     color: #7c7c7c!important;
 }
-.form-group #statediv{
+.form-group #statediv,
+.form-group #statusdiv,
+.form-group #referreddiv,
+.form-group #assigneddiv
+{
 padding-bottom: 8px!important;
 
 }
+.modal-xl .modal-header{
+    padding: 10px;
+
+}
+.modal-xl .modal-header h5{
+   font-size: 16px;
+    padding-left: 10px;
+}
+
+
+
+
+  .modal .form-group select::-ms-expand {
+ 
+cursor: pointer!important;
+
+  }

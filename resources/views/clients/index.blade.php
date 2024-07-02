@@ -298,11 +298,11 @@
   </div>
   <div class="col-md-2">
   <label for="palternate">Phone (Alternate)</label>
-  <input type="text" name="palternate" id="palternate" class="form-control" required>                                                                       
+  <input type="text" name="palternate" id="palternate" class="form-control" >                                                                       
   </div>
   <div class="col-md-2">
   <label for="pwork">Phone (Work)</label>
-  <input type="text" name="pwork" id="pwork" class="form-control" required>   
+  <input type="text" name="pwork" id="pwork" class="form-control" >   
                                                                       
   </div>
   <div class="col-md-2">
@@ -320,15 +320,35 @@
                                  
                                             <div class="form-group">
                                             <div class="row align-items-center">
-                                            <div class="col">
+                                            <div class="col" id="assigneddiv">
                                                 <label for="team_members">Assigned To</label>
-                                                <input type="text" name="team_members" id="team_members" class="form-control" required >
-                                            </div>
-                                            
-                                            <div class="col">
+                                             <select name="team_members" id="team_members" required>
+                                            <option value="" disabled selected>Select</option>
+  <option>Lala</option>
+	<option>Ash</option>
+	<option>Du</option>  
+    <option>Juib</option>  
+                     </select>
+                      </div>
+                                            <div class="col" id="referreddiv">
                                                 <label for="referred_by">Referred By</label>
-                                                <input type="text" name="referred_by" id="referred_by" class="form-control" required>
-                                            </div>
+                                                <select name="referred_by" id="referred" required>
+  <option value="" disabled selected>Select</option>
+  <option>Lala</option>
+	<option>Ash</option>
+	<option>Du</option>  
+    <option>Juib</option>  
+                     </select>
+                      </div>
+                      <div class="col" id="statusdiv">
+                                                <label for="status">Status</label>
+                                                <select name="status" id="status" required>
+  <option value="" disabled selected>Select</option>
+  <option value="L">Lead</option>
+    <option value="C">Client</option>  
+    <option value="I">Inactive</option>  
+                     </select>
+                      </div>
                                             
                                     </div>
                                     </div>
