@@ -880,7 +880,8 @@ transition: var(--tran-03);
 .modal .form-group input[type=text]:focus,
 .modal .form-group input[type=email]:focus,
 .modal .form-group input[type=date]:focus,
-.modal .form-group select:focus{
+.modal .form-group select:focus,
+.modal .form-group textarea:focus{
     box-shadow: none!important;
     border: none!important;
     outline: none!important;
@@ -907,7 +908,7 @@ transition: var(--tran-03);
 .modal .form-group{
     margin-bottom: 10px;
 }
-.modal-xl{
+.modal-xl, .modal-sm{
     margin-top: 50px;
     border-radius: 2px!important;
    
@@ -926,11 +927,13 @@ transition: var(--tran-03);
    text-align: left;
 
 }
-.modal .form-group .col select{
+.modal .form-group .col select,
+.modal .form-group select{
     font-size: 14px;
     border-radius: 2px;
 
    text-align:left;
+   cursor: pointer;
 
 }
 .modal .form-group select:focus{
@@ -965,16 +968,19 @@ border-radius: 3px;
 .form-group #statediv,
 .form-group #statusdiv,
 .form-group #referreddiv,
-.form-group #assigneddiv
+.form-group #assigneddiv,
+.form-group #nameSelect,
+.form-group #billingdiv,
+.form-group #plandiv
 {
 padding-bottom: 8px!important;
 
 }
-.modal-xl .modal-header{
+.modal .modal-header{
     padding: 10px;
 
 }
-.modal-xl .modal-header h5{
+.modal .modal-header h5{
    font-size: 16px;
     padding-left: 10px;
 }
@@ -987,3 +993,53 @@ padding-bottom: 8px!important;
 cursor: pointer!important;
 
   }
+  #exportCreditReportForm{
+    justify-content: center;
+    text-align: center;
+}
+#exportCreditReportForm a{
+    font-size: 14px;
+}
+#statusdiv, #billingdiv, #plandiv{
+padding-top: 10px;
+}
+input[type=date]{
+padding-top:5px;
+padding-bottom: 5px;
+font-size: 14px;;
+cursor: pointer;
+}
+input[type=date] ::-webkit-calendar-picker-indicator{
+    cursor: pointer!important;
+}
+.form-group textarea
+
+{
+    border: solid 2px #7c7c7c!important;  
+
+}
+.form-group .importmodal{
+padding-left: 10px;
+}
+
+.modal .form-group textarea:hover,
+.modal .form-group textarea:active,
+.modal .form-group textarea:focus
+{
+    border: solid 2px var(--primary-color)!important;   
+}
+.icon-link{
+    color: var(--primary-color)!important;
+    font-size: 14px!important;
+    
+}
+.icon-link:hover,
+.icon-link:focus,
+.icon-link:active
+{
+    color: var(--dark-primary)!important;
+    font-size: 14px!important;
+ 
+    text-decoration: underline 2px var(--dark-primary);
+    font-weight: 600px;
+}

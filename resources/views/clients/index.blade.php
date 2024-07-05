@@ -389,7 +389,7 @@
 
      <!-- filter -->
      <div class="modal fade" id="filterCondition" tabindex="-1" role="dialog" aria-labelledby="filterConditionLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="filterConditionLabel">Filter Condition</h5>
@@ -401,8 +401,8 @@
                     <form id="filterForm" action="{{ route('clients.index') }}" method="GET">
                         <div class="form-group">
                             <label for="nameSelect">Name</label>
-                            <select class="form-control selectpicker" id="nameSelect" name="nameSelect" data-live-search="true" style="width: 100%;">
-                                <option value="">Nothing selected</option>
+                            <select id="nameSelect" name="nameSelect" data-live-search="true" style="width: 100%;">
+                                <option value="" disabled selected>Select</option>
                                 @foreach ($availableNames as $name)
                                     <option value="{{ $name }}" {{ (request('nameSelect') == $name) ? 'selected' : '' }}>
                                         {{ $name }}
@@ -410,23 +410,104 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group"> 
-                            <label for="startDateFrom">Start Date (From)</label>
-                            <input type="date" class="form-control" id="startDateFrom" name="startDateFrom" value="{{ request('startDateFrom') }}">
-                        </div>
                         <div class="form-group">
-                            <label for="startDateTo">Start Date (To)</label>
+                     
+  <label for="mobile">Phone</label>
+  <input type="text" name="mobile" id="mobile" class="form-control">                                        
+  </div>
+  <div class="form-group">
+   <div class="col" id="statusdiv">
+                                                <label for="status">Client Status</label>
+                                                <select name="status" id="status" >
+  <option value="" disabled selected>Select</option>
+  <option value="L">Lead</option>
+    <option value="C">Client</option>  
+    <option value="I">Inactive</option>  
+                     </select>
+                      </div>
+                  </div>     
+                  <div class="form-group">
+   <div class="col" id="billingdiv">
+                                                <label for="status">Billing Status</label>
+                                                <select name="bstatus" id="bstatus">
+  <option value="" disabled selected>Select</option>
+  <option value="Active">Active</option>
+    <option value="Canceled">Canceled</option>  
+    <option value="Expired">Expired</option>  
+    <option value="Paused">Paused</option>
+    <option value="Delinquent">Delinquent</option>
+    <option value="Completed">Completed</option>
+    <option value="Recovery">In Recovery</option>
+    <option value="Waiting">Waiting for First Letter Created</option>
+
+                     </select>
+                      </div>
+                  </div>   
+                  <div class="form-group">
+   <div class="col" id="plandiv">
+                                                <label for="plan">Plan Name</label>
+                                                <select name="plan" id="plan">
+  <option value="" disabled selected>Select</option>
+  <option value="">No Options</option> 
+                     </select>
+                      </div>
+                  </div> 
+                  <div class="form-group">
+                                            <div class="col" id="assigneddiv">
+                                                <label for="team_members">Assigned To</label>
+                                             <select name="team_members" id="team_members" >
+                                            <option value="" disabled selected>Select</option>
+  <option>Lala</option>
+	<option>Ash</option>
+	<option>Du</option>  
+    <option>Juib</option>  
+                     </select>
+                      </div>
+</div>
+<div class="form-group">
+<div class="col" id="referreddiv">
+                                                <label for="referred_by">Referred By</label>
+                                                <select  name="referred_by" id="referred" >
+  <option value="" disabled selected>Select</option>
+  <option>Lala</option>
+	<option>Ash</option>
+	<option>Du</option>  
+    <option>Juib</option>  
+                     </select>
+                      </div></div>
+                        <br> <hr><br>
+                        <div class="form-group">
+                                            <div class="row align-items-center">
+  <div class="col">
+                            <label for="startDateFrom">Start Date</label>
+                            <input type="date" class="form-control" id="startDateFrom" name="startDateFrom" value="{{ request('startDateFrom') }}">
+</div>
+                        <div class="col">
+                            <label for="startDateTo">&nbsp;</label>
                             <input type="date" class="form-control" id="startDateTo" name="startDateTo" value="{{ request('startDateTo') }}">
                         </div>
-                        <div class="form-group">
-                            <label for="addedDateFrom">Added Date (From)</label>
+</div>
+</div>
+
+<div class="form-group">
+                                            <div class="row align-items-center">
+  <div class="col">
+                            <label for="addedDateFrom">Added Date</label>
                             <input type="date" class="form-control" id="addedDateFrom" name="addedDateFrom" value="{{ request('addedDateFrom') }}">
                         </div>
-                        <div class="form-group">
-                            <label for="addedDateTo">Added Date (To)</label>
+                        <div class="col">
+                            <label for="addedDateTo">&nbsp;</label>
                             <input type="date" class="form-control" id="addedDateTo" name="addedDateTo" value="{{ request('addedDateTo') }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+</div></div>
+<div class="modal-footer"> 
+<a class="icon-link" href="javascript:document.getElementById('filterForm').reset();">
+Reset All
+
+</a>
+<button type="submit" class="primary">Apply Filters</button>
+                                               
+                                            </div>
                     </form> 
                 </div>
             </div>
@@ -445,29 +526,32 @@
                 </div>
                 <div class="modal-body">
                        <!-- Form for importing credit report -->
+                        
                        <form action="{{ route('clients.store') }}" method="POST" id="importCreditReportForm">
                         @csrf
                         <div class="form-group">
+                            <div class="importmodal">
                             <label for="CRRepProvider">Choose Provider: </label>
                         </br>
                             <select name="CRRepProvider" id="CRRepProvider">
                                 <option value="identityIQ">IdentityIQ</option> 
                              </select>
-                        </div>
+                        </div></div>
                         <div class="form-group">
+                        <div class="importmodal">
                             <label for="CRRepID">Credit Report Source Code: </label>
                             <textarea id="CRRepID" name="CRRepID" rows="4" cols="50"></textarea>
                         </div>
                         
                        </form>
-                </div>
+                </div></div>
             </div>
         </div>
     </div>
 
 <!-- Export Credit Modal -->
 <div class="modal fade" id="exportCreditReportModal" tabindex="-1" role="dialog" aria-labelledby="exportCreditModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exportCreditModalLabel">Export Credit Report</h5>
@@ -475,13 +559,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="exportcsv">
                 <!-- Form for exporting credit -->
                 <form id="exportCreditReportForm">
                     @csrf
 
                     <!-- Export button -->
-                    <a href="{{ route('clients.export') }}" class="btn btn-primary">Export to CSV</a> 
+                    <a href="{{ route('clients.export') }}" class="btn btn-success">Export to CSV&nbsp; <i class="bi bi-filetype-csv"></i> </a> 
                 </form>
             </div>
         </div>
