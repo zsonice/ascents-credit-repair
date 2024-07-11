@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit'); 
     Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
     Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
-});
+}); 
+
+Route::post('import-csv', [ImportController::class, 'importCSV'])->name('import');
 
 Route::get('/mycompany', function () {
     return view('mycompany');
