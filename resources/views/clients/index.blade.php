@@ -425,21 +425,23 @@
                 </div>
                 <div class="modal-body">
                        <!-- Form for importing credit report -->
-                       <form action="{{ route('clients.store') }}" method="POST" id="importCreditReportForm">
-                        @csrf
-                        <div class="form-group">
-                            <label for="CRRepProvider">Choose Provider: </label>
-                        </br>
-                            <select name="CRRepProvider" id="CRRepProvider">
-                                <option value="identityIQ">IdentityIQ</option> 
-                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="CRRepID">Credit Report Source Code: </label>
-                            <textarea id="CRRepID" name="CRRepID" rows="4" cols="50"></textarea>
-                        </div>
-                        
-                       </form>
+                       <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                       @csrf
+                       <div class="messages">
+                         @if (session('success'))
+                           <div class="alert alert-success">
+                             {{ session('success') }}
+                           </div>
+                         @endif
+                       </div>
+                       <div class="fields">
+                           <div class="input-group mb-3">
+                               <input type="file" class="form-control" id="import_csv" name="import_csv" accept=".csv">
+                               <label class="input-group-text" for="import_csv">Upload</label>
+                           </div>
+                       </div>
+                       <button type="submit" class="btn btn-success">Import CSV</button>
+                   </form>
                 </div>
             </div>
         </div>
