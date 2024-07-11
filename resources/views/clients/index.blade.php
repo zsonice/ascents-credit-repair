@@ -194,19 +194,19 @@
 <div class="form-group">
 <div class="row align-items-center">
 <div class="col-md-4">
-    <label for="firstname">Suffix</label>
+    <label for="suffix">Suffix</label>
     <input type="text" name="suffix" autofocus id="suffix" class="form-control" >
   </div>
   <div class="col-md-4">
-  <label for="middlename">Email Address</label>
+  <label for="email">Email Address</label>
   <input type="email" name="email" id="email" class="form-control" required>                                        
   </div>
   <div class="col-md-2">
-  <label for="lastname">Last 4 of SSN</label>
-  <input type="text" name="lastname" id="lastname" class="form-control" required>                                                                       
+  <label for="ssn">Last 4 of SSN</label>
+  <input type="text" name="ssn" id="ssn" class="form-control" required>                                                                       
   </div>
   <div class="col-md-2">
-  <label for="lastname">Date of Birth</label>
+  <label for="birthdate">Date of Birth</label>
   <input type="date" name="birthdate" id="birthdate" class="form-control" required>                                                                       
   </div>
                                     </div></div>
@@ -293,7 +293,7 @@
     <input type="text" name="country" autofocus id="country" class="form-control" value="United States" disabled >
   </div>
   <div class="col-md-2">
-  <label for="pmobile">Phone (Mobile)</label>
+  <label for="mobile">Phone (Mobile)</label>
   <input type="text" name="mobile" id="mobile" class="form-control" required>                                        
   </div>
   <div class="col-md-2">

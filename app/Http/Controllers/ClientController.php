@@ -125,32 +125,51 @@ class ClientController extends Controller
             // 'start_date' => 'nullable|date', 
         ]);
 
+        //assigning variable based on input
+          $fname = $request->input('firstname');
+          $mname = $request->input('middlename');
+          $lname =  $request->input('lastname'); 
+          $suffix = $request->input('suffix');
+          $email = $request->input('email');
+          $ssn = $request->input('ssn');
+          $bday =  $request->input('birthdate', now()->toDateString());
+          $address =  $request->input('mailing');
+          $city =  $request->input('city');
+          $state =  $request->input('state');
+          $zipcode = $request->input('zip');
+          $mobile = $request->input('mobile');
+          $altmobile = $request->input('palternate');
+          $workmobile = $request->input('pwork');
+          $fax = $request->input('fax');
+
         // Create a new client record
         Client::create([
-            'first_name' => $request->input('firstname'),
-            'middle_name' => $request->input('middlename'),
-            'last_name' => $request->input('lastname'), 
-            'suffix' => "suffix test",
-            'email' => "email test",
-            'ssn' => $request->input('ssn', null),
-            'date_of_birth' => $request->input('date_of_birth', now()->toDateString()), 
-            'address' =>  "suffix test",
-            'city' =>  "suffix test",
-            'state' => "suffix test",
-            'zip_code' =>  1,
-            'country' => "suffix test",
-            'mobile_main' =>  "suffix test",
-            'mobile_alt' =>  "suffix test",
-            'mobile_work' =>  "suffix test",
-            'fax' => "suffix test",
-            'previous_address' =>  "suffix test",
-            'previous_city' => "suffix test",
-            'previous_state' =>  "suffix test",
-            'previous_zip_code' =>  1,
-            'previous_country' =>  "suffix test",
-            'status' =>  "suffix test",
-            'start_date' =>  $request->input('date_of_birth', now()->toDateString()),
-            'assigned_to' => 1,
+            'first_name' => $fname,
+            'middle_name' => $mname,
+            'last_name' => $lname,
+            'suffix' => $suffix,
+            'email' => $email,
+            'ssn' => $ssn,
+            'date_of_birth' => $bday,
+            'address' => $address,
+            'city' =>  $city,
+            'state' => $state,
+            'zip_code' =>  $zipcode,
+            'country' => 'United States',
+            'mobile_main' =>  $mobile,
+            'mobile_alt' =>  $altmobile,
+            'mobile_work' => $workmobile,
+            'fax' => $fax,
+            'previous_address' =>  '',
+            'previous_city' => '',
+            'previous_state' => '',
+            'previous_zip_code' => null,
+            'previous_country' => '',
+            'status' =>   $request->input('status'),
+            'start_date' =>  $request->input('start_date', now()->toDateString()),
+            'assigned_to' => 1
+
+            //'assigned_to' => $request->input('team_members')
 
             // 'start_date' => $request->input('start_date'),
             // 'last_login_date' => $request->input('last_login_date'),
@@ -171,20 +190,75 @@ class ClientController extends Controller
     {
         $clients = Client::all();
 
-        $csvFileName = 'clients.csv';
+        $csvFileName = 'Clients_' . date('Ymd_His') . '.csv';
         $headers = [
             'Content-Type' => 'text/csv',
             'Content-Disposition' => "attachment; filename=\"$csvFileName\"",
         ];
 
-        $columns = ['ID', 'Name', 'Email', 'Phone'];
+        $columns = ['ID',
+                    'First Name',
+                    'Middle Name',
+                    'Last Name', 
+                    'Suffix',
+                    'Email',
+                    'SSN',
+                    'Birth Date', 
+                    'Mailing Address',
+                    'City',
+                    'State',
+                    'Zip Code',
+                    'Country',
+                    'Mobile Number',
+                    'Alternative Number',
+                    'Work Number',
+                    'Fax'
+                ];
 
         $callback = function() use ($clients, $columns) {
             $file = fopen('php://output', 'w');
             fputcsv($file, $columns);
 
             foreach ($clients as $client) {
-                fputcsv($file, [$client->id, $client->first_name, $client->email, $client->phone]);
+
+                  // Convert NULL values to empty strings
+                    $id = $client->id ?? '';
+                    $fname = $client->first_name ?? '';
+                    $mname = $client->middle_name ?? '';
+                    $lname =  $client->last_name ?? '';
+                    $suffix =  $client->suffix ?? '';
+                    $email = $client->email ?? '';
+                    $ssn =  $client->ssn ?? '';
+                    $bday =  $client->date_of_birth ?? '';
+                    $address =  $client->address ?? '';
+                    $city =  $client->city ?? '';
+                    $state =  $client->state ?? '';
+                    $zipcode = $client->zip_code ?? '';
+                    $country =  $client->country ?? '';
+                    $mobile =  $client->mobile_main ?? '';
+                    $altmobile =  $client->mobile_alt ?? '';
+                    $workmobile = $client->mobile_work ?? '';
+                    $fax = $client->fax ?? '';
+
+                fputcsv($file, [
+                                $id,
+                                $fname,
+                                $mname,
+                                $lname,
+                                $suffix,
+                                $email,
+                                $ssn,
+                                $bday,
+                                $address,
+                                $city,
+                                $state,
+                                $zipcode,
+                                $country,
+                                $mobile,
+                                $altmobile,
+                                $workmobile,
+                                $fax
+                            ]);
             }
 
             fclose($file);
