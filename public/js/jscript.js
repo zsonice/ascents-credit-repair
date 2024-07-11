@@ -82,3 +82,59 @@ const body = document.querySelector("body"),
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
       
+      
+        var options = {
+          series: [
+          {
+            name: 'Actual',
+            data: [
+              {
+                x: '2024',
+                y: 700,
+                
+              }
+            ]
+          }
+        ],
+          chart: {
+          height: 250,
+          type: 'bar'
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: '30%'
+          }
+        },
+        colors: ['#ED146f'],
+        dataLabels: {
+          enabled: false
+        },
+        
+        };
+
+        var chart = new ApexCharts(document.querySelector("#score"), options);
+        chart.render();
+
+        var options = {
+          series: [4, 43, 22],
+          chart: {
+          width: 250,
+          type: 'pie',
+        },
+   
+        labels: ['Unspecified', 'In Dispute', 'Positive'],
+        responsive: [{
+          breakpoint: 240,
+          options: {
+            chart: {
+              width: 100
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#dispute"), options);
+        chart.render();

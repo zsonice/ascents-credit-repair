@@ -825,11 +825,14 @@ background: transparent;
 .d-grid nav{
     margin-bottom: 30px;
 }
-.d-grid ul li:active{
+.d-grid ul li:active,
+.d-grid ul li:hover
+{
     color: var(--header-text);
    background-color: var(--light-primary);
-
+   text-decoration: none;
    }
+   
    .col{
     display: grid;
    }
@@ -844,15 +847,18 @@ background: transparent;
     color: var(--header-text);
     background-color: var(--light-primary);
     cursor: pointer;
+    text-decoration: none;
 }
 .d-grid ul .nav-company.active{
     border-radius: 3px;
     background-color: var(--light-primary);
     cursor: pointer;
+    text-decoration: none;
 }
 .d-grid ul .nav-company.active span{
     border-radius: 3px;
  color: var(--header-text);
+ text-decoration: none;
 }
 
 .modal p{
@@ -1043,3 +1049,54 @@ padding-left: 10px;
     text-decoration: underline 2px var(--dark-primary);
     font-weight: 600px;
 }
+.btn-outline-primary:disabled{
+    padding: 0!important;
+    color: var(--primary-color)!important;
+}
+#clientviews{
+    padding-top: 0!important;
+}
+.container-fluid.text-left .navbar{
+    padding: 0px!important;
+}
+#clientviews a{
+    text-decoration: underline;
+    border-bottom: 1px solid var(--primary-color);
+}
+#scoretable  tr th,
+#disputestatus  tr th{
+    background:none!important;
+    color: var(--header-text)!important;
+    font-size: 10px;
+   }
+   .col-md-6 .card-body{
+    padding-left:0px !important;
+    padding-right:0px !important;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    display:grid!important;
+   }
+   #scoretable td,
+   #disputestatus td{
+    text-align: center;
+   }
+   /* Scoretable */
+#scoretable .card-body .scoretable,
+#disputestatus .card-body .disputestatus{
+    display:inline-flex;
+   }
+   /* Table Data */
+.scoretable tr td,
+.disputestatus tr td{
+    border-bottom-style:none;
+   }
+   #scoretable .nav h6{
+    font-size: 12px!important;
+    color: #7c7c7c;
+   }
+#scoretable tbody tr:hover td{
+    background: none;
+   }
+   #disputestatus tbody tr:hover td{
+    background: none;
+   }
