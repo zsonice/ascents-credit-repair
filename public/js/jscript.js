@@ -116,15 +116,15 @@ const body = document.querySelector("body"),
         chart.render();
 
         var options = {
-          series: [4, 43, 22],
+          series: [2, 32, 7, 0, 1],
           chart: {
-          width: 250,
+          width: 350,
           type: 'pie',
         },
    
-        labels: ['Unspecified', 'In Dispute', 'Positive'],
+        labels: ['Unspecified', 'Positive', 'In Dispute', 'Negative', 'Bureau Letters'],
         responsive: [{
-          breakpoint: 240,
+          breakpoint: 400,
           options: {
             chart: {
               width: 100

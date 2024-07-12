@@ -6,133 +6,67 @@
 <body>
     @extends('layouts.app')
     @section('content')
-    <div class="hello" >
-    <h1 class="welcome"> Client Details</h1>
+    <div class="hello" id="showcontainer">
+
     <div class="row">
-    <div class="col-sm-2">  
-        <div class="card">
-            <div class="card-body">
-                
-                     <div class="d-grid gap-2">
-
-                     <nav>
-        
-
-       
-                   
-                <ul>
-                    <li class="nav-company active"> 
-                            <a href="#" >
-                      
-                                <span class="text nav-ctext">&nbsp;Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-company"> 
-                            <a href="#">
-                        
-                                <span class="text nav-ctext">&nbsp;Import/Audit</span>
-                            </a> 
-                        </li>
-                    <li class="nav-company">
-                    <a href="#"> 
-               
-                        <span class="text nav-ctext">
-                        &nbsp;Pending Report
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                
-                        <span class="text nav-ctext">
-                           &nbsp; Generate Letters
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                 
-                        <span class="text nav-ctext">
-                           &nbsp; Send Letters
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                   
-                        <span class="text nav-ctext">
-                           &nbsp; Letters & Status
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-            
-                        <span class="text nav-ctext">
-                           &nbsp; Dispute Items
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                     
-                        <span class="text nav-ctext">
-                           &nbsp; Educate
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                      
-                        <span class="text nav-ctext">
-                           &nbsp; Messages
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                
-                        <span class="text nav-ctext">
-                           &nbsp; Internal Notes
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-         
-                        <span class="text nav-ctext">
-                           &nbsp; Invoices
-                        </span>
-                        </a>
-
-                    </li>
-                    <li class="nav-company">
-                        <a href="#" >
-                
-                        <span class="text nav-ctext">
-                           &nbsp; Activity
-                        </span>
-                        </a>
-
-                    </li>
-                    
-                </ul>
-      
-        
-    </nav>    </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="col">  
-        <div class="card">
+       
+             <div class="card">
+            
+        <div class="clientnav">
+            <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Import/Audit</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Pending Report</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Generate Letters</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Send Letters</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Letters & Status</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Dispute Items</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Educate</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Messages</a>
+  </li>
+  <li class="nav-item disable">
+    <a class="nav-link" href="#">Internal Note</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Invoices</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Activity</a>
+  </li>
+
+
+</ul>
+</div>
+       <!--     <div class="backbtn">
+           
+            <a class="icon-link icon-link-hover"  href="{{ route('clients.index') }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+</svg>Back
+  
+</a>
+                          
+            </div>-->
+            
             <div class="card-body" id="col1">
 
             <div>
@@ -143,7 +77,7 @@
                                  
                                 <ul class="nav justify-content-left"> 
                                     <li class="nav-item">
-                                    <button type="button" class="btn btn-outline-primary">  ROUND 1 OUT</button>  
+                                    <button type="button" class="btn btn-outline-info">  ROUND 1 OUT</button>  
                                          
                                         </a> 
                                     </li>    
@@ -155,7 +89,7 @@
                                         </a> 
                                     </li>   
 
-                                    <li class="nav-item">
+                                    <li class="nav-item" id="ClientNum">
                                         <a class="btn btn-app">
                                   
                                         <i class="bi bi-telephone-fill"></i> &nbsp; 0912-345-6789
@@ -294,14 +228,38 @@
 <div class="card"  id="disputestatus">
 <div class="card-body">
 <div class="card-header">  
+    <div class="row">
+        <div class="col">
 <h6>Dispute Status</h6>
-</div>  
+</div>
+<div class="col">
+<ul class="nav justify-content-end">
+                                <li class="nav-item" >
+                                        <a class="btn btn-app"> 
+                                            <button type="button" class="btn btn-outline-secondary">
+                                                  View Dispute
+                                            </button> 
+                                        </a> 
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="btn btn-app"> 
+                                            <button type="button" class="btn btn-outline-secondary" >
+                                                  Import Reports
+                                            </button> 
+                                        </a> 
+                                    </li>
+                                   
+                                </ul>
+</div>
+</div> 
+ </div>
 <div class="disputestatus">
-         
+         <div>
 <table class="table table-hover" >
     <thead>
             
         <tr>
+        <th>&nbsp;</th>
             <th>&nbsp;</th>
             <th><img src="\img\Equifax1.png" width="100"></th>
             <th><img src="\img\experian.png" width="100"></th>
@@ -312,18 +270,80 @@
     <tbody>
                             
         <tr>    
-            <td>Unspecified</td> 
+            <td><div class="square-unspecified"></div></td>
+            <td class="squarestatus"> Unspecified</td> 
             <td>2</td>
             <td>7</td>
             <td>5</td>
          </tr>
+         <tr>    
+            <td><div class="square-positive"></div></td>
+            <td class="squarestatus">Positive</td> 
+            <td>32</td>
+            <td>29</td>
+            <td>22</td>
+         </tr>
+         <tr>    
+            <td><div class="square-positive"></div></td>
+            <td class="squarestatus">Deleted</td> 
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+         </tr>
+         <tr>    
+            <td><div class="square-positive"></div></td>
+            <td class="squarestatus">Repaired</td> 
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+         </tr>
+         <tr>    
+            <td><div class="square-positive"></div></td>
+            <td class="squarestatus">Updated</td> 
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+         </tr>
+         <tr>    
+            <td><div class="square-indispute"></div></td>
+            <td class="squarestatus">In Dispute</td> 
+            <td>7</td>
+            <td>13</td>
+            <td>10</td>
+         </tr>
+         <tr>    
+            <td><div class="square-negative"></div></td>
+            <td class="squarestatus">Verified</td> 
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+         </tr>
+         <tr>    
+            <td><div class="square-negative"></div></td>
+            <td class="squarestatus">Negative</td> 
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+         </tr>
+         <tr>    
+            <td><div class="square-bletters"></div></td>
+            <td class="squarestatus">Bureau Letters</td> 
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+         </tr>
     </tbody>
 </table>
+<div class="fletters">
+    <h6>Furnished Letters: 0</h6>
+</div>
+</div>
 <div class="dispute">
                 <div id="dispute">
                     
                 </div>
 </div>
+
 </div>
 
 </div>

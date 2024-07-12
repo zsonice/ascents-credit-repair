@@ -14,7 +14,7 @@
     --body-color: #E4E9F7;
     --side-bar-color: #ed146f;
     --primary-color: #ED146f;
-    --primary-color-light: #F6f5ff;
+    --primary-color-light: #ffffff;
     --toggle-color: #ddd;
     --text-color: #fff;
     --hover: #FFEFFF;
@@ -413,6 +413,38 @@ div.card .card-footer{
     color: var(--dark-text);
     border: 1px solid var(--primary-color)!important;
 }
+
+#showcontainer .btn-outline-primary{
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color)!important;
+}
+#showcontainer .btn-outline-primary:hover{
+ background: var(--hover);
+}
+.hello .card .btn-outline-info{
+    color: rgb(139, 4, 10) !important;
+    border: 3px solid rgb(139, 4, 10) !important;
+    font-weight: 500;
+    margin-right: 10px;
+  
+}
+.hello .card .btn-outline-secondary{
+    color: #7c7c7c;
+    border: 3px solid #7c7c7c!important;
+    font-weight: 500;
+
+  
+}
+.hello .card .btn-outline-secondary:hover{
+  background: #e3e4e6;
+
+  
+}
+.hello .card .btn-outline-info:hover{
+
+    background: none!important;
+}
+
 .hello .card .btn-outline-primary:hover{
     background: var(--primary-color);
     color: var(--header);
@@ -1053,6 +1085,7 @@ padding-left: 10px;
     padding: 0!important;
     color: var(--primary-color)!important;
 }
+
 #clientviews{
     padding-top: 0!important;
 }
@@ -1100,3 +1133,102 @@ padding-left: 10px;
    #disputestatus tbody tr:hover td{
     background: none;
    }
+
+
+   .backbtn{
+    margin-left: 20px!important;
+    margin-top: 10px!important;
+   
+   }
+ 
+   #ClientNum a{
+    color: #7c7c7c;
+   }
+   .clientnav a{
+    font-size: 14px;
+     color: var(--dark-text)!important;  }
+     .clientnav a:hover{
+     
+         color: var(--dark-primary)!important;  }
+    .clientnav .nav-link{
+        background: var(--light-primary);
+      
+    }
+    /* Hello */
+ 
+    .clientnav .nav-link.active{
+        background: white;
+
+        color: var(--dark-primary)!important;
+    }
+    /* Nav link */
+.nav-tabs .nav-item .nav-link{
+    border-right-color:rgba(165,150,153,0.996) !important;
+    border-top-color:rgba(165,150,153,0.996);
+    border-left-color:rgba(165,150,153,0.996) !important;
+    margin-left:1px;
+    margin-right:1px;
+   }
+   .clientnav {
+    text-align: center;
+    justify-content: center;
+   }
+   .square-unspecified {
+    height: 10px;
+    width: 10px;
+    background-color: #008ffb;
+  }
+  .square-positive{
+    height: 10px;
+    width: 10px;
+    background-color: #00e396;
+  }
+  .square-indispute{
+    height: 10px;
+    width: 10px;
+    background-color:#feb019;
+  }
+  .squarestatus{
+    text-align: left!important;
+    justify-content: left!important;
+  }
+/* Dispute */
+#disputestatus .card-body .dispute{
+    transform:translatex(0px) translatey(0px);
+    align-self:center;
+   }
+   
+   .square-negative{
+    height: 10px;
+    width: 10px;
+    background-color:#ff4560;
+  }/* Scoretable */
+#scoretable{
+    transform:translatex(0px) translatey(0px);
+    align-items:flex-start;
+   }
+   .square-bletters{
+    height: 10px;
+    width: 10px;
+    background-color:#775dd0;
+  }
+ .fletters h6{
+    text-align: center!important;
+    font-size: 14px;
+    color: var(--dark-text);
+  }
+/* Heading */
+#rowdisputestatus h6{
+    text-align:left !important;
+   }
+   /* Heading */
+#disputestatus .card-header h6{
+    text-align:left;
+    transform:translatex(0px) translatey(0px);
+    display:inline-grid;
+    justify-content:normal;
+    align-content:flex-end;
+    padding-bottom:5px;
+   }
+   
+   
