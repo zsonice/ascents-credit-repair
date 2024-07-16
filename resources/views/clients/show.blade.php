@@ -70,7 +70,7 @@
             <div class="card-body" id="col1">
 
             <div>
-                <h3>Client Name</h3>
+                <h3>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h3>
                 <div class="container-fluid text-left">
                 <nav class="navbar">
                         
@@ -85,14 +85,14 @@
                                     <li class="nav-item">
                                         <a class="btn btn-app">
                                 
-                                        <i class="bi bi-envelope-at-fill"></i>&nbsp; youremail@gmail.com
+                                        <i class="bi bi-envelope-at-fill"></i>&nbsp; {{$client->email}}
                                         </a> 
                                     </li>   
 
                                     <li class="nav-item" id="ClientNum">
                                         <a class="btn btn-app">
                                   
-                                        <i class="bi bi-telephone-fill"></i> &nbsp; 0912-345-6789
+                                        <i class="bi bi-telephone-fill"></i> &nbsp; {{$client->formatted_phone_number}}
                                         </a> 
                                     </li>
 

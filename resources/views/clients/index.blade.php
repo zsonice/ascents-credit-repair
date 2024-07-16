@@ -91,7 +91,7 @@
                                     @foreach ($clients as $client)
                                         <tr>    
                                             <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td> 
-                                            <td>{{ $client->user->name ?? 'Unknown' }}</td> 
+                                            <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td> 
                                             <td>{{ $client->created_at }}</td>
                                             <td>{{ $client->start_date }}</td>
                                             <td>Last login {{ $client->updated_at }}</td>

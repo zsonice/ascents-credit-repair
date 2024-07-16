@@ -58,34 +58,34 @@ class ImportController extends Controller
 
             // Log each row being processed
             Log::info('Processing row:', $column);
-
+            
             // Create a new Client
             Client::create([
-                'id' => rand(),
+             //   'id' => rand(),
                 'first_name' => $column[1],
-                'middle_name' => "mid test",
-                'last_name' => "last test",
-                'suffix' => "suffix test",
-                'email' => "email@ test",
-                'date_of_birth' => now()->toDateString(),
-                'address' =>  "add test",
-                'city' =>  "ct test",
-                'state' => "state test",
-                'zip_code' =>  1,
-                'country' => "ctry test",
-                'mobile_main' =>  "mb test",
-                'mobile_alt' =>  "aklt test",
-                'mobile_work' =>  "mbwork test",
-                'fax' => "fax test",
-                'previous_address' =>  "add test",
-                'previous_city' => "cty test",
-                'previous_state' =>  "state test",
-                'previous_zip_code' =>  1,
-                'previous_country' =>  "ctryyy prev",
-                'status' =>  "statuys test",
+                'middle_name' =>  $column[2],
+                'last_name' =>  $column[3],
+                'suffix' =>  $column[4],
+                'email' => $column[5],
+                'ssn' => $column[6],
+                'date_of_birth' => $column[7],
+                'address' =>  $column[8],
+                'city' =>  $column[9],
+                'state' => $column[10],
+                'zip_code' =>  $column[11],
+                'country' => $column[12],
+                'mobile_main' => $column[13],
+                'mobile_alt' => $column[14],
+                'mobile_work' => $column[15],
+                'fax' => $column[16],
+               // 'previous_address' => $column[6],
+               // 'previous_city' => $column[6],
+               // 'previous_state' => $column[6],
+               // 'previous_zip_code' =>  1,
+               // 'previous_country' =>  "ctryyy prev",
+                'status' =>  "Client",
                 'start_date' =>  now()->toDateString(),
-                'assigned_to' => 1,
-                // Map other columns accordingly
+                'assigned_to' => 1, // user id
             ]);
         }
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 
 class ClientController extends Controller
 {
@@ -87,10 +88,29 @@ class ClientController extends Controller
     //     return redirect()->route('clients.index');
     // }
 
-    public function show(client $client)
+
+
+    public function show(Client $client)
     {
+        $phoneNumber = $client->mobile_main;
+    
+        // Check if the phone number is exactly 9 digits
+        if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
+            // Format the phone number
+            $formattedPhoneNumber = substr($phoneNumber, 0, 3) . '-' . substr($phoneNumber, 3, 4) . '-' . substr($phoneNumber, 7);
+        } else {
+            // If not 9 digits, use the original phone number
+            $formattedPhoneNumber = $phoneNumber;
+        }
+    
+        // Add the formatted phone number to the $client object
+        $client->formatted_phone_number = $formattedPhoneNumber;
+    
+        // Return the view with the modified $client object
         return view('clients.show', compact('client'));
     }
+    
+    
 
     public function edit(client $client)
     {
@@ -117,6 +137,9 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
+        // Retrieve the authenticated user's ID from the session
+        $userId = auth()->id();
+
         // Validate the form inputs
         $request->validate([
             'firstname' => 'required|string|max:255',
@@ -167,12 +190,12 @@ class ClientController extends Controller
             'previous_country' => '',
             'status' =>   $request->input('status'),
             'start_date' =>  $request->input('start_date', now()->toDateString()),
-            'assigned_to' => 1
+            'assigned_to' =>  $userId,
 
             //'assigned_to' => $request->input('team_members')
 
-            // 'start_date' => $request->input('start_date'),
-            // 'last_login_date' => $request->input('last_login_date'),
+            'start_date' => $request->input('start_date'),
+            'last_login_date' => $request->input('last_login_date'),
             // 'onboarding_stage' => $request->input('onboarding_stage'),
         ]);
 
