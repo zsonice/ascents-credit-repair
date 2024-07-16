@@ -416,28 +416,34 @@ div.card .card-footer{
 
 #showcontainer .btn-outline-primary{
     color: var(--primary-color);
-    border: 3px solid var(--primary-color)!important;
+    border: 2px solid var(--primary-color)!important;
 }
 #showcontainer .btn-outline-primary:hover{
- background: var(--hover);
+ background:none;
+ color: var(--dark-primary);
+ border: 2px solid var(--dark-primary)!important;
 }
 .hello .card .btn-outline-info{
     color: rgb(139, 4, 10) !important;
-    border: 3px solid rgb(139, 4, 10) !important;
+    border: 2px solid rgb(139, 4, 10) !important;
     font-weight: 500;
     margin-right: 10px;
-  
+    font-size: 12px;
+
+
 }
 .hello .card .btn-outline-secondary{
     color: #7c7c7c;
-    border: 3px solid #7c7c7c!important;
+    border: 2px solid #7c7c7c!important;
     font-weight: 500;
+    font-size: 12px;
 
   
 }
 .hello .card .btn-outline-secondary:hover{
-  background: #e3e4e6;
-
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color)!important;
+  background: none;
   
 }
 .hello .card .btn-outline-info:hover{
@@ -905,7 +911,8 @@ transition: var(--tran-03);
 }
 .modal .form-group input[type=text],
 .modal .form-group input[type=email],
-.modal .form-group select
+.modal .form-group select,
+.provider select
 {
     border: none;
     border-bottom: solid 2px #7c7c7c!important;   
@@ -919,20 +926,23 @@ transition: var(--tran-03);
 .modal .form-group input[type=email]:focus,
 .modal .form-group input[type=date]:focus,
 .modal .form-group select:focus,
-.modal .form-group textarea:focus{
+.modal .form-group textarea:focus,
+.provider select:focus{
     box-shadow: none!important;
     border: none!important;
     outline: none!important;
 }
 .modal .form-group input[type=text]:hover,
 .modal .form-group input[type=email]:hover,
-.modal .form-group select:hover{
+.modal .form-group select:hover,
+.provider select:hover{
     border-bottom: solid 2px var(--primary-color)!important;   
 }
 
 .modal .form-group input[type=text]:focus,
 .modal .form-group input[type=email]:focus,
-.modal .form-group select:focus{
+.modal .form-group select:focus,
+.provider select:focus{
     border-bottom: solid 2px var(--primary-color)!important;   
 }
 .modal .form-group input[type=date]:focus{
@@ -958,7 +968,8 @@ transition: var(--tran-03);
 
 
 }
-.modal .form-group .col-md-2 select{
+.modal .form-group .col-md-2 select,
+.provider select{
     font-size: 14px;
     border-radius: 2px;
    width: 158px;
@@ -966,7 +977,8 @@ transition: var(--tran-03);
 
 }
 .modal .form-group .col select,
-.modal .form-group select{
+.modal .form-group select,
+.provider select{
     font-size: 14px;
     border-radius: 2px;
 
@@ -974,7 +986,8 @@ transition: var(--tran-03);
    cursor: pointer;
 
 }
-.modal .form-group select:focus{
+.modal .form-group select:focus,
+.provider select:focus{
 border-radius: 3px;
 }
 .modal-xl .form-group {
@@ -1068,7 +1081,7 @@ padding-left: 10px;
 }
 .icon-link{
     color: var(--primary-color)!important;
-    font-size: 14px!important;
+    font-size: 12px!important;
     
 }
 .icon-link:hover,
@@ -1076,7 +1089,7 @@ padding-left: 10px;
 .icon-link:active
 {
     color: var(--dark-primary)!important;
-    font-size: 14px!important;
+    font-size: 12px!important;
  
     text-decoration: underline 2px var(--dark-primary);
     font-weight: 600px;
@@ -1118,6 +1131,10 @@ padding-left: 10px;
 #disputestatus .card-body .disputestatus{
     display:inline-flex;
    }
+   #clientbilling .card-body{
+    display:inline-flex;
+    align-content: center;
+   }
    /* Table Data */
 .scoretable tr td,
 .disputestatus tr td{
@@ -1145,7 +1162,7 @@ padding-left: 10px;
     color: #7c7c7c;
    }
    .clientnav a{
-    font-size: 14px;
+    font-size: 12px;
      color: var(--dark-text)!important;  }
      .clientnav a:hover{
      
@@ -1214,7 +1231,7 @@ padding-left: 10px;
   }
  .fletters h6{
     text-align: center!important;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--dark-text);
   }
 /* Heading */
@@ -1231,4 +1248,82 @@ padding-left: 10px;
     padding-bottom:5px;
    }
    
-   
+.dispute .provider{
+text-align: center;
+justify-content: center;
+}
+.provider select{
+    font-size: 12px!important;
+}
+#progress h6{
+font-size: 12px;
+
+}
+.progress-bar{
+    background-color: var(--primary-color)!important;
+}
+#progress{
+    padding: 10px;
+    margin-left:10px;
+    margin-right:10px;
+}
+#importcsv input[type=file]:focus{
+outline: none!important;
+box-shadow: none!important;
+}
+#importcsv input[type=file]{
+    border: 1px solid #7c7c7c;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#importcsv input[type=file]:hover{
+    border: 2px solid var(--primary-color);
+}
+/* Disputeclients */
+.dispute div .disputeclients{
+    display:grid;
+    justify-content:center;
+    text-align:center;
+   }
+   /* Navigation */
+.dispute div nav{
+    line-height:1em;
+   }
+.clientprogress .table th{
+background: none;
+text-align: center;
+border: none!important;
+
+}
+.clientprogress .table th i.bi-check-circle-fill{
+color: var(--primary-color)!important;
+}
+.clientprogress .table th i.bi-1-circle-fill,
+.clientprogress .table th i.bi-2-circle-fill,
+.clientprogress .table th i.bi-3-circle-fill,
+.clientprogress .table th i.bi-4-circle-fill,
+.clientprogress .table th i.bi-5-circle-fill,
+.clientprogress .table th i.bi-6-circle-fill{
+    color: #7c7c7c!important;
+    }
+.clientprogress i{
+    font-size: 20px;
+}
+.clientprogress .table tr td{
+    border: none!important;
+    text-align: center;
+}
+.clientprogress .table tr:hover td{
+    background: none!important;
+}
+.clientbilling button{
+    font-size: 12px;
+}
+@media screen and (max-width: 600px) {
+    .col {
+      width: 100%!important;
+      display: block!important;
+      margin-bottom: 20px!important;
+    }
+  }

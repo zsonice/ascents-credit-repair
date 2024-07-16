@@ -118,7 +118,7 @@ const body = document.querySelector("body"),
         var options = {
           series: [2, 32, 7, 0, 1],
           chart: {
-          width: 350,
+          width: 330,
           type: 'pie',
         },
    
@@ -138,3 +138,5 @@ const body = document.querySelector("body"),
 
         var chart = new ApexCharts(document.querySelector("#dispute"), options);
         chart.render();
+
+   

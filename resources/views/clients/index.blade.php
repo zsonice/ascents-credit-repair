@@ -536,9 +536,9 @@ Reset All
                          @endif
                        </div>
                        <div class="fields">
-                           <div class="input-group mb-3">
+                           <div class="mb-3" id="importcsv">
                                <input type="file" class="form-control" id="import_csv" name="import_csv" accept=".csv">
-                               <label class="input-group-text" for="import_csv">Upload</label>
+                          
                            </div>
                        </div>
                        <button type="submit" class="btn btn-success">Import CSV</button>
@@ -575,14 +575,13 @@ Reset All
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="addClientModalLabel">Edit Profile</h5>
+                                        <h5 class="modal-title" id="editClientModalLabel">Edit Profile</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>When you add a new client, enable Portal Access so they can finish their onboarding and order their reports. After onboarding is complete, you can import their report and conduct a credit audit. You can also import and audit a lead without using the portal, but you'll need to provide them with a credit monitoring service to sign up for. Got your first client and unsure what to do next?<a href="#"> Click here. </a></p>
-                                        <!-- Form for adding a new client -->
+                                          <!-- Form for adding a new client -->
                                         <form action="{{ route('clients.store') }}" method="POST" id="addClientForm">
                                             @csrf
                                             <div class="form-group">
@@ -779,6 +778,7 @@ Reset All
                                                 <label for="last_login_date">Last Login Date</label>
                                                 <input type="date" name="last_login_date" id="last_login_date" class="form-control" required>
                                             </div>
+                                        
                                     </div>
                                     </div>
                                        

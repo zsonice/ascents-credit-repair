@@ -342,8 +342,52 @@
                 <div id="dispute">
                     
                 </div>
+                <div>
+                    
+               <!-- <div class="form-group" id="progress">
+                                            <div class="row align-items-center" >
+                    <div class="col-sm-2" >
+                        <h6>75%</h6>
+                    </div>
+                    <div class="col">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
 </div>
+                </div></div></div>-->
+                <div class="provider">
+                                               
+                                                <select name="provider" id="provider" required>
+  <option value="" disabled selected></option>
+  <option value="All">All</option>
+        <option value="Equifax">Equifax</option>  
+        <option value="Experian">Experian</option>  
 
+    <option value="Transunion">Transunion</option> 
+                     </select>
+                      </div>
+                      <div class="disputeclients">
+                <nav class="navbar">                  
+                            
+                                <ul class="nav flex-column" id="clientviews">
+                          
+                                    <li class="nav-item">
+                                        <a class="btn btn-app"> Client's Saved Letters
+                                        </a> 
+                                    </li>
+                                    <li class="nav-item">
+                                     <a class="btn btn-app"> Client's Saved Reports
+                                     </a> 
+                                    </li>
+                                    <li class="nav-item">
+                                     <a class="btn btn-app"> Document Storage
+                                     </a> 
+                                    </li>
+                                   </div>
+                                </ul>
+                            
+                        </nav>
+</div>
+</div>
 </div>
 
 </div>
@@ -351,17 +395,95 @@
 
 <div class="card">
 <div class="card-body">
+<div class="card-header">  
     <h6>Progress</h6>
-    <div>
-    
+</div>
+    <div class="clientprogress">
+    <div style='overflow-y:auto'>
+<table class="table" >
+    <thead>
+            
+        <tr>
+ 
+            <th> <i class="bi bi-check-circle-fill"></i></th>
+            <th> <i class="bi bi-2-circle-fill"></i></th>
+             <th> <i class="bi bi-3-circle-fill"></i></th>
+             <th><i class="bi bi-check-circle-fill"></i></th>
+             <th> <i class="bi bi-5-circle-fill"></i></th>
+             <th><i class="bi bi-check-circle-fill"></i></th>
+                                  
+         </tr>
+    </thead>
+    <tbody>
+                            
+        <tr>    
+            <td>Login Details Sent</td> 
+            <td>Client Logged In</td>
+            <td>Agreement Signed</td>
+            <td>Onboarding Completed</td>
+            <td>Report Imported</td>
+            <td>Letters Saved</td>
+         </tr>
+    </tbody>
+</table>
+
+</div>
     </div>
     </div>
 </div>
-<div class="card">
+<div class="card"  id="clientbilling">
 <div class="card-body">
-    <h6>Billing & Payments</h6>
-    <div>
-    
+<div class="card-header">  
+    <div class="row">
+        <div class="col">
+<h6>Billing & Payments</h6>
+</div>
+<div class="col">
+<ul class="nav justify-content-end">
+                                <li class="nav-item" >
+                                        <a class="btn btn-app"> 
+                                            <button type="button" class="btn btn-primary">
+                                        New Task
+                                            </button> 
+                                        </a> 
+                                    </li>
+                                    
+                                   
+                                </ul>
+</div>
+</div> 
+ </div>
+    <div class="clientbilling">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="false">History</button>
+  </li>
+
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
+  <div class="card">
+<div class="card-body">
+<div>
+    <h6>Overview</h6>
+</div>
+</div>
+  </div>
+
+</div>
+  <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
+  <div class="card">
+<div class="card-body">
+<div>
+    <h6>History</h6>
+</div>
+</div>
+  </div>  
+  </div>
+ </div>
     </div>
     </div>
 </div>
@@ -396,7 +518,7 @@
 
 
 
-            <table class="table">
+      <!--      <table class="table">
                                 <tr>
                                     <th>ID:</th>
                                     <td>{{ $client->id }}</td>
@@ -417,7 +539,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                            </form>-->
         
         </div>
         </div> 
