@@ -14,7 +14,7 @@
     --body-color: #E4E9F7;
     --side-bar-color: #ed146f;
     --primary-color: #ED146f;
-    --primary-color-light: #ffffff;
+    --primary-color-light: #f7f6f6;
     --toggle-color: #ddd;
     --text-color: #fff;
     --hover: #FFEFFF;
@@ -1320,10 +1320,104 @@ color: var(--primary-color)!important;
 .clientbilling button{
     font-size: 12px;
 }
-@media screen and (max-width: 600px) {
-    .col {
-      width: 100%!important;
-      display: block!important;
-      margin-bottom: 20px!important;
+
+  @media (max-width:1000px){
+
+ 
+    /* Head Of Table */
+    .scoretable .table thead{
+     transform:translatex(0px) translatey(0px);
+     flex-direction:column;
     }
-  }
+    
+    /* Disputestatus */
+    #disputestatus .card-body .disputestatus{
+     flex-direction:column;
+     display:inline-block !important;
+    }
+    
+    /* Disputestatus */
+    #disputestatus{
+     flex-direction:column;
+    }
+    
+    /* Row */
+    #disputestatus .card-body .row{
+     flex-direction:column;
+     justify-content:center;
+     display:inline-flex;
+    }
+    
+    /* Card */
+    #ShowClients .col-md-6 > .card{
+     transform:translatex(0px) translatey(0px);
+    }
+    
+    /* Clientprogress */
+    #ShowClients .card .clientprogress{
+     display:grid;
+    }
+    
+    /* Scoretable */
+    #scoretable .card-body .scoretable{
+     flex-direction:column;
+    }
+    
+    /* Card header */
+    #disputestatus .card-body .card-header{
+     transform:translatex(0px) translatey(0px);
+    }
+    
+    /* Apexcharts */
+    #dispute .apexcharts-canvas .apexcharts-svg{
+     transform:translatex(0px) translatey(0px);
+     margin-top:10px;
+    }
+    #disputestatus .card-header ul{
+        flex-direction:column;
+       }
+
+   }
+   @media (max-width: 1200px){
+.col {
+    flex: 0 0 auto;
+    width: 100%;}
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 100%;}
+        .col-sm-3 {
+            flex: 0 0 auto;
+            width: 100%;} 
+            .col-md-6 {
+                flex: 0 0 auto;
+                width: 100%;} 
+    .sidebar{
+        width: 88px;
+    }
+.sidebar .text{
+    opacity: 0;
+}
+.sidebar .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+.sidebar .search-box input[type=text]{
+    opacity: 0;
+}
+.sidebar header .toggle{
+    transform: translateY(-50%);
+    
+ }
+ .sidebar .text{
+    opacity: 0;
+}
+.home{
+    position: relative;
+    height: 100vh;
+    width: calc(100% - 88px);
+    left: 88px;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+
+}
+}
