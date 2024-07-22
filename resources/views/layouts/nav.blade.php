@@ -23,8 +23,8 @@
                 <ul class="menu-links">
                     <li class="nav-link"> 
                             <a href="{{ route('home') }}" id="nav-home">
-                                <i class='bx bxs-home icon'></i>
-                                <span class="text nav-text">Home</span>
+                            <i class="bi bi-pie-chart-fill icon"></i>
+                                <span class="text nav-text">Dashboard</span>
                             </a>
                         </li>
                         <li class="nav-link"> 

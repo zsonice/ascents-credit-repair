@@ -123,11 +123,11 @@
                             {{-- Previous Page Link --}}
                             @if ($clients->onFirstPage())
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                                <span class="page-link" aria-hidden="true">&laquo;</span>
+                                <span class="page-link" aria-hidden="true">&LT;</span>
                             </li>
                             @else
                                 <li class="page-item">
-                                    <a class="page-link" href="{{ $clients->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&laquo;</a>
+                                    <a class="page-link" href="{{ $clients->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&LT;</a>
                                 </li>
                             @endif
                              {{-- Pagination Elements --}}
@@ -142,11 +142,11 @@
                             {{-- Next Page Link --}}
                             @if ($clients->hasMorePages())
                                 <li class="page-item">
-                                    <a class="page-link" href="{{ $clients->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&raquo;</a>
+                                    <a class="page-link" href="{{ $clients->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&GT;</a>
                                 </li>
                             @else
                                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                                    <span class="page-link" aria-hidden="true">&raquo;</span>
+                                    <span class="page-link" aria-hidden="true">&GT;</span>
                                 </li>
                             @endif   
                         </ul>

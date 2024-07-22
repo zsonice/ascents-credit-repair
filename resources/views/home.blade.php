@@ -3,192 +3,87 @@
 @section('content') 
 
 
-<div class="hello">
- <h1 class="welcome"> Hello Credit Connoisseur!</h1>
-        <div class="row">
-    
-            <div class="col-md-4">  
-                <div class="card">
-                     <div class="card-body">
-                         <div class="card-header">
-  
-    <h6> Common Tasks </h6>
-                         </div>
-                             <div class="d-grid gap-2">
-    
-    <button type="button" class="btn btn-outline-primary"></i><b>Add New Clients</b><br><p>Sign up a new client</p></button>
-    <button type="button" class="btn btn-outline-primary"></i><b>Select an Existing Client</b><br><p>Work with an existing client</p></button>
-    <button type="button" class="btn btn-outline-primary"></i><b>Run Credit Dispute Wizard</b><br><p>Order reports, review reports, corret errors</p></button>
-                             </div>
-                      </div>
-                </div>
-                <div class="card">
-                     <div class="card-body">
-                         <div class="card-header">
-  
-    <h6> Personal Tasks </h6>
-                         </div>
-                             <div class="todo">
-                     
-                             <div style='overflow-x:auto'>
-                       
-                            <table class="table">
-                             
-                                <tbody>
-                             
-                                        <tr>    
-                                       <td>Assign tasks to team members</td>
-                                            <td> 
-                                                <a href="" class="btn"><i class='bx bxs-edit' ></i></a>
-                                                <form action="" method="POST" style="display: inline-block;">
-                                              
-                                                    <button type="submit" class="btn"><i class='bx bxs-trash' ></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                       
-                                </tbody>
-                            </table>
-                    
-             
-              
+<div class="hello" id="dashboard">
+ <h1 class="welcome"> Dashboard</h1>
+ <div class="row">
+<div class="col-md-9" id="info-card">
+<div class="row" >
 
-    
-    
-                             </div>
-                            <div class="col-tasks">
-                     <a class="btn btn-app">View All Tasks</a>
-                    
-                
-                            </div>
-                      </div>
-                </div>
-                
-            </div>
-</div>
-            <div class="col">  
-                <div class="card">
-                     <div class="card-body">
-                        <div class="row">
-                            <div class="row-links">
-                                <div class="col-md-12">
-                                     <div class="d-grid gap-2">
-        <button type="button" class="btn"> 
-        <i class="bi bi-buildings-fill"></i> &nbsp;
-  <b>My Company</b>
-  <br>
-  <p>Configure users, permissions, billing</p>
-</button>
-    <button type="button" class="btn">
-        <i class="bi bi-credit-card"></i>&nbsp;
-    <b>Get a Merchant Account</b>
-    <br>
-    <p>Accept credit card payments from clients</p>
-</button>
-</button>
-    <button type="button" class="btn">
-    <i class='bx bxs-report'></i>&nbsp;
-    <b>Credit Reports & Scores</b>
-    <br>
-    <p>Earn money from recommended providers</p>
-</button>
-<button type="button" class="btn">
-<i class='bx bxs-contact' ></i>&nbsp;
-    <b>Contacts</b>
-    <br>
-    <p>Manage contacts and addresses</p>
-</button>
-
-<button type="button" class="btn"> 
-<i class='bx bx-log-in-circle'></i>&nbsp;
-  <b>Client & Affiliate Portal</b>
-  <br>
-  <p>Client and Affiliates log in here</p>
-</button>
-    <button type="button" class="btn">
-    <i class='bx bxs-file' ></i>&nbsp;
-    <b>Library of Dispute Letters</b>
-    <br>
-    <p>Also add your own custom letters</p>
-</button>
-<button type="button" class="btn"> 
-<i class="bi bi-bar-chart-steps"></i>&nbsp;
-  <b>Take the Start Repairing Credit Challenge</b>
-  <br>
-  <p>Credit repair training and certificate</p>
-</button>
-    <button type="button" class="btn">
-    <i class='bx bxs-window-alt' ></i>&nbsp;
-    <b>Get a Business Website</b>
-    <br>
-    <p>Get a professional site</p>
-</button>
-</button>
-    <button type="button" class="btn">
-    <i class='bx bxs-certification' ></i></i>&nbsp;
-    <b>Get Five S Certified</b>
-    <br>
-    <p>Get FREE step-by-step training</p>
-</button>
-<button type="button" class="btn">
-<i class='bx bxs-videos' ></i>&nbsp;
-    <b>Free Videos & Resources</b>
-    <br>
-    <p>Credit Repair Cloud use guides</p>
-</button>
-
-<button type="button" class="btn"> 
-<i class="bi bi-film"></i>&nbsp;
-  <b>Free Live Software Classes</b>
-  <br>
-  <p>Daily for all Credit Heroes!</p>
-</button>
-    <button type="button" class="btn">
-    <i class="bi bi-file-earmark-arrow-down-fill"></i>&nbsp;
-    <b>
-        Bonus Materials
-    </b>
-    <br>
-    <p>Legal documents and marketing materials</p>
-</button>
-
-                                    </div>
-       
-                                </div>
-                                
-    
-                          </div>
-                          
-         
-         
-                        </div>
+    <div class="col">  
+        <div class="card" id="info">
+             <div class="card-body">
+                <div class="head">
+                    <div class="labelicon">
+                    <div class="cardlabel">
+                        <p>All Clients</p>
+                        <h2>40,689</h2>      
                     </div>
-                    
+                    <div class="icon">
+                    <i class="bi bi-people-fill icon all"></i>    
+                    </div>
                 </div>
-                
-             </div> 
-             
-            
+         <div class="pastdata"><h6><i class='bx bx-trending-up icon'></i>  &nbsp;<span class="up">8.5%</span>&nbsp; from yesterday</h6> </div> 
+                   
+                </div>
+              </div>
         </div>
-        
+
+    </div>
+
+    <div class="col">  
         <div class="card">
+             <div class="card-body">
+                <div class="head">
+                <div class="labelicon">
+                    <div class="cardlabel">
+                        <p>New Clients</p>
+                        <h2>1,689</h2>      
+                    </div>
+                    <div class="icon">
+                    <i class="bi bi-person-plus-fill icon new"></i>
+                 
+                    </div>
+</div>
+         <div class="pastdata"><h6><i class='bx bx-trending-down icon down'></i>  &nbsp;<span class="down">1.5%</span>&nbsp; from past week</h6> </div> 
+                   
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+    <div class="col">  
+        <div class="card">
+             <div class="card-body">
+                <div class="head">
+                <div class="labelicon">
+                    <div class="cardlabel">
+                        <p>Active Clients</p>
+                        <h2>36,119</h2>      
+                    </div>
+                    <div class="icon">
+                    <i class="bi bi-person-fill-check icon active"></i>
+                    </div>
+</div>
+         <div class="pastdata"><h6><i class='bx bx-trending-down icon down'></i>  &nbsp;<span class="down">4.5%</span>&nbsp; from past yesterday</h6> </div> 
+                   
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+
+</div> <!--row-->
+
+
+<div class="row">
+<div class="col">
+<div class="card">
             <div class="card-body">
       
-                <div class="card-header">
-                    <div>
-                        <div class="row m-b-34">
-                            <div class="col-6">
-                                <h6>Business Status</h6>
-                            </div>
-                        <div class="col-6 text-right">
-                       
-                               <h6> <a class="btn btn-app">View Dashboard</a></h6>
-                        
-                         </div>
-                     </div>
-                 </div>
-             </div> <div class="chart">
-                <div id="chart">
+                <div class="clientgraph">
+                <div id="clientgraph">
                     
                 </div>
         </div>
@@ -197,26 +92,299 @@
             </div>
             
     </div>
-    <div class="card" id="loginActivity">
+</div>
+</div>
+</div>
+
+
+<div class="col-md-3" id="Reminders">  
+        <div class="card">
+             <div class="card-body">
+               <div>
+                <h3>Reminders</h3>
+               </div>
+               <div class="iAlerts">
+                 <h6>Important Alerts</h6>
+               </div>
+               <div class="iBody">
+         
+                     
+                     <table class="table table-hover">
+                    
+                         <tbody>
+                         
+                                 <tr>    
+                                     <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
+                                     <td><a href="#"> Past due - Ashley's Debt</a>  
+                                     <h6>Email Send</h6></td> 
+
+                                 </tr>
+                               
+                                 <tr>    
+                                     <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
+                                     <td> <a href="#"> Past due - Ashley's Tuwep</a>  
+                                     <h6>Follow-Up tuwep</h6></a></td> 
+
+                                 </tr>
+                                 <tr>    
+                                     <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
+                                     <td> <a href="#"> Past due - Lala letter</a>  
+                                     <h6>Letter Send</h6></a></td> 
+
+                                 </tr>
+                                 <tr>    
+                                     <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
+                                     <td> <a href="#"> Past due - Duan Chismosa</a>  
+                                     <h6>Meeting with Tuwep GC</h6></a></td> 
+
+                                 </tr>
+                         
+                         </tbody>
+                    
+                     </table>
+      
+
+            
+               </div>  <div class="iView">
+
+<a href="#">View All</a>
+        </div>
+        
+     </div> 
+  
+</div>
+</div>
+
+</div> <!--row-->
+<div class="row">
+<div class="col-md-9" id="info-card">
+<div class="row" >
+
+    <div class="col">  
+        <div class="card" id="NewClients">
+             <div class="card-body">
+             <div>
+                <h3>New Clients</h3>
+               </div>
+               <div style='overflow-y:auto'>
+                     
+                     <table class="table table-hover">
+                         <thead>
+                             <tr>
+                             <th>Name</th>
+                                 <th>Assigned To</th>
+                                 <th>Date</th>
+                                 <th>Status</th>
+                                 <th>Action</th>
+                       
+                                 
+                             </tr>
+                         </thead>
+                         <tbody>
+                         
+                                 <tr>    
+                                 <td>Lala Chan</td> 
+                                     <td>Lala</td> 
+                                     <td>06/11/2024 06:56 PM</td>
+                                     <td>Active</td>
+                                     <td> <button class="btn btn-primary">View</button>  
+                                   </td>
+                                
+                                 </tr>
+                                 <tr>    
+                                 <td>Ashwe Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Inactive</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                                 </tr>
+                                 <tr>    
+                                 <td>Duan Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Inactive</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                                 </tr>
+                                 <tr>
+                                 <td>Duan Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Active</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                                 </tr>
+                                 <tr>
+                                 <td>Ashwe Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Inactive</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                                 </tr>
+                         
+                         
+                         </tbody>
+                     </table>
+                     <div class="iView">
+
+<a href="#">View All</a>
+        </div>
+                     
+        
+</div> 
+              
+
+    </div>
+    
+
+</div> <!--row-->
+
+
+<div class="row">
+<div class="col">
+<div class="card"  id="ActiveClients">
             <div class="card-body">
       
-                <div class="card-header">
-                    <div>
-                        <div class="row m-b-34">
-                            <div class="col-6">
-                                <h6>Recent Login Activity</h6>
-                            </div>
-                        <div class="col-6 text-right">
+            <div>
+                <h3>Active Clients</h3>
+               </div>
+               <div style='overflow-y:auto'>
+                     
+                     <table class="table table-hover">
+                         <thead>
+                             <tr>
+                             <th>Name</th>
+                                 <th>Assigned To</th>
+                                 <th>Date</th>
+                                 <th>Status</th>
+                                 <th>Action</th>
                        
-                               <h6> <a class="btn btn-app">View Full History</a></h6>
-                        
-                        </div>
-                                <div>
-                                <p>If you observe any unfamiliar activity: update your password to secure your account or reach out to customer care for further assistance. To ensure the security of your account and client data, IDs and passwords must remain confidential and cannot be used to log in from two different locations or devices at the same time.</p>
-                                </div>
-                        </div>
-                    </div>
+                                 
+                             </tr>
+                         </thead>
+                         <tbody>
+                         
+                                 <tr>    
+                                 <td>Lala Chan</td> 
+                                     <td>Lala</td> 
+                                     <td>06/11/2024 06:56 PM</td>
+                                     <td>Active</td>
+                                     <td> <button class="btn btn-primary">View</button>  
+                                   </td>
+                                
+                                 </tr>
+                                 <tr>    
+                                 <td>Ashwe Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Inactive</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                                 </tr>
+                                 <tr>    
+                                 <td>Duan Bading</td> 
+                                     <td>Lala</td> 
+                                     <td>04/12/2024 10:56 AM</td>
+                                     <td>Inactive</td>
+                                     <td><button class="btn btn-primary">View</button>  
+                               </td>
+                         
+                         
+                         
+                         
+                         </tbody>
+                     </table>
+                     <div class="iView">
+
+<a href="#">View All</a>
+        </div> 
+</div> 
+              
+
+   
                 </div>
+        </div>
+           
+
+            </div>
+            
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-3" id="Messages">  
+        <div class="card">
+             <div class="card-body">
+               <div>
+                <h3>Messages</h3>
+               </div>
+         
+               <div class="iMessageBody">
+         
+                     
+                     <table class="table table-hover">
+                    
+                         <tbody>
+                         
+                                 <tr>    
+                                     <td><i class="bi bi-chat-left-text-fill"></i></td> 
+                                     <td><a href="#">Ashwe Bading</a>  
+                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+
+                                 </tr>
+                               
+                                 <tr>    
+                                     <td><i class="bi bi-chat-left-text-fill"></i></td> 
+                                     <td><a href="#">Duan Tuwep</a>
+                                     <h6>Hi this is duan tuwep. I just want to...</h6></td> 
+
+                                 </tr>
+                                 <tr>    
+                                     <td><i class="bi bi-chat-left-text-fill"></i></td> 
+                                     <td><a href="#">Ashwe Bading</a>  
+                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+
+                                 </tr>
+                                 <tr>    
+                                     <td><i class="bi bi-chat-left-text-fill"></i></td> 
+                                     <td><a href="#">Ashwe Bading</a>  
+                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+
+                                 </tr>
+                         </tbody>
+                    
+                     </table>
+      
+
+            
+               </div>  <div class="iView">
+
+<a href="#">View All</a>
+        </div>
+        
+     </div> 
+  
+</div>
+</div>
+
+</div> <!--row-->
+
+    <div class="card" id="loginActivity">
+            <div class="card-body">
+                                <h3>Recent Login Activity</h3>
+                          
+                    
+               
+             
                 <div style='overflow-y:auto'>
                      
                      <table class="table table-hover">
@@ -267,7 +435,19 @@
                          
                          </tbody>
                      </table>
+                     <div class="iView">
+
+<a href="#">View All</a>
+        </div>         
+                   <!--  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <div class="pagination">
         
+  <a href="#">❮</a>
+  <a href="#">❯</a>
+</div>
+  </ul>
+</nav> -->
 </div> 
             </div>
           

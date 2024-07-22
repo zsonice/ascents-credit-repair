@@ -11,10 +11,10 @@
 :root{
 
     /* colors */
-    --body-color: #E4E9F7;
+    --body-color: #f1f5ff;
     --side-bar-color: #ed146f;
     --primary-color: #ED146f;
-    --primary-color-light: #f7f6f6;
+    --primary-color-light: #f2f4f7;
     --toggle-color: #ddd;
     --text-color: #fff;
     --hover: #FFEFFF;
@@ -244,7 +244,9 @@ body.dark .sidebar header .toggle{
 .sidebar li a:active{
     background: var(--primary-color);
 
+
 }
+
 .nav-link.active {
     background: var(--primary-color);
     color: var(--header);
@@ -383,8 +385,8 @@ body.dark .navbar a{
 }
 
 div.card{
-    margin-bottom: 10px;
-    display: flex;
+    margin-bottom: 20px;
+
 }
 
 div.card .card-header{
@@ -605,6 +607,7 @@ body.dark .card .card-body .navbar{
    /* Link */
    .pagination li a{
     color:#ed146f;
+    
    }
 
    .pagination li.page-item.active span {
@@ -840,8 +843,8 @@ background: transparent;
    }
 
    .card{
-   
-    border-radius: 3px!important;
+    border-radius: 10px!important;
+    border:none;
  
    }
    .nav-company{
@@ -1421,3 +1424,212 @@ color: var(--primary-color)!important;
 
 }
 }
+#Reminders{
+    display: grid;
+}
+
+#info-card .card .card-body{
+    display:grid;
+    transform:translatex(0px) translatey(0px);
+    justify-content:normal;
+   }
+.hello .card .head h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.hello .card .head p{
+    color: #7c7c7c;
+    font-size: 16px;
+}
+
+
+.pastdata h6 span {
+    color: green;
+}
+.pastdata .icon,
+.pastdata  span.up {
+    color: green;
+
+}
+.pastdata .icon.down,
+.pastdata span.down  {
+    color: red;
+
+}
+.pastdata .icon{
+    font-size: 25px;
+}
+.head .pastdata h6{
+    display:inline-flex;
+    align-items:center;
+    font-size: 14px;
+   }
+   
+   #info-card .card .pastdata{
+    margin-top:5px;
+   }
+   #info-card .cardlabel h2{
+    margin-top:5px;
+   }
+/* Icon */
+.labelicon .icon{
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:baseline;
+   }
+   
+   /* Labelicon */
+ .labelicon{
+    transform:translatex(0px) translatey(0px);
+    display:flex;
+    justify-content:space-between;
+   }
+   
+   /* Italic Tag */
+   .labelicon .icon i{
+   
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+    border-radius: 16px;
+
+   }
+   .labelicon .icon.all{
+    color: var(--primary-color);    
+    background: var(--light-primary);
+   }
+   .labelicon .icon.new{
+    background: #f5f7df;
+    color: rgb(241, 225, 129);
+   }
+   .labelicon .icon.active{
+    background: #c7e6d1;
+    color: rgb(0, 95, 8);
+   }
+ .iAlerts{
+    margin-top: 10px;
+    padding: 15px;
+    background: var(--light-primary);
+    border-radius: 5px;
+
+  
+ }
+ .iAlerts h6{
+color: var(--header-text);
+font-size: 14px;
+ }
+ .iBody{
+    padding: 10px;
+ }
+ .iBody tr{
+padding-top: 5px;
+padding-bottom: 5px;
+cursor: pointer;
+ }
+ .iMessageBody{
+    padding: 10px;
+ }
+ .iMessageBody tr{
+padding-top: 5px;
+padding-bottom: 5px;
+cursor: pointer;
+text-align: left;
+ }
+ .iMessageBody tr td{
+    font-size:14px !important;
+   }
+   .iMessageBody tr td i{
+    color: green;
+    font-weight: 500;
+   }
+
+ .iBody tr td{
+    font-size:14px !important;
+   }
+   .iBody tr td i{
+    color: red;
+    font-weight: 500;
+   }
+   .iView{
+padding: 10px;
+    display:grid;
+    justify-content:flex-end;
+   }
+   .iView a{
+    font-size: 14px;
+    color: var(--primary-color);
+
+   }
+   .iView a:hover{
+    color: var(--dark-primary);    
+    text-decoration: underline;
+   }
+   
+ .iMessageBody h6{
+    font-weight: 400;
+    font-size: 12px;
+    color: #7c7c7c;
+ }
+ .iMessageBody a{
+    font-weight: 600;
+    color: var(--header-text);
+ }
+#NewClients .btn-primary,
+#ActiveClients .btn-primary{
+    color: #fff;
+    float:none;
+    padding-top: 3px!important;
+    padding-bottom: 3px!important;
+    font-size: 12px;
+    font-weight: 500;
+}
+#NewClients h3,
+#ActiveClients h3,
+#loginActivity h3{
+    margin-bottom: 10px;
+}
+.pagination {
+  text-align: center;
+  }
+  
+  .pagination a
+{
+
+    color: var(--side-bar-color);
+    float: left;
+    padding: 4px 10px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd!important;
+    font-size: 14px;
+    border-radius: none;
+    cursor: pointer;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;}
+    /* Span Tag */
+.pagination .active span{
+    color:#ffffff;
+   }
+   /* Span Tag */
+.hello .row div .card .card-body #clientTable nav .pagination .active span{
+    background-color:var(--side-bar-color) !important;
+    border: 1px solid var(--side-bar-color)!important;
+    transition: var(--tran-03);
+   }
+   #dashboard h3{
+    font-size: 18px;
+   }
+
+  .iBody tr a{
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--header-text);
+   }
+   .iBody tr h6{
+    font-size: 12px!important;
+    color: #7c7c7c!important;
+   }

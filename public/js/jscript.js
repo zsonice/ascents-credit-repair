@@ -29,13 +29,13 @@ const body = document.querySelector("body"),
       
         var options = {
           series: [{
-          name: 'TEAM A',
+          name: 'All Clients',
           type: 'area',
-          data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
+          data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 53, 33]
         }, {
-          name: 'TEAM B',
+          name: 'New Clients',
           type: 'line',
-          data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 43]
+          data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 44, 43]
         }],
           chart: {
           height: 350,
@@ -47,21 +47,24 @@ const body = document.querySelector("body"),
         fill: {
           type:'solid',
           opacity: [0.35, 1],
+        }, colors: ['#ED146f','rgb(241, 225, 129)'],
+        dataLabels: {
+          enabled: false
         },
-        labels: ['Dec 01', 'Dec 02','Dec 03','Dec 04','Dec 05','Dec 06','Dec 07','Dec 08','Dec 09 ','Dec 10','Dec 11'],
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
         markers: {
           size: 0
         },
         yaxis: [
           {
             title: {
-              text: 'Series A',
+              text: 'All Clients',
             },
           },
           {
             opposite: true,
             title: {
-              text: 'Series B',
+              text: 'New Clients',
             },
           },
         ],
@@ -79,7 +82,7 @@ const body = document.querySelector("body"),
         }
         };
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        var chart = new ApexCharts(document.querySelector("#clientgraph"), options);
         chart.render();
       
       
