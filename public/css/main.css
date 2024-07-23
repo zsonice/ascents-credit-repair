@@ -913,6 +913,7 @@ color: var(--primary-color);
 transition: var(--tran-03);
 }
 .modal .form-group input[type=text],
+.modal .form-group input[type=password],
 .modal .form-group input[type=email],
 .modal .form-group select,
 .provider select
@@ -928,6 +929,7 @@ transition: var(--tran-03);
 .modal .form-group input[type=text]:focus,
 .modal .form-group input[type=email]:focus,
 .modal .form-group input[type=date]:focus,
+.modal .form-group input[type=password]:focus,
 .modal .form-group select:focus,
 .modal .form-group textarea:focus,
 .provider select:focus{
@@ -936,6 +938,7 @@ transition: var(--tran-03);
     outline: none!important;
 }
 .modal .form-group input[type=text]:hover,
+.modal .form-group input[type=password]:hover,
 .modal .form-group input[type=email]:hover,
 .modal .form-group select:hover,
 .provider select:hover{
@@ -943,6 +946,7 @@ transition: var(--tran-03);
 }
 
 .modal .form-group input[type=text]:focus,
+.modal .form-group input[type=password]:focus,
 .modal .form-group input[type=email]:focus,
 .modal .form-group select:focus,
 .provider select:focus{
@@ -1025,7 +1029,8 @@ border-radius: 3px;
 .form-group #assigneddiv,
 .form-group #nameSelect,
 .form-group #billingdiv,
-.form-group #plandiv
+.form-group #plandiv,
+.form-group #cmsdiv
 {
 padding-bottom: 8px!important;
 
@@ -1633,3 +1638,79 @@ padding: 10px;
     font-size: 12px!important;
     color: #7c7c7c!important;
    }
+
+   .form-group #cmspasscb{
+    display: flex;
+   }
+
+
+
+ #cmspasscb .ikxBAC {
+    appearance: none;
+    background-color: #dfe1e4;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    width: 30px;
+  }
+
+  #cmspasscb  .ikxBAC::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+  }
+
+  #cmspasscb  .ikxBAC,
+  #cmspasscb  .ikxBAC::after {
+    transition: all 100ms ease-out;
+  }
+
+  #cmspasscb  .ikxBAC::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 14px;
+  }
+
+  #cmspasscb  input[type=checkbox] {
+    cursor: default;
+ padding:10px;
+
+  }
+
+  #cmspasscb  .ikxBAC:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+  }
+
+  #cmspasscb .ikxBAC:checked {
+    background-color: var(--primary-color);
+  }
+  #cmspasscb  .ikxBAC:checked::after {
+    background-color: #fff;
+    left: 13px;
+  }
+
+  #cmspasscb :focus:not(.focus-visible) {
+    outline: 0;
+  }
+
+  #cmspasscb  .ikxBAC:checked:hover {
+    background-color: var(--primary-color);
+  }
+  #cmspasscb [type=checkbox]:checked {
+    background-image: none;
+}
+#cmspasscb [type=checkbox]:focus {
+    --tw-ring-color:none!important;
+}

@@ -352,6 +352,31 @@
                                             
                                     </div>
                                     </div>
+                                    <div class="form-group">
+                                            <div class="row align-items-center">
+                                            <div class="col" id="cmsdiv">
+                                                <label for="cms">Credit Monitoring System</label>
+                                             <select name="cms" id="cms" required>
+                                            <option value="" disabled selected>Select</option>
+  <option>IdentityIQ</option>
+	<option>SmartCredit</option>
+	<option>myScoreIQ</option>  
+    <option>myfreescorenow</option>  
+                     </select>
+                      </div>
+                      <div class="col">
+  <label for="cmsuser">CMS Username</label>
+  <input type="text" name="cmsuser" id="cmsuser" class="form-control" required>                                        
+  </div>
+  <div class="col" >
+  <label for="cmspass">CMS Password</label>
+  <div id="cmspasscb">
+  <input type="password" name="cmspass" id="cmspass" class="form-control" required>
+  <input type="checkbox" class="sc-gJwTLC ikxBAC" onclick="myFunction()">    </div>                                 
+  </div>
+                                            
+                                    </div>
+                                    </div>
                                             <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col">
@@ -759,9 +784,36 @@ Reset All
     <option value="I">Inactive</option>  
                      </select>
                       </div>
+                                          
+                                    </div>
+                                    </div>
+
+                                    
+                                      <div class="form-group">
+                                            <div class="row align-items-center">
+                                            <div class="col" id="cmsdiv">
+                                                <label for="cms">Credit Monitoring System</label>
+                                             <select name="cms" id="cms" required>
+                                            <option value="" disabled selected>Select</option>
+  <option>IdentityIQ</option>
+	<option>SmartCredit</option>
+	<option>myScoreIQ</option>  
+    <option>myfreescorenow</option>  
+                     </select>
+                      </div>
+                      <div class="col">
+  <label for="cmsuser">CMS Username</label>
+  <input type="text" name="cmsuser" id="cmsuser" class="form-control" required>                                        
+  </div>
+  <div class="col" >
+  <label for="cmspass">CMS Password</label>
+
+  <input type="password" name="cmspass" id="cmspass" class="form-control" required>
+                               
+  </div>
                                             
                                     </div>
-                                    </div>
+</div>
                                             <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col">
