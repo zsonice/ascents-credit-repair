@@ -11,52 +11,237 @@
     <div class="row">
     
     <div class="col">  
-       
-             <div class="card">
-            
-        <div class="clientnav">
-            <ul class="nav nav-tabs">
+
+    <div class="clientnav">
+    <ul class="nav nav-underline">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Import/Audit</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Pending Report</a>
+    <a class="nav-link " href="#">Import/Audit</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Generate Letters</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Send Letters</a>
+    <a class="nav-link" href="#">Notes</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Letters & Status</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Dispute Items</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Educate</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Messages</a>
-  </li>
-  <li class="nav-item disable">
-    <a class="nav-link" href="#">Internal Note</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Invoices</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Activity</a>
-  </li>
-
 
 </ul>
+    </div>
+
+    <div class="row">
+<div class="col-md-7" id="clientinfo">
+
+            <div class="row">
+            <div class="col">
+            <div class="card">
+            <div class="card-body">
+      <div class="clientname">
+        <h1>Ashley Nicole Ruiz</h1>
+      </div>
+
+
+      <div class="container">
+   <div class="row">
+     <div class="col">
+       <ul id="progress-bar" class="progressbar">
+         <li class="active">Account Created</li>
+         <li>Credit Import</li>
+         <li>Dispute Round 1</li>
+         <li>Dispute Round 2</li>
+         <li>Completed</li>
+      </ul>
+     </div>
+  </div>
 </div>
-       <!--     <div class="backbtn">
+<div class="row">
+<div class="col">
+    <div class="clientinfo">
+        <div id="clientaddress">
+<i class="bi bi-house-fill"></i> &nbsp;
+    <h6>1027 Racebrook Rd Woodbridge<br>Connecticut 06525 United States</h6>
+        </div>
+        <div id="clientemail">
+        <i class="bi bi-envelope-at-fill"></i> &nbsp;
+    <h6>lala@thefunnelpanda.com</h6>
+        </div>
+       <div id="clientphone">
+       <i class="bi bi-telephone-fill"></i> </i>  &nbsp;
+       <div id="phonenum">
+    <h6>(555) 555-1234 &nbsp;<span>(Mobile)</span></h6>
+    <h6>(523) 532-1234 &nbsp;<span>(Alt)</span></h6>
+    <h6>(523) 532-1234 &nbsp;<span>(Work)</span></h6></div>
+        </div>
+</div>
+</div>
+<div class="col">
+    <div class="clientinfo2">
+        <div id="clientssn">
+<label for="ssn">SSN:</label>
+    <h6>&nbsp;1027</h6>
+        </div>
+        <div id="clientdob"> 
+<label for="dob">Date of Birth:</label>
+    <h6>&nbsp;May 29, 1997</h6>
+        </div>
+        <div id="clientstart">
+<label for="start_date">Start Date:</label> 
+    <h6>&nbsp;July 20, 2024</h6>
+        </div>
+        <div id="clientcreate">
+       <label for="create_date">Created Date:</label> 
+    <h6>&nbsp;July 12, 2024</h6>
+        </div>
+       
+    </div>
+</div>
+</div>                
+            </div>
+            </div>
+           
+
+            </div>
+            
+             </div>
+             <!--row-->
+</div>
+<div class="col-md-3" id="Notes">  
+        <div class="card">
+             <div class="card-body">
+               <div>
+                <h3>Notes</h3>
+               </div>
+               
+               <div class="iBody">
+         
+                     
+                     <table class="table table-hover">
+                    
+                         <tbody>
+                         
+                                 <tr>    
+                                     <td><h6>July 24, 2024</h6></td> 
+                                     <td>
+                                     <h6>Email Send</h6></td> 
+
+                                 </tr>
+                               
+                                 <tr>    
+                                     <td><h6>July 22, 2024</h6></td> 
+                                     <td> 
+                                     <h6>Follow-Up tuwep</h6></a></td> 
+
+                                 </tr>
+                            
+                         
+                         </tbody>
+                    
+                     </table>
+      
+
+            
+               </div>  <div class="iView">
+
+<a href="#">View All</a>
+        </div>
+        
+     </div> 
+  
+</div>
+</div>
+
+</div> <!--row-->
+
+<div class="row">
+<div class="col-md-7" id="scores">
+<div class="row" >
+
+    <div class="col">  
+        <div class="card" id="info">
+             <div class="card-body">
+                <div class="head">
+                    <div class="labelicon">
+                    
+                </div>
+               
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+    <div class="col">  
+        <div class="card">
+             <div class="card-body">
+                <div class="head">
+                <div class="labelicon">
+            
+</div>
+                    
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+    <div class="col">  
+        <div class="card">
+             <div class="card-body">
+                <div class="head">
+                <div class="labelicon">
+                  
+</div>
+                   
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+
+</div> <!--row-->
+             <!--row-->
+</div>
+<div class="col-md-3" id="agentinfo">  
+        <div class="card">
+             <div class="card-body">
+               <div>
+                <h3>Agent Info</h3>
+               </div>
+               
+               <div class="agentinfobody">
+                <div class="agentimg">
+                    <img src="/img/agent.png" alt="" width="50px" height="50px">
+                </div>
+                <div class="agentname">
+                    <h5>Ashwe Bading</h5>
+                    <h6>Virtual Assistant</h6>
+                </div>
+                   
+            
+               </div>  
+     </div> 
+  
+</div>
+</div>
+
+</div> 
+
+
+
+
+
+
+
+
+
+
+        <!-- 
+             <div class="card">
+            
+        
+          <div class="backbtn">
            
             <a class="icon-link icon-link-hover"  href="{{ route('clients.index') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -65,7 +250,7 @@
   
 </a>
                           
-            </div>-->
+            </div>
             
             <div class="card-body" id="col1">
 
@@ -344,7 +529,7 @@
                 </div>
                 <div>
                     
-               <!-- <div class="form-group" id="progress">
+               <div class="form-group" id="progress">
                                             <div class="row align-items-center" >
                     <div class="col-sm-2" >
                         <h6>75%</h6>
@@ -353,7 +538,7 @@
                 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
   <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
 </div>
-                </div></div></div>-->
+                </div></div></div>
                 <div class="provider">
                                                
                                                 <select name="provider" id="provider" required>
@@ -518,7 +703,7 @@
 
 
 
-      <!--      <table class="table">
+           <table class="table">
                                 <tr>
                                     <th>ID:</th>
                                     <td>{{ $client->id }}</td>
@@ -539,15 +724,15 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>-->
+                            </form>
         
         </div>
         </div> 
     </div>
      
     
-</div>
-         
+</div>--> 
+  
 
 </div>
 </div>

@@ -11,11 +11,12 @@
     <h1 class="welcome"> Clients</h1>
         <div class="row"> 
             <div>
-                <div class="card">
+         
+                <div class="card">  
                      <div class="card-body"> 
                         <nav class="navbar">
                             <div class="container-fluid">
-                                 
+                          
                                 <ul class="nav justify-content-left"> 
                                     <li class="nav-item">
                                         <a class="btn btn-app" data-toggle="modal" data-target="#filterCondition">
@@ -69,7 +70,7 @@
                                 </ul>
                             </div>
                         </nav> 
-                   
+                         
 <div id="clientTable" style='overflow-x:auto'>
                              @if ($clients->count() > 0)
                             <table class="table table-hover">
@@ -87,8 +88,10 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($clients as $client)
+                           
+                                <tbody>      
+                        
+                                @foreach ($clients as $client)
                                         <tr>    
                                             <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td> 
                                             <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td> 
@@ -155,7 +158,7 @@
                 </div>
             </div>
         </div>
-               
+             </div>  
 
                         
       

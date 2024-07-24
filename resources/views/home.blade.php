@@ -19,7 +19,8 @@
                         <h2>40,689</h2>      
                     </div>
                     <div class="icon">
-                    <i class="bi bi-people-fill icon all"></i>    
+<!-- <i class="bi bi-people-fill icon all"></i>    -->
+ <img src="/img/all.png" alt="" width="50px" height="50px">
                     </div>
                 </div>
          <div class="pastdata"><h6><i class='bx bx-trending-up icon'></i>  &nbsp;<span class="up">8.5%</span>&nbsp; from yesterday</h6> </div> 
@@ -40,7 +41,8 @@
                         <h2>1,689</h2>      
                     </div>
                     <div class="icon">
-                    <i class="bi bi-person-plus-fill icon new"></i>
+                 <!--   <i class="bi bi-person-plus-fill icon new"></i> -->
+                 <img src="/img/new.png" alt="" width="50px" height="50px">
                  
                     </div>
 </div>
@@ -62,7 +64,8 @@
                         <h2>36,119</h2>      
                     </div>
                     <div class="icon">
-                    <i class="bi bi-person-fill-check icon active"></i>
+                  <!--  <i class="bi bi-person-fill-check icon active"></i> -->
+                  <img src="/img/active.png" alt="" width="50px" height="50px">
                     </div>
 </div>
          <div class="pastdata"><h6><i class='bx bx-trending-down icon down'></i>  &nbsp;<span class="down">4.5%</span>&nbsp; from past yesterday</h6> </div> 
