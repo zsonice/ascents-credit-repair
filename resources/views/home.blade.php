@@ -16,7 +16,7 @@
                     <div class="labelicon">
                     <div class="cardlabel">
                         <p>All Clients</p>
-                        <h2>40,689</h2>      
+                        <h2> {{ $totalClientsCount }} </h2>      
                     </div>
                     <div class="icon">
 <!-- <i class="bi bi-people-fill icon all"></i>    -->
@@ -38,7 +38,7 @@
                 <div class="labelicon">
                     <div class="cardlabel">
                         <p>New Clients</p>
-                        <h2>1,689</h2>      
+                        <h2> {{ $newClientsCount }} </h2>      
                     </div>
                     <div class="icon">
                  <!--   <i class="bi bi-person-plus-fill icon new"></i> -->
@@ -61,7 +61,7 @@
                 <div class="labelicon">
                     <div class="cardlabel">
                         <p>Active Clients</p>
-                        <h2>36,119</h2>      
+                        <h2> {{ $activeClientsCount }} </h2>      
                     </div>
                     <div class="icon">
                   <!--  <i class="bi bi-person-fill-check icon active"></i> -->

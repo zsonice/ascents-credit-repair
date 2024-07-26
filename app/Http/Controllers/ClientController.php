@@ -30,6 +30,26 @@ class ClientController extends Controller
     //   return view('clients.index', compact('clients'))->with('query', '');
     // }
 
+    public function dashboard()
+    {
+        // Get the total count of all clients
+        $totalClientsCount = Client::count();
+
+        // Get the count of active clients excluding 'new' and 'completed' statuses
+        $activeClientsCount = Client::whereNotIn('status', ['new', 'completed'])->count();
+
+        // Get the count of new clients
+        $newClientsCount = Client::where('status', 'new')->count();
+
+        // Pass the count to the view
+         // Pass both counts to the view
+         return view('home', [
+            'totalClientsCount' => $totalClientsCount,
+            'activeClientsCount' => $activeClientsCount,
+            'newClientsCount' => $newClientsCount
+        ]);
+    }
+
     public function index(Request $request)
     {
         $query = Client::query();
