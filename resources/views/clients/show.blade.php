@@ -38,7 +38,7 @@
             <div class="card">
             <div class="card-body">
       <div class="clientname">
-        <h1>Ashley Nicole Ruiz</h1>
+        <h1>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h1>
       </div>
 
 
@@ -161,11 +161,14 @@
         <div class="card" id="info">
              <div class="card-body">
                 <div class="head">
-                    <div class="labelicon">
+                  
+ 
+                <div id="equifax" style="max-width: 400px; height: 200px;margin: 0px auto;"></div>
                     
+
                 </div>
                
-                </div>
+          
               </div>
         </div>
 
@@ -175,11 +178,9 @@
         <div class="card">
              <div class="card-body">
                 <div class="head">
-                <div class="labelicon">
-            
-</div>
+                <div id="experian" style="max-width: 400px; height: 200px;margin: 0px auto;"></div>
                     
-                </div>
+            </div>
               </div>
         </div>
 
@@ -189,10 +190,10 @@
         <div class="card">
              <div class="card-body">
                 <div class="head">
-                <div class="labelicon">
-                  
-</div>
-                   
+                <div id="transunion" style="max-width: 400px; height: 200px;margin: 0px auto;"></div>
+                    
+
+
                 </div>
               </div>
         </div>
@@ -212,7 +213,7 @@
                
                <div class="agentinfobody">
                 <div class="agentimg">
-                    <img src="/img/agent.png" alt="" width="50px" height="50px">
+                    <img src="/img/agent-info.png" alt="agent" >
                 </div>
                 <div class="agentname">
                     <h5>Ashwe Bading</h5>
@@ -739,6 +740,9 @@
 </div>
     @endsection
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 </body>
 
 </html>

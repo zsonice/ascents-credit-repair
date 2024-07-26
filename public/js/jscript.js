@@ -149,4 +149,175 @@ const body = document.querySelector("body"),
         var chart = new ApexCharts(document.querySelector("#dispute"), options);
         chart.render();
 
-  
+
+
+        var chart = JSC.chart('equifax', {
+          debug: true,
+          type: 'gauge ',
+          legend_visible: false,
+          chartArea_boxVisible: false,
+          xAxis: {
+            /*Used to position marker on top of axis line.*/
+            scale: { range: [0, 1], invert: true }
+          },
+          palette: {
+            pointValue: '%yValue',
+            ranges: [
+              { value: 300, color: '#FF0000' },
+              { value: 500, color: '##FFF000' },
+              { value: 700, color: '#77E6B4' },
+              { value: [800, 900], color: '#008000' }
+            ]
+          },
+          yAxis: {
+            defaultTick: { padding: 13, enabled: false },
+            customTicks: [500,700,800, 900],
+            line: {
+              width: 20,
+              breaks_gap: 0.03,
+              color: 'smartPalette'
+            },
+            scale: { range: [300, 900] }
+          },
+          defaultSeries: {
+            opacity: 1,
+            shape: {
+              label: { align: 'center', verticalAlign: 'middle' }
+            }
+          },
+          series: [
+            {
+              type: 'marker',
+              name: 'Score',
+              shape_label: { //edit here
+                text: "<span style='font-weight:600'>680</span><br/> <span style='fontSize: 15'>Great!</span><br/><img src='../img/equifax.png' width='60px'",
+                style: { fontSize: 20 }
+              },
+              defaultPoint: {
+                tooltip: '%yValue',
+                marker: {
+                  outline: { width: 10, color: 'currentColor' },
+                  fill: 'white',
+                  type: 'circle',
+                  visible: true,
+                  size: 20
+                }
+              },
+              points: [[1, 680]] //edit here
+            }
+          ]
+        });
+        
+        var chart = JSC.chart('experian', {
+          debug: true,
+          type: 'gauge ',
+          legend_visible: false,
+          chartArea_boxVisible: false,
+          xAxis: {
+            /*Used to position marker on top of axis line.*/
+            scale: { range: [0, 1], invert: true }
+          },
+          palette: {
+            pointValue: '%yValue',
+            ranges: [
+              { value: 300, color: '#FF0000' },
+              { value: 500, color: '##FFF000' },
+              { value: 700, color: '#77E6B4' },
+              { value: [800, 900], color: '#008000' }
+            ]
+          },
+          yAxis: {
+            defaultTick: { padding: 13, enabled: false },
+            customTicks: [500,700,800, 900],
+            line: {
+              width: 20,
+              breaks_gap: 0.03,
+              color: 'smartPalette'
+            },
+            scale: { range: [300, 900] }
+          },
+          defaultSeries: {
+            opacity: 1,
+            shape: {
+              label: { align: 'center', verticalAlign: 'middle' }
+            }
+          },
+          series: [
+            {
+              type: 'marker',
+              name: 'Score',
+              shape_label: {
+                text: "<span style='font-weight:600'>650</span><br/> <span style='fontSize: 15'>Great!</span><br/><img src='../img/experian.png' width='70px'",
+                style: { fontSize: 20 }
+              },
+              defaultPoint: {
+                tooltip: '%yValue',
+                marker: {
+                  outline: { width: 10, color: 'currentColor' },
+                  fill: 'white',
+                  type: 'circle',
+                  visible: true,
+                  size: 20
+                }
+              },
+              points: [[1, 650]]
+            }
+          ]
+        });
+        
+        var chart = JSC.chart('transunion', {
+          debug: true,
+          type: 'gauge ',
+          legend_visible: false,
+          chartArea_boxVisible: false,
+          xAxis: {
+            /*Used to position marker on top of axis line.*/
+            scale: { range: [0, 1], invert: true }
+          },
+          palette: {
+            pointValue: '%yValue',
+            ranges: [
+              { value: 300, color: '#FF0000' },
+              { value: 500, color: '##FFF000' },
+              { value: 700, color: '#77E6B4' },
+              { value: [800, 900], color: '#008000' }
+            ]
+          },
+          yAxis: {
+            defaultTick: { padding: 13, enabled: false },
+            customTicks: [500,700,800, 900],
+            line: {
+              width: 20,
+              breaks_gap: 0.03,
+              color: 'smartPalette'
+            },
+            scale: { range: [300, 900] }
+          },
+          defaultSeries: {
+            opacity: 1,
+            shape: {
+              label: { align: 'center', verticalAlign: 'middle' }
+            }
+          },
+          series: [
+            {
+              type: 'marker',
+              name: 'Score',
+              shape_label: {
+                text: "<span style='font-weight:600'>620</span><br/> <span style='fontSize: 15'>Great!</span><br/><img src='../img/transunion.png' width='60px'",
+                style: { fontSize: 20 }
+              },
+              defaultPoint: {
+                tooltip: '%yValue',
+                marker: {
+                  outline: { width: 10, color: 'currentColor' },
+                  fill: 'white',
+                  type: 'circle',
+                  visible: true,
+                  size: 20
+                }
+              },
+              points: [[1, 620]]
+            }
+          ]
+        });

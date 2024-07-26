@@ -177,7 +177,7 @@
                              <th>Name</th>
                                  <th>Assigned To</th>
                                  <th>Date</th>
-                                 <th>Status</th>
+                            
                                  <th>Action</th>
                        
                                  
@@ -189,7 +189,7 @@
                                  <td>Lala Chan</td> 
                                      <td>Lala</td> 
                                      <td>06/11/2024 06:56 PM</td>
-                                     <td>Active</td>
+                                  
                                      <td> <button class="btn btn-primary">View</button>  
                                    </td>
                                 
@@ -198,7 +198,7 @@
                                  <td>Ashwe Bading</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
-                                     <td>Inactive</td>
+                             
                                      <td><button class="btn btn-primary">View</button>  
                                </td>
                          
@@ -207,29 +207,13 @@
                                  <td>Duan Bading</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
-                                     <td>Inactive</td>
+                                   
                                      <td><button class="btn btn-primary">View</button>  
                                </td>
                          
                                  </tr>
-                                 <tr>
-                                 <td>Duan Bading</td> 
-                                     <td>Lala</td> 
-                                     <td>04/12/2024 10:56 AM</td>
-                                     <td>Active</td>
-                                     <td><button class="btn btn-primary">View</button>  
-                               </td>
-                         
-                                 </tr>
-                                 <tr>
-                                 <td>Ashwe Bading</td> 
-                                     <td>Lala</td> 
-                                     <td>04/12/2024 10:56 AM</td>
-                                     <td>Inactive</td>
-                                     <td><button class="btn btn-primary">View</button>  
-                               </td>
-                         
-                                 </tr>
+                           
+                        
                          
                          
                          </tbody>

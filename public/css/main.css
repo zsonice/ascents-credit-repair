@@ -620,6 +620,18 @@ body.dark .card .card-body .navbar{
     background:var(--primary-color);
     color:var(--header);
    }
+   table th:first-child{
+    border-radius:3px 0 0 3px;
+  }
+  
+  table th:last-child{
+    border-radius:0 3px 3px 0;
+  }
+ .table tr th{
+    align-items: center!important;
+    justify-content: center!important;
+    align-self: center!important;
+ }
    .hello div .card-body{
     margin: 20px;
    }
@@ -1500,7 +1512,7 @@ color: var(--primary-color)!important;
   
  }
  .iAlerts h6{
-color: var(--header-text);
+color: var(--dark-text);
 font-size: 14px;
  }
  .iBody{
@@ -1557,7 +1569,7 @@ padding: 10px;
  }
  .iMessageBody a{
     font-weight: 600;
-    color: var(--header-text);
+    color: var(--dark-text);
  }
 #NewClients .btn-primary,
 #ActiveClients .btn-primary{
@@ -1610,7 +1622,7 @@ padding: 10px;
   .iBody tr a{
     font-weight: 600;
     font-size: 14px;
-    color: var(--header-text);
+    color: var(--dark-text);
    }
    .iBody tr h6{
     font-size: 12px!important;
@@ -1713,17 +1725,17 @@ padding: 10px;
 }
 .clientnav .nav-link.active{
 border-radius: 0;    
-border-bottom: 2px solid var(--primary-color)!important;
-color: var(--primary-color)!important;
+border-bottom: 2px solid var(--side-bar-color)!important;
+color: var(--side-bar-color)!important;
 }.clientnav .nav-link:hover{
     border-radius: 0;    
-    border-bottom: 2px solid var(--primary-color)!important;
-    color: var(--primary-color)!important;
+    border-bottom: 2px solid var(--side-bar-color)!important;
+    color: var(--side-bar-color)!important;
     }
 .clientnav .nav-link.focus{
     border-radius: 0;    
-    border-bottom: 2px solid var(--primary-color)!important;
-    color: var(--primary-color)!important;
+    border-bottom: 2px solid var(--side-bar-color)!important;
+    color: var(--side-bar-color)!important;
     }
 /* Showcontainer */
 #showcontainer{
@@ -1743,12 +1755,18 @@ color: var(--primary-color)!important;
     padding: 5px;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--primary-color);
+    background-color:var(--side-bar-color);
     border-radius: 50% ;
     align-self:center;
     margin-right:10px ;
-    
+    transition: var(--tran-04);
+
    }
+   .agentimg img{
+    width: 60px;
+    border-radius: 50% ;
+   }
+
    .agentname h5{
     font-weight: 600;
     font-size:18px ;
@@ -1824,6 +1842,7 @@ color: var(--primary-color)!important;
    }
    .clientname h1{
     font-weight: 600;
+    color: var(--dark-text)!important;
    }
    /* Clientinfo */
 #clientinfo .card .clientinfo{
@@ -1908,3 +1927,9 @@ font-size: 22px;
     color: var(--side-bar-color);
   
 }
+/* Agentinfobody */
+#agentinfo .card .agentinfobody{
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+   }
