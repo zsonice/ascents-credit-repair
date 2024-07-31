@@ -247,7 +247,7 @@ class ClientController extends Controller
             'previous_state' => '',
             'previous_zip_code' => null,
             'previous_country' => '',
-            'status' =>   $request->input('status'),
+            'status' =>   'new',
             'start_date' =>  $request->input('start_date', now()->toDateString()),
             'assigned_to' =>  $userId,
 
