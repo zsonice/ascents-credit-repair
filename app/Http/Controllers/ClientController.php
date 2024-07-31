@@ -30,6 +30,45 @@ class ClientController extends Controller
     //   return view('clients.index', compact('clients'))->with('query', '');
     // }
 
+    public function getClientData()
+    {
+        // Define the months of the year
+        $months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+
+        // Initialize arrays to hold the data
+        $allClients = array_fill(0, 12, 0);
+        $newClients = array_fill(0, 12, 0);
+
+        // Fetch total clients per month using Eloquent
+        $totalClients = Client::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
+        // Fetch new clients per month using Eloquent
+        $newClientsData = Client::where('status', 'new')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
+        // Fill in the data for each month
+        foreach ($totalClients as $month => $count) {
+            $allClients[$month - 1] = $count; // Adjust month index to 0-based
+        }
+        foreach ($newClientsData as $month => $count) {
+            $newClients[$month - 1] = $count; // Adjust month index to 0-based
+        }
+
+        // Return the data as JSON
+        return response()->json([
+            'allClients' => $allClients,
+            'newClients' => $newClients,
+            'labels' => $months
+        ]);
+    }
+
     public function dashboard()
     {
         // Get the total count of all clients

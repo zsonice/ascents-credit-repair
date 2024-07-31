@@ -29,9 +29,19 @@ Route::get('/', function () {
 //     return view('home');
 // })->middleware(['auth', 'verified'])->name('home');
 
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('/home', [ClientController::class, 'dashboard'])->name('home.dashboard');
+//     Route::get('/home', [ClientController::class, 'getClientData'])->name('home.client');
+
+// })->name('home');
+
 Route::get('/home', [ClientController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
-    ->name('home');
+    ->name('home'); 
+
+Route::get('/clients-data', [ClientController::class, 'getClientData'])
+    ->middleware(['auth', 'verified']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export');
