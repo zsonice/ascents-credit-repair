@@ -42,6 +42,9 @@ Route::get('/home', [ClientController::class, 'dashboard'])
 Route::get('/clients-data', [ClientController::class, 'getClientData'])
     ->middleware(['auth', 'verified']);
 
+    // Route::get('/clients/new', [ClientController::class, 'showNewClients'])->name('clients.new');
+    // Route::get('/clients/{id}', [ClientController::class, 'show'])->name('clients.show');
+    // Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export');

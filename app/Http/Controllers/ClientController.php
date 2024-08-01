@@ -70,24 +70,28 @@ class ClientController extends Controller
     }
 
     public function dashboard()
-    {
-        // Get the total count of all clients
-        $totalClientsCount = Client::count();
+{
+    // Get the total count of all clients
+    $totalClientsCount = Client::count();
 
-        // Get the count of active clients excluding 'new' and 'completed' statuses
-        $activeClientsCount = Client::whereNotIn('status', ['new', 'completed'])->count();
+    // Get the count of active clients excluding 'new' and 'completed' statuses
+    $activeClientsCount = Client::whereNotIn('status', ['new', 'completed'])->count();
 
-        // Get the count of new clients
-        $newClientsCount = Client::where('status', 'new')->count();
+    // Get the count of new clients
+    $newClientsCount = Client::where('status', 'new')->count();
 
-        // Pass the count to the view
-         // Pass both counts to the view
-         return view('home', [
-            'totalClientsCount' => $totalClientsCount,
-            'activeClientsCount' => $activeClientsCount,
-            'newClientsCount' => $newClientsCount
-        ]);
-    }
+    // Get the actual list of new clients
+    $newClients = Client::where('status', 'new')->limit(3)->get();
+
+    // Pass all the data to the view
+    return view('home', [
+        'totalClientsCount' => $totalClientsCount,
+        'activeClientsCount' => $activeClientsCount,
+        'newClientsCount' => $newClientsCount,
+        'newClients' => $newClients, // Add new clients data to be used in the view
+    ]);
+}
+    
 
     public function index(Request $request)
     {
@@ -146,6 +150,7 @@ class ClientController extends Controller
 
     //     return redirect()->route('clients.index');
     // }
+
 
 
 
