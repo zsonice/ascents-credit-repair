@@ -24,7 +24,16 @@
                 </div>
                 <div class="pastdata">
                   <h6>
-                    <i class='bx bx-trending-up icon'></i> &nbsp; <span class="up">8.5%</span>&nbsp; from yesterday
+                    @if($percentageChangeTotal > 0)
+                        <i class='bx bx-trending-up icon'></i> &nbsp; <span class="up">{{ $percentageChangeTotal }}%</span>&nbsp; from last month
+                    @elseif($percentageChangeTotal < 0)
+                        @php
+                        $percentageChangeTotal = abs($percentageChangeTotal);
+                        @endphp
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">{{ $percentageChangeTotal }}%</span>&nbsp; from last month
+                    @else
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">No change</span>&nbsp; from last month
+                    @endif
                   </h6>
                 </div>
               </div>
@@ -47,7 +56,16 @@
                 </div>
                 <div class="pastdata">
                   <h6>
-                    <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">1.5%</span>&nbsp; from past week
+                    @if($percentageChangeNew > 0)
+                        <i class='bx bx-trending-up icon'></i> &nbsp; <span class="up">{{ $percentageChangeNew }}%</span>&nbsp; from last month
+                    @elseif($percentageChangeNew < 0)
+                        @php
+                        $percentageChangeNew = abs($percentageChangeNew);
+                        @endphp
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">{{ $percentageChangeNew }}%</span>&nbsp; from last month
+                    @else
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">No change</span>&nbsp; from last month
+                    @endif
                   </h6>
                 </div>
               </div>
@@ -70,7 +88,17 @@
                 </div>
                 <div class="pastdata">
                   <h6>
-                    <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">4.5%</span>&nbsp; from past yesterday
+                    @if($percentageChangeActive > 0)
+                        <i class='bx bx-trending-up icon'></i> &nbsp; <span class="up">{{ $percentageChangeActive }}%</span>&nbsp; from last month
+                    @elseif($percentageChangeActive < 0)
+                        @php
+                        $percentageChangeActive = abs($percentageChangeActive);
+                        @endphp
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">{{ $percentageChangeActive }}%</span>&nbsp; from last month
+                    @else
+                        <i class='bx bx-trending-down icon down'></i> &nbsp; <span class="down">No change</span>&nbsp; from last month
+                    @endif
+            
                   </h6>
                 </div>
               </div>

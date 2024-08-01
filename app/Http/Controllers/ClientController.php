@@ -80,7 +80,30 @@ class ClientController extends Controller
     // Get the count of new clients
     $newClientsCount = Client::where('status', 'new')->count();
 
-    // Get the actual list of new clients
+    // Calculate counts for this month and last month
+    $startOfMonth = now()->startOfMonth();
+    $endOfMonth = now()->endOfMonth();
+    $startOfLastMonth = now()->subMonth()->startOfMonth();
+    $endOfLastMonth = now()->subMonth()->endOfMonth();
+
+    // Total clients counts
+    $totalClientsThisMonth = Client::whereBetween('created_at', [$startOfMonth, $endOfMonth])->count();
+    $totalClientsLastMonth = Client::whereBetween('created_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // New clients counts
+    $newClientsThisMonth = Client::where('status', 'new')->whereBetween('created_at', [$startOfMonth, $endOfMonth])->count();
+    $newClientsLastMonth = Client::where('status', 'new')->whereBetween('created_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // Active clients counts
+    $activeClientsThisMonth = Client::whereNotIn('status', ['new', 'completed'])->whereBetween('updated_at', [$startOfMonth, $endOfMonth])->count();
+    $activeClientsLastMonth = Client::whereNotIn('status', ['new', 'completed'])->whereBetween('updated_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // Calculate percentage changes
+    $percentageChangeTotal = $this->calculatePercentageChange($totalClientsThisMonth, $totalClientsLastMonth);
+    $percentageChangeNew = $this->calculatePercentageChange($newClientsThisMonth, $newClientsLastMonth);
+    $percentageChangeActive = $this->calculatePercentageChange($activeClientsThisMonth, $activeClientsLastMonth);
+
+    // Get up to 3 new clients
     $newClients = Client::where('status', 'new')->limit(3)->get();
 
     // Pass all the data to the view
@@ -88,8 +111,20 @@ class ClientController extends Controller
         'totalClientsCount' => $totalClientsCount,
         'activeClientsCount' => $activeClientsCount,
         'newClientsCount' => $newClientsCount,
-        'newClients' => $newClients, // Add new clients data to be used in the view
+        'newClients' => $newClients,
+        'percentageChangeTotal' => $percentageChangeTotal,
+        'percentageChangeNew' => $percentageChangeNew,
+        'percentageChangeActive' => $percentageChangeActive,
     ]);
+}
+
+private function calculatePercentageChange($thisMonth, $lastMonth)
+{
+    if ($lastMonth > 0) {
+         return (($thisMonth - $lastMonth) / $lastMonth) * 100;
+    }
+
+    return 0;
 }
     
 
