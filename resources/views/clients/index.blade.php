@@ -83,8 +83,8 @@
                                         <th>Last Login</th>
                                         <th>Onboarding Stage</th>
                                         <th>Client Status</th>
-                                        <th>Billing Status</th>
-                                        <th>Plan Name</th>
+                                        <!-- <th>Billing Status</th>
+                                        <th>Plan Name</th> -->
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -97,11 +97,11 @@
                                             <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td> 
                                             <td>{{ $client->created_at }}</td>
                                             <td>{{ $client->start_date }}</td>
-                                            <td>Last login {{ $client->updated_at }}</td>
+                                            <td>{{ $client->updated_at }}</td>
                                             <td>Onboarding stage </td>
-                                            <td>Client status {{ $client->status }}</td>
-                                            <td>Billing status </td>
-                                            <td>Plan name </td>
+                                            <td>{{ $client->status }}</td>
+                                            <!-- <td>Billing status </td>
+                                            <td>Plan name </td> -->
                                             <td> 
                                                 <a href="{{ route('clients.show', $client) }}" class="btn"><i class="bi bi-eye-fill"></i></a>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#editClientModal"><i class='bx bxs-edit' ></i></button>
@@ -321,7 +321,7 @@
 <hr>
 <br>
                                  
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col" id="assigneddiv">
                                                 <label for="team_members">Assigned To</label>
@@ -354,7 +354,7 @@
                       </div>
                                             
                                     </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col" id="cmsdiv">
@@ -453,7 +453,7 @@
     <option value="I">Inactive</option>  
                      </select>
                       </div>
-                  </div>     
+                  </div>
                   <div class="form-group">
    <div class="col" id="billingdiv">
                                                 <label for="status">Billing Status</label>
@@ -609,7 +609,7 @@ Reset All
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                          <!-- Form for adding a new client -->
+ <!-- Form for creating a new client -->
                                         <form action="{{ route('clients.store') }}" method="POST" id="addClientForm">
                                             @csrf
                                             <div class="form-group">
@@ -756,9 +756,9 @@ Reset All
 <hr>
 <br>
                                  
-                                            <div class="form-group">
-                                            <div class="row align-items-center">
-                                            <div class="col" id="assigneddiv">
+                                            <!-- <div class="form-group"> -->
+                                         <!--   <div class="row align-items-center"> -->
+                                            <!-- <div class="col" id="assigneddiv">
                                                 <label for="team_members">Assigned To</label>
                                              <select name="team_members" id="team_members" required>
                                             <option value="" disabled selected>Select</option>
@@ -767,8 +767,8 @@ Reset All
 	<option>Du</option>  
     <option>Juib</option>  
                      </select>
-                      </div>
-                                            <div class="col" id="referreddiv">
+                      </div> -->
+                                            <!-- <div class="col" id="referreddiv">
                                                 <label for="referred_by">Referred By</label>
                                                 <select name="referred_by" id="referred" required>
   <option value="" disabled selected>Select</option>
@@ -777,8 +777,8 @@ Reset All
 	<option>Du</option>  
     <option>Juib</option>  
                      </select>
-                      </div>
-                      <div class="col" id="statusdiv">
+                      </div> -->
+                      <!-- <div class="col" id="statusdiv">
                                                 <label for="status">Status</label>
                                                 <select name="status" id="status" required>
   <option value="" disabled selected>Select</option>
@@ -786,10 +786,10 @@ Reset All
     <option value="C">Client</option>  
     <option value="I">Inactive</option>  
                      </select>
-                      </div>
+                      </div> -->
                                           
-                                    </div>
-                                    </div>
+                                <!--    </div> -->
+                                <!--     </div> -->
 
                                     
                                       <div class="form-group">

@@ -25,9 +25,26 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware(['auth', 'verified'])->name('home');
+
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('/home', [ClientController::class, 'dashboard'])->name('home.dashboard');
+//     Route::get('/home', [ClientController::class, 'getClientData'])->name('home.client');
+
+// })->name('home');
+
+Route::get('/home', [ClientController::class, 'dashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('home'); 
+
+Route::get('/clients-data', [ClientController::class, 'getClientData'])
+    ->middleware(['auth', 'verified']);
+
+    // Route::get('/clients/new', [ClientController::class, 'showNewClients'])->name('clients.new');
+    // Route::get('/clients/{id}', [ClientController::class, 'show'])->name('clients.show');
+    // Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('clients/export', [ClientController::class, 'exportToCsv'])->name('clients.export');

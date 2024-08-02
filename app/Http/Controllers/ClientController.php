@@ -30,6 +30,104 @@ class ClientController extends Controller
     //   return view('clients.index', compact('clients'))->with('query', '');
     // }
 
+    public function getClientData()
+    {
+        // Define the months of the year
+        $months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+
+        // Initialize arrays to hold the data
+        $allClients = array_fill(0, 12, 0);
+        $newClients = array_fill(0, 12, 0);
+
+        // Fetch total clients per month using Eloquent
+        $totalClients = Client::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
+        // Fetch new clients per month using Eloquent
+        $newClientsData = Client::where('status', 'new')
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->groupBy('month')
+            ->pluck('count', 'month');
+
+        // Fill in the data for each month
+        foreach ($totalClients as $month => $count) {
+            $allClients[$month - 1] = $count; // Adjust month index to 0-based
+        }
+        foreach ($newClientsData as $month => $count) {
+            $newClients[$month - 1] = $count; // Adjust month index to 0-based
+        }
+
+        // Return the data as JSON
+        return response()->json([
+            'allClients' => $allClients,
+            'newClients' => $newClients,
+            'labels' => $months
+        ]);
+    }
+
+    public function dashboard()
+{
+    // Get the total count of all clients
+    $totalClientsCount = Client::count();
+
+    // Get the count of active clients excluding 'new' and 'completed' statuses
+    $activeClientsCount = Client::whereNotIn('status', ['new', 'completed'])->count();
+
+    // Get the count of new clients
+    $newClientsCount = Client::where('status', 'new')->count();
+
+    // Calculate counts for this month and last month
+    $startOfMonth = now()->startOfMonth();
+    $endOfMonth = now()->endOfMonth();
+    $startOfLastMonth = now()->subMonth()->startOfMonth();
+    $endOfLastMonth = now()->subMonth()->endOfMonth();
+
+    // Total clients counts
+    $totalClientsThisMonth = Client::whereBetween('created_at', [$startOfMonth, $endOfMonth])->count();
+    $totalClientsLastMonth = Client::whereBetween('created_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // New clients counts
+    $newClientsThisMonth = Client::where('status', 'new')->whereBetween('created_at', [$startOfMonth, $endOfMonth])->count();
+    $newClientsLastMonth = Client::where('status', 'new')->whereBetween('created_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // Active clients counts
+    $activeClientsThisMonth = Client::whereNotIn('status', ['new', 'completed'])->whereBetween('updated_at', [$startOfMonth, $endOfMonth])->count();
+    $activeClientsLastMonth = Client::whereNotIn('status', ['new', 'completed'])->whereBetween('updated_at', [$startOfLastMonth, $endOfLastMonth])->count();
+
+    // Calculate percentage changes
+    $percentageChangeTotal = $this->calculatePercentageChange($totalClientsThisMonth, $totalClientsLastMonth);
+    $percentageChangeNew = $this->calculatePercentageChange($newClientsThisMonth, $newClientsLastMonth);
+    $percentageChangeActive = $this->calculatePercentageChange($activeClientsThisMonth, $activeClientsLastMonth);
+
+    // Get up to 3 new clients
+    $newClients = Client::where('status', 'new')->limit(3)->get();
+
+    // Pass all the data to the view
+    return view('home', [
+        'totalClientsCount' => $totalClientsCount,
+        'activeClientsCount' => $activeClientsCount,
+        'newClientsCount' => $newClientsCount,
+        'newClients' => $newClients,
+        'percentageChangeTotal' => $percentageChangeTotal,
+        'percentageChangeNew' => $percentageChangeNew,
+        'percentageChangeActive' => $percentageChangeActive,
+    ]);
+}
+
+private function calculatePercentageChange($thisMonth, $lastMonth)
+{
+    if ($lastMonth > 0) {
+         return (($thisMonth - $lastMonth) / $lastMonth) * 100;
+    }
+
+    return 0;
+}
+    
+
     public function index(Request $request)
     {
         $query = Client::query();
@@ -87,6 +185,7 @@ class ClientController extends Controller
 
     //     return redirect()->route('clients.index');
     // }
+
 
 
 
@@ -188,7 +287,7 @@ class ClientController extends Controller
             'previous_state' => '',
             'previous_zip_code' => null,
             'previous_country' => '',
-            'status' =>   $request->input('status'),
+            'status' =>   'new',
             'start_date' =>  $request->input('start_date', now()->toDateString()),
             'assigned_to' =>  $userId,
 
