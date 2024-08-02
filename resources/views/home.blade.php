@@ -68,7 +68,7 @@
                   <img src="/img/active.png" alt="" width="50px" height="50px">
                     </div>
 </div>
-         <div class="pastdata"><h6><i class='bx bx-trending-down icon down'></i>  &nbsp;<span class="down">4.5%</span>&nbsp; from past yesterday</h6> </div> 
+         <div class="pastdata"><h6><i class='bx bx-trending-down icon down'></i>  &nbsp;<span class="down">4.5%</span>&nbsp; from yesterday</h6> </div> 
                    
                 </div>
               </div>
@@ -125,8 +125,8 @@
                                
                                  <tr>    
                                      <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
-                                     <td> <a href="#"> Past due - Ashley's Tuwep</a>  
-                                     <h6>Follow-Up tuwep</h6></a></td> 
+                                     <td> <a href="#"> Past due - Ashley's Tu</a>  
+                                     <h6>Follow-Up tuw</h6></a></td> 
 
                                  </tr>
                                  <tr>    
@@ -137,8 +137,8 @@
                                  </tr>
                                  <tr>    
                                      <td><i class="bi bi-exclamation-triangle-fill"></i></td> 
-                                     <td> <a href="#"> Past due - Duan Chismosa</a>  
-                                     <h6>Meeting with Tuwep GC</h6></a></td> 
+                                     <td> <a href="#"> Past due - Duan Chis</a>  
+                                     <h6>Meeting with Tu GC</h6></a></td> 
 
                                  </tr>
                          
@@ -195,7 +195,7 @@
                                 
                                  </tr>
                                  <tr>    
-                                 <td>Ashwe Bading</td> 
+                                 <td>Ashwe Bad</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
                              
@@ -204,7 +204,7 @@
                          
                                  </tr>
                                  <tr>    
-                                 <td>Duan Bading</td> 
+                                 <td>Duan Bad</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
                                    
@@ -267,7 +267,7 @@
                                 
                                  </tr>
                                  <tr>    
-                                 <td>Ashwe Bading</td> 
+                                 <td>Ashwe Badi</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
                                      <td>Inactive</td>
@@ -276,7 +276,7 @@
                          
                                  </tr>
                                  <tr>    
-                                 <td>Duan Bading</td> 
+                                 <td>Duan Badi</td> 
                                      <td>Lala</td> 
                                      <td>04/12/2024 10:56 AM</td>
                                      <td>Inactive</td>
@@ -324,27 +324,27 @@
                          
                                  <tr>    
                                      <td><i class="bi bi-chat-left-text-fill"></i></td> 
-                                     <td><a href="#">Ashwe Bading</a>  
-                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+                                     <td><a href="#">Ashwe Ruiz</a>  
+                                     <h6>Great morning, this is Ashwe Ruiz...</h6></td> 
 
                                  </tr>
                                
                                  <tr>    
                                      <td><i class="bi bi-chat-left-text-fill"></i></td> 
-                                     <td><a href="#">Duan Tuwep</a>
-                                     <h6>Hi this is duan tuwep. I just want to...</h6></td> 
+                                     <td><a href="#">Duan Castle</a>
+                                     <h6>Hi this is duan castle. I just want to...</h6></td> 
 
                                  </tr>
                                  <tr>    
                                      <td><i class="bi bi-chat-left-text-fill"></i></td> 
-                                     <td><a href="#">Ashwe Bading</a>  
-                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+                                     <td><a href="#">Ashwe Ruiz</a>  
+                                     <h6>Great morning, this is Ashwe Ruiz...</h6></td> 
 
                                  </tr>
                                  <tr>    
                                      <td><i class="bi bi-chat-left-text-fill"></i></td> 
-                                     <td><a href="#">Ashwe Bading</a>  
-                                     <h6>Great morning, this is Ashwe Bading...</h6></td> 
+                                     <td><a href="#">Ashwe Ruiz</a>  
+                                     <h6>Great morning, this is Ashwe Ruiz...</h6></td> 
 
                                  </tr>
                          </tbody>

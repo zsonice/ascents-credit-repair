@@ -123,14 +123,14 @@
                                  <tr>    
                                      <td><h6>July 24, 2024</h6></td> 
                                      <td>
-                                     <h6>Email Send</h6></td> 
+                                     <h6>Send Documents</h6></td> 
 
                                  </tr>
                                
                                  <tr>    
                                      <td><h6>July 22, 2024</h6></td> 
                                      <td> 
-                                     <h6>Follow-Up tuwep</h6></a></td> 
+                                     <h6>Follow-Up Email</h6></td> 
 
                                  </tr>
                             
@@ -216,7 +216,7 @@
                     <img src="/img/agent-info.png" alt="agent" >
                 </div>
                 <div class="agentname">
-                    <h5>Ashwe Bading</h5>
+                    <h5>Ashley Chan</h5>
                     <h6>Virtual Assistant</h6>
                 </div>
                    

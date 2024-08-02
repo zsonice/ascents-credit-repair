@@ -811,7 +811,7 @@ Reset All
   <div class="col" >
   <label for="cmspass">CMS Password</label>
 
-  <input type="password" name="cmspass" id="cmspass" class="form-control" required>
+  <input type="text" name="cmspass" id="cmspass" class="form-control" required>
                                
   </div>
                                             
