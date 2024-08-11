@@ -211,22 +211,41 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     
     
 
-    public function edit(client $client)
+    // public function edit(client $client)
+    // {
+    //     return view('clients.edit', compact('client'));
+    // }
+
+    // Method to fetch client data
+    public function edit($id)
     {
-        return view('clients.edit', compact('client'));
+        $client = Client::find($id);
+        return response()->json($client);
     }
 
-    public function update(Request $request, client $client)
-    {
-        $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-        ]);
 
-        $client->update($request->all());
+    // public function update(Request $request, client $client)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|max:255',
+    //         'description' => 'required',
+    //     ]);
 
-        return redirect()->route('clients.index');
-    }
+    //     $client->update($request->all());
+
+    //     return redirect()->route('clients.index');
+    // }
+
+     // Method to update client data
+     public function update(Request $request, $id)
+     {
+         $client = Client::find($id);
+         $client->first_name = $request->firstnameEdt; 
+         // Update other fields as necessary
+         $client->save();
+ 
+         return redirect()->back()->with('success', 'Client updated successfully');
+     }
 
     public function destroy(client $client)
     {
