@@ -323,46 +323,11 @@
 <br>
 <hr>
 <br>
-                                 
-                                            <!-- <div class="form-group">
-                                            <div class="row align-items-center">
-                                            <div class="col" id="assigneddiv">
-                                                <label for="team_members">Assigned To</label>
-                                             <select name="team_members" id="team_members" required>
-                                            <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div>
-                                            <div class="col" id="referreddiv">
-                                                <label for="referred_by">Referred By</label>
-                                                <select name="referred_by" id="referred" required>
-  <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div>
-                      <div class="col" id="statusdiv">
-                                                <label for="status">Status</label>
-                                                <select name="status" id="status" required>
-  <option value="" disabled selected>Select</option>
-  <option value="L">Lead</option>
-    <option value="C">Client</option>  
-    <option value="I">Inactive</option>  
-                     </select>
-                      </div>
-                                            
-                                    </div>
-                                    </div> -->
                                     <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col" id="cmsdiv">
-                                                <label for="cms">Credit Monitoring System</label>
-                                             <select name="cms" id="cms" required>
+                                                <label for="cms_type">Credit Monitoring System</label>
+                                             <select name="cms_type" id="cms_type" required>
                                             <option value="" disabled selected>Select</option>
   <option>IdentityIQ</option>
 	<option>SmartCredit</option>
@@ -784,24 +749,6 @@ Reset All
                                             
                         </div>
                     </div>
-                    <!-- <div class="form-group">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <label for="date_addedEdt">Date Added</label>
-                                <input type="date" name="date_addedEdt" id="date_addedEdt" class="form-control" required>
-                            </div>
-                            
-                            <div class="col">
-                                <label for="start_dateEdt">Start Date</label>
-                                <input type="date" name="start_dateEdt" id="start_dateEdt" class="form-control" required>
-                            </div>
-                            
-                            <div class="col">
-                                <label for="last_login_dateEdt">Last Login Date</label>
-                                <input type="date" name="last_login_dateEdt" id="last_login_dateEdt" class="form-control" required>
-                            </div> 
-                        </div>
-                    </div>  -->
                     <!-- Modal buttons -->
                     <div class="modal-footer"> 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

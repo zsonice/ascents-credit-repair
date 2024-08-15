@@ -93,7 +93,9 @@
                 $('#editClientForm').attr('action', formAction);
 
                $.get(formAction + '/edit', function(data) {
-                    console.log(data);
+                    console.log('Response Data:', data); // Log the entire response object
+
+                    if (data) {
                     $('#clientId').val(data.id);
                     $('#firstnameEdt').val(data.first_name);
                     $('#middlenameEdt').val(data.middle_name);
@@ -114,13 +116,23 @@
                     $('#palternateEdt').val(data.mobile_alt);
                     $('#pworkEdt').val(data.mobile_work);
                     $('#faxEdt').val(data.fax);
-                    // Format the created_at date to yyyy-MM-dd
-                    // var dateAdded = new Date(data.created_at);
-                    // var formattedDate = dateAdded.getFullYear() + '-' +
-                    //                     (dateAdded.getMonth() + 1).toString().padStart(2, '0') + '-' +
-                    //                     dateAdded.getDate().toString().padStart(2, '0');
-                   // $('#date_addedEdt').val(formattedDate);
-                   // $('#start_dateEdt').val(data.start_date);
+
+                    // Populate CMS fields
+                    if (data.cms_login) {
+                    $('#cmsEdt').val(data.cms_login.cms_type);
+                    $('#cmsuserEdt').val(data.cms_login.username);
+                    $('#cmspassEdt').val(data.cms_login.password); // Consider using a placeholder or masked value
+                    } else {
+                        // Set default values if cmsLogin does not exist
+                        $('#cmsEdt').val('');
+                        $('#cmsuserEdt').val('');
+                        $('#cmspassEdt').val(''); // Consider using a placeholder or masked value
+                    }
+                } else {
+                    console.error('No data received.');
+                }
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error:', textStatus, errorThrown);
                 });
             });
             
