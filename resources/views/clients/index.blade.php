@@ -613,7 +613,7 @@ Reset All
             </div>
             
             <div class="modal-body">
-             <!-- Form for creating a new client -->
+             <!-- Form for editing a  client -->
                 {{-- <form action="{{ route('clients.store') }}" method="POST" id="addClientForm"> --}}
                     <form id="editClientForm" method="POST">
                     @csrf
@@ -784,7 +784,7 @@ Reset All
                                             
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="row align-items-center">
                             <div class="col">
                                 <label for="date_addedEdt">Date Added</label>
@@ -801,7 +801,7 @@ Reset All
                                 <input type="date" name="last_login_dateEdt" id="last_login_dateEdt" class="form-control" required>
                             </div> 
                         </div>
-                    </div> 
+                    </div>  -->
                     <!-- Modal buttons -->
                     <div class="modal-footer"> 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

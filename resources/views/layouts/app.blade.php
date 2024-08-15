@@ -98,20 +98,29 @@
                     $('#firstnameEdt').val(data.first_name);
                     $('#middlenameEdt').val(data.middle_name);
                     $('#lastnameEdt').val(data.last_name); 
+                    $('#suffixEdt').val(data.suffix); 
                     $('#emailEdt').val(data.email); 
                     $('#ssnEdt').val(data.ssn);
-                    $('#birthdateEdt').val(data.date_of_birth);
+                    var bday = new Date(data.date_of_birth);
+                    var fbday = bday.getFullYear() + '-' +
+                                        (bday.getMonth() + 1).toString().padStart(2, '0') + '-' +
+                                        bday.getDate().toString().padStart(2, '0');
+                    $('#birthdateEdt').val(fbday);
+                    $('#mailingEdt').val(data.address);
                     $('#cityEdt').val(data.city);
                     $('#stateEdt').val(data.state);
                     $('#zipEdt').val(data.zip_code);
                     $('#mobileEdt').val(data.mobile_main);
+                    $('#palternateEdt').val(data.mobile_alt);
+                    $('#pworkEdt').val(data.mobile_work);
+                    $('#faxEdt').val(data.fax);
                     // Format the created_at date to yyyy-MM-dd
-                    var dateAdded = new Date(data.created_at);
-                    var formattedDate = dateAdded.getFullYear() + '-' +
-                                        (dateAdded.getMonth() + 1).toString().padStart(2, '0') + '-' +
-                                        dateAdded.getDate().toString().padStart(2, '0');
-                    $('#date_addedEdt').val(formattedDate);
-                    $('#start_dateEdt').val(data.start_date);
+                    // var dateAdded = new Date(data.created_at);
+                    // var formattedDate = dateAdded.getFullYear() + '-' +
+                    //                     (dateAdded.getMonth() + 1).toString().padStart(2, '0') + '-' +
+                    //                     dateAdded.getDate().toString().padStart(2, '0');
+                   // $('#date_addedEdt').val(formattedDate);
+                   // $('#start_dateEdt').val(data.start_date);
                 });
             });
             
