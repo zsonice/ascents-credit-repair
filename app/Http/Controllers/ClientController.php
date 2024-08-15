@@ -106,12 +106,16 @@ class ClientController extends Controller
     // Get up to 3 new clients
     $newClients = Client::where('status', 'new')->limit(3)->get();
 
+    // Get up to 3 active clients
+    $activeClients = Client::whereNotIn('status', ['new', 'completed'])->limit(3)->get();
+
     // Pass all the data to the view
     return view('home', [
         'totalClientsCount' => $totalClientsCount,
         'activeClientsCount' => $activeClientsCount,
         'newClientsCount' => $newClientsCount,
         'newClients' => $newClients,
+        'activeClients' => $activeClients,
         'percentageChangeTotal' => $percentageChangeTotal,
         'percentageChangeNew' => $percentageChangeNew,
         'percentageChangeActive' => $percentageChangeActive,
