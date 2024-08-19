@@ -50,4 +50,9 @@ class Client extends Model
     {
         return $this->hasOne(CmsLogin::class, 'client_id');
     }
+
+    public function clientStatuses()
+    {
+        return $this->hasMany(ClientStatus::class);
+    }
 }
