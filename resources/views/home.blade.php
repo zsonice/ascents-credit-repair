@@ -343,7 +343,45 @@
 
   <!--row-->
 
-  
+  <!-- active clients -->
+  <div class="row">
+    <div class="col">
+      <div class="card" id="ActiveClients">
+        <div class="card-body">
+          <div>
+            <h3>Active Clients</h3>
+          </div>
+          <div style='overflow-y:auto'>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Assigned To</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody> @forelse($activeClients as $client) <tr>
+                      <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td>
+                      <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td>
+                      <td>{{ $client->created_at->format('m/d/Y h:i A') }}</td>
+                      <td>{{ $client->status }}</td>
+                      <td>
+                        <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">View</a>
+                      </td>
+                    </tr> @empty <tr>
+                      <td colspan="4">No new clients found.</td>
+                    </tr> @endforelse </tbody>
+            </table>
+            <div class="iView">
+                  <a href="{{ route('clients.index') }}">View All</a>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!--row-->
 <div class="card" id="loginActivity">

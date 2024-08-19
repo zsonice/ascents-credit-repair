@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\CmsLogin; 
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
@@ -106,12 +107,16 @@ class ClientController extends Controller
     // Get up to 3 new clients
     $newClients = Client::where('status', 'new')->limit(3)->get();
 
+    // Get up to 3 active clients
+    $activeClients = Client::whereNotIn('status', ['new', 'completed'])->limit(3)->get();
+
     // Pass all the data to the view
     return view('home', [
         'totalClientsCount' => $totalClientsCount,
         'activeClientsCount' => $activeClientsCount,
         'newClientsCount' => $newClientsCount,
         'newClients' => $newClients,
+        'activeClients' => $activeClients,
         'percentageChangeTotal' => $percentageChangeTotal,
         'percentageChangeNew' => $percentageChangeNew,
         'percentageChangeActive' => $percentageChangeActive,
@@ -211,22 +216,94 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     
     
 
-    public function edit(client $client)
+    // public function edit(client $client)
+    // {
+    //     return view('clients.edit', compact('client'));
+    // }
+
+    // Method to fetch client data
+    public function edit($id)
     {
-        return view('clients.edit', compact('client'));
+      //  $client = Client::find($id);
+        $client = Client::with('cmsLogin')->findOrFail($id);
+        return response()->json($client);
     }
 
-    public function update(Request $request, client $client)
-    {
-        $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required',
-        ]);
 
-        $client->update($request->all());
+    // public function update(Request $request, client $client)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|max:255',
+    //         'description' => 'required',
+    //     ]);
 
-        return redirect()->route('clients.index');
-    }
+    //     $client->update($request->all());
+
+    //     return redirect()->route('clients.index');
+    // }
+
+     // Method to update client data
+     public function update(Request $request, $id)
+     {
+         // Validate the request data
+         $request->validate([
+             'firstnameEdt' => 'required|string|max:255',
+             'middlenameEdt' => 'nullable|string|max:255',
+             'lastnameEdt' => 'required|string|max:255',
+             'suffixEdt' => 'nullable|string|max:10',
+             'emailEdt' => 'required|email|max:255',
+             'ssnEdt' => 'required|string|max:255',
+             'birthdateEdt' => 'required|date',
+             'mailingEdt' => 'nullable|string|max:255',
+             'cityEdt' => 'required|string|max:255',
+             'stateEdt' => 'required|string|max:2',
+             'zipEdt' => 'required|string|max:10',
+             'mobileEdt' => 'required|string|max:20',
+             'palternateEdt' => 'nullable|string|max:20',
+             'pworkEdt' => 'nullable|string|max:20',
+             'faxEdt' => 'nullable|string|max:20',
+             'cmsEdt' => 'nullable|string|max:255',
+             'cmsuserEdt' => 'nullable|string|max:255',
+             'cmspassEdt' => 'nullable|string|max:255', // Consider a secure handling for the password
+         ]);
+     
+         // Find the client and update the details
+         $client = Client::findOrFail($id);
+         $client->first_name = $request->input('firstnameEdt'); 
+         $client->middle_name = $request->input('middlenameEdt'); 
+         $client->last_name = $request->input('lastnameEdt'); 
+         $client->suffix = $request->input('suffixEdt'); 
+         $client->email = $request->input('emailEdt'); 
+         $client->ssn = $request->input('ssnEdt'); 
+         $client->date_of_birth = $request->input('birthdateEdt'); 
+         $client->address = $request->input('mailingEdt'); 
+         $client->city = $request->input('cityEdt'); 
+         $client->state = $request->input('stateEdt'); 
+         $client->zip_code = $request->input('zipEdt'); 
+         $client->mobile_main = $request->input('mobileEdt'); 
+         $client->mobile_alt = $request->input('palternateEdt'); 
+         $client->mobile_work = $request->input('pworkEdt'); 
+         $client->fax = $request->input('faxEdt'); 
+         $client->save(); // Save the client details
+     
+         // Update the CMS Login details
+         if ($client->cmsLogin) {
+             $cmslogin = $client->cmsLogin;
+         } else {
+             // If CMS Login doesn't exist, create a new one
+             $cmslogin = new CmsLogin();
+             $cmslogin->client_id = $client->id; // Set the foreign key
+         }
+     
+         $cmslogin->cms_type = $request->input('cmsEdt'); 
+         $cmslogin->username = $request->input('cmsuserEdt'); 
+         $cmslogin->password = $request->input('cmspassEdt'); 
+       
+     
+         $cmslogin->save(); // Save or update the CMS Login details
+     
+         return redirect()->back()->with('success', 'Client updated successfully');
+     }
 
     public function destroy(client $client)
     {
@@ -265,7 +342,7 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
           $fax = $request->input('fax');
 
         // Create a new client record
-        Client::create([
+        $client = Client::create([
             'first_name' => $fname,
             'middle_name' => $mname,
             'last_name' => $lname,
@@ -296,6 +373,14 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             'start_date' => $request->input('start_date'),
             'last_login_date' => $request->input('last_login_date'),
             // 'onboarding_stage' => $request->input('onboarding_stage'),
+        ]);
+
+        // Create a new cms_login record
+        CmsLogin::create([
+            'username' => $request->input('cmsuser'),
+            'password' => $request->input('cmspass'), 
+            'cms_type' => $request->input('cms_type'),
+            'client_id' => $client->id, // Link to the newly created client
         ]);
 
         // Redirect back to the index route with a success message

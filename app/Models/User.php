@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Client::class);
     }
+
+    public function clientStatuses()
+    {
+        return $this->hasMany(ClientStatus::class, 'updated_by');
+    }
 }

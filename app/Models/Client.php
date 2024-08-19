@@ -44,4 +44,15 @@ class Client extends Model
     {
         return $this->belongsTo(User::class, 'assigned_to');
     }
+
+    // Define the relationship with CmsLogin
+    public function cmsLogin()
+    {
+        return $this->hasOne(CmsLogin::class, 'client_id');
+    }
+
+    public function clientStatuses()
+    {
+        return $this->hasMany(ClientStatus::class);
+    }
 }

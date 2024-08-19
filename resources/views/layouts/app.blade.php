@@ -68,12 +68,12 @@
         </div>
         </section>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
- <script src="/js/toggle-menu.js" type="text/javascript"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <script src="/js/toggle-menu.js" type="text/javascript"></script>  
         <script src="{{ asset('js/navbar.js') }}"></script>
         <script src="/js/jscript.js"> </script>
-<script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.4"></script>
-<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.7"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.7"></script>  
         {{-- <script src="/js/apply-filter.js"> </script> --}}
         
     <script>
@@ -81,5 +81,75 @@
             document.getElementById('deleteForm').submit();
         });
     </script>
+
+    <!-- JavaScript for AJAX requests -->
+    <script>
+        $(document).ready(function() { 
+            // Show client data in modal when edit button is clicked
+            $('.edit-btn').on('click', function() {
+                var id = $(this).data('id');
+                var formAction = '/clients/' + id;
+
+                $('#editClientForm').attr('action', formAction);
+
+               $.get(formAction + '/edit', function(data) {
+                    console.log('Response Data:', data); // Log the entire response object
+
+                    if (data) {
+                    $('#clientId').val(data.id);
+                    $('#firstnameEdt').val(data.first_name);
+                    $('#middlenameEdt').val(data.middle_name);
+                    $('#lastnameEdt').val(data.last_name); 
+                    $('#suffixEdt').val(data.suffix); 
+                    $('#emailEdt').val(data.email); 
+                    $('#ssnEdt').val(data.ssn);
+                    var bday = new Date(data.date_of_birth);
+                    var fbday = bday.getFullYear() + '-' +
+                                        (bday.getMonth() + 1).toString().padStart(2, '0') + '-' +
+                                        bday.getDate().toString().padStart(2, '0');
+                    $('#birthdateEdt').val(fbday);
+                    $('#mailingEdt').val(data.address);
+                    $('#cityEdt').val(data.city);
+                    $('#stateEdt').val(data.state);
+                    $('#zipEdt').val(data.zip_code);
+                    $('#mobileEdt').val(data.mobile_main);
+                    $('#palternateEdt').val(data.mobile_alt);
+                    $('#pworkEdt').val(data.mobile_work);
+                    $('#faxEdt').val(data.fax);
+
+                    // Populate CMS fields
+                    if (data.cms_login) {
+                    $('#cmsEdt').val(data.cms_login.cms_type);
+                    $('#cmsuserEdt').val(data.cms_login.username);
+                    $('#cmspassEdt').val(data.cms_login.password); // Consider using a placeholder or masked value
+                    } else {
+                        // Set default values if cmsLogin does not exist
+                        $('#cmsEdt').val('');
+                        $('#cmsuserEdt').val('');
+                        $('#cmspassEdt').val(''); // Consider using a placeholder or masked value
+                    }
+                } else {
+                    console.error('No data received.');
+                }
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error:', textStatus, errorThrown);
+                });
+            });
+            
+            // Save changes when save button is clicked
+            // $('#saveChanges').on('click', function() {
+            //     var id = $('#clientId').val();
+            //     var formData = $('#editClientForm').serialize();
+            //     console.log(formData);
+            //     $.post('/clients/' + id, formData).done(function() {
+            //         $('#editClientModal').modal('hide');
+            //         location.reload();  // Optionally, reload the page to see changes
+            //     }).fail(function(err) {
+            //         alert('Error updating client');
+            //     });
+            // });
+        });
+    </script>
+    
     </body>
 </html>

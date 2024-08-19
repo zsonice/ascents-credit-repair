@@ -104,7 +104,10 @@
                                             <td>Plan name </td> -->
                                             <td> 
                                                 <a href="{{ route('clients.show', $client) }}" class="btn"><i class="bi bi-eye-fill"></i></a>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#editClientModal"><i class='bx bxs-edit' ></i></button>
+                                                <!-- Button to Open the Modal -->
+                                                <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#editClientModal" data-id="{{ $client->id }}">
+                                                    <i class='bx bxs-edit'></i>
+                                                </button>
                                                 <form id="deleteForm" action="{{ route('clients.destroy', $client) }}" method="POST" style="display: inline-block;" >
                                                     @csrf
                                                     @method('DELETE')
@@ -320,46 +323,11 @@
 <br>
 <hr>
 <br>
-                                 
-                                            <!-- <div class="form-group">
-                                            <div class="row align-items-center">
-                                            <div class="col" id="assigneddiv">
-                                                <label for="team_members">Assigned To</label>
-                                             <select name="team_members" id="team_members" required>
-                                            <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div>
-                                            <div class="col" id="referreddiv">
-                                                <label for="referred_by">Referred By</label>
-                                                <select name="referred_by" id="referred" required>
-  <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div>
-                      <div class="col" id="statusdiv">
-                                                <label for="status">Status</label>
-                                                <select name="status" id="status" required>
-  <option value="" disabled selected>Select</option>
-  <option value="L">Lead</option>
-    <option value="C">Client</option>  
-    <option value="I">Inactive</option>  
-                     </select>
-                      </div>
-                                            
-                                    </div>
-                                    </div> -->
                                     <div class="form-group">
                                             <div class="row align-items-center">
                                             <div class="col" id="cmsdiv">
-                                                <label for="cms">Credit Monitoring System</label>
-                                             <select name="cms" id="cms" required>
+                                                <label for="cms_type">Credit Monitoring System</label>
+                                             <select name="cms_type" id="cms_type" required>
                                             <option value="" disabled selected>Select</option>
   <option>IdentityIQ</option>
 	<option>SmartCredit</option>
@@ -440,8 +408,8 @@
                         </div>
                         <div class="form-group">
                      
-  <label for="mobile">Phone</label>
-  <input type="text" name="mobile" id="mobile" class="form-control">                                        
+  <label for="mobileFlt">Phone</label>
+  <input type="text" name="mobileFlt" id="mobileFlt" class="form-control">                                        
   </div>
   <div class="form-group">
    <div class="col" id="statusdiv">
@@ -600,258 +568,197 @@ Reset All
 </div>
 
 <div class="modal fade" id="editClientModal" tabindex="-1" role="dialog" aria-labelledby="editClientModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editClientModalLabel">Edit Profile</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
- <!-- Form for creating a new client -->
-                                        <form action="{{ route('clients.store') }}" method="POST" id="addClientForm">
-                                            @csrf
-                                            <div class="form-group">
-                                            <div class="row align-items-center">
-  <div class="col">
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" autofocus id="firstname" class="form-control" required>
-  </div>
-  <div class="col">
-  <label for="middlename">Middle Name</label>
-  <input type="text" name="middlename" id="middlename" class="form-control" required>                                        
-  </div>
-  <div class="col">
-  <label for="lastname">Last Name</label>
-  <input type="text" name="lastname" id="lastname" class="form-control" required>                                                                       
-  </div>
-</div>
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editClientModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+             <!-- Form for editing a  client -->
+                {{-- <form action="{{ route('clients.store') }}" method="POST" id="addClientForm"> --}}
+                    <form id="editClientForm" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input type="hidden" id="clientId" name="id">
+                    <div class="form-group">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label for="firstnameEdt">First Name</label>
+                                <input type="text" name="firstnameEdt" autofocus id="firstnameEdt" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label for="middlenameEdt">Middle Name</label>
+                                <input type="text" name="middlenameEdt" id="middlenameEdt" class="form-control" required>                                        
+                            </div>
+                            <div class="col">
+                                <label for="lastnameEdt">Last Name</label>
+                                <input type="text" name="lastnameEdt" id="lastnameEdt" class="form-control" required>                                                                       
+                            </div>
+                        </div> 
+                    </div>
 
-</div>
-<div class="form-group">
-<div class="row align-items-center">
-<div class="col-md-4">
-    <label for="suffix">Suffix</label>
-    <input type="text" name="suffix" autofocus id="suffix" class="form-control" >
-  </div>
-  <div class="col-md-4">
-  <label for="email">Email Address</label>
-  <input type="email" name="email" id="email" class="form-control" required>                                        
-  </div>
-  <div class="col-md-2">
-  <label for="ssn">Last 4 of SSN</label>
-  <input type="text" name="ssn" id="ssn" class="form-control" required>                                                                       
-  </div>
-  <div class="col-md-2">
-  <label for="birthdate">Date of Birth</label>
-  <input type="date" name="birthdate" id="birthdate" class="form-control" required>                                                                       
-  </div>
-                                    </div></div>
-                                    <br>
-<hr>
-<br>
-<div class="form-group">
-<div class="row align-items-center">
-<div class="col-md-4">
-    <label for="mailing">Mailing Address</label>
-    <input type="text" name="mailing" autofocus id="mailing" class="form-control" >
-  </div>
-  <div class="col-md-4">
-  <label for="city">City</label>
-  <input type="text" name="city" id="city" class="form-control" required>                                        
-  </div>
-  <div class="col-md-2" id="statediv">
-  <label for="state">State</label>
-  <select name="state" id="state" required>
-  <option value="" disabled selected>Select</option>
-  <option value="AL">Alabama</option>
-	<option value="AK">Alaska</option>
-	<option value="AZ">Arizona</option>
-	<option value="AR">Arkansas</option>
-	<option value="CA">California</option>
-	<option value="CO">Colorado</option>
-	<option value="CT">Connecticut</option>
-	<option value="DE">Delaware</option>
-	<option value="DC">District Of Columbia</option>
-	<option value="FL">Florida</option>
-	<option value="GA">Georgia</option>
-	<option value="HI">Hawaii</option>
-	<option value="ID">Idaho</option>
-	<option value="IL">Illinois</option>
-	<option value="IN">Indiana</option>
-	<option value="IA">Iowa</option>
-	<option value="KS">Kansas</option>
-	<option value="KY">Kentucky</option>
-	<option value="LA">Louisiana</option>
-	<option value="ME">Maine</option>
-	<option value="MD">Maryland</option>
-	<option value="MA">Massachusetts</option>
-	<option value="MI">Michigan</option>
-	<option value="MN">Minnesota</option>
-	<option value="MS">Mississippi</option>
-	<option value="MO">Missouri</option>
-	<option value="MT">Montana</option>
-	<option value="NE">Nebraska</option>
-	<option value="NV">Nevada</option>
-	<option value="NH">New Hampshire</option>
-	<option value="NJ">New Jersey</option>
-	<option value="NM">New Mexico</option>
-	<option value="NY">New York</option>
-	<option value="NC">North Carolina</option>
-	<option value="ND">North Dakota</option>
-	<option value="OH">Ohio</option>
-	<option value="OK">Oklahoma</option>
-	<option value="OR">Oregon</option>
-	<option value="PA">Pennsylvania</option>
-	<option value="RI">Rhode Island</option>
-	<option value="SC">South Carolina</option>
-	<option value="SD">South Dakota</option>
-	<option value="TN">Tennessee</option>
-	<option value="TX">Texas</option>
-	<option value="UT">Utah</option>
-	<option value="VT">Vermont</option>
-	<option value="VA">Virginia</option>
-	<option value="WA">Washington</option>
-	<option value="WV">West Virginia</option>
-	<option value="WI">Wisconsin</option>
-	<option value="WY">Wyoming</option>
-  </select>                                                                    
-  </div>
-  <div class="col-md-2">
-  <label for="zip">Zip Code</label>
-  <input type="text" name="zip" id="zip" class="form-control" required>                                                                       
-  </div>
-                                    </div></div>
+                    <div class="form-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <label for="suffixEdt">Suffix</label>
+                                <input type="text" name="suffixEdt" autofocus id="suffixEdt" class="form-control" >
+                            </div>
+                            <div class="col-md-4">
+                                <label for="emailEdt">Email Address</label>
+                                <input type="email" name="emailEdt" id="emailEdt" class="form-control" required>                                        
+                            </div>
+                            <div class="col-md-2">
+                                <label for="ssnEdt">Last 4 of SSN</label>
+                                <input type="text" name="ssnEdt" id="ssnEdt" class="form-control" required>                                                                       
+                            </div>
+                            <div class="col-md-2">
+                                <label for="birthdateEdt">Date of Birth</label>
+                                <input type="date" name="birthdateEdt" id="birthdateEdt" class="form-control" required>                                                                       
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="form-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <label for="mailingEdt">Mailing Address</label>
+                                <input type="text" name="mailingEdt" autofocus id="mailingEdt" class="form-control" >
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cityEdt">City</label>
+                                <input type="text" name="cityEdt" id="cityEdt" class="form-control" required>                                        
+                            </div>
+                            <div class="col-md-2" id="statediv">
+                                <label for="stateEdt">State</label>
+                                <select name="stateEdt" id="stateEdt" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>                                                                    
+                            </div>
+                            <div class="col-md-2">
+                                <label for="zipEdt">Zip Code</label>
+                                <input type="text" name="zipEdt" id="zipEdt" class="form-control" required>                                                                       
+                            </div>
+                        </div>
+                    </div>
 
-                                    <div class="form-group">
-<div class="row align-items-center">
-<div class="col-md-4">
-    <label for="country">Country</label>
-    <input type="text" name="country" autofocus id="country" class="form-control" value="United States" disabled >
-  </div>
-  <div class="col-md-2">
-  <label for="mobile">Phone (Mobile)</label>
-  <input type="text" name="mobile" id="mobile" class="form-control" required>                                        
-  </div>
-  <div class="col-md-2">
-  <label for="palternate">Phone (Alternate)</label>
-  <input type="text" name="palternate" id="palternate" class="form-control" >                                                                       
-  </div>
-  <div class="col-md-2">
-  <label for="pwork">Phone (Work)</label>
-  <input type="text" name="pwork" id="pwork" class="form-control" >   
-                                                                      
-  </div>
-  <div class="col-md-2">
-  <label for="fax">Fax</label>
-  <input type="text" name="fax" id="fax" class="form-control">   
-                                                                      
-  </div>
+                    <div class="form-group">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <label for="countryEdt">Country</label>
+                                <input type="text" name="countryEdt" autofocus id="countryEdt" class="form-control" value="United States" disabled >
+                            </div>
+                            <div class="col-md-2">
+                                <label for="mobileEdt">Phone (Mobile)</label>
+                                <input type="text" name="mobileEdt" id="mobileEdt" class="form-control" required>                                        
+                            </div>
+                            <div class="col-md-2">
+                                <label for="palternateEdt">Phone (Alternate)</label>
+                                <input type="text" name="palternateEdt" id="palternateEdt" class="form-control" >                                                                       
+                            </div>
+                            <div class="col-md-2">
+                                <label for="pworkEdt">Phone (Work)</label>
+                                <input type="text" name="pworkEdt" id="pworkEdt" class="form-control" >                                                                   
+                            </div>
+                            <div class="col-md-2">
+                                <label for="faxEdt">Fax</label>
+                                <input type="text" name="faxEdt" id="faxEdt" class="form-control">                                                           
+                            </div>
 
-                                    </div></div>
-
-                                      
-<br>
-<hr>
-<br>
-                                 
-                                            <!-- <div class="form-group"> -->
-                                         <!--   <div class="row align-items-center"> -->
-                                            <!-- <div class="col" id="assigneddiv">
-                                                <label for="team_members">Assigned To</label>
-                                             <select name="team_members" id="team_members" required>
-                                            <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div> -->
-                                            <!-- <div class="col" id="referreddiv">
-                                                <label for="referred_by">Referred By</label>
-                                                <select name="referred_by" id="referred" required>
-  <option value="" disabled selected>Select</option>
-  <option>Lala</option>
-	<option>Ash</option>
-	<option>Du</option>  
-    <option>Juib</option>  
-                     </select>
-                      </div> -->
-                      <!-- <div class="col" id="statusdiv">
-                                                <label for="status">Status</label>
-                                                <select name="status" id="status" required>
-  <option value="" disabled selected>Select</option>
-  <option value="L">Lead</option>
-    <option value="C">Client</option>  
-    <option value="I">Inactive</option>  
-                     </select>
-                      </div> -->
-                                          
-                                <!--    </div> -->
-                                <!--     </div> -->
-
-                                    
-                                      <div class="form-group">
-                                            <div class="row align-items-center">
-                                            <div class="col" id="cmsdiv">
-                                                <label for="cms">Credit Monitoring System</label>
-                                             <select name="cms" id="cms" required>
-                                            <option value="" disabled selected>Select</option>
-  <option>IdentityIQ</option>
-	<option>SmartCredit</option>
-	<option>myScoreIQ</option>  
-    <option>myfreescorenow</option>  
-                     </select>
-                      </div>
-                      <div class="col">
-  <label for="cmsuser">CMS Username</label>
-  <input type="text" name="cmsuser" id="cmsuser" class="form-control" required>                                        
-  </div>
-  <div class="col" >
-  <label for="cmspass">CMS Password</label>
-
-  <input type="text" name="cmspass" id="cmspass" class="form-control" required>
-                               
-  </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>             
+                    <div class="form-group">
+                        <div class="row align-items-center">
+                            <div class="col" id="cmsdiv">
+                                <label for="cmsEdt">Credit Monitoring System</label>
+                                <select name="cmsEdt" id="cmsEdt" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option>IdentityIQ</option>
+                                    <option>SmartCredit</option>
+                                    <option>myScoreIQ</option>  
+                                    <option>myfreescorenow</option>  
+                                 </select>
+                            </div>
+                            <div class="col">
+                                <label for="cmsuserEdt">CMS Username</label>
+                                <input type="text" name="cmsuserEdt" id="cmsuserEdt" class="form-control" required>                                        
+                            </div>
+                            <div class="col" >
+                                <label for="cmspassEdt">CMS Password</label> 
+                                <input type="text" name="cmspassEdt" id="cmspassEdt" class="form-control" required>
+                            </div>
                                             
-                                    </div>
-</div>
-                                            <div class="form-group">
-                                            <div class="row align-items-center">
-                                            <div class="col">
-                                                <label for="date_added">Date Added</label>
-                                                <input type="date" name="date_added" id="date_added" class="form-control" required>
-                                            </div>
-                                            
-                                            <div class="col">
-                                                <label for="start_date">Start Date</label>
-                                                <input type="date" name="start_date" id="start_date" class="form-control" required>
-                                            </div>
-                                            
-                                            <div class="col">
-                                                <label for="last_login_date">Last Login Date</label>
-                                                <input type="date" name="last_login_date" id="last_login_date" class="form-control" required>
-                                            </div>
-                                        
-                                    </div>
-                                    </div>
-                                       
-                                            
-                                            <!-- Modal buttons -->
-                                            <div class="modal-footer"> 
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="primary">Save</button>
-                                               
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>  
-                    </div> 
-{{--        
-    </x-app-layout>   --}}
-     <!-- Edit Client Modal -->
+                        </div>
+                    </div>
+                    <!-- Modal buttons -->
+                    <div class="modal-footer"> 
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="primary">Save</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+</div>  
 
      <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
@@ -873,8 +780,9 @@ Reset All
     </div>
 </body>
 </html>
-<script>
+{{-- <script>
     document.getElementById('confirmDeleteButton').addEventListener('click', function() {
         document.getElementById('deleteForm').submit();
     });
-</script>
+</script>  --}}
+
