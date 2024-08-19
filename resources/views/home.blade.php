@@ -223,8 +223,63 @@
           </div>
         </div>
       </div>
+   
+<!-- active clients -->
+<div class="row">
+    <div class="col">
+      <div class="card" id="ActiveClients">
+        <div class="card-body">
+          <div>
+            <h3>Active Clients</h3>
+          </div>
+          <div style='overflow-y:auto'>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Assigned To</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lala Chan</td>
+                  <td>Lala</td>
+                  <td>06/11/2024 06:56 PM</td>
+                  <td>Active</td>
+                  <td>
+                    <button class="btn btn-primary">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ashwe Bading</td>
+                  <td>Lala</td>
+                  <td>04/12/2024 10:56 AM</td>
+                  <td>Inactive</td>
+                  <td>
+                    <button class="btn btn-primary">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Duan Bading</td>
+                  <td>Lala</td>
+                  <td>04/12/2024 10:56 AM</td>
+                  <td>Inactive</td>
+                  <td>
+                    <button class="btn btn-primary">View</button>
+                  </td>
+              </tbody>
+            </table>
+            <div class="iView">
+              <a href="#">View All</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div></div>
 
     <!-- messages -->
  <div class="col-md-3" id="Messages">
@@ -288,62 +343,7 @@
 
   <!--row-->
 
-  <!-- active clients -->
-  <div class="row">
-    <div class="col">
-      <div class="card" id="ActiveClients">
-        <div class="card-body">
-          <div>
-            <h3>Active Clients</h3>
-          </div>
-          <div style='overflow-y:auto'>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Assigned To</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Lala Chan</td>
-                  <td>Lala</td>
-                  <td>06/11/2024 06:56 PM</td>
-                  <td>Active</td>
-                  <td>
-                    <button class="btn btn-primary">View</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ashwe Bading</td>
-                  <td>Lala</td>
-                  <td>04/12/2024 10:56 AM</td>
-                  <td>Inactive</td>
-                  <td>
-                    <button class="btn btn-primary">View</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Duan Bading</td>
-                  <td>Lala</td>
-                  <td>04/12/2024 10:56 AM</td>
-                  <td>Inactive</td>
-                  <td>
-                    <button class="btn btn-primary">View</button>
-                  </td>
-              </tbody>
-            </table>
-            <div class="iView">
-              <a href="#">View All</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 <!--row-->
 <div class="card" id="loginActivity">

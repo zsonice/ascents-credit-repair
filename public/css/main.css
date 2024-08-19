@@ -1582,8 +1582,14 @@ padding: 10px;
 }
 #NewClients h3,
 #ActiveClients h3,
-#loginActivity h3{
+#loginActivity h3,
+#Notes h3,
+#agentinfo h3,
+#Reminders h3,
+#Messages h3{
+    font-size: 18px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 .pagination {
   text-align: center;
@@ -1933,3 +1939,184 @@ font-size: 22px;
     padding-right:10px;
     padding-bottom:10px;
    }
+#notesTab{
+    display: grid;
+}
+.notesNum{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.notesNum p{
+    color: #7c7c7c!important;
+    font-size: 14px!important;
+}
+.notesSearch input[type=text]{
+outline: none!important;
+box-shadow: none!important;
+background-color: #eeeff0!important;
+border: 1px solid #b4b4b4!important;
+border-radius: 4px!important;
+font-size: 13px;
+font-weight: 500;
+
+}
+.notesSearch input::placeholder{
+    color: #949292!important;
+}
+.notesSearch, .addNote{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.addNote button{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+}
+/* Button */
+.notesNum .addNote .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px!important;
+   }
+   .notesNum i{
+    font-size: 25px!important;
+    margin-right: 5px!important;
+   }
+   #addNotes .btn-primary{
+    background: var(--side-bar-color);
+
+   }
+   .notesRadio{
+    display: inline-flex;
+    font-size: 14px;
+    color: var(--dark-text);
+    padding: 10px!important;
+   }
+   .notesRadio .form-check{
+    margin-right: 10px!important;
+   }
+   .notesRadio input[type=radio]:focus{
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+   }
+.notesRadio [type=radio]:checked#flexRadioimportant,
+.notesRadio input[type=radio]:focus#flexRadioimportant {
+
+    color: red!important;
+
+   }
+.notesRadio input[type=radio]:checked#flexRadiomedium,
+.notesRadio input[type=radio]:focus #flexRadiomedium {
+
+    color: rgb(223, 201, 5)!important;
+   }
+.notesRadio input[type=radio]:checked#flexRadiolow,
+.notesRadio   input[type=radio]:focus#flexRadiolow{
+
+    color: green!important;
+   }
+.notesTable{
+  margin-top: 20px!important;
+}
+.notesTable{
+    color: #7c7c7c!important;
+    font-size: 18px!important;
+}
+.notesTable .important i,
+#notesTab .important i{
+    font-size: 30px!important;
+    color: red;
+}
+.notesTable .medium i,
+#notesTab .medium i{
+    font-size: 30px!important;
+    color: rgb(223, 201, 5)!important;
+}
+.notesTable .low i,
+#notesTab .low i{
+    font-size: 30px!important;
+    color: green!important;
+}
+/* Paragraph */
+tbody tr td .radiotype p{
+    display:inline-flex;
+    align-items:center;
+    font-size:14px !important;
+    color: var(--header-text);
+    font-weight: 600;
+   }
+   
+   #NotesNum .radiotype{
+    margin-bottom: 10px;
+   }
+   .note-preview h6{
+    font-size: 12px!important;
+    color: #7c7c7c!important;
+    margin-bottom: 10px!important;
+   }
+   .note-preview p{
+    margin-top: 10px!important;
+    text-align: end;
+   }
+/* Table Data */
+.notesTable tr td{
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-top:1px solid #c7c7c7;
+     border-radius: 3px!important;
+     cursor: pointer;
+   }
+   .notesTable tr{
+      margin-top: 20px!important; 
+   }
+  .notesTable .radiotype i,
+  #notesTab .radiotype i{
+    font-size: 16px!important;
+    margin-right: 5px;
+  }
+  
+#addNotes .modal-header{
+font-size: 14px!important;
+}
+#addNotes i.bi.bi-pencil-fill{
+    padding-right: 5px;
+}
+#addNotes.btn{
+   justify-content: right!important;
+}
+#exampleFormControlTextarea1{
+    outline: none!important;
+    box-shadow: none!important;
+}
+.note-preview p{
+    color: #7c7c7c!important;
+    align-items: center;
+    justify-content: center!important;
+    align-self: center;
+}
+#notesTab .col{
+align-self: center!important;
+}
+#notesTab .radiotype{
+    align-self: center!important;
+}
+#notesTab .radiotype p{
+font-weight: 600;
+display:inline-flex;
+align-items:center;
+}
+.NoteBtn button{
+    margin-right: 5px;
+  
+}
+.NoteBtn{
+    padding-top: 10px;
+}
+.NoteBtn button i{
+    font-size: 12px;
+}

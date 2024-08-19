@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Client Details</title>
+    <script 
+      src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js">
+    </script>
 </head>
 <body>
     @extends('layouts.app')
@@ -13,23 +16,24 @@
     <div class="col">  
 
     <div class="clientnav">
-    <ul class="nav nav-underline">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+    <ul class="nav nav-underline" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active"  id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard-tab-pane" type="button" role="tab" aria-controls="dashboard-tab-pane" aria-selected="true" >Dashboard</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link " href="#">Import/Audit</a>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link "    id="import-tab" data-bs-toggle="tab" data-bs-target="#import-tab-pane" type="button" role="tab" aria-controls="import-tab-pane" aria-selected="true" >Import/Audit</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Generate Letters</a>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link"   id="generate-tab" data-bs-toggle="tab" data-bs-target="#generate-tab-pane" type="button" role="tab" aria-controls="generate-tab-pane" aria-selected="true" >Generate Letters</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Notes</a>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link"   id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes-tab-pane" type="button" role="tab" aria-controls="notes-tab-pane" aria-selected="true" >Notes</a>
   </li>
 
 </ul>
     </div>
-
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="dashboard-tab-pane" role="tabpanel" aria-labelledby="dashboard-tab" tabindex="0">
     <div class="row">
 <div class="col-md-7" id="clientinfo">
 
@@ -229,13 +233,220 @@
 
 </div> 
 
+</div>
+
+
+<div class="tab-pane fade" id="import-tab-pane" role="tabpanel" aria-labelledby="import-tab" tabindex="0">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <h3>hi</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="generate-tab-pane" role="tabpanel" aria-labelledby="generate-tab" tabindex="0">
+<div class="col-md-7">
+<div class="card">
+    <div class="card-body">
+<h3>hi letter</h3>
+   </div>
+
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="notes-tab-pane" role="tabpanel" aria-labelledby="notes-tab" tabindex="0">
+    <div class="row" >
+        <div class="col-md-3" id="notesTab">
+            <div class="card">
+                <div class="card-body">
+                        <h3>Notes</h3>
+                            <div class="notesNum">
+                                <div>
+                                <p>56 Notes</p>
+                                </div> 
+                                <div class="notesSearch">
+                            
+                                <input class="form-control" type="text" placeholder="Search Notes" aria-label="Search">
+                                </div>
+                                <div class="addNote">
+                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNotes"><i class="bi bi-plus"></i>ADD NOTE</button>
+                                </div>
+                                
+                                
+                            </div>
+                            <br>
+                            
+                            <div class="notesTable" style="overflow-y:scroll; height:600px;">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td>
+                                                <div class="radiotype">
+                                                <p class="important"><i class='bx bxs-circle'></i> Important</p>
+                                                </div>
+                                                <div class="note-preview">
+                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
+                                              
+                                                <p> July 31, 2024</p>
+                                                  </div> 
+                                               
+                                            </td>
+                                            
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td>
+                                                <div class="radiotype">
+                                                <p class="medium"><i class='bx bxs-circle'></i> Medium</p>
+                                                </div>
+                                                <div class="note-preview">
+                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
+                                              
+                                                <p> July 31, 2024</p>
+                                                  </div> 
+                                               
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radiotype">
+                                                <p class="low"><i class='bx bxs-circle'></i> Low</p>
+                                                </div>
+                                                <div class="note-preview">
+                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
+                                              
+                                                <p> June 23, 2024</p>
+                                                  </div> 
+                                               
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="radiotype">
+                                                <p class="low"><i class='bx bxs-circle'></i> Low</p>
+                                                </div>
+                                                <div class="note-preview">
+                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
+                                              
+                                                <p> June 23, 2024</p>
+                                                  </div> 
+                                               
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                </div>
+                </div>
+            </div>
+        </div> <!--col-->
+        <div class="col-md-7" id="notesTab">
+            <div class="card">
+                <div class="card-body">
+           <div class="row">
+                <div class="col">
+                    <div class="radiotype">
+                    <p class="low"><i class='bx bxs-circle'></i> Low</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="note-preview">
+                    <p> June 23, 2024</p>
+                    </div>
+                </div>
+            </div>
+                    <div id="editor">
+
+                    <div class="radiotype">
+                
+</div>          
+                                                <div class="note-preview">
+                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas leo bibendum arcu ultrices porttitor. Integer enim erat, tincidunt ut ligula eu, lacinia mattis ex. Quisque auctor sit amet risus vitae faucibus. Praesent bibendum nisl quis rutrum vestibulum. Curabitur quis tellus pellentesque, aliquam massa laoreet, venenatis risus. Fusce consequat efficitur ornare. Cras finibus faucibus augue eget scelerisque. Nam lorem ex, auctor vel ornare et, dictum eget erat.
+
+Vivamus et elementum lectus, sit amet congue nisl. Proin condimentum arcu non dui volutpat efficitur. Nunc condimentum ex ut laoreet mollis. Donec auctor lacus felis, in faucibus ex semper at. In aliquam purus mauris, ac mattis nunc auctor vitae. Sed ac porta velit, nec convallis neque. Fusce quis congue quam. Nulla rhoncus eu quam vel egestas. Nulla dictum molestie gravida. Sed feugiat purus eget est placerat, non pretium ligula lacinia.
+
+Donec vestibulum massa eget aliquet luctus. In hac habitasse platea dictumst. Integer condimentum, justo a venenatis pharetra, nisi metus rutrum urna, eget interdum metus orci eget arcu. Phasellus imperdiet tempor convallis. Nunc non gravida nunc. Suspendisse potenti. Fusce id iaculis eros. Morbi et ligula in felis dignissim scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam pharetra, massa eget porta commodo, nisi lacus elementum urna, quis porta turpis diam eu augue. Vivamus arcu mauris, congue id ullamcorper at, elementum vitae ex. Nullam ac leo ipsum. Nunc lacinia laoreet ante, eget gravida nisl hendrerit vitae.
+
+Curabitur fermentum mi sapien, vitae fermentum libero malesuada in. Cras sit amet leo mattis, suscipit quam vel, elementum nisl. Phasellus vestibulum massa mi, convallis maximus quam efficitur sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum eu efficitur nunc, sit amet condimentum diam. Mauris sed efficitur nulla. Morbi vel aliquam ex, nec vestibulum diam. Phasellus suscipit condimentum nulla non mattis. Integer a ornare ligula. Nam quis nisl at lacus interdum dapibus. Mauris facilisis, ex et pellentesque tincidunt, mi lorem sagittis lectus, eget placerat turpis odio non diam.
+
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin vitae cursus leo. Mauris non risus vehicula, finibus tellus vitae, ultrices ex. Nam augue sem, vulputate eu massa sit amet, tristique aliquam nibh. Mauris dictum est sem, sed ornare metus scelerisque condimentum. Quisque magna sapien, interdum eu libero sit amet, sollicitudin tincidunt lorem. Ut tempus lacus ligula, auctor facilisis sapien molestie in. Aliquam quis leo ultrices, elementum odio eget, convallis ipsum. Donec at condimentum lorem. Morbi efficitur tortor a turpis pretium malesuada sit amet quis nulla. Nam dapibus iaculis massa at accumsan. Nullam id tincidunt urna. Etiam fringilla vehicula lorem id aliquam. In hac habitasse platea dictumst. Vestibulum et nibh ac enim tempor commodo.
+                                       
+                                                  </div> 
+                                                  
+                    </div>
+                  
+                    <div class="NoteBtn">
+                   
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                </div>
+                <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+                </div>
+            </div>
+        </div> <!--col-->
+    </div>  <!-- row-->
+</div>
+
+</div>
 
 
 
 
 
-
-
+<!-- Add Notes Modal-->
+<div class="modal fade" id="addNotes" tabindex="-1" role="dialog" aria-labelledby="addNotes" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNotes"><i class="bi bi-pencil-fill"></i>Add Note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   
+                       <form action="#" method="POST" >
+                       
+                        <div>
+                            <div  class="notesRadio">
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioimportant" checked>
+                                <label class="form-check-label" for="flexRadioimportant">
+                                    Important
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadiomedium" >
+                                <label class="form-check-label" for="flexRadiomedium">
+                                    Medium
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadiolow" >
+                                <label class="form-check-label" for="flexRadiolow">
+                                Low
+                                </label>
+                                </div>
+                            </div>    
+                            <div>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                            </div>    
+                            
+                    </div>
+                       <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
         <!-- 
