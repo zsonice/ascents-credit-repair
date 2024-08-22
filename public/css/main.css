@@ -2120,3 +2120,10 @@ align-items:center;
 .NoteBtn button i{
     font-size: 12px;
 }
+.clientinfo .caddress{
+    display: block!important;
+}
+#clientaddress h6,
+#clientphone h6{
+    padding-top: 5px;
+}

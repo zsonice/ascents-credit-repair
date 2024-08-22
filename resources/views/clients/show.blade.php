@@ -64,9 +64,10 @@
         <div class="clientinfo">
             <div id="clientaddress">
                 <i class="bi bi-house-fill"></i> &nbsp;
+                <div class="caddress">
                 <h6>{{ $client->address . ' ' . $client->city }}</h6>
                 <!-- for lala patulong akong ibaba to haha tq-->
-                <h6>{{ $client->state . ' ' . $client->zip_code . ' ' }}USA</h6>  
+                <h6>{{ $client->state . ' ' . $client->zip_code . ' ' }}USA</h6>  </div>
             </div>
             <div id="clientemail">
                 <i class="bi bi-envelope-at-fill"></i> &nbsp;
