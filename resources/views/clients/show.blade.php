@@ -60,42 +60,45 @@
   </div>
 </div>
 <div class="row">
-<div class="col">
-    <div class="clientinfo">
-        <div id="clientaddress">
-<i class="bi bi-house-fill"></i> &nbsp;
-    <h6>1027 Racebrook Rd Woodbridge<br>Connecticut 06525 United States</h6>
+    <div class="col">
+        <div class="clientinfo">
+            <div id="clientaddress">
+                <i class="bi bi-house-fill"></i> &nbsp;
+                <h6>{{ $client->address . ' ' . $client->city }}</h6>
+                <!-- for lala patulong akong ibaba to haha tq-->
+                <h6>{{ $client->state . ' ' . $client->zip_code . ' ' }}USA</h6>  
+            </div>
+            <div id="clientemail">
+                <i class="bi bi-envelope-at-fill"></i> &nbsp;
+                <h6>{{ $client->email }}</h6>
+            </div>
+            <div id="clientphone">
+                <i class="bi bi-telephone-fill"></i>  &nbsp; 
+            <div id="phonenum">
+                <h6>{{ $client->mobile_main }} &nbsp;<span>(Mobile)</span></h6>
+                <h6>{{ $client->mobile_alt }} &nbsp;<span>(Alt)</span></h6>
+                <h6>{{ $client->mobile_work }} &nbsp;<span>(Work)</span></h6>
+            </div>
         </div>
-        <div id="clientemail">
-        <i class="bi bi-envelope-at-fill"></i> &nbsp;
-    <h6>lala@thefunnelpanda.com</h6>
-        </div>
-       <div id="clientphone">
-       <i class="bi bi-telephone-fill"></i> </i>  &nbsp;
-       <div id="phonenum">
-    <h6>(555) 555-1234 &nbsp;<span>(Mobile)</span></h6>
-    <h6>(523) 532-1234 &nbsp;<span>(Alt)</span></h6>
-    <h6>(523) 532-1234 &nbsp;<span>(Work)</span></h6></div>
-        </div>
-</div>
+    </div>
 </div>
 <div class="col">
     <div class="clientinfo2">
         <div id="clientssn">
 <label for="ssn">SSN:</label>
-    <h6>&nbsp;1027</h6>
+    <h6>&nbsp;{{ $client->ssn }}</h6>
         </div>
         <div id="clientdob"> 
 <label for="dob">Date of Birth:</label>
-    <h6>&nbsp;May 29, 1997</h6>
+    <h6>&nbsp;{{ $client->date_of_birth }}</h6>
         </div>
         <div id="clientstart">
 <label for="start_date">Start Date:</label> 
-    <h6>&nbsp;July 20, 2024</h6>
+    <h6>&nbsp;{{ $client->start_date }}</h6>
         </div>
         <div id="clientcreate">
        <label for="create_date">Created Date:</label> 
-    <h6>&nbsp;July 12, 2024</h6>
+    <h6>&nbsp;{{ $client->created_at }}</h6>
         </div>
        
     </div>
