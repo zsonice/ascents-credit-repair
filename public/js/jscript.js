@@ -22,7 +22,7 @@ const body = document.querySelector("body"),
             }
 
         });
-       
+       /* Checkbox */
         function myFunction() {
           var x = document.getElementById("cmspass");
           if (x.type === "password") {
@@ -31,7 +31,32 @@ const body = document.querySelector("body"),
             x.type = "password";
           }
         }
-    
+        function myFunction1() {
+          var x = document.getElementById("update_password_current_password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        function myFunction2() {
+          var x = document.getElementById("update_password_password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        function myFunction3() {
+          var x = document.getElementById("update_password_password_confirmation");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+
+        /*Client Chart */
         fetch('/clients-data')
         .then(response => response.json())
         .then(data => {

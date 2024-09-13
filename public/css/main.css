@@ -593,8 +593,11 @@ body.dark .card .card-body .navbar{
    
    /* Table Data */
    .table tr td{
-    font-size:12px !important;
-    font-weight:400;
+    font-size:13px !important;
+    color: #3f3f3f!important;
+    font-weight: 500!important;
+    
+
    }
    
    /* Division */
@@ -802,10 +805,12 @@ body.dark .card .card-body .navbar{
    
    /* Table Data */
    .col-md-4 .card .table tr td{
-    font-size:14px!important;
-    font-weight:400;
+    font-size:13px!important;
+    font-weight:500;
     line-height:2em;
     text-align:left;
+    color: #3f3f3f!important;
+
    }
    .col-md-4 .card .table tbody tr:hover td{
 background: transparent;
@@ -926,7 +931,8 @@ transition: var(--tran-03);
 .modal .form-group input[type=password],
 .modal .form-group input[type=email],
 .modal .form-group select,
-.provider select
+.provider select,
+.modal .fields select
 {
     border: none;
     border-bottom: solid 2px #7c7c7c!important;   
@@ -942,7 +948,8 @@ transition: var(--tran-03);
 .modal .form-group input[type=password]:focus,
 .modal .form-group select:focus,
 .modal .form-group textarea:focus,
-.provider select:focus{
+.provider select:focus,
+.modal .fields select:focus{
     box-shadow: none!important;
     border: none!important;
     outline: none!important;
@@ -951,6 +958,7 @@ transition: var(--tran-03);
 .modal .form-group input[type=password]:hover,
 .modal .form-group input[type=email]:hover,
 .modal .form-group select:hover,
+.modal .fields select:hover,
 .provider select:hover{
     border-bottom: solid 2px var(--primary-color)!important;   
 }
@@ -959,6 +967,7 @@ transition: var(--tran-03);
 .modal .form-group input[type=password]:focus,
 .modal .form-group input[type=email]:focus,
 .modal .form-group select:focus,
+.modal .fields select:focus,
 .provider select:focus{
     border-bottom: solid 2px var(--primary-color)!important;   
 }
@@ -995,7 +1004,9 @@ transition: var(--tran-03);
 }
 .modal .form-group .col select,
 .modal .form-group select,
-.provider select{
+.provider select,
+.modal .fields select
+ {
     font-size: 14px;
     border-radius: 2px;
 
@@ -1580,6 +1591,11 @@ padding: 10px;
     font-size: 12px;
     font-weight: 500;
 }
+#ActiveClients td,
+#NewClients td,
+#clientTable td{
+    text-transform: capitalize!important;
+}
 #NewClients h3,
 #ActiveClients h3,
 #loginActivity h3,
@@ -1590,6 +1606,10 @@ padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
     font-weight: 600;
+}
+#Messages h6{
+    font-weight: 500!important;
+    color: #6e6e6e!important;
 }
 .pagination {
   text-align: center;
@@ -1847,8 +1867,9 @@ color: var(--side-bar-color)!important;
     margin-bottom:20px;
    }
    .clientname h1{
-    font-weight: 600;
+    font-weight: 700;
     color: var(--dark-text)!important;
+    text-transform: capitalize;
    }
    /* Clientinfo */
 #clientinfo .card .clientinfo{
@@ -1983,6 +2004,7 @@ font-weight: 500;
    .notesNum i{
     font-size: 25px!important;
     margin-right: 5px!important;
+    font-weight: 500!important;
    }
    #addNotes .btn-primary{
     background: var(--side-bar-color);
@@ -2126,4 +2148,162 @@ align-items:center;
 #clientaddress h6,
 #clientphone h6{
     padding-top: 5px;
+}
+#ProfileTab .col-md-6{
+display: grid;
+}
+#ProfileTab card{
+    padding: 15px!important;
+}
+
+.UpdatePass .ikxBAC {
+    appearance: none;
+    background-color: #dfe1e4;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    width: 30px;
+  }
+
+  .UpdatePass .ikxBAC::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+  }
+
+.UpdatePass  .ikxBAC,
+.UpdatePass .ikxBAC::after {
+    transition: all 100ms ease-out;
+  }
+
+.UpdatePass .ikxBAC::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 14px;
+  }
+
+.UpdatePass input[type=checkbox] {
+    cursor: default;
+ padding:10px;
+
+  }
+
+.UpdatePass  .ikxBAC:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+  }
+
+.UpdatePass .ikxBAC:checked {
+    background-color: var(--primary-color);
+  }
+ .UpdatePass .ikxBAC:checked::after {
+    background-color: #fff;
+    left: 13px;
+  }
+
+
+
+.UpdatePass  .ikxBAC:checked:hover {
+    background-color: var(--primary-color);
+  }
+ .UpdatePass[type=checkbox]:checked {
+    background-image: none;
+}
+.UpdatePass [type=checkbox]:focus {
+    --tw-ring-color:none!important;
+}
+.UpdatePass .col{
+   align-self: center!important;
+   
+}  
+.UpdatePass :focus:not(.focus-visible) {
+    outline: 0;
+  }
+  .uploadDocu{
+    display: flex;
+    padding: 0px 22px 5px 0px;
+    justify-content: right!important;
+ 
+  }
+  #showcontainer .uploadDocu .btn-outline-primary{
+    outline: none!important;
+    border:0!important;
+    font-size: 14px!important;
+    font-weight: 500;
+
+  }
+  #showcontainer .uploadDocu .btn-outline-primary i{
+    font-size: 17px!important;
+    
+  }
+  .UDTable table td{
+    font-size: 13px!important;
+    color: #535353!important;
+    font-weight: 500!important;
+
+  }
+  .UDTable td a {  
+    
+    font-size: 16px!important;
+     color: var(--primary-color)!important;
+     
+  }
+.fields label{
+    font-size: 13px!important;
+    font-weight: 500;
+    color: var(--dark-text)!important;
+    align-self: center!important;
+    text-align: right!important;
+}
+.fields .row{
+    margin-bottom:20px!important;
+    
+}
+.fields #documentType{
+    color: #18191A!important;
+}
+
+.fields #documentType option{
+    font-size: 14px!important;
+}
+.DocuBtn{
+    display: flex;
+    align-self: center!important;
+
+     justify-content: center!important;
+
+}
+.DocuBtn button{
+    margin-right: 5px!important;
+}
+.DocuBtn .btn-primary{
+    background-color: var(--primary-color);
+}
+.DocuBtn .btn-primary:hover{
+    background-color: var(--dark-primary);
+}
+.clientbtn{
+    text-align:left!important ;
+    padding-right: 5px;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+.clientbtn i{
+   align-self: center;
+    justify-items: center!important;
+    font-size: 17px;
+}
+#documents-tab-pane .row{
+    margin-bottom: 5px;
 }

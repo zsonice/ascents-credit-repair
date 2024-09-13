@@ -27,6 +27,9 @@
     <a class="nav-link"   id="generate-tab" data-bs-toggle="tab" data-bs-target="#generate-tab-pane" type="button" role="tab" aria-controls="generate-tab-pane" aria-selected="true" >Generate Letters</a>
   </li>
   <li class="nav-item" role="presentation">
+    <a class="nav-link"   id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents-tab-pane" type="button" role="tab" aria-controls="documents-tab-pane" aria-selected="true" >Documents</a>
+  </li>
+  <li class="nav-item" role="presentation">
     <a class="nav-link"   id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes-tab-pane" type="button" role="tab" aria-controls="notes-tab-pane" aria-selected="true" >Notes</a>
   </li>
 
@@ -41,10 +44,26 @@
             <div class="col">
             <div class="card">
             <div class="card-body">
-      <div class="clientname">
-        <h1>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h1>
-      </div>
-
+            <div class="row" id="clientedit">
+                <div class="col-md-9">
+                    <div class="clientname">
+                    <h1>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h1>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="clientbtn">
+                            <a href="#">  <i class="bi bi-pencil"></i>&nbsp;&nbsp;Edit</a>     
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                            <div class="clientbtn">
+                           <a href="#">  <i class='bx bx-upload'></i>&nbsp;&nbsp;Upload Documents</a>
+                            </div>
+                    </div>
+                </div>
+            </div> <!-- clientedit -->
 
       <div class="container">
    <div class="row">
@@ -250,15 +269,125 @@
     </div>
 </div>
 <div class="tab-pane fade" id="generate-tab-pane" role="tabpanel" aria-labelledby="generate-tab" tabindex="0">
-<div class="col-md-7">
-<div class="card">
-    <div class="card-body">
-<h3>hi letter</h3>
-   </div>
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <h3>hi letter</h3>
+            </div>
 
+        </div>
+    </div>
+</div> <!-- generate letters tab -->
+<div class="tab-pane fade" id="documents-tab-pane" role="tabpanel" aria-labelledby="documents-tab" tabindex="0">
+    <div class="col-md-10">
+       
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                         <h3>Documents</h3>
+                    </div>
+                    <div class="col">
+                    <div class="uploadDocu">
+            <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#uploadDocuments"><i class='bx bx-upload'></i>&nbsp;&nbsp;Upload Documents</button>
+                 
+        </div>
+                    </div>
+                </div>
+                <div class="UDTable" style='overflow-x:auto'>
+                    <table class="table table-hover">
+                    <thead>
+                                    <tr>
+                                        <th>Document Type</th>
+                                        <th>Uploaded by</th>
+                                        <th>Uploaded at</th>
+                                        <th>Updated at</th>
+                                        <th>Action</th>
+                                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Valid ID</td>
+                            <td>Jane Doe</td>
+                            <td>05 Sept. 2024</td>
+                            <td>12 Sept. 2024</td>
+                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                           <a href="#">   <i class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Proof of Address</td>
+                            <td>Jane Doe</td>
+                            <td>05 Sept. 2024</td>
+                            <td>12 Sept. 2024</td>
+                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                           <a href="#">   <i class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                          <tr>  
+                            <td>Picture of SSN</td>
+                            <td>Jane Doe</td>
+                            <td>05 Sept. 2024</td>
+                            <td>12 Sept. 2024</td>
+                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                            <a href="#">   <i class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
+<!-- Add Notes Modal-->
+<div class="modal fade" id="uploadDocuments" tabindex="-1" role="dialog" aria-labelledby="uploadDocuments" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">    UPLOAD DOCUMENT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+               
+                    <div class="fields"> 
+                        <div class="mb-3" id="importcsv">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="document">Document</label>  
+                                </div>   
+                                <div class="col">
+                                    <input type="file" class="form-control" name="document" id="document">
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="documentType">Document Type</label>  
+                                </div>   
+                                <div class="col">
+                                <select name="documentType" id="documentType" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option>Valid ID</option>
+                                    <option>Proof of Address</option>
+                                    <option>Picture of SSN</option>  
+                                 </select>
+                                </div>
+                            </div> 
+                          
+                               <div class="DocuBtn">
+                                <button type="submit" class="btn btn-primary"> Upload</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel</button>
+                               </div>
+                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <div class="tab-pane fade" id="notes-tab-pane" role="tabpanel" aria-labelledby="notes-tab" tabindex="0">
     <div class="row" >
@@ -275,7 +404,7 @@
                                 <input class="form-control" type="text" placeholder="Search Notes" aria-label="Search">
                                 </div>
                                 <div class="addNote">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNotes"><i class="bi bi-plus"></i>ADD NOTE</button>
+                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNotes"><i class='bx bx-plus'></i>ADD NOTE</button>
                                 </div>
                                 
                                 
