@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\CmsLogin; 
+use App\Models\Note;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
@@ -217,6 +218,31 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         return view('clients.show', compact('client'));
     }
     
+
+    public function storeNote(Request $request)
+    {
+         // Retrieve the authenticated user's ID from the session
+         $userId = auth()->id();
+
+        // Validate the request
+        $request->validate([
+            'notes' => 'required|string',
+            'client_id' => 'required|exists:clients,id',
+            'level' => 'required|integer|in:0,1,2',
+        ]);
+
+        // Create a new note
+        $note = Note::create([
+            'notes' => $request->input('notes'),
+            'client_id' => $request->input('client_id'),
+            'created_by' => $userId, // Current logged-in user
+            'level' => $request->input('level'),
+        ]);
+
+        // Redirect back to the client view or another appropriate page
+        return redirect()->back()->with('success', 'Note added successfully!');
+    }
+
     
 
     // public function edit(client $client)

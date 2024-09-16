@@ -397,7 +397,7 @@
                         <h3>Notes</h3>
                             <div class="notesNum">
                                 <div>
-                                <p>56 Notes</p>
+                                <p> {{ $client->notes_count }} Notes</p>
                                 </div> 
                                 <div class="notesSearch">
                             
@@ -546,31 +546,33 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
                 </div>
                 <div class="modal-body">
                    
-                       <form action="#" method="POST" >
-                       
+                    <form action="{{ route('clients.storeNote') }}" method="POST">
+                        @csrf
+                        <!-- Hidden fields to store client_id -->
+                        <input type="hidden" name="client_id" value="{{ $client->id }}">
                         <div>
                             <div  class="notesRadio">
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioimportant" checked>
+                                <input class="form-check-input" type="radio" name="level" value="2" id="flexRadioimportant" checked>
                                 <label class="form-check-label" for="flexRadioimportant">
                                     Important
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadiomedium" >
+                                <input class="form-check-input" type="radio" name="level" value="1" id="flexRadiomedium" >
                                 <label class="form-check-label" for="flexRadiomedium">
                                     Medium
                                 </label>
                                 </div>
                                 <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadio" id="flexRadiolow" >
+                                <input class="form-check-input" type="radio" name="level" value="0" id="flexRadiolow" >
                                 <label class="form-check-label" for="flexRadiolow">
                                 Low
                                 </label>
                                 </div>
                             </div>    
                             <div>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                <textarea class="form-control" name="notes" id="exampleFormControlTextarea1" rows="4" required="true"></textarea>
                             </div>    
                             
                     </div>
