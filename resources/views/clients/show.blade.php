@@ -413,63 +413,48 @@
                             
                             <div class="notesTable" style="overflow-y:scroll; height:600px;">
                                     <table class="table table-hover">
+                                        @forelse  ($notes as $note)
+                                            @php
+                                                        $class = '';
+                                                        $label = '';
+                                                        switch ($note->level) {
+                                                            case 2:
+                                                                $class = 'important';
+                                                                $label = 'Important';
+                                                                break;
+                                                            case 1:
+                                                                $class = 'medium';
+                                                                $label = 'Medium';
+                                                                break;
+                                                            case 0:
+                                                                $class = 'low';
+                                                                $label = 'Low';
+                                                                break;
+                                                            default:
+                                                                $class = 'low';
+                                                                $label = 'Low';
+                                                                break;
+                                                        }
+                                            @endphp
                                         <tr>
                                             <td>
                                                 <div class="radiotype">
-                                                <p class="important"><i class='bx bxs-circle'></i> Important</p>
+                                                <p class=" {{ $class }} "><i class='bx bxs-circle'></i> {{ $label }}</p>
                                                 </div>
                                                 <div class="note-preview">
-                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
+                                                <h6> {{ \Illuminate\Support\Str::limit($note->notes, 100, '...') }} </h6>
                                               
-                                                <p> July 31, 2024</p>
+                                                <p> {{ \Carbon\Carbon::parse($note->created_at)->format('F j, Y') }}</p>
                                                   </div> 
                                                
                                             </td>
                                             
                                         </tr>
-                                       
+                                        @empty
                                         <tr>
-                                            <td>
-                                                <div class="radiotype">
-                                                <p class="medium"><i class='bx bxs-circle'></i> Medium</p>
-                                                </div>
-                                                <div class="note-preview">
-                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
-                                              
-                                                <p> July 31, 2024</p>
-                                                  </div> 
-                                               
-                                            </td>
-                                            
+                                            <td>No notes available</td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="radiotype">
-                                                <p class="low"><i class='bx bxs-circle'></i> Low</p>
-                                                </div>
-                                                <div class="note-preview">
-                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
-                                              
-                                                <p> June 23, 2024</p>
-                                                  </div> 
-                                               
-                                            </td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="radiotype">
-                                                <p class="low"><i class='bx bxs-circle'></i> Low</p>
-                                                </div>
-                                                <div class="note-preview">
-                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat....
-                                              
-                                                <p> June 23, 2024</p>
-                                                  </div> 
-                                               
-                                            </td>
-                                            
-                                        </tr>
+                                    @endforelse
                                     </table>
                                 </div>
                 </div>

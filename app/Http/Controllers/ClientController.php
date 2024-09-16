@@ -243,7 +243,21 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         return redirect()->back()->with('success', 'Note added successfully!');
     }
 
-    
+    public function showNotes($client)
+    {
+        // Fetch notes for the specified client
+        $notes = Note::where('client_id', $client)->get();
+
+        // Fetch the client information
+        $client = Client::findOrFail($client);
+
+        // Return the view with notes and client data
+        return view('clients.show', [
+            'notes' => $notes,
+            'client' => $client
+        ]);
+    }
+        
 
     // public function edit(client $client)
     // {

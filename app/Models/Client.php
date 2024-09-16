@@ -61,4 +61,10 @@ class Client extends Model
     {
         return $this->hasMany(Note::class);
     }
+
+    // Define a method to get the count of notes
+    public function getNotesCountAttribute()
+    {
+        return $this->notes()->count();
+    }
 }
