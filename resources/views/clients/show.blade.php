@@ -436,7 +436,7 @@
                                                                 break;
                                                         }
                                             @endphp
-                                        <tr>
+                                        <tr class="note-row" data-note-id="{{ $note->id }}">
                                             <td>
                                                 <div class="radiotype">
                                                 <p class=" {{ $class }} "><i class='bx bxs-circle'></i> {{ $label }}</p>
@@ -463,54 +463,128 @@
         <div class="col-md-7" id="notesTab">
             <div class="card">
                 <div class="card-body">
-           <div class="row">
-                <div class="col">
-                    <div class="radiotype">
-                    <p class="low"><i class='bx bxs-circle'></i> Low</p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="radiotype">
+                                <p id="note-level" class="low"><i class='bx bxs-circle'></i> Low</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="note-preview">
+                                <p id="note-date">June 23, 2024</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="note-preview">
-                    <p> June 23, 2024</p>
+                    <div id="editor" name="editor" contenteditable="true">
+                        <div class="note-preview">
+                            <p id="note-details-text">Note content here...</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-                    <div id="editor">
-
-                    <div class="radiotype">
-                
-</div>          
-                                                <div class="note-preview">
-                                                <h6>   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas leo bibendum arcu ultrices porttitor. Integer enim erat, tincidunt ut ligula eu, lacinia mattis ex. Quisque auctor sit amet risus vitae faucibus. Praesent bibendum nisl quis rutrum vestibulum. Curabitur quis tellus pellentesque, aliquam massa laoreet, venenatis risus. Fusce consequat efficitur ornare. Cras finibus faucibus augue eget scelerisque. Nam lorem ex, auctor vel ornare et, dictum eget erat.
-
-Vivamus et elementum lectus, sit amet congue nisl. Proin condimentum arcu non dui volutpat efficitur. Nunc condimentum ex ut laoreet mollis. Donec auctor lacus felis, in faucibus ex semper at. In aliquam purus mauris, ac mattis nunc auctor vitae. Sed ac porta velit, nec convallis neque. Fusce quis congue quam. Nulla rhoncus eu quam vel egestas. Nulla dictum molestie gravida. Sed feugiat purus eget est placerat, non pretium ligula lacinia.
-
-Donec vestibulum massa eget aliquet luctus. In hac habitasse platea dictumst. Integer condimentum, justo a venenatis pharetra, nisi metus rutrum urna, eget interdum metus orci eget arcu. Phasellus imperdiet tempor convallis. Nunc non gravida nunc. Suspendisse potenti. Fusce id iaculis eros. Morbi et ligula in felis dignissim scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam pharetra, massa eget porta commodo, nisi lacus elementum urna, quis porta turpis diam eu augue. Vivamus arcu mauris, congue id ullamcorper at, elementum vitae ex. Nullam ac leo ipsum. Nunc lacinia laoreet ante, eget gravida nisl hendrerit vitae.
-
-Curabitur fermentum mi sapien, vitae fermentum libero malesuada in. Cras sit amet leo mattis, suscipit quam vel, elementum nisl. Phasellus vestibulum massa mi, convallis maximus quam efficitur sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum eu efficitur nunc, sit amet condimentum diam. Mauris sed efficitur nulla. Morbi vel aliquam ex, nec vestibulum diam. Phasellus suscipit condimentum nulla non mattis. Integer a ornare ligula. Nam quis nisl at lacus interdum dapibus. Mauris facilisis, ex et pellentesque tincidunt, mi lorem sagittis lectus, eget placerat turpis odio non diam.
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin vitae cursus leo. Mauris non risus vehicula, finibus tellus vitae, ultrices ex. Nam augue sem, vulputate eu massa sit amet, tristique aliquam nibh. Mauris dictum est sem, sed ornare metus scelerisque condimentum. Quisque magna sapien, interdum eu libero sit amet, sollicitudin tincidunt lorem. Ut tempus lacus ligula, auctor facilisis sapien molestie in. Aliquam quis leo ultrices, elementum odio eget, convallis ipsum. Donec at condimentum lorem. Morbi efficitur tortor a turpis pretium malesuada sit amet quis nulla. Nam dapibus iaculis massa at accumsan. Nullam id tincidunt urna. Etiam fringilla vehicula lorem id aliquam. In hac habitasse platea dictumst. Vestibulum et nibh ac enim tempor commodo.
-                                       
-                                                  </div> 
-                                                  
-                    </div>
-                  
                     <div class="NoteBtn">
-                   
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
-                </div>
-                <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                    </div>
+                    <!-- JavaScript for handling the click event and updating content -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            let editorInstance;
+
+                            ClassicEditor
+                                .create(document.querySelector('#editor'))
+                                .then(editor => {
+                                    editorInstance = editor;
+                                })
+                                .catch(error => {
+                                    console.error('There was a problem initializing the editor:', error);
+                                });
+
+                            const rows = document.querySelectorAll('.note-row');
+                            const noteLevel = document.getElementById('note-level');
+                            const noteDate = document.getElementById('note-date');
+                            const noteDetailsText = document.getElementById('note-details-text');
+
+                            rows.forEach(row => {
+                                row.addEventListener('click', function() {
+                                    const noteId = this.getAttribute('data-note-id');
+                                    console.log(`Clicked note ID: ${noteId}`); // Debugging line
+
+                                    // Make an AJAX request to fetch note details
+                                    fetch(`/notes/${noteId}`)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Network response was not ok');
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(data => {
+                                            console.log('Note data:', data); // Debugging line
+
+                                            if (data.success) {
+                                                const note = data.note;
+                                                noteLevel.textContent = getNoteLabel(note.level);
+                                                noteLevel.className = getNoteClass(note.level); // Update class based on level
+
+                                                // Format the date to 'F j, Y'
+                                                const formattedDate = formatDate(new Date(note.created_at));
+                                                noteDate.textContent = formattedDate;
+
+                                                // Set editor content
+                                                if (editorInstance) {
+                                                    editorInstance.setData(note.notes);
+                                                } else {
+                                                    console.error('Editor instance is not available.');
+                                                }
+                                            } else {
+                                                noteLevel.textContent = '';
+                                                noteDate.textContent = '';
+                                                noteLevel.className = 'low'; // Reset class if note is not found
+                                                if (editorInstance) {
+                                                    editorInstance.setData('Note not found');
+                                                }
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error fetching note details:', error);
+                                            noteLevel.textContent = '';
+                                            noteDate.textContent = '';
+                                            noteLevel.className = 'low'; // Reset class on error
+                                            if (editorInstance) {
+                                                editorInstance.setData('An error occurred');
+                                            }
+                                        });
+                                });
+                            });
+
+                            function getNoteLabel(level) {
+                                switch (parseInt(level, 10)) {
+                                    case 2: return 'Important';
+                                    case 1: return 'Medium';
+                                    case 0: return 'Low';
+                                    default: return 'Low';
+                                }
+                            }
+
+                            function getNoteClass(level) {
+                                switch (parseInt(level, 10)) {
+                                    case 2: return 'important'; // Class for Important notes
+                                    case 1: return 'medium';   // Class for Medium notes
+                                    case 0: return 'low';      // Class for Low notes
+                                    default: return 'low';     // Default class
+                                }
+                            }
+
+                            function formatDate(date) {
+                                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                                return date.toLocaleDateString('en-US', options);
+                            }
+                        });
+                    </script>
+
+
                 </div>
             </div>
-        </div> <!--col-->
-    </div>  <!-- row-->
+        </div> <!-- col -->
+    </div> <!-- row -->
 </div>
 
 </div>
@@ -1070,6 +1144,8 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 </div>
 </div>
     @endsection
+   
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>

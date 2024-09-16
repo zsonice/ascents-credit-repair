@@ -257,7 +257,18 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             'client' => $client
         ]);
     }
-        
+
+    public function fetchNoteDetails($id)
+    {
+        $note = Note::find($id);
+
+        if ($note) {
+            return response()->json(['success' => true, 'note' => $note]);
+        }
+
+        return response()->json(['success' => false]);
+    }
+            
 
     // public function edit(client $client)
     // {

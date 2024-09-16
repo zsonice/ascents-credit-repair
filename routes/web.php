@@ -65,6 +65,7 @@ Route::post('/notes/store', [ClientController::class, 'storeNote'])
     ->middleware('auth'); // Ensure this matches your authentication setup
 
 
+Route::get('/notes/{id}', [ClientController::class, 'fetchNoteDetails']);
 
 
 Route::get('/mycompany', function () {
