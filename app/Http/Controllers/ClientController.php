@@ -209,7 +209,10 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     
         // Add the formatted phone number to the $client object
         $client->formatted_phone_number = $formattedPhoneNumber;
-    
+
+        // Fetch the client along with the count of notes
+        $client->loadCount('notes');
+
         // Return the view with the modified $client object
         return view('clients.show', compact('client'));
     }

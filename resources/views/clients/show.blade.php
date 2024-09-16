@@ -340,7 +340,7 @@
         </div>
     </div>
 </div>
-<!-- Add Notes Modal-->
+
 <div class="modal fade" id="uploadDocuments" tabindex="-1" role="dialog" aria-labelledby="uploadDocuments" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -388,7 +388,7 @@
         </div>
     </div>
 
-
+<!-- Add Notes Modal-->
 <div class="tab-pane fade" id="notes-tab-pane" role="tabpanel" aria-labelledby="notes-tab" tabindex="0">
     <div class="row" >
         <div class="col-md-3" id="notesTab">

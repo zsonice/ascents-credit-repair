@@ -55,4 +55,10 @@ class Client extends Model
     {
         return $this->hasMany(ClientStatus::class);
     }
+
+    // Define the relationship with the Note model
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
 }
