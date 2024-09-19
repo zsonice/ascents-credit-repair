@@ -55,7 +55,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/{id}/edit', [ClientController::class, 'edit'])->name('clients.edit'); 
     Route::post('/clients/{id}', [ClientController::class, 'update'])->name('clients.update');
     Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
-    Route::get('/clients/{client}', [ClientController::class, 'showNotes'])->name('clients.notes');
 }); 
 
 Route::post('import-csv', [ImportController::class, 'importCSV'])->name('import');

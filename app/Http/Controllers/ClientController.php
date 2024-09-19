@@ -195,28 +195,34 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
 
 
 
+
     public function show(Client $client)
     {
+        // Format the phone number if it has 10 digits
         $phoneNumber = $client->mobile_main;
-    
-        // Check if the phone number is exactly 9 digits
         if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
-            // Format the phone number
             $formattedPhoneNumber = substr($phoneNumber, 0, 3) . '-' . substr($phoneNumber, 3, 4) . '-' . substr($phoneNumber, 7);
         } else {
-            // If not 9 digits, use the original phone number
-            $formattedPhoneNumber = $phoneNumber;
+            $formattedPhoneNumber = $phoneNumber; // Use original if not valid
         }
     
         // Add the formatted phone number to the $client object
         $client->formatted_phone_number = $formattedPhoneNumber;
-
+    
         // Fetch the client along with the count of notes
         $client->loadCount('notes');
-
-        // Return the view with the modified $client object
-        return view('clients.show', compact('client'));
+    
+        // Fetch notes for the specified client using the relationship
+        $notes = $client->notes; // This should retrieve the related notes
+    
+        // Return the view with the modified $client object and notes
+        return view('clients.show', [
+            'client' => $client,
+            'notes' => $notes
+        ]);
     }
+    
+
     
 
     public function storeNote(Request $request)
@@ -242,6 +248,7 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         // Redirect back to the client view or another appropriate page
         return redirect()->back()->with('success', 'Note added successfully!');
     }
+
 
     public function showNotes($client)
     {
