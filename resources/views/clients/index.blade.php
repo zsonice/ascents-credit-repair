@@ -93,13 +93,13 @@
                         
                                 @foreach ($clients as $client)
                                         <tr>    
-                                            <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td> 
-                                            <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td> 
-                                            <td>{{ $client->created_at }}</td>
-                                            <td>{{ $client->start_date }}</td>
-                                            <td>{{ $client->updated_at }}</td>
-                                            <td>Onboarding stage </td>
-                                            <td>{{ $client->status }}</td>
+                                            <td><span class="skeleton">{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</span></td> 
+                                            <td><span class="skeleton">{{ $client->assignedUser->name ?? 'Unknown' }}</span></td> 
+                                            <td><span class="skeleton">{{ $client->created_at }}</span></td>
+                                            <td><span class="skeleton">{{ $client->start_date }}</span></td>
+                                            <td><span class="skeleton">{{ $client->updated_at }}</span></td>
+                                            <td><span class="skeleton">Onboarding stage </span> </td>
+                                            <td><span class="skeleton">{{ $client->status }}</span></td>
                                             <!-- <td>Billing status </td>
                                             <td>Plan name </td> -->
                                             <td> 
@@ -778,9 +778,12 @@ Reset All
         </div>
         </div>
     </div>
+   
 </body>
 </html>
+
 {{-- <script>
+   
     document.getElementById('confirmDeleteButton').addEventListener('click', function() {
         document.getElementById('deleteForm').submit();
     });

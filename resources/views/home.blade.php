@@ -137,8 +137,8 @@
                     <i class="bi bi-exclamation-triangle-fill"></i>
                   </td>
                   <td>
-                    <a href="#"> Past due - Ashley's Debt</a>
-                    <h6>Email Send</h6>
+                    <a href="#" class="skeleton"> Past due - Ashley's Debt</a>
+                    <h6 class="skeleton">Email Send</h6>
                   </td>
                 </tr>
                 <tr>
@@ -146,8 +146,8 @@
                     <i class="bi bi-exclamation-triangle-fill"></i>
                   </td>
                   <td>
-                    <a href="#"> Past due - Ashley's Tuwep</a>
-                    <h6>Follow-Up tuwep</h6>
+                    <a href="#" class="skeleton"> Past due - Ashley's Tuwep</a>
+                    <h6 class="skeleton">Follow-Up tuwep</h6>
                     </a>
                   </td>
                 </tr>
@@ -156,8 +156,8 @@
                     <i class="bi bi-exclamation-triangle-fill"></i>
                   </td>
                   <td>
-                    <a href="#"> Past due - Lala letter</a>
-                    <h6>Letter Send</h6>
+                    <a href="#" class="skeleton"> Past due - Lala letter</a>
+                    <h6 class="skeleton">Letter Send</h6>
                     </a>
                   </td>
                 </tr>
@@ -166,8 +166,8 @@
                     <i class="bi bi-exclamation-triangle-fill"></i>
                   </td>
                   <td>
-                    <a href="#"> Past due - Duan Chismosa</a>
-                    <h6>Meeting with Tuwep GC</h6>
+                    <a href="#" class="skeleton"> Past due - Duan Chismosa</a>
+                    <h6 class="skeleton">Meeting with Tuwep GC</h6>
                     </a>
                   </td>
                 </tr>
@@ -198,16 +198,16 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>Name</th>
+                      <th >Name</th>
                       <th>Assigned To</th>
                       <th>Date</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody> @forelse($newClients as $client) <tr>
-                      <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td>
-                      <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td>
-                      <td>{{ $client->created_at->format('m/d/Y h:i A') }}</td>
+                      <td><span class="skeleton">{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</span></td>
+                      <td><span class="skeleton">{{ $client->assignedUser->name ?? 'Unknown' }}</span></td>
+                      <td><span class="skeleton">{{ $client->created_at->format('m/d/Y h:i A') }}</span></td>
                       <td>
                         <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">View</a>
                       </td>
@@ -244,15 +244,15 @@
                 </tr>
               </thead>
               <tbody> @forelse($activeClients as $client) <tr>
-                      <td>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</td>
-                      <td>{{ $client->assignedUser->name ?? 'Unknown' }}</td>
-                      <td>{{ $client->created_at->format('m/d/Y h:i A') }}</td>
-                      <td>{{ $client->status }}</td>
+                      <td><span class="skeleton">{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</span></td>
+                      <td><span class="skeleton">{{ $client->assignedUser->name ?? 'Unknown' }}</span></td>
+                      <td><span class="skeleton">{{ $client->created_at->format('m/d/Y h:i A') }}</span></td>
+                      <td><span class="skeleton">{{ $client->status }}</span></td>
                       <td>
                         <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">View</a>
                       </td>
                     </tr> @empty <tr>
-                      <td colspan="4">No new clients found.</td>
+                      <td colspan="4"><span class="skeleton">No new clients found.</span></td>
                     </tr> @endforelse </tbody>
             </table>
             <div class="iView">
@@ -279,8 +279,8 @@
                 <i class="bi bi-chat-left-text-fill"></i>
               </td>
               <td>
-                <a href="#">Ashwe Bading</a>
-                <h6>Great morning, this is Ashwe Bading...</h6>
+                <a href="#"><span class="skeleton">Ashwe Bading</span></a>
+                <h6><span class="skeleton">Great morning, this is Ashwe Bading...</span></h6>
               </td>
             </tr>
             <tr>
@@ -288,8 +288,8 @@
                 <i class="bi bi-chat-left-text-fill"></i>
               </td>
               <td>
-                <a href="#">Duan Tuwep</a>
-                <h6>Hi this is duan tuwep. I just want to...</h6>
+                <a href="#"> <span class="skeleton">Duan Tuwep </span></a>
+                <h6> <span class="skeleton">Hi this is duan tuwep. I just want to...</span></h6>
               </td>
             </tr>
             <tr>
@@ -297,8 +297,8 @@
                 <i class="bi bi-chat-left-text-fill"></i>
               </td>
               <td>
-                <a href="#">Ashwe Bading</a>
-                <h6>Great morning, this is Ashwe Bading...</h6>
+                <a href="#"> <span class="skeleton">Ashwe Bading </span></a>
+                <h6> <span class="skeleton">Great morning, this is Ashwe Bading... </span></h6>
               </td>
             </tr>
             <tr>
@@ -306,8 +306,8 @@
                 <i class="bi bi-chat-left-text-fill"></i>
               </td>
               <td>
-                <a href="#">Ashwe Bading</a>
-                <h6>Great morning, this is Ashwe Bading...</h6>
+                <a href="#"> <span class="skeleton">Ashwe Bading </span></a>
+                <h6><span class="skeleton">Great morning, this is Ashwe Bading... </span></h6>
               </td>
             </tr>
           </tbody>
@@ -340,34 +340,34 @@
                     <th>IP Address</th>
                     <th>Access Type</th>
                     <th>Login</th>
-                    <th>Logout</th>
+              
                     <th>Location</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>sgaas.aila@gmail.com</td>
-                    <td>103.149.37.177</td>
-                    <td>Browser</td>
-                    <td>06/11/2024 06:56 PM</td>
-                    <td>-</td>
-                    <td>PH</td>
+                    <td><span class="skeleton">sgaas.aila@gmail.com<span></td>
+                    <td> <span class="skeleton">103.149.37.177</span></td>
+                    <td> <span class="skeleton">>Browser</span></td>
+                    <td><span class="skeleton">06/11/2024 06:56 PM</span></td>
+             
+                    <td><span class="skeleton">PH</span></td>
                 </tr>
                 <tr>
-                    <td>admin1@gmail.com</td>
-                    <td>192.168.37.177</td>
-                    <td>Mobile</td>
-                    <td>06/16/2024 10:56 AM</td>
-                    <td>-</td>
-                    <td>US</td>
+                    <td><span class="skeleton">admin1@gmail.com</span></td>
+                    <td><span class="skeleton">192.168.37.177</span></td>
+                    <td><span class="skeleton">Mobile</span></td>
+                    <td><span class="skeleton">06/16/2024 10:56 AM</span></td>
+           
+                    <td><span class="skeleton">US</span></td>
                 </tr>
                 <tr>
-                    <td>du123@gmail.com</td>
-                    <td>192.168.0.1</td>
-                    <td>Browser</td>
-                    <td>06/18/2024 12:02 PM</td>
-                    <td>-</td>
-                    <td>US</td>
+                    <td><span class="skeleton">du123@gmail.com</span></td>
+                    <td><span class="skeleton">192.168.0.1</span></td>
+                    <td><span class="skeleton">Browser</span></td>
+                    <td><span class="skeleton">06/18/2024 12:02 PM</span></td>
+              
+                    <td><span class="skeleton">US</span></td>
                 </tr>
                 </tbody>
             </table>
@@ -377,6 +377,8 @@
         <!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
         </div>
     </div>
-</div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> @endsection
+</div>  
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> 
+
+  @endsection

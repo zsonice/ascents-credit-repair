@@ -75,7 +75,16 @@
         <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.4"></script>
         <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.7"></script>  
         {{-- <script src="/js/apply-filter.js"> </script> --}}
-        
+
+        <script>
+         const allSkeleton = document.querySelectorAll('.skeleton')
+
+window.addEventListener('load', function() {
+  allSkeleton.forEach(item=> {
+    item.classList.remove('skeleton')
+  })
+})
+    </script>
     <script>
         document.getElementById('confirmDeleteButton').addEventListener('click', function() {
             document.getElementById('deleteForm').submit();
