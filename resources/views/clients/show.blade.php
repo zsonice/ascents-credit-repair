@@ -5,6 +5,7 @@
     <script 
       src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js">
     </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     @extends('layouts.app')
@@ -506,6 +507,7 @@
                             const noteLevel = document.getElementById('note-level');
                             const noteDate = document.getElementById('note-date');
                             const noteDetailsText = document.getElementById('note-details-text');
+                            const deleteForm = document.getElementById('deleteForm');
 
                             rows.forEach(row => {
                                 row.addEventListener('click', function() {
@@ -544,25 +546,37 @@
                                                 deleteForm.style.display = 'block'; // Show the delete form when a note is selected
 
                                             } else {
-                                                noteLevel.textContent = '';
-                                                noteDate.textContent = '';
-                                                noteLevel.className = 'low'; // Reset class if note is not found
-                                                if (editorInstance) {
-                                                    editorInstance.setData('Note not found');
-                                                }
+
+                                                resetNoteDetails();
+                                                // noteLevel.textContent = '';
+                                                // noteDate.textContent = '';
+                                                // noteLevel.className = 'low'; // Reset class if note is not found
+                                                // if (editorInstance) {
+                                                //     editorInstance.setData('Note not found');
+                                                // }
                                             }
                                         })
                                         .catch(error => {
                                             console.error('Error fetching note details:', error);
-                                            noteLevel.textContent = '';
-                                            noteDate.textContent = '';
-                                            noteLevel.className = 'low'; // Reset class on error
-                                            if (editorInstance) {
-                                                editorInstance.setData('An error occurred');
-                                            }
+                                            resetNoteDetails();
+                                            // noteLevel.textContent = '';
+                                            // noteDate.textContent = '';
+                                            // noteLevel.className = 'low'; // Reset class on error
+                                            // if (editorInstance) {
+                                            //     editorInstance.setData('An error occurred');
+                                            // }
                                         });
                                 });
                             });
+
+                            function resetNoteDetails() {
+                            noteLevel.textContent = '';
+                            noteDate.textContent = '';
+                            noteLevel.className = 'low'; // Reset class if note is not found
+                            if (editorInstance) {
+                                editorInstance.setData('Note not found');
+                                }
+                            }
 
                             function getNoteLabel(level) {
                                 switch (parseInt(level, 10)) {
@@ -586,9 +600,11 @@
                                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
                                 return date.toLocaleDateString('en-US', options);
                             }
-
-                           
                         });
+
+                        function confirmDelete() {
+                                return confirm('Are you sure you want to delete this note?');
+                            }
                     </script>
 
 
@@ -1155,16 +1171,62 @@
 </div>
 </div>
     @endsection
-   
+
     <script>
-    function confirmDelete() {
-        return confirm('Are you sure you want to delete this note?');
-    }
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("Page loaded, script is running.");
+
+            // Define a mapping from tab IDs to simpler hash names
+            const hashMapping = {
+                'dashboard-tab-pane': 'dashboard',
+                'import-tab-pane': 'import',
+                'generate-tab-pane': 'generate',
+                'documents-tab-pane': 'documents',
+                'notes-tab-pane': 'notes'
+            };
+
+            // Check the URL for a fragment (e.g., #notes)
+            const hash = window.location.hash.replace('#', ''); // Remove the #
+            console.log("Current URL hash:", hash);
+
+            if (hash) {
+                // Find the corresponding tab link using the hash
+                const tabLink = document.querySelector(`a[data-bs-target="#${hash}-tab-pane"]`);
+                console.log("Found tab link:", tabLink);
+
+                if (tabLink) {
+                    // Use Bootstrap's tab function to activate it
+                    const tabInstance = new bootstrap.Tab(tabLink);
+                    tabInstance.show();  // Show the tab
+                    console.log("Tab activated:", hash);
+                }
+            }
+
+            // Handle updating the URL fragment when a tab is clicked
+            const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+            tabLinks.forEach(tabLink => {
+                tabLink.addEventListener('shown.bs.tab', function (e) {
+                    // Get the current tab's target ID
+                    const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                    // Get the corresponding simplified hash
+                    const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+
+                    // Update the URL fragment without reloading the page
+                    window.history.pushState(null, null, `#${simplifiedHash}`);
+                    console.log("Tab clicked, URL updated to:", simplifiedHash);
+                });
+            });
+        });
     </script>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

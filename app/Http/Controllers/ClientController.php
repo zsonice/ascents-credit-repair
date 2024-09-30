@@ -8,6 +8,7 @@ use App\Models\CmsLogin;
 use App\Models\Note;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log; 
 
 class ClientController extends Controller
 {
@@ -227,13 +228,27 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         // Find the note by its ID
         $note = Note::find($id);
 
-        // Delete the note
-        if ($note) {
-            $note->delete();
-            return redirect()->back()->with('success', 'Note deleted successfully');
+        // Check if the note exists
+        if (!$note) {
+            // Handle the case where the note is not found
+            return redirect()->back()->with('error', 'Note not found.');
         }
-        return redirect()->back()->with('error', 'Note not found');
+
+        // Retrieve the client ID from the note
+        $clientId = $note->client_id;
+
+        // Delete the note
+        $note->delete();
+
+        // Check if clientId is valid before redirecting
+        if (!$clientId) {
+            return redirect()->route('clients.index')->with('error', 'Client not found for this note.');
+        }
+        
+        // Redirect to the client's show page with the #notes fragment
+        return redirect()->route('clients.show', ['client' => $clientId])->withFragment('notes');
     }
+
 
     public function storeNote(Request $request)
     {
@@ -255,8 +270,8 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             'level' => $request->input('level'),
         ]);
 
-        // Redirect back to the client view or another appropriate page
-        return redirect()->back()->with('success', 'Note added successfully!');
+        // Redirect to the client view with the notes tab active
+        return redirect()->route('clients.show', ['client' => $request->input('client_id')])->with('success', 'Note added successfully!')->withFragment('notes');
     }
 
 
