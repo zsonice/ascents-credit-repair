@@ -482,7 +482,11 @@
                     </div>
                     <div class="NoteBtn">
                         <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                        <form id="deleteForm" action="" method="POST" style="display:none;" onsubmit="return confirmDelete()">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-trash-fill"></i></button>
+                        </form>
                     </div>
                     <!-- JavaScript for handling the click event and updating content -->
                     <script>
@@ -534,6 +538,11 @@
                                                 } else {
                                                     console.error('Editor instance is not available.');
                                                 }
+
+                                                // Update the delete form action with the selected note's ID
+                                                deleteForm.action = `/notes/${noteId}`; 
+                                                deleteForm.style.display = 'block'; // Show the delete form when a note is selected
+
                                             } else {
                                                 noteLevel.textContent = '';
                                                 noteDate.textContent = '';
@@ -577,6 +586,8 @@
                                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
                                 return date.toLocaleDateString('en-US', options);
                             }
+
+                           
                         });
                     </script>
 
@@ -1145,7 +1156,11 @@
 </div>
     @endsection
    
-
+    <script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this note?');
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>

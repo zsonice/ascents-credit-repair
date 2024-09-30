@@ -221,9 +221,19 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             'notes' => $notes
         ]);
     }
-    
 
-    
+    public function deleteNote($id)
+    {
+        // Find the note by its ID
+        $note = Note::find($id);
+
+        // Delete the note
+        if ($note) {
+            $note->delete();
+            return redirect()->back()->with('success', 'Note deleted successfully');
+        }
+        return redirect()->back()->with('error', 'Note not found');
+    }
 
     public function storeNote(Request $request)
     {
