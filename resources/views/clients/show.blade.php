@@ -482,7 +482,11 @@
                         </div>
                     </div>
                     <div class="NoteBtn">
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
+
+                         <!--edit button-->
+                        <button type="button" id="saveButton" class="btn btn-primary"><i class="bi bi-floppy-fill"></i></button>
+
+                        <!--delete button-->
                         <form id="deleteForm" action="" method="POST" style="display:none;" onsubmit="return confirmDelete()">
                             @csrf
                             @method('DELETE')
@@ -492,6 +496,7 @@
                     <!-- JavaScript for handling the click event and updating content -->
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
+
                             let editorInstance;
 
                             ClassicEditor
@@ -508,6 +513,44 @@
                             const noteDate = document.getElementById('note-date');
                             const noteDetailsText = document.getElementById('note-details-text');
                             const deleteForm = document.getElementById('deleteForm');
+                            const saveButton = document.getElementById('saveButton');
+
+                              // Click event for the save button
+                            saveButton.addEventListener('click', function() {
+                                const noteId = deleteForm.action.split('/').pop(); // Get the note ID from the form action
+                                const updatedNoteContent = editorInstance.getData(); // Get the updated content from the editor
+
+                                // Make an AJAX request to save the note
+                                fetch(`/notes/${noteId}`, {
+                                    method: 'PUT', // Use PUT to update the resource
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Add CSRF token for Laravel
+                                    },
+                                    body: JSON.stringify({ notes: updatedNoteContent }) // Send the updated note content
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    if (data.success) {
+                                        alert('Note updated successfully!');
+                                        // Optionally, you could update the UI to reflect the changes
+                                        // Refresh the page
+                                        location.reload(); // Refresh the page after saving
+                                    } else {
+                                        alert('Failed to update the note. Please try again.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error updating note:', error);
+                                    alert('An error occurred while updating the note.');
+                                });
+                            });
+                    
 
                             rows.forEach(row => {
                                 row.addEventListener('click', function() {
@@ -569,6 +612,7 @@
                                 });
                             });
 
+                            
                             function resetNoteDetails() {
                             noteLevel.textContent = '';
                             noteDate.textContent = '';

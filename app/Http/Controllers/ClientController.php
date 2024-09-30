@@ -249,6 +249,32 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         return redirect()->route('clients.show', ['client' => $clientId])->withFragment('notes');
     }
 
+    public function updateNote(Request $request, $id)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'notes' => 'required|string|max:5000', // Adjust max length as needed
+        ]);
+    
+        // Find the note by ID
+        $note = Note::find($id);
+    
+        // Check if the note exists
+        if ($note) {
+            // Update the note's content
+            $note->notes = strip_tags($request->input('notes'));
+            $note->notes = $request->input('notes');
+            $note->save(); // Save changes to the database
+    
+            return response()->json(['success' => true]); // Return success response
+        }
+    
+        // Return an error response if the note is not found
+        return response()->json(['success' => false], 404);
+    }
+    
+
+
 
     public function storeNote(Request $request)
     {

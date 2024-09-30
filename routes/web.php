@@ -62,7 +62,8 @@ Route::post('import-csv', [ImportController::class, 'importCSV'])->name('import'
 Route::post('/notes/store', [ClientController::class, 'storeNote'])
     ->name('clients.storeNote')
     ->middleware('auth'); // Ensure this matches your authentication setup
-
+    
+Route::put('/notes/{id}', [ClientController::class, 'updateNote'])->name('clients.updateNote'); 
 Route::delete('/notes/{id}', [ClientController::class, 'deleteNote'])->name('clients.deleteNote');
 Route::get('/notes/{id}', [ClientController::class, 'fetchNoteDetails']);
 
