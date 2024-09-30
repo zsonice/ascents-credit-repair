@@ -147,20 +147,16 @@
                      <table class="table table-hover">
                     
                          <tbody>
-                         
-                                 <tr>    
-                                     <td><h6>July 24, 2024</h6></td> 
-                                     <td>
-                                     <h6>Send Documents</h6></td> 
-
-                                 </tr>
-                               
-                                 <tr>    
-                                     <td><h6>July 22, 2024</h6></td> 
-                                     <td> 
-                                     <h6>Follow-Up Email</h6></td> 
-
-                                 </tr>
+                         @forelse($notes as $note)  <!-- Loop through the notes -->
+                            <tr>    
+                                <td><h6>{{ $note->created_at->format('F j, Y') }}</h6></td>  <!-- Format the date -->
+                                <td><h6>{{ \Illuminate\Support\Str::limit($note->notes, 50, '...') }}</h6></td>  <!-- Display the note content -->
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2"><h6>No notes available.</h6></td>  <!-- Message if no notes are found -->
+                            </tr>
+                        @endforelse
                             
                          
                          </tbody>
@@ -169,10 +165,10 @@
       
 
             
-               </div>  <div class="iView">
-
-<a href="#">View All</a>
-        </div>
+               </div>  
+               <div class="iView">
+                    <a href="#notes">View All</a>
+                </div>
         
      </div> 
   
@@ -591,23 +587,11 @@
                                             } else {
 
                                                 resetNoteDetails();
-                                                // noteLevel.textContent = '';
-                                                // noteDate.textContent = '';
-                                                // noteLevel.className = 'low'; // Reset class if note is not found
-                                                // if (editorInstance) {
-                                                //     editorInstance.setData('Note not found');
-                                                // }
                                             }
                                         })
                                         .catch(error => {
                                             console.error('Error fetching note details:', error);
                                             resetNoteDetails();
-                                            // noteLevel.textContent = '';
-                                            // noteDate.textContent = '';
-                                            // noteLevel.className = 'low'; // Reset class on error
-                                            // if (editorInstance) {
-                                            //     editorInstance.setData('An error occurred');
-                                            // }
                                         });
                                 });
                             });
@@ -1218,50 +1202,80 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("Page loaded, script is running.");
+                console.log("Page loaded, script is running.");
 
-            // Define a mapping from tab IDs to simpler hash names
-            const hashMapping = {
-                'dashboard-tab-pane': 'dashboard',
-                'import-tab-pane': 'import',
-                'generate-tab-pane': 'generate',
-                'documents-tab-pane': 'documents',
-                'notes-tab-pane': 'notes'
-            };
+                // Define a mapping from tab IDs to simpler hash names
+                const hashMapping = {
+                    'dashboard-tab-pane': 'dashboard',
+                    'import-tab-pane': 'import',
+                    'generate-tab-pane': 'generate',
+                    'documents-tab-pane': 'documents',
+                    'notes-tab-pane': 'notes' // Ensure this ID is correct
+                };
 
-            // Check the URL for a fragment (e.g., #notes)
-            const hash = window.location.hash.replace('#', ''); // Remove the #
-            console.log("Current URL hash:", hash);
+                // Check the URL for a fragment (e.g., #notes)
+                const hash = window.location.hash.replace('#', ''); // Remove the #
+                console.log("Current URL hash:", hash);
 
-            if (hash) {
-                // Find the corresponding tab link using the hash
-                const tabLink = document.querySelector(`a[data-bs-target="#${hash}-tab-pane"]`);
-                console.log("Found tab link:", tabLink);
+                if (hash) {
+                    // Find the corresponding tab link using the hash
+                    const tabLink = document.querySelector(`a[data-bs-target="#${hash}-tab-pane"]`);
+                    console.log("Found tab link:", tabLink);
 
-                if (tabLink) {
-                    // Use Bootstrap's tab function to activate it
-                    const tabInstance = new bootstrap.Tab(tabLink);
-                    tabInstance.show();  // Show the tab
-                    console.log("Tab activated:", hash);
+                    if (tabLink) {
+                        // Use Bootstrap's tab function to activate it
+                        const tabInstance = new bootstrap.Tab(tabLink);
+                        tabInstance.show();  // Show the tab
+                        console.log("Tab activated:", hash);
+                    }
                 }
-            }
 
-            // Handle updating the URL fragment when a tab is clicked
-            const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
-            tabLinks.forEach(tabLink => {
-                tabLink.addEventListener('shown.bs.tab', function (e) {
-                    // Get the current tab's target ID
-                    const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
-                    // Get the corresponding simplified hash
-                    const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+                // Handle updating the URL fragment when a tab is clicked
+                const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+                tabLinks.forEach(tabLink => {
+                    tabLink.addEventListener('shown.bs.tab', function (e) {
+                        // Get the current tab's target ID
+                        const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                        // Get the corresponding simplified hash
+                        const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
 
-                    // Update the URL fragment without reloading the page
-                    window.history.pushState(null, null, `#${simplifiedHash}`);
-                    console.log("Tab clicked, URL updated to:", simplifiedHash);
+                        // Update the URL fragment without reloading the page
+                        window.history.pushState(null, null, `#${simplifiedHash}`);
+                        console.log("Tab clicked, URL updated to:", simplifiedHash);
+                    });
                 });
+
+                // "View All" link functionality
+                const viewAllLink = document.querySelector('.iView a');
+
+                if (viewAllLink) {
+                    viewAllLink.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent the default anchor click behavior
+
+                        const targetId = '#notes-tab-pane'; // Use the correct target ID
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            console.log("Target element found, scrolling..."); // Debugging statement
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                            // Activate the notes tab
+                            const tabLink = document.querySelector(`a[data-bs-target="#notes-tab-pane"]`);
+                            if (tabLink) {
+                                console.log("Tab link found, activating..."); // Debugging statement
+                                const tabInstance = new bootstrap.Tab(tabLink);
+                                tabInstance.show();  // Show the notes tab
+                                console.log("Notes tab activated via View All link.");
+                            }
+                        } else {
+                            console.log("Target element not found."); // Debugging statement
+                        }
+                    });
+                }
             });
-        });
+
     </script>
+
 
 
 
