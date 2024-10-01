@@ -111,15 +111,15 @@
         </div>
         <div id="clientdob"> 
 <label for="dob">Date of Birth:</label>
-    <h6>&nbsp;{{ $client->date_of_birth }}</h6>
+    <h6>&nbsp;{{ $client->formattedDateOfBirth }}</h6>
         </div>
         <div id="clientstart">
 <label for="start_date">Start Date:</label> 
-    <h6>&nbsp;{{ $client->start_date }}</h6>
+    <h6>&nbsp;{{ $client->formattedStartDate }}</h6>
         </div>
         <div id="clientcreate">
        <label for="create_date">Created Date:</label> 
-    <h6>&nbsp;{{ $client->created_at }}</h6>
+    <h6>&nbsp;{{ $client->created_at->format('F j, Y') }}</h6>
         </div>
        
     </div>

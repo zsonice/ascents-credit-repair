@@ -9,6 +9,7 @@ use App\Models\Note;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log; 
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -203,6 +204,8 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         $phoneNumber = $client->mobile_main;
         if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
             $formattedMobilemain = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
+        } elseif ($phoneNumber == ''){
+            $formattedMobilemain == '-';
         } else {
             $formattedMobilemain = $phoneNumber; // Use original if not valid
         }
@@ -211,6 +214,8 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         $phoneNumber = $client->mobile_alt;
         if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
             $formattedMobilealt = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
+        } elseif ($phoneNumber == ''){
+            $formattedMobilealt == '-';
         } else {
             $formattedMobilealt = $phoneNumber; // Use original if not valid
         }
@@ -219,15 +224,26 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         $phoneNumber = $client->mobile_work;
         if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
             $formattedMobilework = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
-        } else {
+        } elseif ($phoneNumber == ''){
+            $formattedMobilework == '-';
+        }  else {
             $formattedMobilework = $phoneNumber; // Use original if not valid
         }
     
+
+         // Convert the date_of_birth string to a formatted date using Carbon
+        $formattedDateOfBirth = Carbon::createFromFormat('Y-m-d', $client->date_of_birth)->format('F j, Y');
+        $formattedStartDate = Carbon::createFromFormat('Y-m-d', $client->start_date)->format('F j, Y');
+
+
+
         // Add the formatted phone number to the $client object
         $client->formattedMobilemain = $formattedMobilemain;
         $client->formattedMobilealt = $formattedMobilealt;
         $client->formattedMobilework = $formattedMobilework;
-    
+        $client->formattedDateOfBirth = $formattedDateOfBirth;
+        $client->formattedStartDate = $formattedStartDate;
+
         // Fetch the client along with the count of notes
         $client->loadCount('notes');
     
