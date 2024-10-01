@@ -96,9 +96,9 @@
             <div id="clientphone">
                 <i class="bi bi-telephone-fill"></i>  &nbsp; 
             <div id="phonenum">
-                <h6>{{ $client->mobile_main }} &nbsp;<span>(Mobile)</span></h6>
-                <h6>{{ $client->mobile_alt }} &nbsp;<span>(Alt)</span></h6>
-                <h6>{{ $client->mobile_work }} &nbsp;<span>(Work)</span></h6>
+                <h6>{{ $client->formattedMobilemain }} &nbsp;<span>(Mobile)</span></h6>
+                <h6>{{ $client->formattedMobilealt }} &nbsp;<span>(Alt)</span></h6>
+                <h6>{{ $client->formattedMobilework }} &nbsp;<span>(Work)</span></h6>
             </div>
         </div>
     </div>

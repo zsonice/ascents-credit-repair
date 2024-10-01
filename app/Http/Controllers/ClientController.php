@@ -202,13 +202,31 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         // Format the phone number if it has 10 digits
         $phoneNumber = $client->mobile_main;
         if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
-            $formattedPhoneNumber = substr($phoneNumber, 0, 3) . '-' . substr($phoneNumber, 3, 4) . '-' . substr($phoneNumber, 7);
+            $formattedMobilemain = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
         } else {
-            $formattedPhoneNumber = $phoneNumber; // Use original if not valid
+            $formattedMobilemain = $phoneNumber; // Use original if not valid
+        }
+
+        // Format the phone number if it has 10 digits
+        $phoneNumber = $client->mobile_alt;
+        if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
+            $formattedMobilealt = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
+        } else {
+            $formattedMobilealt = $phoneNumber; // Use original if not valid
+        }
+
+        // Format the phone number if it has 10 digits
+        $phoneNumber = $client->mobile_work;
+        if (strlen($phoneNumber) === 10 && ctype_digit($phoneNumber)) {
+            $formattedMobilework = '(' . substr($phoneNumber, 0, 3) . ') ' . substr($phoneNumber, 3, 3) . '-' . substr($phoneNumber, 6);
+        } else {
+            $formattedMobilework = $phoneNumber; // Use original if not valid
         }
     
         // Add the formatted phone number to the $client object
-        $client->formatted_phone_number = $formattedPhoneNumber;
+        $client->formattedMobilemain = $formattedMobilemain;
+        $client->formattedMobilealt = $formattedMobilealt;
+        $client->formattedMobilework = $formattedMobilework;
     
         // Fetch the client along with the count of notes
         $client->loadCount('notes');
