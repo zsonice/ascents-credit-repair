@@ -348,7 +348,7 @@
                 <tr>
                     <td><span class="skeleton">sgaas.aila@gmail.com<span></td>
                     <td> <span class="skeleton">103.149.37.177</span></td>
-                    <td> <span class="skeleton">>Browser</span></td>
+                    <td> <span class="skeleton">Browser</span></td>
                     <td><span class="skeleton">06/11/2024 06:56 PM</span></td>
              
                     <td><span class="skeleton">PH</span></td>
