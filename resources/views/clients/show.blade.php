@@ -272,32 +272,46 @@
                     </div>
                 </div> <!--row-->
                 <div class="form-group">
-                  
-                        <div class="col-md-3" id="cmsdiv">
-                            <label for="cms_type">Credit Monitoring System</label>
-                            <select name="cms_type" id="cms_type" required>
+                    <div class="col-md-3" id="cmsdiv">
+                        <label for="cms_type">Credit Monitoring System</label>
+                        <select name="cms_type" id="cms_type" required>
                             <option value="" disabled selected>Select</option>
-                            <option>IdentityIQ</option>
-	                        <option>SmartCredit</option>
-	                        <option>myScoreIQ</option>  
-                            <option>myfreescorenow</option>  
-                            </select>
-                        </div>  
-                        <div class="row align-items-center">
+                            <option value="IdentityIQ" {{ $cmsLogin && $cmsLogin->cms_type == 'IdentityIQ' ? 'selected' : '' }}>IdentityIQ</option>
+                            <option value="SmartCredit" {{ $cmsLogin && $cmsLogin->cms_type == 'SmartCredit' ? 'selected' : '' }}>SmartCredit</option>
+                            <option value="myScoreIQ" {{ $cmsLogin && $cmsLogin->cms_type == 'myScoreIQ' ? 'selected' : '' }}>myScoreIQ</option>
+                            <option value="myfreescorenow" {{ $cmsLogin && $cmsLogin->cms_type == 'myfreescorenow' ? 'selected' : '' }}>myfreescorenow</option>
+                        </select>
+                    </div>
+
+                    <div class="row align-items-center">
                         <div class="col-md-3">
                             <label for="cmsuser">Username</label>
-                            <input type="text" name="cmsuser" id="cmsuser" class="form-control" required>                                        
+                            <input type="text" name="cmsuser" id="cmsuser" class="form-control" value="{{ $cmsLogin ? $cmsLogin->username : '' }}" required>
                         </div>
-                        <div class="col-md-3" >
+                        <div class="col-md-3">
                             <label for="cmspass">Password</label>
                             <div id="cmspasscb">
-                            <input type="password" name="cmspass" id="cmspass" class="form-control" required>
-                            <input type="checkbox" class="sc-gJwTLC ikxBAC" onclick="myFunction()">    </div>                                 
+                                <input type="password" name="cmspass" id="cmspass" class="form-control" value="{{ $cmsLogin ? $cmsLogin->password : '' }}" required>
+                                <input type="checkbox" class="sc-gJwTLC ikxBAC" onclick="myFunction()">    
+                            </div>
                         </div>
                         <div class="col-md-2" id="TestLoginBtn">
-                        <button type="submit" class="btn btn-outline-primary"> Test Login Details </button>                      
+                            <button type="submit" class="btn btn-outline-primary">Test Login Details</button>                      
                         </div>
                     </div>
+                </div>
+
+                <script>
+                function myFunction() {
+                    var x = document.getElementById("cmspass");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+                </script>
+
                 </div>
             </div>
         </div>

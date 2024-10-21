@@ -245,16 +245,20 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         $client->formattedDateOfBirth = $formattedDateOfBirth;
         $client->formattedStartDate = $formattedStartDate;
 
+        // Fetch related CMS login credentials
+        $cmsLogin = $client->cmsLogin; // Ensure you have a 'cmsLogin' relation in the Client model
+
         // Fetch the client along with the count of notes
         $client->loadCount('notes');
     
         // Fetch notes for the specified client using the relationship
         $notes = $client->notes; // This should retrieve the related notes
     
-        // Return the view with the modified $client object and notes
+        // Return the view with the client and cmsLogin data
         return view('clients.show', [
             'client' => $client,
-            'notes' => $notes
+            'notes' => $notes,
+            'cmsLogin' => $cmsLogin,
         ]);
     }
 
@@ -683,6 +687,8 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         \Log::info('Docker Output: ' . $output);
         return $output;
     }
+
+
     
 
 
