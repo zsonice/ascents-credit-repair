@@ -22,7 +22,7 @@
     <a class="nav-link active"  id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard-tab-pane" type="button" role="tab" aria-controls="dashboard-tab-pane" aria-selected="true" >Dashboard</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link "    id="import-tab" data-bs-toggle="tab" data-bs-target="#import-tab-pane" type="button" role="tab" aria-controls="import-tab-pane" aria-selected="true" >Import/Audit</a>
+    <a class="nav-link "    id="import-tab" data-bs-toggle="tab" data-bs-target="#import-tab-pane" type="button" role="tab" aria-controls="import-tab-pane" aria-selected="true" >Import</a>
   </li>
   <li class="nav-item" role="presentation">
     <a class="nav-link"   id="generate-tab" data-bs-toggle="tab" data-bs-target="#generate-tab-pane" type="button" role="tab" aria-controls="generate-tab-pane" aria-selected="true" >Generate Letters</a>
@@ -257,32 +257,136 @@
 
 
 <div class="tab-pane fade" id="import-tab-pane" role="tabpanel" aria-labelledby="import-tab" tabindex="0">
-    <div class="col-md-7">
+    <div class="col-md-10">
         <div class="card">
             <div class="card-body">
-                <h3>hi</h3>
-
-                <form action="{{ route('metro2.upload') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" name="metro2_file" required>
-                    <input type="hidden" name="client_id" value="{{ $client->id }}"> <!-- Ensure client ID is passed -->
-                    <button type="submit">Process</button>
-                </form>
-
-                <h3>Metro2 File Output</h3>
-                @if(session('output'))
-                    <pre>{{ session('output') }}</pre>  <!-- Display the output as preformatted text -->
-                @else
-                    <p>No output available.</p>
-                @endif
-
+         
+                <div class="row"  id="CRImport">
+                    <div class="col">
+                    <h3>Credit Report Import</h3>
+                    <p>Upload or enter your credit report details</p>
+                    </div>
+                    <div class="col-md-3" id="CRbtn">
+                    <button class="btn btn-primary" id="importCRbtn" type="button" data-toggle="modal" data-target="#ImportCreditReport"></i>&nbsp;&nbsp;IMPORT CREDIT REPORT</button>
+            
+                    </div>
+                </div> <!--row-->
+                <div class="form-group">
+                  
+                        <div class="col-md-3" id="cmsdiv">
+                            <label for="cms_type">Credit Monitoring System</label>
+                            <select name="cms_type" id="cms_type" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>IdentityIQ</option>
+	                        <option>SmartCredit</option>
+	                        <option>myScoreIQ</option>  
+                            <option>myfreescorenow</option>  
+                            </select>
+                        </div>  
+                        <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <label for="cmsuser">Username</label>
+                            <input type="text" name="cmsuser" id="cmsuser" class="form-control" required>                                        
+                        </div>
+                        <div class="col-md-3" >
+                            <label for="cmspass">Password</label>
+                            <div id="cmspasscb">
+                            <input type="password" name="cmspass" id="cmspass" class="form-control" required>
+                            <input type="checkbox" class="sc-gJwTLC ikxBAC" onclick="myFunction()">    </div>                                 
+                        </div>
+                        <div class="col-md-2" id="TestLoginBtn">
+                        <button type="submit" class="btn btn-outline-primary"> Test Login Details </button>                      
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div  id="loginActivity">
+ 
+                    <h3>Dispute Import History</h3>
+                    <div style='overflow-y:auto'>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                            <th>No.</th>
+                            <th>Imported by</th>
+                            <th>Source</th>
+                            <th>Created Date</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="skeleton">001<span></td>
+                                <td> <span class="skeleton">Me e e </span></td>
+                                 <td> <span class="skeleton">SmartCredit</span></td>
+                                <td><span class="skeleton">06/11/2024 06:56 PM</span></td>
+             
+                 
+                            </tr>
+                             <tr>
+                                <td><span class="skeleton">002<span></td>
+                                 <td> <span class="skeleton">Ashwe </span></td>
+                                 <td> <span class="skeleton">IdentityIQ</span></td>
+                                <td><span class="skeleton">06/17/2024 07:56 PM</span></td>
+           
+          
+                            </tr>
+                            <tr>
+                                 <td><span class="skeleton">003<span></td>
+                                 <td> <span class="skeleton">Duan </span></td>
+                                <td> <span class="skeleton">myfreescorenow</span></td>
+                                <td><span class="skeleton">06/25/2024 02:52 PM</span></td>
+               
+                            </tr>
+                        </tbody>
+                        </table>
+           
+        <!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
+                    </div>
+                </div>
+            </div>  
+       
+        </div>
+    </div>
 </div>
-
+<div class="modal fade" id="ImportCreditReport" tabindex="-1" role="dialog" aria-labelledby="ImportCreditReport" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">    Paste your code here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+               
+                    <div class="fields"> 
+                        <div class="mb-3" id="importcsv">
+                            <div class="row">
+                        
+                                <div class="col">
+                                <textarea class="form-control" id="ImportCreditReport" rows="6"></textarea>
+                                </div>
+                            </div> 
+                       
+                          
+                               <div class="DocuBtn">
+                                <button type="submit" class="btn btn-primary"> Save </button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancel</button>
+                               </div>
+                             
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="tab-pane fade" id="generate-tab-pane" role="tabpanel" aria-labelledby="generate-tab" tabindex="0">
-    <div class="col-md-7">
+    <div class="col-md-10">
         <div class="card">
             <div class="card-body">
                 <h3>hi letter</h3>
@@ -297,7 +401,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id="UploadDocuments">
                          <h3>Documents</h3>
                     </div>
                     <div class="col">
@@ -324,7 +428,9 @@
                             <td>Jane Doe</td>
                             <td>05 Sept. 2024</td>
                             <td>12 Sept. 2024</td>
-                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                            <td>
+                            <a href="#" class="btn"><i class="bi bi-eye-fill"></i></a>
+                            <a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
                            <a href="#">   <i class='bx bxs-trash'></i></a>
                             </td>
                         </tr>
@@ -333,7 +439,10 @@
                             <td>Jane Doe</td>
                             <td>05 Sept. 2024</td>
                             <td>12 Sept. 2024</td>
-                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                            <td>
+                            <a href="#" class="btn"><i class="bi bi-eye-fill"></i></a>
+                                              
+                            <a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
                            <a href="#">   <i class='bx bxs-trash'></i></a>
                             </td>
                         </tr>
@@ -342,7 +451,9 @@
                             <td>Jane Doe</td>
                             <td>05 Sept. 2024</td>
                             <td>12 Sept. 2024</td>
-                            <td><a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
+                            <td>
+                            <a href="#" class="btn"><i class="bi bi-eye-fill"></i></a>
+                            <a href="#">   <i class='bx bxs-edit'></i></a>&nbsp;
                             <a href="#">   <i class='bx bxs-trash'></i></a>
                             </td>
                         </tr>

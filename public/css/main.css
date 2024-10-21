@@ -712,11 +712,13 @@ body.dark .card .card-body .navbar{
     outline: 0;
     border: none;
    }
-   .modal-body .form-group input{
+   .modal-body .form-group input,
+   .form-group input{
     border-radius: 6px;
     margin-bottom: 10px;
    }
-   .modal-body .form-group label{
+   .modal-body .form-group label,
+  .form-group label{
     font-weight: 500;
    }
    .home .nav .badge{
@@ -928,9 +930,13 @@ color: var(--primary-color);
 transition: var(--tran-03);
 }
 .modal .form-group input[type=text],
+.form-group input[type=text],
 .modal .form-group input[type=password],
+.form-group input[type=password],
 .modal .form-group input[type=email],
+.form-group input[type=email],
 .modal .form-group select,
+.form-group select,
 .provider select,
 .modal .fields select
 {
@@ -949,15 +955,24 @@ transition: var(--tran-03);
 .modal .form-group select:focus,
 .modal .form-group textarea:focus,
 .provider select:focus,
-.modal .fields select:focus{
+.modal .fields select:focus,
+.form-group select:focus,
+.form-group input[type=text]:focus,
+.form-group input[type=password]:focus,
+.form-group input[type=email]:focus,
+.form-group input[type=password]:focus{
     box-shadow: none!important;
     border: none!important;
     outline: none!important;
 }
 .modal .form-group input[type=text]:hover,
+.form-group input[type=text]:hover,
 .modal .form-group input[type=password]:hover,
 .modal .form-group input[type=email]:hover,
+.form-group input[type=password]:hover,
+.form-group input[type=email]:hover,
 .modal .form-group select:hover,
+.form-group select:hover,
 .modal .fields select:hover,
 .provider select:hover{
     border-bottom: solid 2px var(--primary-color)!important;   
@@ -966,7 +981,11 @@ transition: var(--tran-03);
 .modal .form-group input[type=text]:focus,
 .modal .form-group input[type=password]:focus,
 .modal .form-group input[type=email]:focus,
+.form-group input[type=text]:focus,
+.form-group input[type=password]:focus,
+.form-group input[type=email]:focus,
 .modal .form-group select:focus,
+.form-group select:focus,
 .modal .fields select:focus,
 .provider select:focus{
     border-bottom: solid 2px var(--primary-color)!important;   
@@ -974,12 +993,14 @@ transition: var(--tran-03);
 .modal .form-group input[type=date]:focus{
     border: solid 2px var(--primary-color)!important;   
 }
-.modal .form-group label{
+.modal .form-group label,
+.form-group label{
     font-size: 13px;
     color: var(--header-text);
     font-weight: 600;
 }
-.modal .form-group{
+.modal .form-group,
+.form-group{
     margin-bottom: 10px;
 }
 .modal-xl, .modal-sm{
@@ -993,6 +1014,13 @@ transition: var(--tran-03);
     padding: 20px;
 
 
+}
+ .form-group .col-md-3 select{
+    margin-bottom: 10px!important;
+    font-size: 14px;
+    border-radius: 2px;
+   width: 200px;
+   text-align: left;
 }
 .modal .form-group .col-md-2 select,
 .provider select{
@@ -1600,11 +1628,18 @@ padding: 10px;
 #ActiveClients h3,
 #loginActivity h3,
 #Notes h3,
+#notesTab h3,
+#UploadDocuments h3,
 #agentinfo h3,
 #Reminders h3,
 #Messages h3{
     font-size: 18px;
     margin-bottom: 10px;
+    font-weight: 600;
+}
+#CRImport h3{
+    font-size: 18px;
+    margin-bottom: 5px;
     font-weight: 600;
 }
 #Messages h6{
@@ -2335,3 +2370,29 @@ display: grid;
 }
 /* SKELETON */
 
+#importCRbtn,
+#TestLoginBtn .btn{
+    font-weight: 500!important;
+    font-size: 14px;
+}
+#CRImport{
+margin-bottom: 20px;
+}
+
+#CRbtn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  
+}
+#TestLoginBtn .btn{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#import-tab-pane input[type=checkbox]{
+    margin-left: 10px!important;
+}
+#import-tab-pane .form-group{
+    padding-left: 25px;
+    margin-top: 30px;
+}
