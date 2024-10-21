@@ -261,10 +261,26 @@
         <div class="card">
             <div class="card-body">
                 <h3>hi</h3>
+
+                <form action="{{ route('metro2.upload') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="metro2_file" required>
+                    <input type="hidden" name="client_id" value="{{ $client->id }}"> <!-- Ensure client ID is passed -->
+                    <button type="submit">Process</button>
+                </form>
+
+                <h3>Metro2 File Output</h3>
+                @if(session('output'))
+                    <pre>{{ session('output') }}</pre>  <!-- Display the output as preformatted text -->
+                @else
+                    <p>No output available.</p>
+                @endif
+
             </div>
         </div>
     </div>
 </div>
+
 <div class="tab-pane fade" id="generate-tab-pane" role="tabpanel" aria-labelledby="generate-tab" tabindex="0">
     <div class="col-md-7">
         <div class="card">
@@ -1200,81 +1216,119 @@
 </div>
     @endsection
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-                console.log("Page loaded, script is running.");
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("Page loaded, script is running.");
 
-                // Define a mapping from tab IDs to simpler hash names
-                const hashMapping = {
-                    'dashboard-tab-pane': 'dashboard',
-                    'import-tab-pane': 'import',
-                    'generate-tab-pane': 'generate',
-                    'documents-tab-pane': 'documents',
-                    'notes-tab-pane': 'notes' // Ensure this ID is correct
-                };
+        // Define a mapping from tab IDs to simpler hash names
+        const hashMapping = {
+            'dashboard-tab-pane': 'dashboard',
+            'import-tab-pane': 'import',
+            'generate-tab-pane': 'generate',
+            'documents-tab-pane': 'documents',
+            'notes-tab-pane': 'notes' // Ensure this ID is correct
+        };
 
-                // Check the URL for a fragment (e.g., #notes)
-                const hash = window.location.hash.replace('#', ''); // Remove the #
-                console.log("Current URL hash:", hash);
+        // Check the URL for a fragment (e.g., #notes)
+        const hash = window.location.hash.replace('#', ''); // Remove the #
+        console.log("Current URL hash:", hash);
 
-                if (hash) {
-                    // Find the corresponding tab link using the hash
-                    const tabLink = document.querySelector(`a[data-bs-target="#${hash}-tab-pane"]`);
-                    console.log("Found tab link:", tabLink);
+        if (hash) {
+            // Use the hashMapping to find the corresponding tab pane ID
+            const tabPaneId = Object.keys(hashMapping).find(key => hashMapping[key] === hash);
+            console.log("Mapped tab pane ID:", tabPaneId);
 
-                    if (tabLink) {
-                        // Use Bootstrap's tab function to activate it
-                        const tabInstance = new bootstrap.Tab(tabLink);
-                        tabInstance.show();  // Show the tab
-                        console.log("Tab activated:", hash);
-                    }
+            // If found, activate the corresponding tab
+            if (tabPaneId) {
+                const tabLink = document.querySelector(`a[data-bs-target="#${tabPaneId}"]`);
+                console.log("Found tab link:", tabLink);
+
+                if (tabLink) {
+                    // Use Bootstrap's tab function to activate it
+                    const tabInstance = new bootstrap.Tab(tabLink);
+                    tabInstance.show();  // Show the tab
+                    console.log("Tab activated:", hash);
                 }
+            }
+        }
 
-                // Handle updating the URL fragment when a tab is clicked
-                const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
-                tabLinks.forEach(tabLink => {
-                    tabLink.addEventListener('shown.bs.tab', function (e) {
-                        // Get the current tab's target ID
-                        const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
-                        // Get the corresponding simplified hash
-                        const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+        // Handle updating the URL fragment when a tab is clicked
+        const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        tabLinks.forEach(tabLink => {
+            tabLink.addEventListener('shown.bs.tab', function (e) {
+                // Get the current tab's target ID
+                const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                console.log("Active tab ID:", targetId);
 
-                        // Update the URL fragment without reloading the page
-                        window.history.pushState(null, null, `#${simplifiedHash}`);
-                        console.log("Tab clicked, URL updated to:", simplifiedHash);
-                    });
-                });
+                // Get the corresponding simplified hash
+                const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
 
-                // "View All" link functionality
-                const viewAllLink = document.querySelector('.iView a');
+                // Update the URL fragment without reloading the page
+                window.history.pushState(null, null, `#${simplifiedHash}`);
+                console.log("Tab clicked, URL updated to:", simplifiedHash);
+            });
+        });
 
-                if (viewAllLink) {
-                    viewAllLink.addEventListener('click', function (event) {
-                        event.preventDefault(); // Prevent the default anchor click behavior
+        // "View All" link functionality
+        const viewAllLink = document.querySelector('.iView a');
 
-                        const targetId = '#notes-tab-pane'; // Use the correct target ID
-                        const targetElement = document.querySelector(targetId);
+        if (viewAllLink) {
+            viewAllLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default anchor click behavior
 
-                        if (targetElement) {
-                            console.log("Target element found, scrolling..."); // Debugging statement
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                const targetId = '#notes-tab-pane'; // Use the correct target ID
+                const targetElement = document.querySelector(targetId);
 
-                            // Activate the notes tab
-                            const tabLink = document.querySelector(`a[data-bs-target="#notes-tab-pane"]`);
-                            if (tabLink) {
-                                console.log("Tab link found, activating..."); // Debugging statement
-                                const tabInstance = new bootstrap.Tab(tabLink);
-                                tabInstance.show();  // Show the notes tab
-                                console.log("Notes tab activated via View All link.");
-                            }
-                        } else {
-                            console.log("Target element not found."); // Debugging statement
-                        }
-                    });
+                if (targetElement) {
+                    console.log("Target element found, scrolling..."); // Debugging statement
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                    // Activate the notes tab
+                    const tabLink = document.querySelector(`a[data-bs-target="#notes-tab-pane"]`);
+                    if (tabLink) {
+                        console.log("Tab link found, activating..."); // Debugging statement
+                        const tabInstance = new bootstrap.Tab(tabLink);
+                        tabInstance.show();  // Show the notes tab
+                        console.log("Notes tab activated via View All link.");
+                    }
+                } else {
+                    console.log("Target element not found."); // Debugging statement
                 }
             });
+        }
 
-    </script>
+        // Check if there's output in the session
+        const outputExists = "{{ session('output') }}"; // Use Blade to insert session output
+
+        if (outputExists) {
+            console.log("Output exists, showing import tab."); // Debugging statement
+            // Activate the 'import' tab
+            window.location.hash = 'import'; // Set the hash to 'import'
+            const tabLink = document.querySelector('a[data-bs-target="#import-tab-pane"]');
+            if (tabLink) {
+                const tabInstance = new bootstrap.Tab(tabLink);
+                tabInstance.show();  // Show the import tab
+                console.log("Import tab activated."); // Debugging statement
+            }
+        }
+
+        const activeTab = "{{ session('activeTab') }}"; // Check for active tab
+
+        if (activeTab) {
+            console.log("Active tab exists:", activeTab); // Debugging statement
+            window.location.hash = activeTab;
+
+            // Activate the corresponding tab
+            const tabLink = document.querySelector(`a[data-bs-target="#${activeTab}-tab-pane"]`);
+            if (tabLink) {
+                const tabInstance = new bootstrap.Tab(tabLink);
+                tabInstance.show();  // Show the active tab
+                console.log(`${activeTab} tab activated.`); // Debugging statement
+            }
+        }
+    });
+</script>
+
 
 
 

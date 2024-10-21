@@ -57,6 +57,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
 }); 
 
+//metro2
+Route::post('/metro2/upload', [ClientController::class, 'uploadMetro2'])->name('metro2.upload');
+
+
+
 Route::post('import-csv', [ImportController::class, 'importCSV'])->name('import');
 
 Route::post('/notes/store', [ClientController::class, 'storeNote'])

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log; 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
 {
@@ -619,4 +620,77 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
 
         return Response::stream($callback, 200, $headers);
     }
+
+
+
+    //Metro File Integration
+    public function uploadMetro2(Request $request)
+    {
+        \Log::info('Upload Metro2 method called'); // Log entry to track execution
+    
+
+        // Log file details
+        $file = $request->file('metro2_file');
+        \Log::info('Uploaded file name: ' . $file->getClientOriginalName());
+        \Log::info('Uploaded file MIME type: ' . $file->getMimeType());
+        \Log::info('Uploaded file extension: ' . $file->getClientOriginalExtension());
+
+         // Validate file
+        try {
+            $request->validate([
+                'metro2_file' => 'required|file|mimetypes:application/octet-stream,text/plain',
+            ]);
+            \Log::info('File validation passed.');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation error: ' . $e->getMessage());
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        }
+    
+       
+
+        // Log the uploaded file information
+        \Log::info('Uploaded file: ' . $request->file('metro2_file')->getClientOriginalName());
+    
+        // Store uploaded file in storage
+        $filePath = $request->file('metro2_file')->storeAs('metro2', 'uploaded_file.dat');
+        \Log::info('File stored at: ' . $filePath);
+    
+        // Full path to the stored file
+        $fullPath = storage_path('app/' . $filePath);
+    
+        // Call the Docker container to print or validate the file
+        $output = $this->runDockerParser($fullPath, 'print'); // You can change 'print' to 'validator' as needed
+    
+        return redirect()->route('clients.show', ['client' => $request->input('client_id')])
+            ->with('output', $output)
+            ->with('activeTab', 'import');
+
+    }
+    
+
+    private function runDockerParser($filePath, $command)
+    {
+        $dockerCommand = "docker run --rm -v $filePath:/uploaded_file.dat moov/metro2 $command --input /uploaded_file.dat";
+        \Log::info('Running Docker command: ' . $dockerCommand);
+    
+        $output = shell_exec($dockerCommand . " 2>&1");
+    
+        if ($output === null) {
+            \Log::error('Docker command failed to execute: ' . $dockerCommand);
+            return 'Error executing Docker command.';
+        }
+    
+        \Log::info('Docker Output: ' . $output);
+        return $output;
+    }
+    
+
+
+
+
+
+
+
+
+    // =============== end of code dont create code below ===============================
 }
