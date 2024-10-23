@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,14 @@ Route::middleware('auth')->group(function () {
 //metro2
 Route::post('/metro2/upload', [ClientController::class, 'uploadMetro2'])->name('metro2.upload');
 
+
+//upload
+// Route::get('/report/upload', function () {
+//     return view('report.upload'); // Route to display the upload form
+// });
+
+//display
+Route::post('/report/extract', [ClientController::class, 'extractReportData'])->name('report.extract');
 
 
 Route::post('import-csv', [ImportController::class, 'importCSV'])->name('import');

@@ -403,7 +403,81 @@
     <div class="col-md-10">
         <div class="card">
             <div class="card-body">
-                <h3>hi letter</h3>
+
+
+            
+            <div class="container">
+
+            <!-- start of upload report -->
+                <h1>Upload Credit Report</h1>
+
+                <!-- Display any error messages related to the file upload -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <!-- Form for uploading the credit report file -->
+                <form action="{{ route('report.extract') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="credit_report">Upload Credit Report (HTML)</label>
+                        <input type="hidden" name="client_id" value=" {{ $client->id }} ">
+                        <input type="file" class="form-control" id="credit_report" name="credit_report" required accept=".html">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload and Extract</button>
+                </form>
+            </div>
+
+            <!-- start of dispute report -->
+            <h1>Dispute Report</h1>
+
+                <h2>Credit Scores</h2>
+                <ul>
+                    <li>TransUnion: {{ $transUnionScore ?? 'N/A' }}</li>
+                    <li>Experian: {{ $experianScore ?? 'N/A' }}</li>
+                    <li>Equifax: {{ $equifaxScore ?? 'N/A' }}</li>
+                </ul>
+
+                <h2>Accounts</h2>
+                <h2>Accounts</h2>
+                @if(!empty($accounts))
+                    <ul>
+                        @foreach($accounts as $account)
+                            <li>{{ $account['name'] }} - {{ $account['status'] }} - Balance: {{ $account['balance'] }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>No accounts found.</p>
+                @endif
+
+                <h2>Inquiries</h2>
+                @if(!empty($inquiries))
+                    <ul>
+                        @foreach($inquiries as $inquiry)
+                            <li>{{ $inquiry['date'] }} - {{ $inquiry['bureau'] }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>No inquiries found.</p>
+                @endif
+
+                <h2>Collections</h2>
+                @if(!empty($collections))
+                    <ul>
+                        @foreach($collections as $collection)
+                            <li>{{ $collection['creditor'] }} - Amount: {{ $collection['amount'] }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>No collections found.</p>
+                @endif
             </div>
 
         </div>

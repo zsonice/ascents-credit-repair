@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log; 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use DOMDocument;
+use DOMXPath;
 
 class ClientController extends Controller
 {
@@ -688,6 +690,125 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
         return $output;
     }
 
+
+
+
+
+
+    //REPORT EXTRACTION FUNCTIONS
+
+    public function extractReportData(Request $request)
+    {
+        // Ensure file is uploaded
+        if ($request->hasFile('credit_report')) {
+            $file = $request->file('credit_report');
+            $htmlContent = file_get_contents($file->getPathname());
+
+            // Load the HTML content
+            $dom = new DOMDocument();
+            @$dom->loadHTML($htmlContent); // Suppress errors due to malformed HTML
+
+            // Use XPath to query the DOM
+            $xpath = new DOMXPath($dom);
+
+            // Extract credit scores for TransUnion, Experian, and Equifax
+            $transUnionScore = $this->extractScore($xpath, 'transunion');
+            $experianScore = $this->extractScore($xpath, 'experian');
+            $equifaxScore = $this->extractScore($xpath, 'equifax');
+
+            // Extract other relevant information (accounts, collections, inquiries)
+            $accounts = $this->extractAccounts($xpath);
+            $inquiries = $this->extractInquiries($xpath);
+            $collections = $this->extractCollections($xpath);
+
+            \Log::info('Client ID: ' . $request->input('client_id'));
+            \Log::info('transUnionScore: ' . $transUnionScore);
+            \Log::info('experianScore: ' . $experianScore);
+            \Log::info('equifaxScore: ' .  $equifaxScore);
+
+            return redirect()->route('clients.show', ['client' => $request->input('client_id')])
+            ->with('activeTab', 'generate')
+            ->with('transUnionScore', $transUnionScore)
+            ->with('experianScore', $experianScore)
+            ->with('equifaxScore', $equifaxScore)
+            ->with('accounts', $accounts)
+            ->with('inquiries', $inquiries)
+            ->with('collections', $collections);
+
+
+            // // Pass extracted data to the view
+            // return view('clients.show', [
+            //     'transUnionScore' => $transUnionScore,
+            //     'experianScore' => $experianScore,
+            //     'equifaxScore' => $equifaxScore,
+            //     'accounts' => $accounts,
+            //     'inquiries' => $inquiries,
+            //     'collections' => $collections,
+            // ]);
+        } else {
+            return back()->withErrors(['error' => 'No report file uploaded.']);
+        }
+    }
+
+    private function extractScore(DOMXPath $xpath, $bureau)
+    {
+        // Adjust this XPath query to match the structure of the HTML
+        //dl[dt[contains(text(), 'transunion')]]//h5/text()
+        // $query = "//dt[contains(text(), '$bureau')]/following-sibling::div[@class='score']";
+        $query = "//dl[dt[contains(text(), '$bureau')]]//h5/text()";
+        $scoreNodes = $xpath->query($query);
+
+        return $scoreNodes->length ? trim($scoreNodes->item(0)->textContent) : 'N/A';
+    }
+
+    private function extractAccounts(DOMXPath $xpath)
+    {
+        $accounts = [];
+        // Adjust XPath to select account details
+        $accountNodes = $xpath->query("//table[@class='account-details']/tbody/tr");
+
+        foreach ($accountNodes as $node) {
+            $account = [];
+            $account['name'] = trim($node->getElementsByTagName('td')->item(0)->textContent);
+            $account['status'] = trim($node->getElementsByTagName('td')->item(1)->textContent);
+            $account['balance'] = trim($node->getElementsByTagName('td')->item(2)->textContent);
+            $accounts[] = $account;
+        }
+
+        return $accounts;
+    }
+
+    private function extractInquiries(DOMXPath $xpath)
+    {
+        $inquiries = [];
+        // Adjust XPath to extract credit inquiries
+        $inquiryNodes = $xpath->query("//table[@class='inquiries']/tbody/tr");
+
+        foreach ($inquiryNodes as $node) {
+            $inquiry = [];
+            $inquiry['date'] = trim($node->getElementsByTagName('td')->item(0)->textContent);
+            $inquiry['bureau'] = trim($node->getElementsByTagName('td')->item(1)->textContent);
+            $inquiries[] = $inquiry;
+        }
+
+        return $inquiries;
+    }
+
+    private function extractCollections(DOMXPath $xpath)
+    {
+        $collections = [];
+        // Adjust XPath to select collection details
+        $collectionNodes = $xpath->query("//table[@class='collections']/tbody/tr");
+
+        foreach ($collectionNodes as $node) {
+            $collection = [];
+            $collection['creditor'] = trim($node->getElementsByTagName('td')->item(0)->textContent);
+            $collection['amount'] = trim($node->getElementsByTagName('td')->item(1)->textContent);
+            $collections[] = $collection;
+        }
+
+        return $collections;
+    }
 
     
 
