@@ -725,15 +725,10 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             \Log::info('transUnionScore: ' . $transUnionScore);
             \Log::info('experianScore: ' . $experianScore);
             \Log::info('equifaxScore: ' .  $equifaxScore);
+            \Log::info('Inquiries: ' . json_encode($inquiries));
 
             return redirect()->route('clients.show', ['client' => $request->input('client_id')])
-            ->with('activeTab', 'generate')
-            ->with('transUnionScore', $transUnionScore)
-            ->with('experianScore', $experianScore)
-            ->with('equifaxScore', $equifaxScore)
-            ->with('accounts', $accounts)
-            ->with('inquiries', $inquiries)
-            ->with('collections', $collections);
+            ->with('activeTab', 'generate');
 
 
             // // Pass extracted data to the view
@@ -754,7 +749,6 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     {
         // Adjust this XPath query to match the structure of the HTML
         //dl[dt[contains(text(), 'transunion')]]//h5/text()
-        // $query = "//dt[contains(text(), '$bureau')]/following-sibling::div[@class='score']";
         $query = "//dl[dt[contains(text(), '$bureau')]]//h5/text()";
         $scoreNodes = $xpath->query($query);
 
@@ -782,13 +776,34 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     {
         $inquiries = [];
         // Adjust XPath to extract credit inquiries
-        $inquiryNodes = $xpath->query("//table[@class='inquiries']/tbody/tr");
+        $inquiryNodes = $xpath->query("//section[div/h5[contains(text(), 'Inquiries')]]//div[contains(@class, 'd-grid') and contains(@class, 'grid-cols-3') and contains(@class, 'border-b')]");
 
+        if ($inquiryNodes->length > 0) {
+            foreach ($inquiryNodes as $inquiryDiv) {
+                // Get the <p> tags inside each 'div'
+                $pTags = $inquiryDiv->getElementsByTagName('p');
+                
+                foreach ($pTags as $p) {
+                    // Log each inquiry detail (Creditor Name, Date, Bureau)
+                    \Log::info('Inquiry node content: ' . trim($p->textContent));
+                }
+            }
+        } else {
+            \Log::info('No inquiries found.');
+        }
+        
+
+        $inquiries = [];
         foreach ($inquiryNodes as $node) {
-            $inquiry = [];
-            $inquiry['date'] = trim($node->getElementsByTagName('td')->item(0)->textContent);
-            $inquiry['bureau'] = trim($node->getElementsByTagName('td')->item(1)->textContent);
-            $inquiries[] = $inquiry;
+            $cells = $node->getElementsByTagName('p'); // Get all <p> elements in the current inquiry node
+            if ($cells->length === 3) { // Ensure we have exactly 3 <p> elements
+                $inquiry = [
+                    'creditor_name' => trim($cells->item(0)->textContent),
+                    'date' => trim($cells->item(1)->textContent),
+                    'bureau' => trim($cells->item(2)->textContent),
+                ];
+                $inquiries[] = $inquiry;
+            }
         }
 
         return $inquiries;
