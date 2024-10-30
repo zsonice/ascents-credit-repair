@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LetterController;
+use App\Http\Controllers\SupportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,9 @@ Route::middleware('auth')->group(function () {
 
 //letter tab in nav
 Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
+
+//help and support in nav
+Route::get('/support', [SupportController::class, 'index'])->name('support.index');
 
 
 

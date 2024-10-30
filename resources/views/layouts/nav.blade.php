@@ -64,7 +64,7 @@
             <div class="bottom-content">
 
             <li class="nav-link">
-                        <a href="#">
+                    <a href="{{ route('support.index') }}">
                         <i class='bx bxs-help-circle icon' ></i>
                         <span class="text nav-text">
                             Help & Support
