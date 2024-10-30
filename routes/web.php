@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\LetterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); 
+
+//letter tab in nav
+Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
 
 
 

@@ -43,14 +43,12 @@
 
                     </li>
                     <li class="nav-link">
-                        <a href="#" >
-                        <i class='bx bxs-file icon' ></i>
-                        <span class="text nav-text">
-                            Letters
-                        </span>
-                        </a>
+                            <a href="{{ route('letters.index') }}"> 
+                                <i class='bx bxs-file icon'></i>
+                                <span class="text nav-text">Letters</span>
+                            </a>
+                        </li>
 
-                    </li>
                     <li class="nav-link">
                         <a href="{{ route('profile.edit') }}">
                         <i class='bx bxs-user-circle icon'></i>
