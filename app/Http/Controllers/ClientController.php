@@ -725,6 +725,12 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             $experianStatement = $this->extractConsumerStatement($xpath, 'experian');
             $equifaxStatement = $this->extractConsumerStatement($xpath, 'equifax');
 
+            $transUnionData = $this->extractBureauData($xpath, 'transunion');
+            $experianData = $this->extractBureauData($xpath, 'experian');
+            $equifaxData = $this->extractBureauData($xpath, 'equifax');
+
+
+
             // Extract other relevant information (accounts, collections, inquiries)
             $accounts = $this->extractAccounts($xpath);
             $inquiries = $this->extractInquiries($xpath);
@@ -741,6 +747,10 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             \Log::info("TransUnion Consumer Statement: $transUnionStatement");
             \Log::info("Experian Consumer Statement: $experianStatement");
             \Log::info("Equifax Consumer Statement: $equifaxStatement");
+            // summary of accounts
+            \Log::info("TransUnion Data: " . implode(", ", $transUnionData));
+            \Log::info("Experian Data: " . implode(", ", $experianData));
+            \Log::info("Equifax Data: " . implode(", ", $equifaxData));
 
             return redirect()->route('clients.show', ['client' => $request->input('client_id')])
             ->with('activeTab', 'generate');
@@ -801,6 +811,32 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
 
         // Check if a node was found and return the statement text, or 'N/A' if not
         return $statementNode->length ? trim($statementNode->item(0)->textContent) : 'N/A';
+    }
+
+
+    private function extractBureauData(DOMXPath $xpath, $bureau)
+    {
+        // Define XPath query to locate the bureau-specific data section
+        $query = "//div[contains(@class, 'd-contents') and contains(@class, 'grid-rows-10')]/p[contains(text(), '$bureau') or preceding-sibling::p[contains(text(), '$bureau')]]";
+        
+        // Query all <p> nodes in the bureau-specific data section
+        $nodes = $xpath->query($query);
+
+        // Initialize an array to store the extracted data
+        $data = [];
+
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                // Add each data point to the array
+                $data[] = trim($node->textContent);
+            }
+        } else {
+            \Log::info("No data found for $bureau.");
+            return 'N/A'; // Return 'N/A' if no data is found
+        }
+
+        // Return the extracted data as an array
+        return $data;
     }
 
     private function extractAccounts(DOMXPath $xpath)
