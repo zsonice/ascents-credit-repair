@@ -315,7 +315,7 @@
                 </div>
             </div>
         </div>
-    </div>
+   
     <div class="col-md-10">
         <div class="card">
             <div class="card-body">
@@ -400,13 +400,116 @@
         </div>
     </div>
 <div class="tab-pane fade" id="generate-tab-pane" role="tabpanel" aria-labelledby="generate-tab" tabindex="0">
-    <div class="col-md-10">
+<div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+            <div class="row"  id="CLetter">
+                    <div class="col" id="CLetterText">
+                    <h3>Dispute Letters</h3>
+                    <p>Generate & Print letters for all your active disputes</p>
+                    </div>
+                    <div class="col-md-3" id="CLetterbtn">
+                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ACTIVE LETTERS</button>
+                    <button class="btn btn-secondary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ARCHIVED LETTERS</button>
+                </div>
+                </div> <!--row-->
+                <div class="form-group">
+                    <div class="col-md-5" id="letterdiv">
+                        <label for="letter_type">Choose a letter from library:</label>
+                        <select name="letter_type" id="letter_type" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="PersonalInformation">Misc. Letters >> Personal Information Dispute</option>
+                            <option value="LatePayment">Misc. Letters >> Late Payment Dispute</option>
+                            <option value="ChargeOff">Misc. Letters >> Charge-Off Dispute</option>
+                        </select>
+                    </div>
+
+                    <div class="row align-items-center" id="CLetterto">
+                   
+                            <label for="letterto">Who is this letter to:</label>     
+                            <div class="col-md-6">
+                            <input type="checkbox" name="creditbureau" id="creditbureau" class="form-control" value="Credit Bureau" required>
+                            <label for="creditor" class="clabel">Credit Bureau</label>
+                            <input type="checkbox" name="creditor" id="creditor" class="form-control" value="Creditor" required>
+                            <label for="creditor" class="clabel">Creditor</label>
+                            </div>
+                    </div>
+                </div>
+                <div  id="loginActivity">
+
+ <div style='overflow-y:auto'>
+     <table class="table table-hover">
+         <thead>
+         <tr>
+         <th>Account Details</th>
+         <th>Type</th>
+         <th> <input type="checkbox" name="cbequifax" id="cbequifax" class="form-control" value="Equifax">
+         &nbsp;Equifax</th>
+         <th><input type="checkbox" name="cbexperian" id="cbexperian" class="form-control" value="Experian">
+         &nbsp;Experian</th>
+         <th><input type="checkbox" name="cbtransunion" id="cbtransunion" class="form-control" value="TransUnion">
+         &nbsp;TransUnion</th>
+         <th><input type="checkbox" name="cbcreditor" id="cbcreditor" class="form-control" value="Creditor">
+         &nbsp;Creditor</th>
+         </tr>
+         </thead>
+     <tbody>
+         <tr>
+             <td><span class="skeleton">DPT ED/NAVI - 21745753712848<span></td>
+             <td> <span class="skeleton">ACCOUNTS </span></td>
+              <td> <span class="skeleton"></span></td>
+             <td><span class="skeleton"><i class='bx bx-loader-circle'></i>&nbsp;In Dispute</span></td>
+             <td><span class="skeleton"><i class='bx bx-loader-circle'></i>&nbsp;In Dispute</span></td>
+             <td><span class="skeleton"><a href="#"><i class='bx bxs-plus-square' ></i>&nbsp;DPT ED/NAVI <p>(Need an address)</p></a></span></td>
+
+
+         </tr>
+         <tr>
+             <td><span class="skeleton">DPT ED/NAVI - 24325235712848<span></td>
+             <td> <span class="skeleton">ACCOUNTS </span></td>
+              <td> <span class="skeleton"></span></td>
+             <td><span class="skeleton"><i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
+             <td><span class="skeleton"><i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
+             <td><span class="skeleton"><a href="#"><i class='bx bxs-plus-square' ></i>&nbsp;DPT ED/NAVI <p>(Need an address)</p></a></span></td>
+
+
+
+         </tr>
+         <tr>
+             <td><span class="skeleton">DPT ED/NAVI - 23432443712848<span></td>
+             <td> <span class="skeleton">ACCOUNTS </span></td>
+             <td><span class="skeleton"><i class='bx bx-loader-circle'></i>&nbsp;In Dispute</span></td>
+             <td><span class="skeleton"><i class='bx bx-loader-circle'></i>&nbsp;In Dispute</span></td>
+             <td><span class="skeleton"></span></td>
+             <td><span class="skeleton"><a href="#"><i class='bx bxs-plus-square' ></i>&nbsp;DPT ED/NAVI<p>(Need an address)</p></a></span></td>
+
+
+         </tr>
+         <tr>
+             <td><span class="skeleton">DPT ED/NAVI - 24325235712848<span></td>
+             <td> <span class="skeleton">ACCOUNTS </span></td>
+             <td><span class="skeleton"><i class='bx bx-smile' ></i>&nbsp;Positive</span></td>
+             <td><span class="skeleton"><i class='bx bx-smile' ></i>&nbsp;Positive</span></td>
+             <td><span class="skeleton"><i class='bx bx-smile' ></i>&nbsp;Positive</span></td>
+             <td><span class="skeleton"><a href="#"><i class='bx bxs-plus-square' ></i>&nbsp;CC/DFS<p>(Need an address)</p></a></span></td>
+
+
+         </tr>
+     </tbody>
+     </table>
+
+<!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
+ </div>
+</div>  
+            </div>
+        </div>
+</div>
+<div class="col-md-10">
         <div class="card">
             <div class="card-body">
 
-
             
-            <div class="container">
+          <!-- kay du!!!-->  <div class="container">
 
             <!-- start of upload report -->
                 <h1>Upload Credit Report</h1>

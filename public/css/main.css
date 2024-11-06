@@ -1022,6 +1022,13 @@ transition: var(--tran-03);
    width: 200px;
    text-align: left;
 }
+.form-group .col-md-5 select{
+    margin-bottom: 10px!important;
+    font-size: 14px;
+    border-radius: 2px;
+   width: 450px;
+   text-align: left;
+}
 .modal .form-group .col-md-2 select,
 .provider select{
     font-size: 14px;
@@ -1079,7 +1086,8 @@ border-radius: 3px;
 .form-group #nameSelect,
 .form-group #billingdiv,
 .form-group #plandiv,
-.form-group #cmsdiv
+.form-group #cmsdiv,
+.form-group #letterdiv
 {
 padding-bottom: 8px!important;
 
@@ -1641,6 +1649,14 @@ padding: 10px;
     font-size: 18px;
     margin-bottom: 5px;
     font-weight: 600;
+}
+#CLetter h3{
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+#CLetterText{
+    display: inline-block!important;
 }
 #Messages h6{
     font-weight: 500!important;
@@ -2371,6 +2387,7 @@ display: grid;
 /* SKELETON */
 
 #importCRbtn,
+#CLetterbtn,
 #TestLoginBtn .btn{
     font-weight: 500!important;
     font-size: 14px;
@@ -2384,6 +2401,11 @@ margin-bottom: 20px;
     margin-bottom: 5px;
   
 }
+#CLetterbtn button{
+ 
+    margin-bottom: 10px;
+  
+}
 #TestLoginBtn .btn{
     padding-top: 8px;
     padding-bottom: 8px;
@@ -2395,4 +2417,60 @@ margin-bottom: 20px;
 #import-tab-pane .form-group{
     padding-left: 25px;
     margin-top: 30px;
+}
+#CLetterto input:checked{
+    border: none!important;
+    outline-color: var(--primary-color)!important;
+color:var(--primary-color)!important;
+}
+#CLetterto input{
+    border:1px solid var(--primary-color)!important;
+    outline-color: none!important;
+color:var(--primary-color)!important;
+align-items: end!important;
+justify-content: space-evenly;
+}
+
+ 
+#CLetterto input[type=checkbox]{
+    margin-left: 10px;
+        outline-color: var(--primary-color)!important;
+    cursor: pointer;
+    
+    }
+#CLetterto, #letterdiv{
+    padding-left: 20px;
+}
+
+#loginActivity i.bx.bx-loader-circle{
+    color: var(--primary-color)!important;
+}
+#loginActivity i.bx.bx-smile{
+    color: green;
+}
+#loginActivity i.bx.bx-sad{
+    color: red;
+}
+#loginActivity a,
+#loginActivity i.bx.bxs-plus-square{
+    color: var(--dark-primary);
+}
+#loginActivity a p{
+    font-size: 12px;
+    font-style: italic;
+    color: #7c7c7c;
+}
+
+#loginActivity input:checked{
+    border: 1px solid white!important;
+    outline-color: none!important;
+    color:rgb(66, 0, 141)!important;
+cursor: pointer;
+}
+#loginActivity input{
+     outline-color: rgb(66, 0, 141)!important;
+    border:1px solid rgb(66, 0, 141)!important;
+    outline-color:rgb(66, 0, 141)!important;
+color:rgb(66, 0, 141)!important;
+
 }
