@@ -716,6 +716,15 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             $experianScore = $this->extractScore($xpath, 'experian');
             $equifaxScore = $this->extractScore($xpath, 'equifax');
 
+
+            $transUnionPersonalInfo = $this->extractPersonalInformation($xpath, 'transunion');
+            $experianPersonalInfo = $this->extractPersonalInformation($xpath, 'experian');
+            $equifaxPersonalInfo = $this->extractPersonalInformation($xpath, 'equifax');
+
+            $transUnionStatement = $this->extractConsumerStatement($xpath, 'transunion');
+            $experianStatement = $this->extractConsumerStatement($xpath, 'experian');
+            $equifaxStatement = $this->extractConsumerStatement($xpath, 'equifax');
+
             // Extract other relevant information (accounts, collections, inquiries)
             $accounts = $this->extractAccounts($xpath);
             $inquiries = $this->extractInquiries($xpath);
@@ -726,6 +735,12 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
             \Log::info('experianScore: ' . $experianScore);
             \Log::info('equifaxScore: ' .  $equifaxScore);
             \Log::info('Inquiries: ' . json_encode($inquiries));
+            \Log::info('transUnionPersonalInfo: ' . json_encode($transUnionPersonalInfo));
+            \Log::info('experianPersonalInfo: ' . json_encode($experianPersonalInfo));
+            \Log::info('equifaxPersonalInfo: ' . json_encode($equifaxPersonalInfo));
+            \Log::info("TransUnion Consumer Statement: $transUnionStatement");
+            \Log::info("Experian Consumer Statement: $experianStatement");
+            \Log::info("Equifax Consumer Statement: $equifaxStatement");
 
             return redirect()->route('clients.show', ['client' => $request->input('client_id')])
             ->with('activeTab', 'generate');
@@ -748,11 +763,44 @@ private function calculatePercentageChange($thisMonth, $lastMonth)
     private function extractScore(DOMXPath $xpath, $bureau)
     {
         // Adjust this XPath query to match the structure of the HTML
-        //dl[dt[contains(text(), 'transunion')]]//h5/text()
         $query = "//dl[dt[contains(text(), '$bureau')]]//h5/text()";
         $scoreNodes = $xpath->query($query);
 
         return $scoreNodes->length ? trim($scoreNodes->item(0)->textContent) : 'N/A';
+    }
+
+    private function extractPersonalInformation(DOMXPath $xpath, $bureau)
+    {
+        // Define the XPath query to match the structure of the HTML
+        $query = "//div[contains(@class, 'grid-rows-7') and contains(@class, 'd-contents')]/p[contains(text(), '$bureau') or preceding-sibling::p[contains(text(), '$bureau')]]";
+        
+        $nodes = $xpath->query($query);
+
+        // Initialize an array to store the details
+        $details = [];
+
+        if ($nodes->length > 0) {
+            foreach ($nodes as $node) {
+                // Add each detail to the array
+                $details[] = trim($node->textContent);
+            }
+        } else {
+            \Log::info("No details found for $bureau.");
+            return 'N/A';  // Return 'N/A' if no nodes are found
+        }
+
+        // Return the extracted details as an array
+        return $details;
+    }
+
+    private function extractConsumerStatement(DOMXPath $xpath, $bureau)
+    {
+        // Define XPath query to locate the bureau-specific consumer statement
+        $query = "//div[contains(@class, 'mt-3')]//div[p[contains(text(), '$bureau')]]/following-sibling::div/p";
+        $statementNode = $xpath->query($query);
+
+        // Check if a node was found and return the statement text, or 'N/A' if not
+        return $statementNode->length ? trim($statementNode->item(0)->textContent) : 'N/A';
     }
 
     private function extractAccounts(DOMXPath $xpath)
