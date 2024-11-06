@@ -468,8 +468,10 @@
              <td><span class="skeleton">DPT ED/NAVI - 24325235712848<span></td>
              <td> <span class="skeleton">ACCOUNTS </span></td>
               <td> <span class="skeleton"></span></td>
-             <td><span class="skeleton"><i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
-             <td><span class="skeleton"><i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
+             <td><span class="skeleton"><input type="checkbox" name="cbnegative" id="cbnegative" class="form-control" value="Negative">
+             &nbsp;<i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
+             <td><span class="skeleton"><input type="checkbox" name="cbnegative" id="cbnegative" class="form-control" value="Negative">
+             &nbsp;<i class='bx bx-sad' ></i>&nbsp;Negative</span></td>
              <td><span class="skeleton"><a href="#"><i class='bx bxs-plus-square' ></i>&nbsp;DPT ED/NAVI <p>(Need an address)</p></a></span></td>
 
 
