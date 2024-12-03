@@ -67,4 +67,9 @@ class Client extends Model
     {
         return $this->notes()->count();
     }
+
+    public function clientImports()
+    {
+        return $this->hasMany(ClientImport::class);
+    }
 }
