@@ -238,8 +238,9 @@ const body = document.querySelector("body"),
 
 
 
+        
         var chart = JSC.chart('equifax', {
-          debug: true,
+   
           type: 'gauge ',
           legend_visible: false,
           chartArea_boxVisible: false,
@@ -250,18 +251,19 @@ const body = document.querySelector("body"),
           palette: {
             pointValue: '%yValue',
             ranges: [
-              { value: 300, color: '#FF0000' },
-              { value: 500, color: '##FFF000' },
-              { value: 700, color: '#77E6B4' },
-              { value: [800, 900], color: '#008000' }
+              { value: 300, color: '#FF474C' },
+              { value: 500, color: '#FFA500' },
+              { value: 600, color: '#FFEA00' },
+              { value: 700, color: '#0096FF' },
+              { value: [800, 900], color: '#4BB543' }
             ]
           },
           yAxis: {
             defaultTick: { padding: 13, enabled: false },
-            customTicks: [500,700,800, 900],
+            customTicks: [300,500,600,700,800, 900],
             line: {
-              width: 20,
-              breaks_gap: 0.03,
+              width: 10,
+              breaks_gap: 0.02,
               color: 'smartPalette'
             },
             scale: { range: [300, 900] }
@@ -287,14 +289,16 @@ const body = document.querySelector("body"),
                   fill: 'white',
                   type: 'circle',
                   visible: true,
-                  size: 20
+                  size: 15
                 }
               },
               points: [[1, 680]] //edit here
             }
           ]
-        });
-        
+        }); 
+           
+       
+     
         var chart = JSC.chart('experian', {
           debug: true,
           type: 'gauge ',
@@ -307,18 +311,19 @@ const body = document.querySelector("body"),
           palette: {
             pointValue: '%yValue',
             ranges: [
-              { value: 300, color: '#FF0000' },
-              { value: 500, color: '##FFF000' },
-              { value: 700, color: '#77E6B4' },
-              { value: [800, 900], color: '#008000' }
+              { value: 300, color: '#FF474C' },
+              { value: 500, color: '#FFA500' },
+              { value: 600, color: '#FFEA00' },
+              { value: 700, color: '#0096FF' },
+              { value: [800, 900], color: '#4BB543' }
             ]
           },
           yAxis: {
             defaultTick: { padding: 13, enabled: false },
-            customTicks: [500,700,800, 900],
+            customTicks: [300,500,600,700,800, 900],
             line: {
-              width: 20,
-              breaks_gap: 0.03,
+              width: 10,
+              breaks_gap: 0.02,
               color: 'smartPalette'
             },
             scale: { range: [300, 900] }
@@ -344,7 +349,7 @@ const body = document.querySelector("body"),
                   fill: 'white',
                   type: 'circle',
                   visible: true,
-                  size: 20
+                  size: 15
                 }
               },
               points: [[1, 650]]
@@ -364,18 +369,19 @@ const body = document.querySelector("body"),
           palette: {
             pointValue: '%yValue',
             ranges: [
-              { value: 300, color: '#FF0000' },
-              { value: 500, color: '##FFF000' },
-              { value: 700, color: '#77E6B4' },
-              { value: [800, 900], color: '#008000' }
+              { value: 300, color: '#FF474C' },
+              { value: 500, color: '#FFA500' },
+              { value: 600, color: '#FFEA00' },
+              { value: 700, color: '#0096FF' },
+              { value: [800, 900], color: '#4BB543' }
             ]
           },
           yAxis: {
             defaultTick: { padding: 13, enabled: false },
-            customTicks: [500,700,800, 900],
+            customTicks: [300,500,600,700,800, 900],
             line: {
-              width: 20,
-              breaks_gap: 0.03,
+              width: 10,
+              breaks_gap: 0.02,
               color: 'smartPalette'
             },
             scale: { range: [300, 900] }
@@ -401,10 +407,17 @@ const body = document.querySelector("body"),
                   fill: 'white',
                   type: 'circle',
                   visible: true,
-                  size: 20
+                  size: 15
                 }
               },
               points: [[1, 620]]
             }
           ]
         });
+
+// end
+
+
+
+      
+       
