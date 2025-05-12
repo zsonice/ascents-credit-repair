@@ -1602,14 +1602,18 @@
                         </select>
                     </div>
 
-                    <div class="row align-items-center" id="CLetterto">
+                    <div class="row" id="CLetterto">
                    
                             <label for="letterto">Who is this letter to:</label>     
-                            <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-2">
                             <input type="checkbox" name="creditbureau" id="creditbureau" class="form-control" value="Credit Bureau" required>
                             <label for="creditor" class="clabel">Credit Bureau</label>
+                                </div>
+                                <div class="col-sm-2">
                             <input type="checkbox" name="creditor" id="creditor" class="form-control" value="Creditor" required>
                             <label for="creditor" class="clabel">Creditor</label>
+                                </div>
                             </div>
                     </div>
                 </div>

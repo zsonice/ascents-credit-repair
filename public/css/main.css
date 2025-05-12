@@ -2442,15 +2442,15 @@ color:var(--primary-color)!important;
     outline-color: none!important;
 color:var(--primary-color)!important;
 align-items: end!important;
-justify-content: space-evenly;
-}
 
+}
 
 #CLetterto input[type=checkbox]{
     margin-left: 10px;
         outline-color: var(--primary-color)!important;
     cursor: pointer;
-    
+    margin-top: 15px;
+
     }
 #CLetterto, #letterdiv{
     padding-left: 20px;
