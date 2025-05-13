@@ -3193,7 +3193,7 @@ color: var(--text-color);
 text-align: center;
 padding: 20px;
 margin-bottom: 10px;
-
+padding-right: 0!important;
     margin-left: 0px;
     margin-right: 0px;
 
@@ -3253,7 +3253,7 @@ justify-content: center;
     color: var(--text-color);
 text-align: center;
 padding: 20px;
-
+padding-right: 0!important;
     margin-left: 0px;
     margin-right: 0px;
 
