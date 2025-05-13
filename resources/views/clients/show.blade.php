@@ -942,188 +942,290 @@
                                 </div>
                             </div>
                         </div> <!--end BureauUpdates-->
-                        <div class="row" id="DltHeader">
+                    <!--    <div class="row" id="DltHeader">
                             <div class="col">
                                 <h6> Deletions & Updates for this Round</h6>
                             </div>
                             <div class="col-md-4">
                             <h6> Current Credit Usage</h6>
                             </div>
-                        </div><!--end Deletions Header-->
+                        </div>end Deletions Header-->
                         
                         <div class="row" id="DltItems">
-                            <div class="col">
-                                <table width="100%">
-                                    <tbody>
-                                        <thead>
-                                            <th>Item Name</th>
-                                            <th>High Balance</th>
-                                            <th>Equifax</th>
+                            <div class="col" >
+                                    <div class="row">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="" id="DltHeader">
+                                                    <h6> Deletions & Updates for this Round</h6>
+                                                </div>
+                                                <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Item Name</th>
+                                                            <th>High Balance</th>
+                                                            <th>Equifax</th>
                                              
-                                        </thead>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>CCC/BURLIN</h5>
-                                                        <h6>7732432424234</h6>
-                                                    </div>
+                                                        </thead>
+                                                        <tr>
+                                                            <td class="frst">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-arrow-repeat"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>CCC/BURLIN</h5>
+                                                                        <h6>7732432424234</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h5>$200.00</h5>
+                                                                <h6>ACCOUNTS</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="green">
+                                                                        <i class="bi bi-check-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Deleted</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                                
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="frst">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-arrow-repeat"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>NAMES</h5>
+                                                                        <h6>ASHLEY RUIZ</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="green">
+                                                                        <i class="bi bi-check-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Deleted</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                                    
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="frst">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-arrow-repeat"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>123 ST ABC MANILA PH 3125</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="green">
+                                                                        <i class="bi bi-check-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Deleted</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="frst">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-arrow-repeat"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>QWERTTYY ST AB CAVITE PH sdsad 4114</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="green">
+                                                                        <i class="bi bi-check-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Deleted</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="frst">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-arrow-repeat"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>zxcvcbnm ST AB  ilocos PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div> <!--vcardbody-->
+                                        </div><!--card-->
+                                    </div><!--rpw-->
+
+                                    <!--NEW DISPUTE-->
+                                    <!--
+                                     <div class="row"> 
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="" id="DltHeader">
+                                                    <h6> New Dispute Items for this Round</h6>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <h5>$200.00</h5>
-                                                <h6>ACCOUNTS</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="green">
-                                                        <i class="bi bi-check-circle"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Deleted</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                                   
-                                        </tr>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>NAMES</h5>
-                                                        <h6>ASHLEY RUIZ</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="green">
-                                                        <i class="bi bi-check-circle"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Deleted</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                                    
-                                        </tr>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>123 ST ABC MANILA PH 3125</h6>
-                                                    </div>
-                                                </div></td>
-                                            <td> 
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="green">
-                                                        <i class="bi bi-check-circle"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Deleted</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                              
-                                        </tr>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>QWERTTYY ST AB CAVITE PH sdsad 4114</h6>
-                                                    </div>
-                                                </div></td>
-                                            <td> 
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="green">
-                                                        <i class="bi bi-check-circle"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Deleted</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                              
-                                        </tr>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>zxcvcbnm ST AB  ilocos PH sdsad 321333</h6>
-                                                    </div>
-                                                </div></td>
-                                            <td> 
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="negative">
-                                                        <i class="bi bi-emoji-frown"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Negative</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                              
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row" id="CurrentUsagePink">
-                                    <div class="row">
-                                        <h3> You Are Using </h3>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="row">
-                                            <i class='bx bxs-up-arrow-alt'></i>
-                                            </div>
-                                            <div class="row">
-                                                <h4>21.0%</h4>
-                                            </div>
+                                                <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Item Name</th>
+                                                            <th>High Balance</th>
+                                                            <th>Equifax</th>
+                                             
+                                                        </thead>
+                                                       
+                                                         <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>10567567 ST AB  ilocos PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>zxcvcbnm ST AB  111 sdad PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div> 
                                         </div>
-                                        <div class="col">
-                                            <div class="row">
-                                                <h1> 20 %</h1>
+                                    </div>
+                                
+            --></div> <!--col-->
+                             
+
+                              <!--CREDIT USAGE-->
+                            <div class="col-md-4" >
+                            
+                                <div class="card">
+                                    <div class="card-body" style="
+                                        padding-top: 10px;
+                                        padding-right: 10px;
+                                        padding-left: 10px;
+                                        padding-bottom: 10px;">
+                                    <div class="" id="DltHeader">
+                                        <h6>Current Credit Usage</h6>
+                                    </div>
+                                    <div class="row" id="CurrentUsagePink">
+                                        <div class="row">
+                                            <h3> You Are Using </h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <i class='bx bxs-up-arrow-alt'></i>
+                                                </div>
+                                                <div class="row">
+                                                    <h4>21.0%</h4>
+                                                </div>
                                             </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <h1> 20 %</h1>
+                                                </div>
                                         </div>
                                        
                                     </div>
@@ -1150,8 +1252,17 @@
                                     </div>
                                 </div>
                                 
-                            </div>
-                        </div> <!--DltItems-->
+                            </div> </div> </div>
+                        </div>
+
+            
+
+
+
+
+
+                        <!--EXPERIAN-->
+                        <br>
                         <div class="ProgressReport">
                             <h4>EXPERIAN PROGRESS REPORT FOR ASHLEY RUIZ</h4>
                             <h6>Created: Apr 18, 2025</h6>
@@ -1306,17 +1417,23 @@
                                 </div>
                             </div>
                         </div> <!--end BureauUpdates-->
-                        <div class="row" id="DltHeader">
+                     <!--   <div class="row" id="DltHeader">
                             <div class="col">
                                 <h6> Deletions & Updates for this Round</h6>
                             </div>
                             <div class="col-md-4">
                             <h6> Current Credit Usage</h6>
                             </div>
-                        </div><!--end Deletions Header-->
+                        </div> Deletions Header-->
                         
                         <div class="row" id="DltItems">
                             <div class="col">
+                                <div class="row">
+                                <div class="card">
+                                     <div class="card-body">
+                                <div class="" id="DltHeader">
+                                <h6> Deletions & Updates for this Round</h6>
+                            </div>
                                 <table width="100%">
                                     <tbody>
                                         <thead>
@@ -1391,6 +1508,62 @@
                                                     </div>
                                                     <div class="col">
                                                         <h5>PREVIOUS ADDRESSES</h5>
+                                                        <h6>143214 ST ABC MANILA PH 3125</h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>PERSONAL</h5>
+                                                <h6>INFORMATION</h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                        <h6>555123 SSST ABC MANILA PH 3125</h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>PERSONAL</h5>
+                                                <h6>INFORMATION</h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>PREVIOUS ADDRESSES</h5>
                                                         <h6>123 ST ABC MANILA PH 3125</h6>
                                                     </div>
                                                 </div></td>
@@ -1418,8 +1591,537 @@
                                                         <i class="bi bi-arrow-repeat"></i>
                                                     </div>
                                                     <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                        <h5>CURREN ADDRESSES</h5>
                                                         <h6>QWERTTYY ST AB CAVITE PH sdsad 4114</h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>PERSONAL</h5>
+                                                <h6>INFORMATION</h6>
+                                            </td>
+                                           <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="negative">
+                                                        <i class="bi bi-emoji-frown"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Negative</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>JPMCB CARD</h5>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>INQUIRY</h5>
+                                                <h6></h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>SOUND CREDIT UNION</h5>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>INQUIRY</h5>
+                                                <h6></h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>SOUND CREDIT UNION</h5>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>INQUIRY</h5>
+                                                <h6></h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>SOUND CREDIT UNION</h5>
+                                                        <h6></h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>INQUIRY</h5>
+                                                <h6></h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="negative">
+                                                        <i class="bi bi-emoji-frown"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Negative</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                  </div> <!--vcardbody-->
+                                        </div><!--card-->
+                                    </div><!--rpw-->
+
+                                    <!--NEW DIsPUTE-->
+                                     <div class="row"> 
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="" id="DltHeader">
+                                                    <h6> New Dispute Items for this Round</h6>
+                                                </div>
+                                                <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Item Name</th>
+                                                            <th>High Balance</th>
+                                                            <th>Equifax</th>
+                                             
+                                                        </thead>
+                                                       
+                                                         <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>10567567 ST AB  ilocos PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>zxcvcbnm ST AB  111 sdad PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div> <!--vcardbody-->
+                                        </div><!--card-->
+                                    </div><!--rpw-->
+                                </div>
+                            <div class="col-md-4">
+                                 <div class="card">
+                                     <div class="card-body" style="
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+">
+                                <div class="" id="DltHeader">
+                                <h6> Current Credit Usage</h6>
+                            </div>
+                                <div class="row" id="CurrentUsagePink">
+                                    <div class="row">
+                                        <h3> You Are Using </h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="row">
+                                            <i class='bx bxs-up-arrow-alt'></i>
+                                            </div>
+                                            <div class="row">
+                                                <h4>19.0%</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <h1> 19 %</h1>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row">
+                                        <h6>of your available credit</h6>
+                                    </div>
+                                    <div class="row"> 
+                                        <h6>(Previous: 0%)</h6>
+                                    </div>
+                                    <div class="row">
+                                        <p>You have <b>$5,450.00</b> in revolving
+                                        credit lines and your balances
+                                        average at <b>$1,046.00.</b>
+                                    </p>
+                                    </div>
+                                </div>
+                                <div class="row" id="CurrentUsageGreen">
+                                    <div class="row">
+                                        <h6>For best results, try to keep your card balances
+                                        </h6>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Below 10%</h3>
+                                    </div>
+                                </div>
+                                
+                            </div></div></div>
+                        </div> <!--DltItems-->
+
+
+
+
+
+
+
+
+
+
+                          <!--transunion-->
+                        <br>
+                        <div class="ProgressReport">
+                            <h4>TRANSUNION PROGRESS REPORT FOR ASHLEY RUIZ</h4>
+                            <h6>Created: Apr 18, 2025</h6>
+                        </div>
+                        <div class="BLogo">
+                            <div class="row">
+                                <div class="col" id="logo">
+                                    <img src="/img/transunion.png" alt="" width="180px">
+                                </div>
+                                <div class="col-sm-5" id="improvement">
+                                    <h3>Total TransUnion Improvement:</h3>
+                                </div>
+                                <div class="col-sm-2" id="Num">
+                                    <h2> +46</h2>
+                                    <h5>Since Nov 2024</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="PReportScores">
+                            <div class="col-md-2" id="CreditScore">
+
+                            </div>
+                            <div class="col" id="Scores">
+                                <div class="row">
+                                    <div class="col-md-3" id="Prev">
+                                        <h5>Previous Scores</h5>
+                                    </div>
+                                    <div class="col">
+                                       
+                                    </div>
+                                    <div class="col-md-3" id="Starting">
+                                        <h5>Starting Score</h5>
+                                    </div>
+                                </div>
+                                <!--end row-->
+                                <div class="row" id="CircleScores">
+                                    <div class="col-sm-1">
+                                      
+                                    </div>
+                                    <div class="col">
+                                        <div class="circle">
+                                            <h4>673</h4>
+                                            <h6>0</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                     
+                                    </div>
+                                    <div class="col">
+                                        <div class="circle">
+                                            <h4>N/A</h4>
+                                            <h6></h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                       
+                                    </div>
+                                    <div class="col">
+                                        <div class="circle">
+                                            <h4>N/A</h4>
+                                            <h6></h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        
+                                    </div>
+                                    <div class="col">
+                                        <div class="circle" id="red">
+                                            <h4>673</h4>
+                                            <h6>Jan</h6>
+                                            <h5>2025</h5>
+                                        </div>
+                                    </div>
+                                </div> <!--end row-->
+                                <div class="row" id="CYear">
+                                    <div class="col-sm-1">
+                                      
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <h6>Jan 2025</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                       
+                                    </div>
+                                    <div class="col">
+                                          
+                                    </div>
+                                    <div class="col-sm-1">
+                                         
+                                    </div>
+                                    <div class="col">
+                                         
+                                    </div>
+                                    <div class="col-sm-1">
+                                          
+                                    </div>
+                                    <div class="col">
+                                        
+                                    </div>
+
+                                </div> <!--end row-->
+                        
+                        </div> 
+                      
+                    </div><!--end PREportScores-->
+                   
+                    <div class="row" id="BureauUpdates">
+                            <div class="col" id="DDeleted">
+                                <div class="row" id="fcfRow">
+                                    <div class="col-sm-3">
+                                        <h5>05</h5>
+                                    </div>
+                                    <div class="col" >
+                                        <h4>Disputes</h4>
+                                        <h6>Deleted</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="UDPositive">
+                                <div class="row" id="fcfRow">
+                                    <div class="col-sm-3">
+                                        <h5>00</h5>
+                                    </div>
+                                    <div class="col">
+                                        <h4>Updated to</h4>
+                                        <h6>Positive</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="NAdded">
+                                <div class="row" id="fcfRow">
+                                    <div class="col-sm-3">
+                                        <h5>02</h5>
+                                    </div>
+                                    <div class="col">
+                                        <h4>New Items</h4>
+                                        <h6>Added</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="DOnGoing">
+                                <div class="row" id="fcfRow">
+                                    <div class="col-sm-3">
+                                        <h5>01</h5>
+                                    </div>
+                                    <div class="col">
+                                        <h4>Disputes</h4>
+                                        <h6>On-Going</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end BureauUpdates-->
+                     <!--   <div class="row" id="DltHeader">
+                            <div class="col">
+                                <h6> Deletions & Updates for this Round</h6>
+                            </div>
+                            <div class="col-md-4">
+                            <h6> Current Credit Usage</h6>
+                            </div>
+                        </div> Deletions Header-->
+                        
+                        <div class="row" id="DltItems">
+                            <div class="col">
+                                <div class="row">
+                                <div class="card">
+                                     <div class="card-body">
+                                <div class="" id="DltHeader">
+                                <h6> Deletions & Updates for this Round</h6>
+                            </div>
+                                <table width="100%">
+                                    <tbody>
+                                        <thead>
+                                            <th>Item Name</th>
+                                            <th>High Balance</th>
+                                            <th>Equifax</th>
+                                             
+                                        </thead>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>CCC/BURLIN</h5>
+                                                        <h6>7732432424234</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>$498.00</h5>
+                                                <h6>ACCOUNTS</h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                                   
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>I C SYSTEM</h5>
+                                                        <h6>4214124151</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>$575.00</h5>
+                                                <h6>COLLECTIONS</h6>
+                                            </td>
+                                            <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                                    
+                                        </tr>
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                        <h6>143214 ST ABC MANILA PH 3125</h6>
                                                     </div>
                                                 </div></td>
                                             <td> 
@@ -1447,7 +2149,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>zxcvcbnm ST AB  ilocos PH sdsad 321333</h6>
+                                                        <h6>555123 SSST ABC MANILA PH 3125</h6>
                                                     </div>
                                                 </div></td>
                                             <td> 
@@ -1455,6 +2157,35 @@
                                                 <h6>INFORMATION</h6>
                                             </td>
                                             <td>
+                                                <div class="row" id="bureaucol">
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
+                                                    </div>
+                                                    <div class="col">
+                                            
+                                                        <h6>Deleted</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                              
+                                        </tr>
+                                  
+                                        <tr>
+                                            <td class="frst">
+                                                <div class="row" >
+                                                    <div class="col-sm-2" id="frsticon">
+                                                        <i class="bi bi-arrow-repeat"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h5>CURRENT ADDRESSES</h5>
+                                                        <h6>QWERTTYY ST AB CAVITE PH sdsad 4114</h6>
+                                                    </div>
+                                                </div></td>
+                                            <td> 
+                                                <h5>PERSONAL</h5>
+                                                <h6>INFORMATION</h6>
+                                            </td>
+                                           <td>
                                                 <div class="row" id="bureaucol">
                                                     <div class="col-sm-2" id="negative">
                                                         <i class="bi bi-emoji-frown"></i>
@@ -1474,59 +2205,123 @@
                                                         <i class="bi bi-arrow-repeat"></i>
                                                     </div>
                                                     <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>zxcvcbnm ST AB  ilocos PH sdsad 321333</h6>
+                                                        <h5>JPMCB CARD</h5>
+                                                        <h6></h6>
                                                     </div>
                                                 </div></td>
                                             <td> 
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
+                                                <h5>INQUIRY</h5>
+                                                <h6></h6>
                                             </td>
                                             <td>
                                                 <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="negative">
-                                                        <i class="bi bi-emoji-frown"></i>
+                                                    <div class="col-sm-2" id="green">
+                                                        <i class="bi bi-check-circle"></i>
                                                     </div>
                                                     <div class="col">
                                             
-                                                        <h6>Negative</h6>
+                                                        <h6>Deleted</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                               
                                         </tr>
-                                        <tr>
-                                            <td class="frst">
-                                                <div class="row" >
-                                                    <div class="col-sm-2" id="frsticon">
-                                                        <i class="bi bi-arrow-repeat"></i>
-                                                    </div>
-                                                    <div class="col">
-                                                        <h5>PREVIOUS ADDRESSES</h5>
-                                                        <h6>zxcvcbnm ST AB  ilocos PH sdsad 321333</h6>
-                                                    </div>
-                                                </div></td>
-                                            <td> 
-                                                <h5>PERSONAL</h5>
-                                                <h6>INFORMATION</h6>
-                                            </td>
-                                            <td>
-                                                <div class="row" id="bureaucol">
-                                                    <div class="col-sm-2" id="negative">
-                                                        <i class="bi bi-emoji-frown"></i>
-                                                    </div>
-                                                    <div class="col">
-                                            
-                                                        <h6>Negative</h6>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                              
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
-                            </div>
+                                  </div> <!--vcardbody-->
+                                        </div><!--card-->
+                                    </div><!--rpw-->
+
+                                    <!--NEW DIsPUTE-->
+                                     <div class="row"> 
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="" id="DltHeader">
+                                                    <h6> New Dispute Items for this Round</h6>
+                                                </div>
+                                                <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Item Name</th>
+                                                            <th>High Balance</th>
+                                                            <th>Equifax</th>
+                                             
+                                                        </thead>
+                                                       
+                                                         <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>10567567 ST AB  ilocos PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="scnd">
+                                                                <div class="row" >
+                                                                    <div class="col-sm-2" id="frsticon">
+                                                                        <i class="bi bi-plus-circle"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <h5>PREVIOUS ADDRESSES</h5>
+                                                                        <h6>zxcvcbnm ST AB  111 sdad PH sdsad 321333</h6>
+                                                                    </div>
+                                                                </div></td>
+                                                            <td> 
+                                                                <h5>PERSONAL</h5>
+                                                                <h6>INFORMATION</h6>
+                                                            </td>
+                                                            <td>
+                                                                <div class="row" id="bureaucol">
+                                                                    <div class="col-sm-2" id="negative">
+                                                                        <i class="bi bi-emoji-frown"></i>
+                                                                    </div>
+                                                                    <div class="col">
+                                                            
+                                                                        <h6>Negative</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div> <!--vcardbody-->
+                                        </div><!--card-->
+                                    </div><!--rpw-->
+                                </div>
                             <div class="col-md-4">
+                                 <div class="card">
+                                     <div class="card-body" style="
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+">
+                                <div class="" id="DltHeader">
+                                <h6> Current Credit Usage</h6>
+                            </div>
                                 <div class="row" id="CurrentUsagePink">
                                     <div class="row">
                                         <h3> You Are Using </h3>
@@ -1537,12 +2332,12 @@
                                             <i class='bx bxs-up-arrow-alt'></i>
                                             </div>
                                             <div class="row">
-                                                <h4>21.0%</h4>
+                                                <h4>19.0%</h4>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="row">
-                                                <h1> 20 %</h1>
+                                                <h1> 19 %</h1>
                                             </div>
                                         </div>
                                        
@@ -1554,7 +2349,7 @@
                                         <h6>(Previous: 0%)</h6>
                                     </div>
                                     <div class="row">
-                                        <p>You have <b>$5,000.00</b> in revolving
+                                        <p>You have <b>$5,450.00</b> in revolving
                                         credit lines and your balances
                                         average at <b>$1,046.00.</b>
                                     </p>
@@ -1570,8 +2365,21 @@
                                     </div>
                                 </div>
                                 
-                            </div>
+                            </div></div></div>
                         </div> <!--DltItems-->
+                        <!--TRANSUNION-->
+
+
+
+                        <!-- TIPS-->
+                         <br>
+                        <div class="ProgressReport">
+                            <h4>PROGRESS REPORT FOR ASHLEY RUIZ</h4>
+                            <h6>Created: Apr 18, 2025</h6>
+                        </div>
+
+                        
+                        <!--TIPS-->
             </div>
                 </div>
             </div>

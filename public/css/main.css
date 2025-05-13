@@ -2544,6 +2544,7 @@ border-radius: 5px;
 .ProgressReport h4{
 font-weight: 700;
 text-align: center;
+text-transform: uppercase;
 }
 .ProgressReport h6{
     padding-top: 5px;
@@ -2568,10 +2569,10 @@ border: #d7d7d8 1px solid;
 border-radius: 5px;
 }
 #CScores{
-    padding-left: 40px;
-    padding-right: 40px;
+    MARGIN-left: 25px;
+    MARGIN-right: 20px;
     padding-top: 10px;
-
+justify-content: center;
 }
 #CScores #equifax{
 padding-top: 30px;
@@ -2852,7 +2853,7 @@ border-radius: 5px;
 #PReportScores #Starting h5{
     color: #e69a28;
     font-size: 15px;
-    text-align: right;
+    text-align: center;
     font-weight: 600;
     padding-right: 20px;
     justify-content: center;
@@ -3075,9 +3076,11 @@ text-align: left;
 #DltHeader h6{
     font-weight: 700;
     color: var(--dark-text);
+ 
 }
-#DltHeader,  #DltItems{
-    margin: 10px;
+#DltHeader{
+margin-bottom: 10px;
+padding: 0;
 }
 
 #DltItems tr td{
@@ -3129,6 +3132,27 @@ text-align: left;
     margin-left: 0;
 
 }
+#DltItems tr td.scnd i{
+  
+    color: #37a4d6;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+}
+#DltItems tr td.scnd .row{
+    border-radius: 3px!important;
+    border-left: #37a4d6 2px solid ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+
+}
+
+#DltItems tr td.scnd .col{
+    padding-left: 0;
+    margin-left: 0;
+
+}
 #DltItems thead th{
     padding: 10px;
     background-color:var(--primary-color);
@@ -3169,6 +3193,10 @@ color: var(--text-color);
 text-align: center;
 padding: 20px;
 margin-bottom: 10px;
+
+    margin-left: 0px;
+    margin-right: 0px;
+
 }
 #CurrentUsagePink h3{
   color: var(--text-color);
@@ -3203,6 +3231,7 @@ color: var(--text-color);
   font-size: 14px;
   font-weight: 700;
   margin-top: 5px;
+  color: var(--text-color);
   
   }
   #CurrentUsagePink i{
@@ -3224,11 +3253,16 @@ justify-content: center;
     color: var(--text-color);
 text-align: center;
 padding: 20px;
+
+    margin-left: 0px;
+    margin-right: 0px;
+
   }
 
   #CurrentUsageGreen h6{
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-color);
     
     }
     #CurrentUsageGreen h3{
@@ -3244,3 +3278,39 @@ padding: 20px;
     margin-bottom: 0!important;
     padding-bottom: 0!important;
 }
+
+#DltItems{
+    margin-left: 0px!important;
+        margin-right: 0px!important;
+    padding: 0px;
+}
+#DltItems .col div.card-body{
+        margin: 0px!important;
+        padding: 10px!important;
+
+}
+#DltItems .col{
+padding-right: 10px!important;
+
+}
+#DltItems .col-md-4 div.card-body{
+        margin: 0px!important;
+        padding: 10!important;
+
+}
+#DltItems .col-md-4 div.card-body{
+        margin: 0px!important;
+        padding: 10!important;
+
+}
+#DltItems table{
+    background-color: #fafafa;
+}
+
+
+#DltItems .col-md-4{
+ margin-right: 10px;
+ padding-left: 0px;
+ padding-right: 0px;
+}
+
