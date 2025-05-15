@@ -42,43 +42,43 @@
 <div class="col-md-7" id="clientinfo">
 
             <div class="row">
-            <div class="col">
-            <div class="card">
-            <div class="card-body">
-            <div class="row" id="clientedit">
-                <div class="col-md-9">
-                    <div class="clientname">
-                    <h1>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h1>
-                    </div>
-                </div>
                 <div class="col">
-                    <div class="row">
-                        <div class="clientbtn">
-                            <a href="#">  <i class="bi bi-pencil"></i>&nbsp;&nbsp;Edit</a>     
-                        </div>
-                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row" id="clientedit">
+                                <div class="col-md-9">
+                                    <div class="clientname">
+                                        <h1>{{ $client->first_name . ' ' . $client->middle_name . ' ' . $client->last_name }}</h1>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="clientbtn">
+                                            <a href="#">  <i class="bi bi-pencil"></i>&nbsp;&nbsp;Edit</a>     
+                                        </div>
+                                    </div>
                     
-                    <div class="row">
-                            <div class="clientbtn">
-                           <a href="#">  <i class='bx bx-upload'></i>&nbsp;&nbsp;Upload Documents</a>
-                            </div>
-                    </div>
-                </div>
-            </div> <!-- clientedit -->
+                                    <div class="row">
+                                        <div class="clientbtn">
+                                            <a href="#">  <i class='bx bx-upload'></i>&nbsp;&nbsp;Upload Documents</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- clientedit -->
 
-      <div class="container">
-   <div class="row">
-     <div class="col">
-       <ul id="progress-bar" class="progressbar">
-         <li class="active">Account Created</li>
-         <li>Credit Import</li>
-         <li>Dispute Round 1</li>
-         <li>Dispute Round 2</li>
-         <li>Completed</li>
-      </ul>
-     </div>
-  </div>
-</div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul id="progress-bar" class="progressbar">
+                                            <li class="active">Account Created</li>
+                                            <li>Credit Import</li>
+                                            <li>Dispute Round 1</li>
+                                            <li>Dispute Round 2</li>
+                                            <li>Completed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 <div class="row">
     <div class="col">
         <div class="clientinfo">
@@ -262,7 +262,7 @@
             <div class="card-body">
          
                 <div class="row"  id="CRImport">
-                    <div class="col">
+                    <div class="col" id="CLetterText" >
                     <h3>Credit Report Import</h3>
                     <p>Upload or enter your credit report details</p>
                     </div>
@@ -787,7 +787,7 @@
                         </div>
 
                            <!--EQUIFAX-->
-                    
+                    <br>
                         <div class="ProgressReport">
                             <h4>EQUIFAX PROGRESS REPORT FOR ASHLEY RUIZ</h4>
                             <h6>Created: Apr 18, 2025</h6>
@@ -1263,6 +1263,7 @@
 
                         <!--EXPERIAN-->
                         <br>
+                       
                         <div class="ProgressReport">
                             <h4>EXPERIAN PROGRESS REPORT FOR ASHLEY RUIZ</h4>
                             <h6>Created: Apr 18, 2025</h6>
@@ -2372,13 +2373,367 @@
 
 
                         <!-- TIPS-->
+                     
                          <br>
                         <div class="ProgressReport">
                             <h4>PROGRESS REPORT FOR ASHLEY RUIZ</h4>
                             <h6>Created: Apr 18, 2025</h6>
                         </div>
 
+                        <div class="row" id="CLoanHeader">
+                            <img src="/img/dollar.png" alt="" id="head">
+                            <h1>How Poor Credit Can Hold You Back Financially</h1>
+                            <p>Low credit doesn’t just affect your ability to buy a home—it impacts every area of your financial life. 
+            Here's how it can limit your opportunities:</p>
+                            <h4> Common Setbacks of Low Credit & What You Can Do</h4>
+                       
+                        </div>
+                        <div class="row" id="Setbacks">
+                            <div class="col">
+                                <h4>Hard to Qualify for Credit Cards</h4>
+                                <img src="/img/cc.png" alt="" width="100px">
+                                <p>Use a secured card, pay monthly, and rebuild lender trust.</p>
+                            </div>
+                              <div class="col">
+                                <h4>High-Interest Auto Loans</h4>
+                                <img src="/img/car.png" alt="" width="100px">
+                                <p>Save for a down payment or use a co-signer, then refinance.</p>
+                            </div>
+                                <div class="col">
+                                <h4> Costly Mortgage Terms or Denials</h4>
+                                <img src="/img/house.png" alt="" width="100px">
+                                <p>Boost your score—every 20 points can save you thousands.</p>
+                                </div>
+
+                        </div> <!--setbacks-->
+               
+                        <div class="row" id="CLoanHeader">
+                          <h1>Real-World Auto Loan Cost Comparison</h1>
+                          <p>This comparison shows just how much your credit score can impact your monthly payments and the total amount you’ll pay for a car loan over time. 
+                            Even a small difference in interest rates can lead to thousands of dollars in savings.</p>
+                        </div> <!--CLoanHeader-->
+                        <div class="row" id="LoanEx">
+                            <h6>Potential Savings:</h6>
+                            <h1>$9,955.00</h1>
+                        </div> <!--LoanEx-->
+                        <div class="row">
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                        <div class="row" id="LoanTable">
+                          <div class="col" id="LowScore">
+                            <h6>Low Score</h6>
+                            <h1>524</h1>
+                            <img src="/img/car5.png" alt="">
+                                <h2>$28,500</h2>
+                                <h6>15% Interest</h6>
+                                <h6>Financed for 60 months</h6>
+                                <h2>$678/month</h2>
+                                <h4>$12,181
+                                     <p>Loan Interest</p>
+                                </h4>
+                              
+                          </div> 
+                            <div class="col" id="AvgScore">
+                            <h6>Average Score</h6>
+                            <h1>680</h1>
+                            <img src="/img/car5.png" alt="">
+                                <h2>$28,500</h2>
+                                <h6>5% Interest</h6>
+                                <h6>Financed for 60 months</h6>
+                                <h2>$538/month</h2>
+                                <h4>$6,183
+                                         <p>Loan Interest</p>
+                                </h4>
+                              
+                          </div>  
+                            <div class="col" id="ExcellentScore">
+                                 <h6>Excellent Score</h6>
+                            <h1>710</h1>
+                            <img src="/img/car5.png" alt="">
+                                <h2>$28,500</h2>
+                                <h6>3% Interest</h6>
+                                <h6>Financed for 60 months</h6>
+                                <h2>$512/month</h2>
+                                <h4>$2,226
+                                    <p>Loan Interest</p>
+                                </h4>
+                            
+                          </div> 
+                        </div>
+
+                        <!--HomeLoan-->
+                           <br>
+                        <div class="ProgressReport">
+                            <h4>PROGRESS REPORT FOR ASHLEY RUIZ</h4>
+                            <h6>Created: Apr 18, 2025</h6>
+                        </div>
+
+                        <div class="row" id="CLoanHeader">
+                            <img src="/img/house1.png" alt="" id="head">
+                            <h1>Considering Home Ownership?</h1>
+                            <p>Purchasing a home is one of the biggest financial decisions most of us will make in our lifetimes. Your credit score plays a major role in determining what kind of mortgage you qualify for—and how much you’ll pay over time.</p>
+                             <img src="/img/house2.png" alt="" id="houseimg">
+                            <h4>Did You Know?</h4>
+                                       <p>Having a credit score above 650 could significantly reduce the interest rate on your mortgage loan. A better score means better rates, lower monthly payments, and huge savings over the life of the loan.</p>
+                        </div>
                         
+               
+                        <div class="row" id="CLoanHeader">
+                          <h1> How Much Can Good Credit Actually Save You?</h1>
+                          <p>Let’s take a real-world look at how credit affects your mortgage payments over time:</p>
+                        </div> <!--CLoanHeader-->
+                        <div class="row" id="LoanEx">
+                            <h6>Potential Savings:</h6>
+                            <h1>$143,328</h1>
+                        </div> <!--LoanEx-->
+                        <div class="row">
+                            <div class="col">
+
+                            </div>
+                        </div>
+                        <div class="row" id="LoanTable">
+                          <div class="col" id="LowScore">
+                            <h6>Low Score</h6>
+                            <h1>524</h1>
+                            <img src="/img/house2.png" alt="">
+                                <h2>$250k</h2>
+                                <h6>6.5% Interest</h6>
+                                <h6>Financed for 30 years</h6>
+                                <h2>$1,580/month</h2>
+                                <h4>$318,861
+                                     <p>Loan Interest</p>
+                                </h4>
+                              
+                          </div> 
+                            <div class="col" id="AvgScore">
+                            <h6>Average Score</h6>
+                            <h1>680</h1>
+                            <img src="/img/house2.png" alt="">
+                                <h2>$250k</h2>
+                                <h6>5% Interest</h6>
+                                <h6>Financed for 30 years</h6>
+                                <h2>$1,342/month</h2>
+                                <h4>$233,139
+                                         <p>Loan Interest</p>
+                                </h4>
+                              
+                          </div>  
+                            <div class="col" id="ExcellentScore">
+                                 <h6>Excellent Score</h6>
+                            <h1>710</h1>
+                            <img src="/img/house2.png" alt="">
+                                <h2>$250k</h2>
+                                <h6>3.9% Interest</h6>
+                                <h6>Financed for 30 years</h6>
+                                <h2>$1,182/month</h2>
+                                <h4>$175,533
+                                    <p>Loan Interest</p>
+                                </h4>
+                            
+                          </div> 
+                        </div>
+
+                         <br>
+                        <div class="ProgressReport">
+                            <h4>PROGRESS REPORT FOR ASHLEY RUIZ</h4>
+                            <h6>Created: Apr 18, 2025</h6>
+                        </div>
+                        <div class="row" id="CLoanHeader">
+                            <img src="/img/cscore.png" alt="" id="head">
+                            <h1>Understanding Credit Scores</h1>
+                            <p>Your credit score is a key part of your financial identity. The more you understand how your score is calculated—and what influences it—the more control you have over your financial future. Taking steps to monitor, protect, and improve your score is one of the smartest financial moves you can make.</p>
+                            
+                            
+                        </div>
+                          <div class="row" id="CLoanHeader2" >
+                        
+                                <div class="col">
+                                    <h4>What is a Credit Score?</h4>
+                                    <p>A credit score is a three-digit number that represents your creditworthiness—essentially, how likely you are to repay money you borrow. Lenders, landlords, insurance companies, and even some employers use this score to make decisions about offering you credit, approving loans, or determining interest rates.</p>
+                                        </div>
+                                <div class="col">
+                                    <img src="/img/cscore2.png" alt="" id="cscoreimg">
+                                </div>
+                          
+                        </div>
+                        <div class="row" id="CScoreTable">
+                             <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Score Range</th>
+                                                            <th>Rating</th>
+                                                            <th>What it means</th>
+                                                      
+                                                        </thead>
+                                                       
+                                                         <tr>
+                                                            <td>
+                                                                <h5>800-850</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Excellent</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>You’ll qualify for the best rates & terms.</h5>
+                                                            </td>
+                                                        
+                                                        
+                                                            
+                                                        </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>740-799</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Very Good</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Great approval odds with competitive rates.</h5>
+                                                            </td>
+                                                        
+                                                        
+                                                            
+                                                        </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>670–739</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>Good</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>	Most lenders will approve you.</h5>
+                                                            </td>
+                                                        </tr>
+                                                         </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>580–669</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>Fair</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>You may be approved but with higher rates.</h5>
+                                                            </td>
+                                                        </tr>
+                                                            </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>300–579</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>poor</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>	Likely to be denied or pay steep interest.</h5>
+                                                            </td>
+                                                        </tr>
+                                                       
+                                                       
+                                                    </tbody>
+                                                </table>
+                        </div>
+                        <div class="row" id="CLoanHeader" >
+                        
+                                    <div class="row">
+                                    <h1>Credit Bureaus</h1>
+                                    <p>There are 3 major credit bureaus: </p>
+                                    </div>
+                                    <div class="row" id="Bureaus">
+                                          <div class="col">
+                                             <img src="/img/equifax1.png" alt="" >
+                                        </div>
+                                        <div class="col">
+                                             <img src="/img/experian.png" alt="" >
+                                        </div>
+                                        
+                                          <div class="col">
+                                             <img src="/img/transunion1.png" alt="" i>
+                                        </div>
+                                    </div>
+                          
+                        </div>
+                               <div class="row" id="CScoreTable">
+                             <table width="100%">
+                                                    <tbody>
+                                                        <thead>
+                                                            <th>Factor</th>
+                                                            <th>Weight</th>
+                                                            <th>What it means</th>
+                                                      
+                                                        </thead>
+                                                       
+                                                         <tr>
+                                                            <td>
+                                                                <h5>Payment History</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>35%</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>On-time payments build trust. One missed payment can drop your score significantly.</h5>
+                                                            </td>
+                                                        
+                                                        
+                                                            
+                                                        </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>Amounts Owned</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>30%</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Keep credit card balances low—ideally under 30% of your limit.</h5>
+                                                            </td>
+                                                        
+                                                        
+                                                            
+                                                        </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>Length of Credit History</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>15%</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Older accounts boost your score. Don’t close your oldest cards!</h5>
+                                                            </td>
+                                                        </tr>
+                                                         </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>Credit Mix</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>10%</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>A healthy mix of credit types (loans, cards, etc.) shows you're versatile.</h5>
+                                                            </td>
+                                                        </tr>
+                                                            </tr>
+                                                             <tr>
+                                                            <td>
+                                                                <h5>New Credit Inquiries</h5>
+                                                            </td>
+                                                             <td>
+                                                                <h5>10%</h5>
+                                                            </td>
+                                                            <td>
+                                                                <h5>Too many applications in a short time can hurt your score. Be selective.</h5>
+                                                            </td>
+                                                        </tr>
+                                                       
+                                                       
+                                                    </tbody>
+                                                </table>
+                        </div>
                         <!--TIPS-->
             </div>
                 </div>
