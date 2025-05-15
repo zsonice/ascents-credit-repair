@@ -1923,7 +1923,11 @@ color: var(--side-bar-color)!important;
     margin-bottom:20px;
    }
    .clientname h1{
+    
+    padding-left: 10px;
     font-weight: 700;
+    font-size: 32px;
+    
     color: var(--dark-text)!important;
     text-transform: capitalize;
    }
@@ -1933,13 +1937,16 @@ color: var(--side-bar-color)!important;
     transform:translatex(0px) translatey(0px);
    }
    #clientinfo .card .card-body{
-    margin-top:0px;
+    margin-top:20px;
    }
 
 .clientinfo h6{
 font-size: 12px;
 align-self: center;
 padding-left:10px;
+}
+#clientedit{
+    margin-bottom: 10px;
 }
 
 .clientinfo2 h6{
@@ -3313,4 +3320,224 @@ padding-right: 10px!important;
  padding-left: 0px;
  padding-right: 0px;
 }
+#CLoanHeader{
+    margin: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+#CLoanHeader h1{
+    font-size: 35px;
+  
+}
+#CLoanHeader h4{
+    font-size: 20px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+#CLoanHeader #houseimg{
 
+max-width: fit-content;
+
+}
+
+#CLoanHeader  img#head{
+max-width: 100px;
+
+}
+#CLoanHeader  img#cscoreimg{
+max-width: 300px;
+justify-content: left;
+
+}
+
+#Setbacks{
+    margin: 20px;
+
+    color: var(--dark-text);
+
+}
+#Setbacks .col{
+ margin-right: 10px;
+padding: 20px;
+border: #d7d7d8 1px solid;
+border-radius: 5px;
+
+}
+#Setbacks h4{
+      font-size: 16px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+}
+
+
+#LoanEx h1{
+
+    color: #775dd0;
+    font-size: 30px;
+    text-align:center;
+    
+}
+#LoanEx h6{
+   
+    color: #775dd0;
+    font-size: 12px;
+    text-align:center;
+    font-weight: 600;
+
+}
+#CScoreTable tr td h5{
+    
+    color: var(--dark-text);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+
+}
+#CScoreTable tr td {
+  padding: 10px;
+  border-bottom: 1px solid #9b9b9b;
+}
+#CScoreTable thead th{
+    padding: 10px;
+    background-color:var(--primary-color);
+    color: var(--text-color);
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 600;
+    border: none!important;
+    text-align: center;
+}
+#CScoreTable{
+    margin: 20px;
+ 
+    justify-content: center;
+
+}
+#CScoreTable table{
+   width: 70%;
+}
+#LoanTable{
+    margin: 20px;
+ 
+
+}
+#LoanTable .col{
+     margin-right: 10px;
+padding: 20px;
+border: #d7d7d8 1px solid;
+border-radius: 5px;
+}
+
+#LoanTable #LowScore{
+    color: #ad0404!important;
+}
+#LoanTable #AvgScore{
+    color: #37a4d6!important;
+}
+
+
+#LoanTable h1{
+
+    font-size: 40px;
+    text-align:center;
+        padding: 5px;
+}
+#LoanTable h2{
+    font-size: 30px;
+    text-align:center;
+      font-weight: 700;
+          padding: 5px;
+
+}
+#LoanTable #LowScore h1{
+    color: #ad0404;
+}
+#LoanTable #AvgScore h1{
+    color: #37a4d6;
+}
+#LoanTable h6{
+    
+    font-size: 14px;
+    text-align:center;
+    font-weight: 600;
+    padding: 5px;
+
+}
+#LoanTable img{
+    max-width: 150px;
+}
+
+#LoanTable h4{
+    padding-top: 15px!important;
+    padding: 5px;
+    font-size: 25px;
+    text-align:center;
+    font-weight: 700;
+    color: #ffffff;
+    background: #ad0404;
+    border-radius: 15px;
+    margin-top: 10px;
+
+}
+#LoanTable p{
+    color: var(--text-color);
+    font-weight: 500;
+}
+#LowScore{
+    background-color: #f5d8d8;
+}
+#LoanTable #AvgScore{
+    color:var(--dark-text);
+    background-color: #d8e8f5;
+}
+
+#LoanTable #ExcellentScore{
+    color:#775dd0;
+    background-color: #eee5f6;
+}
+#LoanTable #ExcellentScore h1{
+    color:#775dd0;
+
+}
+
+#CLoanHeader2{
+    margin: 20px;
+    justify-self: center;
+ 
+    margin-top: 30px;
+    width:70%;
+   
+
+}
+#CLoanHeader2 h1{
+    font-size: 35px;
+  
+}
+#CLoanHeader2 h4{
+    font-size: 20px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+
+#CLoanHeader2  img#head{
+max-width: 100px;
+
+}
+#CLoanHeader2  img#cscoreimg{
+max-width: 250px;
+justify-content: left;
+
+
+}
+#CLoanHeader2 p{
+  
+}
+#CLoanHeader #Bureaus{
+    width: 70%;
+}
