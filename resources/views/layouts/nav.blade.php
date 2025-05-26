@@ -33,15 +33,7 @@
                                 <span class="text nav-text">Clients</span>
                             </a> 
                         </li>
-                    <li class="nav-link">
-                    <a href="{{ route('mycompany') }}" id="nav-clients">  {{-- :active="request()->routeIs('mycompany')"  --}}
-                        <i class='bx bxs-buildings icon' ></i>
-                        <span class="text nav-text">
-                            My Company
-                        </span>
-                        </a>
-
-                    </li>
+                    
                     <li class="nav-link">
                             <a href="{{ route('letters.index') }}"> 
                                 <i class='bx bxs-file icon'></i>
@@ -54,10 +46,27 @@
                         <i class='bx bxs-user-circle icon'></i>
                         <span class="text nav-text">
                             Profile
+                        </a>
+
+                    </li>
+                    <li class="nav-link">
+                    <a href="{{ route('mycompany') }}" id="nav-clients">  {{-- :active="request()->routeIs('mycompany')"  --}}
+                        <i class='bx bxs-buildings icon' ></i>
+                        <span class="text nav-text">
+                            Business
+                        </span>
+                        </a>
+                   
+                      <li class="nav-link">
+                    <a href="{{ route('affiliatesettings') }}" id="nav-clients">  {{-- :active="request()->routeIs('affiliatesettings')"  --}}
+                        <i class='bi bi-person-vcard-fill icon' ></i>
+                        <span class="text nav-text">
+                           Affiliates
                         </span>
                         </a>
 
                     </li>
+                     
                 </ul>
                
             </div>
