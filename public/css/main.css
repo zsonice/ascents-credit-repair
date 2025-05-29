@@ -1035,6 +1035,7 @@ transition: var(--tran-03);
    text-align: left;
 }
 .modal .form-group .col-md-2 select,
+
 .provider select{
     font-size: 14px;
     border-radius: 2px;
@@ -1042,7 +1043,17 @@ transition: var(--tran-03);
    text-align: left;
 
 }
+
+.form-group .col-md-2 {
+        font-size: 14px;
+    border-radius: 2px;
+  
+   text-align: left;
+   margin-bottom: 3px;
+}
 .modal .form-group .col select,
+.form-group .col-md-2 select,
+.form-group .col select,
 .modal .form-group select,
 .provider select,
 .modal .fields select
@@ -1054,6 +1065,7 @@ transition: var(--tran-03);
    cursor: pointer;
 
 }
+.modal .form-group select:focus,
 .modal .form-group select:focus,
 .provider select:focus{
 border-radius: 3px;
@@ -1085,6 +1097,7 @@ border-radius: 3px;
     color: #7c7c7c!important;
 }
 .form-group #statediv,
+.form-group #companystatediv,
 .form-group #statusdiv,
 .form-group #referreddiv,
 .form-group #assigneddiv,
@@ -1644,6 +1657,7 @@ padding: 10px;
 #notesTab h3,
 #UploadDocuments h3,
 #agentinfo h3,
+#cagentinfo h3,
 #Reminders h3,
 #Messages h3{
     font-size: 18px;
@@ -1833,6 +1847,10 @@ color: var(--side-bar-color)!important;
     display:flex;
     padding-top: 10px;
    }
+   #cagentinfo .card .agentinfobody {
+display:flex;
+    padding-top: 10px;
+   }
    .agentimg{
     padding: 5px;
     align-items: center;
@@ -1843,6 +1861,21 @@ color: var(--side-bar-color)!important;
     margin-right:10px ;
     transition: var(--tran-04);
 
+   }
+    #cagentinfo.agentimg{
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--side-bar-color);
+    border-radius: 50% ;
+    align-self:center;
+    margin-right:10px ;
+    transition: var(--tran-04);
+
+   }
+   #cagentinfo .col-md-2{
+    display: inline-block;
    }
    .agentimg img{
     width: 60px;
@@ -1862,7 +1895,9 @@ color: var(--side-bar-color)!important;
 #agentinfo .card .agentname{
     align-self:center;
    }
-
+#cagentinfo .card .agentname{
+    align-self:center;
+   }
    
    .progressbar {
     margin: 50px 0 50px 0;
@@ -2019,6 +2054,11 @@ font-size: 22px;
 }
 /* Agentinfobody */
 #agentinfo .card .agentinfobody{
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+   }
+   #cagentinfo .card .agentinfobody{
     padding-left:10px;
     padding-right:10px;
     padding-bottom:10px;
@@ -3538,4 +3578,10 @@ justify-content: left;
 
 #CLoanHeader #Bureaus{
     width: 70%;
+}
+
+#divfooter .primary{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

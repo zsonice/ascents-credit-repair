@@ -229,26 +229,23 @@
              <!--row-->
 </div>
 <div class="col-md-3" id="agentinfo">  
-        <div class="card">
-             <div class="card-body">
-               <div>
+    <div class="card">
+        <div class="card-body">
+            <div>
                 <h3>Agent Info</h3>
-               </div>
+            </div>
                
-               <div class="agentinfobody">
+            <div class="agentinfobody">
                 <div class="agentimg">
                     <img src="/img/agent-info.png" alt="agent" >
-                </div>
-                <div class="agentname">
-                    <h5>Ashley Chan</h5>
-                    <h6>Virtual Assistant</h6>
-                </div>
-                   
-            
-               </div>  
-     </div> 
-  
-</div>
+            </div>
+            <div class="agentname">
+                <h5>Ashley Chan</h5>
+                <h6>Virtual Assistant</h6>
+            </div>
+        </div>  
+    </div> 
+</div> <!--agent info-->
 </div>
 
 </div> 
