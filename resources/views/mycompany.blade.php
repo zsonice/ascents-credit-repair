@@ -23,9 +23,7 @@
             <a class="nav-link "    id="website-tab" data-bs-toggle="tab" data-bs-target="#website-tab-pane" type="button" role="tab" aria-controls="website-tab-pane" aria-selected="true" >Website Tools</a>
         </li>
        
-        <li class="nav-item" role="presentation">
-            <a class="nav-link "    id="campaign-tab" data-bs-toggle="tab" data-bs-target="#campaign-tab-pane" type="button" role="tab" aria-controls="campaign-tab-pane" aria-selected="true" >Active Campaign</a>
-        </li>
+       
        
 </ul>
     </div>
@@ -243,7 +241,7 @@
                                 <p>Edit your team members here.</p>
                             </div>
                             <div class="col-md-3" id="CLetterbtn">
-                                <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ADD TEAM MEMBERS</button>
+                                <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addRoleModal"></i>&nbsp;&nbsp;ADD TEAM MEMBERS</button>
                             </div>
                         </div> <!--row-->
                             <br>
@@ -305,20 +303,64 @@
                                 <p>Edit your roles & permissions here.</p>
                             </div>
                             <div class="col-md-3" id="CLetterbtn">
-                                <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;EDIT ROLES</button>
+                                <button class="btn btn-primary" id="addRoleModal" type="button" data-toggle="modal" data-target="#addRoleModal"></i>&nbsp;&nbsp;ADD NEW ROLE</button>
                             </div>
                         </div> <!--row-->
                 
 
                             <br>
-                        <div  id="loginActivity">
+                     <div  id="loginActivity">
 
- 
-                        </div> 
+                        <div style='overflow-y:auto'>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Role Name</th>
+                                        <th></th>
+                              
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                       <tr>
+                                        <td><span class="skeleton">Account Manager<span></td>
+                                        <td class="left">
+                                            <a href="" class="btn">Manage Permissions</i></a>
+                                                <!-- Button to Open the Modal -->
+                                             
+                                            <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                @csrf
+                                                @method('DELETE')
+                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" disabled><i class='bx bxs-trash' ></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="skeleton">Credit Repair Specialist<span></td>
+                                        <td class="left">
+                                            <a href="" class="btn">View Permissions</i></a>
+                                                <!-- Button to Open the Modal -->
+                                             
+                                            <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                @csrf
+                                                @method('DELETE')
+                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" ><i class="bi bi-lock-fill"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+         
+        
+     </tbody>
+     </table>
+
+<!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
+    </div>
+</div>
                     </div>
                 </div><!--card-->
             </div> <!--col-->
         </div> <!-- roles tab-->
+
+
          <div class="tab-pane fade" id="billing-tab-pane" role="tabpanel" aria-labelledby="billing-tab" tabindex="0">
             <div class="col-md-10">
                 <div class="card">
@@ -365,28 +407,7 @@
                 </div><!--card-->
             </div> <!--col-->
         </div> <!-- website tab-->
-      <div class="tab-pane fade" id="campaign-tab-pane" role="tabpanel" aria-labelledby="campaign-tab" tabindex="0">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row"  id="CLetter">
-                            <div class="col" id="CLetterText">
-                                <h3>Active Campaign</h3>
-                                <p>Check your active campaign here.</p>
-                            </div>
-                            
-                        </div> <!--row-->
-                
-
-                            <br>
-                        <div  id="loginActivity">
-
- 
-                        </div> 
-                    </div>
-                </div><!--card-->
-            </div> <!--col-->
-        </div> <!-- campaign tab-->
+     
      
      
      
@@ -397,3 +418,32 @@
 
 </div>
     @endsection
+<!--modal add role-->
+      <div class="modal fade" id="addRoleModal" tabindex="-1" role="dialog" aria-labelledby="addRoleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addRoleModalLabel">Add role</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+      
+                       <form action="" method="POST" >
+                       
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <label for="rolename">Role Name</label>
+                                        <input type="text" name="rolename" autofocus id="rolename" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                       <button type="submit" class="btn btn-primary">Add role</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add role -->

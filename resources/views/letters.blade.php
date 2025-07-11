@@ -1,6 +1,9 @@
 {{-- resources/views/letters.blade.php --}}
-@extends('layouts.app') {{-- Adjust layout as needed --}}
 
+@extends('layouts.app') {{-- Adjust layout as needed --}}
+  <script 
+      src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js">
+    </script>
 @section('content')
 <div class="hello" id="dashboard">
     <!-- header -->
@@ -29,7 +32,7 @@
                     <p>Use our templates or Create your own letter</p>
                     </div>
                     <div class="col-md-3" id="CLetterbtn">
-                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ADD NEW LETTERS</button>
+                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addNewLetter"></i>&nbsp;&nbsp;ADD NEW LETTERS</button>
                         </div>
                 </div> <!--row-->
                 
@@ -176,7 +179,7 @@
                     <p>Use our templates or Create your own letter</p>
                     </div>
                     <div class="col-md-3" id="CLetterbtn">
-                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ADD FREEZE LETTERS</button>
+                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addFreezeLetter"></i>&nbsp;&nbsp;ADD FREEZE LETTERS</button>
                         </div>
                 </div> <!--row-->
                 
@@ -228,3 +231,169 @@
 
 </div>
 @endsection
+<!--modal add letter-->
+      <div class="modal fade" id="addNewLetter" tabindex="-1" role="dialog" aria-labelledby="addNewLetterabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewLetterLabel">Add New Letter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+             
+      
+                       <form action="" method="POST" >
+                       
+                            
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <label for="lettername">Letter Title</label>
+                                        <input type="text" name="lettername" autofocus id="lettername" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <label for="lettercat">Letter Category</label>
+                                        <input type="text" name="lettercat" autofocus id="lettercat" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center" id="lettercontent">
+                                    <div class="col">                                                                       
+                                        <label for="lettercontent">Letter Content</label>
+                                        <textarea name="lettercontent" autofocus id="lettercontent" class="form-control" required> </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                             
+                             <br>
+
+                       <button type="submit" class="btn btn-primary">Add Letter</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add letter -->
+<!--modal add freeze letter-->
+      <div class="modal fade" id="addFreezeLetter" tabindex="-1" role="dialog" aria-labelledby="addFreezeLetterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFreezeLetterLabel">Add Freeze Letter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+             
+      
+                       <form action="" method="POST" >
+                       
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <label for="flettername">Letter Title</label>
+                                        <input type="text" name="flettername" autofocus id="flettername" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center" >
+                                    <div class="col">
+                                        <label for="flettercat">Letter Category</label>
+                                        <input type="text" name="flettercat" autofocus id="flettercat" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center" id="flettercontent">
+                                    <div class="col">                                                                       
+                                        <label for="flettercontent">Letter Content</label>
+                                        <textarea name="flettercontent" autofocus id="flettercontent" class="form-control" required> </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                       <button type="submit" class="btn btn-primary">Add Letter</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add  freeze letter -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("Page loaded, script is running.");
+
+        // Define a mapping from tab IDs to simpler hash names
+        const hashMapping = {
+            'dispute-tab-pane': 'dispute',
+            'freeze-tab-pane': 'freeze',
+        
+        };
+
+        // Check the URL for a fragment (e.g., #notes)
+        const hash = window.location.hash.replace('#', ''); // Remove the #
+        console.log("Current URL hash:", hash);
+
+        if (hash) {
+            // Use the hashMapping to find the corresponding tab pane ID
+            const tabPaneId = Object.keys(hashMapping).find(key => hashMapping[key] === hash);
+            console.log("Mapped tab pane ID:", tabPaneId);
+
+            // If found, activate the corresponding tab
+            if (tabPaneId) {
+                const tabLink = document.querySelector(`a[data-bs-target="#${tabPaneId}"]`);
+                console.log("Found tab link:", tabLink);
+
+                if (tabLink) {
+                    // Use Bootstrap's tab function to activate it
+                    const tabInstance = new bootstrap.Tab(tabLink);
+                    tabInstance.show();  // Show the tab
+                    console.log("Tab activated:", hash);
+                }
+            }
+        }
+
+        // Handle updating the URL fragment when a tab is clicked
+        const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        tabLinks.forEach(tabLink => {
+            tabLink.addEventListener('shown.bs.tab', function (e) {
+                // Get the current tab's target ID
+                const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                console.log("Active tab ID:", targetId);
+
+                // Get the corresponding simplified hash
+                const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+
+                // Update the URL fragment without reloading the page
+                window.history.pushState(null, null, `#${simplifiedHash}`);
+                console.log("Tab clicked, URL updated to:", simplifiedHash);
+            });
+        });
+
+       
+
+    
+
+        const activeTab = "{{ session('activeTab') }}"; // Check for active tab
+
+        if (activeTab) {
+            console.log("Active tab exists:", activeTab); // Debugging statement
+            window.location.hash = activeTab;
+
+            // Activate the corresponding tab
+            const tabLink = document.querySelector(`a[data-bs-target="#${activeTab}-tab-pane"]`);
+            if (tabLink) {
+                const tabInstance = new bootstrap.Tab(tabLink);
+                tabInstance.show();  // Show the active tab
+                console.log(`${activeTab} tab activated.`); // Debugging statement
+            }
+        }
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

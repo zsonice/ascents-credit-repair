@@ -509,6 +509,19 @@ div.p{
     align-items: center;
     justify-content: center;
 }
+.modal .btn-primary:hover{
+    background: var(--dark-primary);
+    border-style: none;
+}
+.modal .btn-primary{
+    background: var(--primary-color);
+    border-style: none;
+}
+.modal .btn-primary i{
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
 /* Th */
 .table tr th{
     font-size:14px;
@@ -1081,7 +1094,7 @@ border-radius: 3px;
 .form-group .col-md-2{
    
     justify-content: space-between;
-    margin-top: -50;
+    margin-top: 0;
 }
 .form-group .col-md-6{
    
@@ -1105,7 +1118,9 @@ border-radius: 3px;
 .form-group #billingdiv,
 .form-group #plandiv,
 .form-group #cmsdiv,
-.form-group #letterdiv
+.form-group #letterdiv,
+.form-group #lettercat,
+.form-group #lettercontent
 {
 padding-bottom: 8px!important;
 
@@ -3584,4 +3599,60 @@ justify-content: left;
     font-size: 16px;
     margin-left: 10px;
     margin-right: 10px;
+}
+td.left{
+    text-align: right;
+}
+button.btn-bnw{
+    color: #818181;
+    font-size: 18px;
+    justify-content: center;
+    padding-right: 20px;
+}
+td.left a{
+    font-size: 14px;
+}
+#PLogo{
+    margin-left: 20px;
+
+}
+#PLogo .col{
+  display: grid;
+
+}
+#PLogo p{
+    margin-bottom: 10px;
+}
+
+#uploadimg input[type=file]:focus{
+outline: none!important;
+box-shadow: none!important;
+}
+#uploadimg input[type=file]{
+    border: 1px solid #7c7c7c;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#uploadimg input[type=file]:hover{
+    border: 2px solid var(--primary-color);
+}
+
+#uploadcolor input[type=file]:focus{
+outline: none!important;
+box-shadow: none!important;
+}
+#uploadcolor input[type=file]{
+    border: 1px solid #7c7c7c;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#uploadcolor input[type=file]:hover{
+    border: 2px solid var(--primary-color);
+}
+
+#lettercontent textarea,
+#flettercontent textarea{
+    min-height: 500!important;
 }
