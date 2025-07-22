@@ -1,9 +1,7 @@
 {{-- resources/views/letters.blade.php --}}
 
 @extends('layouts.app') {{-- Adjust layout as needed --}}
-  <script 
-      src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js">
-    </script>
+ 
 @section('content')
 <div class="hello" id="dashboard">
     <!-- header -->
@@ -232,7 +230,7 @@
 </div>
 @endsection
 <!--modal add letter-->
-      <div class="modal fade" id="addNewLetter" tabindex="-1" role="dialog" aria-labelledby="addNewLetterabel" aria-hidden="true">
+      <div class="modal fade" id="addNewLetter" tabindex="-1" role="dialog" aria-labelledby="addNewLetterLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -392,8 +390,4 @@
     });
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
-    <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 

@@ -303,7 +303,7 @@
                                 <p>Edit your roles & permissions here.</p>
                             </div>
                             <div class="col-md-3" id="CLetterbtn">
-                                <button class="btn btn-primary" id="addRoleModal" type="button" data-toggle="modal" data-target="#addRoleModal"></i>&nbsp;&nbsp;ADD NEW ROLE</button>
+                                <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addRoleModal"></i>&nbsp;&nbsp;ADD NEW ROLE</button>
                             </div>
                         </div> <!--row-->
                 
@@ -330,7 +330,7 @@
                                             <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
                                                 @csrf
                                                 @method('DELETE')
-                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" disabled><i class='bx bxs-trash' ></i></button>
+                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class='bx bxs-trash' ></i></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -343,7 +343,7 @@
                                             <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
                                                 @csrf
                                                 @method('DELETE')
-                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" ><i class="bi bi-lock-fill"></i></button>
+                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#"  disabled><i class="bi bi-lock-fill"></i></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -417,10 +417,10 @@
        
 
 </div>
-    @endsection
+ 
 <!--modal add role-->
       <div class="modal fade" id="addRoleModal" tabindex="-1" role="dialog" aria-labelledby="addRoleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addRoleModalLabel">Add role</h5>
@@ -447,3 +447,78 @@
         </div>
     </div>
 <!--modal add role -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("Page loaded, script is running.");
+
+        // Define a mapping from tab IDs to simpler hash names
+        const hashMapping = {
+            'company-tab-pane': 'company',
+            'team-tab-pane': 'team',
+            'roles-tab-pane': 'roles',
+            'billing-tab-pane': 'billing',
+            'website-tab-pane': 'website',
+        
+        };
+
+        // Check the URL for a fragment (e.g., #notes)
+        const hash = window.location.hash.replace('#', ''); // Remove the #
+        console.log("Current URL hash:", hash);
+
+        if (hash) {
+            // Use the hashMapping to find the corresponding tab pane ID
+            const tabPaneId = Object.keys(hashMapping).find(key => hashMapping[key] === hash);
+            console.log("Mapped tab pane ID:", tabPaneId);
+
+            // If found, activate the corresponding tab
+            if (tabPaneId) {
+                const tabLink = document.querySelector(`a[data-bs-target="#${tabPaneId}"]`);
+                console.log("Found tab link:", tabLink);
+
+                if (tabLink) {
+                    // Use Bootstrap's tab function to activate it
+                    const tabInstance = new bootstrap.Tab(tabLink);
+                    tabInstance.show();  // Show the tab
+                    console.log("Tab activated:", hash);
+                }
+            }
+        }
+
+        // Handle updating the URL fragment when a tab is clicked
+        const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        tabLinks.forEach(tabLink => {
+            tabLink.addEventListener('shown.bs.tab', function (e) {
+                // Get the current tab's target ID
+                const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                console.log("Active tab ID:", targetId);
+
+                // Get the corresponding simplified hash
+                const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+
+                // Update the URL fragment without reloading the page
+                window.history.pushState(null, null, `#${simplifiedHash}`);
+                console.log("Tab clicked, URL updated to:", simplifiedHash);
+            });
+        });
+
+       
+
+    
+
+        const activeTab = "{{ session('activeTab') }}"; // Check for active tab
+
+        if (activeTab) {
+            console.log("Active tab exists:", activeTab); // Debugging statement
+            window.location.hash = activeTab;
+
+            // Activate the corresponding tab
+            const tabLink = document.querySelector(`a[data-bs-target="#${activeTab}-tab-pane"]`);
+            if (tabLink) {
+                const tabInstance = new bootstrap.Tab(tabLink);
+                tabInstance.show();  // Show the active tab
+                console.log(`${activeTab} tab activated.`); // Debugging statement
+            }
+        }
+    });
+</script>
+   @endsection

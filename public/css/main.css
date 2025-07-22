@@ -2532,7 +2532,7 @@ align-items: end!important;
     color: var(--dark-primary);
 }
 #loginActivity a{
-    color: var(--primary-color);
+    color: #7d7d7d;
 }
 #loginActivity a p{
     font-size: 12px;
@@ -3655,4 +3655,8 @@ box-shadow: none!important;
 #lettercontent textarea,
 #flettercontent textarea{
     min-height: 500!important;
+}
+
+#loginActivity a{
+    color: #7d7d7d;
 }

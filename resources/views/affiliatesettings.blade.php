@@ -125,10 +125,10 @@
                                 <div class="clientnav">
                                     <ul class="nav nav-underline" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link active"  id="nonclient-tab" data-bs-toggle="tab" data-bs-target="#nonclient-tab-pane" type="button" role="tab" aria-controls="nonclient-tab-pane" aria-selected="true" >Non-Client Statues</a>
+                                            <a class="nav-link active"  id="nonclient-tab" data-bs-toggle="tab" data-bs-target="#nonclient-tab-pane" type="button" role="tab" aria-controls="nonclient-tab-pane" aria-selected="true" >Non-Client Statuses</a>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link "    id="client-tab" data-bs-toggle="tab" data-bs-target="#client-tab-pane" type="button" role="tab" aria-controls="client-tab-pane" aria-selected="true" >Client Statues</a>
+                                            <a class="nav-link "    id="client-tab" data-bs-toggle="tab" data-bs-target="#client-tab-pane" type="button" role="tab" aria-controls="client-tab-pane" aria-selected="true" >Client Statuses</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -140,7 +140,7 @@
                                                 <div class="card-body">
                                                     <div class="row"  id="CLetter">
                                                         <div class="col" id="CLetterText">
-                                                            <h3>Non-client Statues</h3>
+                                                            <h3>Non-client Statuses</h3>
                                                             <p>These statuses do not allow you to do work on client.</p>
                                                         </div>
                                                         <div class="col-md-3" id="CLetterbtn">
@@ -152,61 +152,65 @@
                                                     <br>
                                                     <div  id="loginActivity">
 
-                                                    <div style='overflow-y:auto'>
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                            <tr>
-                                                            <th>Label</th>
+                                                        <div style='overflow-y:auto'>
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                <th>Label</th>
+                                                                
+                                                                <th>Total</th>
+                                                                <th>Portal Login Access</th>
+                                                                <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Label<span></td>
+                                                                    <td> <span class="skeleton">1 </span></td>
+                                                                    <td>No</td>
+                                                                    <td>
                                                             
-                                                            <th>Total</th>
-                                                            <th>Portal Login Access</th>
-                                                            <th></th>
-                                                            </tr>
-                                                            </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                            <tr>
-                                                                <td><span class="skeleton">Label<span></td>
-                                                                <td> <span class="skeleton">1 </span></td>
-                                                                <td>No</td>
-                                                                <td>
-                                                           
-                                                                                                    <!-- Button to Open the Modal -->
-                                                                                                
-                                                                    <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
-                                                                    </form>
-                                                                </td>
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
 
 
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="skeleton">Lead/Inactive<span></td>
-                                                                <td> <span class="skeleton">0</span></td>
-                                                                <td>No</td>
-                                                                <td>
-                                                           
-                                                                                                    <!-- Button to Open the Modal -->
-                                                                                                
-                                                                    <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
-                                                                    </form>
-                                                                </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Lead/Inactive<span></td>
+                                                                    <td> <span class="skeleton">0</span></td>
+                                                                    <td>No</td>
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
 
 
-                                                            </tr>
-                                                           
-                                                        </tbody>
-                                                        </table>
+                                                                </tr>
+                                                            
+                                                            </tbody>
+                                                            </table>
 
 <!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
                                                         </div>
-</div> </div></div></div> </div>
-        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                          
         <div class="tab-pane fade" id="client-tab-pane" role="tabpanel" aria-labelledby="client-tab" tabindex="0">
         <div class="col-md-10">
         <div class="card">
@@ -370,23 +374,323 @@
                         <div class="row"  id="CLetter">
                             <div class="col" id="CLetterText">
                                 <h3>Dispute Options</h3>
-                                <p>Check your disputes here.</p>
+                                <p>Check your Dispute Information here.</p>
                             </div>
                             
                         </div> <!--row-->
                 
 
                             <br>
-                        <div  id="loginActivity">
+                        <div  id="loginActivity" class="tabs">
+                             <div class="clientnav">
+                                    <ul class="nav nav-underline" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active"  id="creditb-tab" data-bs-toggle="tab" data-bs-target="#creditb-tab-pane" type="button" role="tab" aria-controls="creditb-tab-pane" aria-selected="true" >Credit Bureaus</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link "    id="reason-tab" data-bs-toggle="tab" data-bs-target="#reason-tab-pane" type="button" role="tab" aria-controls="reason-tab-pane" aria-selected="true" >Dispute Reasons</a>
+                                        </li>
+                                             <li class="nav-item" role="presentation">
+                                            <a class="nav-link "    id="instruction-tab" data-bs-toggle="tab" data-bs-target="#instruction-tab-pane" type="button" role="tab" aria-controls="instruction-tab-pane" aria-selected="true" >Dispute Instructions</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="creditb-tab-pane" role="tabpanel" aria-labelledby="creditb-tab" tabindex="0">
+   
+                                        <div class="col-md-10">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row"  id="CLetter">
+                                                        <div class="col" id="CLetterText">
+                                                            <h3>Note</h3>
+                                                            <p>For custom bureau logos, please upload only JPG, JPEG, GIF, BMP or PNG files with dimensions of 100 x 20. If your account is set up in the USA, bureau information cannot be modified and changes to logos are not permitted. We recommend US accounts do not make any changes to this page.</p>
+                                                        </div>
+                                                 
+                                                    </div> <!--row-->
+                
 
+                                                    <br>
+                                                    <div  id="loginActivity">
+
+                                                        <div style='overflow-y:auto'>
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                <th>Name</th>
+                                                                <th>Logo</th>
+                                                                <th>Address</th>
+                                                                <th></th>
+                                                                
+                                                           
+                                                              
+                                                                </tr>
+                                                                </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Equifax<span></td>
+                                                                    <td><span class="skeleton"> <img src="/img/equifax.png" alt="" width="90px" ></span></td>
+                                                                    <td><span class="skeleton">Equifax Information Services LLC</span><br>
+                                                                        <span class="skeleton">P.O. Box 740256</span> <br>
+                                                                        <span class="skeleton">Atlanta, GA 30374-0256</span>
+                                                                    <td> 
+                                                                        <!-- Button to Open the Modal -->
+                                                                        <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#editClientModal" data-id="">
+                                                                            <i class='bx bxs-edit'></i>
+                                                                        </button>
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class='bx bxs-trash' ></i></button>
+                                                                        </form> 
+                                                                    </td>
+                                                                </tr>
+                                                                   <tr>
+                                                                    <td><span class="skeleton">Experian<span></td>
+                                                                    <td><span class="skeleton"> <img src="/img/experian.png" alt="" width="90px" ></span></td>
+                                                                    <td><span class="skeleton">Experian</span><br>
+                                                                        <span class="skeleton">P.O. Box 4500</span><br>
+                                                                        <span class="skeleton">Allen, TX 75013</span></td>
+                                                                    <td> 
+                                                                        <!-- Button to Open the Modal -->
+                                                                        <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#editClientModal" data-id="">
+                                                                            <i class='bx bxs-edit'></i>
+                                                                        </button>
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class='bx bxs-trash' ></i></button>
+                                                                        </form> 
+                                                                    </td>   
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Transunion<span></td>
+                                                                    <td><span class="skeleton"> <img src="/img/transunion.png" alt="" width="90px" ></span></td>
+                                                                    <td><span class="skeleton">TransUnion LLC Consumer Dispute Center</span><br>
+                                                                        <span class="skeleton">P.O. Box 2000</span><br>
+                                                                        <span class="skeleton">Chester, PA 19016</span></td>
+                                                                    <td> 
+                                                                        <!-- Button to Open the Modal -->
+                                                                        <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#editClientModal" data-id="">
+                                                                            <i class='bx bxs-edit'></i>
+                                                                        </button>
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class='bx bxs-trash' ></i></button>
+                                                                        </form> 
+                                                                    </td>   
+                                                                </tr>
+                                                             
+                                                            
+                                                            </tbody>
+                                                            </table>
+                                                        </div>
  
-                        </div> 
-                    </div>
-                </div><!--card-->
-            </div> <!--col-->
-        </div> <!-- dispute tab-->
+                                                    </div> 
+                                                </div>
+                                            </div><!--card-->
+                                        </div> <!--col-->
+                                    </div> 
      
-     
+                                    <div class="tab-pane fade" id="reason-tab-pane" role="tabpanel" aria-labelledby="reason-tab" tabindex="0">
+                                        <div class="col-md-10">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row"  id="CLetter">
+                                                        <div class="col" id="CLetterText">
+                                                            <h3>Dispute Options</h3>
+                                                            <p>Add, remove or modify the dispute reasons that appear as choices in the Dispute Wizard.</p>
+                                                        </div>
+                                                        <div class="col-md-3" id="CLetterbtn">
+                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addReasonModal"></i>&nbsp;&nbsp;ADD NEW REASONS</button>
+                                                        </div>
+                                                    </div> <!--row-->
+                                                    
+
+                                                    <br>
+                                                    <div  id="loginActivity">
+
+                                                        <div style='overflow-y:auto'>
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                <th>Reason</th>
+                                                                
+                                                           
+                                                                <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Sample Reason<span></td>
+                                                                
+            
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">The following personal information is incorrect<span></td>
+                                                               
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                                  <tr>
+                                                                    <td><span class="skeleton">The following account is not mine<span></td>
+                                                               
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                                  <tr>
+                                                                    <td><span class="skeleton">The status is incorrect for the following account<span></td>
+                                                               
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                            
+                                                            </tbody>
+                                                            </table>
+
+<!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="instruction-tab-pane" role="tabpanel" aria-labelledby="instruction-tab" tabindex="0">
+                                        <div class="col-md-10">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row"  id="CLetter">
+                                                        <div class="col" id="CLetterText">
+                                                            <h3>Dispute Instructions</h3>
+                                                            <p>Add, remove or modify the dispute instructions that appear as choices in the Dispute Wizard.</p>
+                                                        </div>
+                                                        <div class="col-md-3" id="CLetterbtn">
+                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addInstructionModal"></i>&nbsp;&nbsp;ADD NEW INSTRUCTIONS</button>
+                                                        </div>
+                                                    </div> <!--row-->
+                                                    
+
+                                                    <br>
+                                                    <div  id="loginActivity">
+
+                                                        <div style='overflow-y:auto'>
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                <tr>
+                                                                <th>Instructions</th>
+                                                                
+                                                           
+                                                                <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Please correct/update this inaccurate information on my credit report.<span></td>
+                                                                
+            
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Please remove this inaccurate information from my credit report.<span></td>
+                                                               
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span class="skeleton">Please remove it from my credit report.
+<span></td>
+                                                               
+                                                                    <td>
+                                                            
+                                                                                                        <!-- Button to Open the Modal -->
+                                                                                                    
+                                                                        <form id="deleteForm" action="" method="POST" style="display: inline-block;" >
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn-bnw" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal"><i class="bi bi-lock-fill"></i></button>
+                                                                        </form>
+                                                                    </td>
+
+
+                                                                </tr>
+                                                            
+                                                            </tbody>
+                                                            </table>
+
+<!--  <nav aria-label="Page navigation example"><ul class="pagination justify-content-end"><div class="pagination"><a href="#">❮</a><a href="#">❯</a></div></ul></nav> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        </div>
      
      
         
@@ -394,4 +698,139 @@
        
 
 </div>
-    @endsection
+<!--modal add REASON-->
+      <div class="modal fade" id="addReasonModal" tabindex="-1" role="dialog" aria-labelledby="addReasonLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addReasonLabel">Add Reason</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" >
+                        <div class="form-group">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <label for="reason">Reason</label>
+                                    <input type="text" name="reason" autofocus id="reason" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                             
+                            
+
+                       <button type="submit" class="btn btn-primary">Add Reason</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add REASON -->
+<!--modal add iNstructions-->
+      <div class="modal fade" id="addInstructionModal" tabindex="-1" role="dialog" aria-labelledby="addInstructionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addInstructionLabel">Add Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" >
+                        <div class="form-group">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <label for="reason">Instructions</label>
+                                    <input type="text" name="reason" autofocus id="reason" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                             
+                            
+
+                       <button type="submit" class="btn btn-primary">Add Instruction</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add instructions-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("Page loaded, script is running.");
+
+        // Define a mapping from tab IDs to simpler hash names
+        const hashMapping = {
+            'portal-tab-pane': 'portal',
+            'leads-tab-pane': 'leads',
+            'signature-tab-pane': 'signature',
+            'affiliate-tab-pane': 'affiliate',
+            'dispute-tab-pane': 'dispute',
+        
+        
+        };
+
+        // Check the URL for a fragment (e.g., #notes)
+        const hash = window.location.hash.replace('#', ''); // Remove the #
+        console.log("Current URL hash:", hash);
+
+        if (hash) {
+            // Use the hashMapping to find the corresponding tab pane ID
+            const tabPaneId = Object.keys(hashMapping).find(key => hashMapping[key] === hash);
+            console.log("Mapped tab pane ID:", tabPaneId);
+
+            // If found, activate the corresponding tab
+            if (tabPaneId) {
+                const tabLink = document.querySelector(`a[data-bs-target="#${tabPaneId}"]`);
+                console.log("Found tab link:", tabLink);
+
+                if (tabLink) {
+                    // Use Bootstrap's tab function to activate it
+                    const tabInstance = new bootstrap.Tab(tabLink);
+                    tabInstance.show();  // Show the tab
+                    console.log("Tab activated:", hash);
+                }
+            }
+        }
+
+        // Handle updating the URL fragment when a tab is clicked
+        const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        tabLinks.forEach(tabLink => {
+            tabLink.addEventListener('shown.bs.tab', function (e) {
+                // Get the current tab's target ID
+                const targetId = e.target.getAttribute('data-bs-target').replace('#', ''); // Remove the #
+                console.log("Active tab ID:", targetId);
+
+                // Get the corresponding simplified hash
+                const simplifiedHash = hashMapping[targetId] || targetId; // Default to original if not found
+
+                // Update the URL fragment without reloading the page
+                window.history.pushState(null, null, `#${simplifiedHash}`);
+                console.log("Tab clicked, URL updated to:", simplifiedHash);
+            });
+        });
+
+       
+
+    
+
+        const activeTab = "{{ session('activeTab') }}"; // Check for active tab
+
+        if (activeTab) {
+            console.log("Active tab exists:", activeTab); // Debugging statement
+            window.location.hash = activeTab;
+
+            // Activate the corresponding tab
+            const tabLink = document.querySelector(`a[data-bs-target="#${activeTab}-tab-pane"]`);
+            if (tabLink) {
+                const tabInstance = new bootstrap.Tab(tabLink);
+                tabInstance.show();  // Show the active tab
+                console.log(`${activeTab} tab activated.`); // Debugging statement
+            }
+        }
+    });
+</script>
+   @endsection
