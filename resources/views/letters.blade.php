@@ -118,7 +118,7 @@
              <td><span class="skeleton">Round 4<span></td>
              <td> <span class="skeleton">Credit Bureau Letters </span></td>
              <td>
-             <a href="" class="btn"><i class="bi bi-eye-fill"></i></a>
+             <a href="#" class="btn"><i class="bi bi-eye-fill"></i></a>
                                                 <!-- Button to Open the Modal -->
                                              
                 <form id="deleteForm" action="" method="POST" style="display: inline-block;" >

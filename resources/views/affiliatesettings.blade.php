@@ -1,4 +1,5 @@
- 
+
+
     @extends('layouts.app')
     @section('content') 
    <div class="hello" id="dashboard">
@@ -143,8 +144,8 @@
                                                             <h3>Non-client Statuses</h3>
                                                             <p>These statuses do not allow you to do work on client.</p>
                                                         </div>
-                                                        <div class="col-md-3" id="CLetterbtn">
-                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ADD NEW STATUS</button>
+                                                         <div class="col-md-3" id="CLetterbtn">
+                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addNonClientStatusModal">&nbsp;&nbsp;ADD STATUS</button>
                                                         </div>
                                                     </div> <!--row-->
                 
@@ -221,7 +222,7 @@
                     <p>These statuses do allow you to do work on client.</p>
                     </div>
                     <div class="col-md-3" id="CLetterbtn">
-                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;ADD NEW STATUS</button>
+                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addClientStatusModal">&nbsp;&nbsp;ADD NEW STATUS</button>
                         </div>
                 </div> <!--row-->
                 
@@ -274,7 +275,7 @@
                         </div> 
                     </div>
                 </div><!--card-->
-            </div> <!--col-->
+            </div> <!--col-->z
         </div> <!-- leads tab-->
          
          <div class="tab-pane fade" id="signature-tab-pane" role="tabpanel" aria-labelledby="signature-tab" tabindex="0">
@@ -503,7 +504,7 @@
                                                             <p>Add, remove or modify the dispute reasons that appear as choices in the Dispute Wizard.</p>
                                                         </div>
                                                         <div class="col-md-3" id="CLetterbtn">
-                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addReasonModal"></i>&nbsp;&nbsp;ADD NEW REASONS</button>
+                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addReasonModal">&nbsp;&nbsp;ADD N   REASONS</button>
                                                         </div>
                                                     </div> <!--row-->
                                                     
@@ -609,7 +610,7 @@
                                                             <p>Add, remove or modify the dispute instructions that appear as choices in the Dispute Wizard.</p>
                                                         </div>
                                                         <div class="col-md-3" id="CLetterbtn">
-                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addInstructionModal"></i>&nbsp;&nbsp;ADD NEW INSTRUCTIONS</button>
+                                                            <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#addInstructionModal">&nbsp;&nbsp;ADD NEW INSTRUCTIONS</button>
                                                         </div>
                                                     </div> <!--row-->
                                                     
@@ -698,7 +699,8 @@
        
 
 </div>
-<!--modal add REASON-->
+
+<!--modal add -->
       <div class="modal fade" id="addReasonModal" tabindex="-1" role="dialog" aria-labelledby="addReasonLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
@@ -727,7 +729,37 @@
             </div>
         </div>
     </div>
-<!--modal add REASON -->
+<!--modal add -->
+<!--modal add -->
+      <div class="modal fade" id="addClientStatusModal" tabindex="-1" role="dialog" aria-labelledby="addClientStatusLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addClientStatusLabel">Add Client Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" >
+                        <div class="form-group">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <label for="clientstatus">Status</label>
+                                    <input type="text" name="clientstatus" autofocus id="clientstatus" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                             
+                            
+
+                       <button type="submit" class="btn btn-primary">Add Status</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add -->
 <!--modal add iNstructions-->
       <div class="modal fade" id="addInstructionModal" tabindex="-1" role="dialog" aria-labelledby="addInstructionLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
@@ -743,8 +775,8 @@
                         <div class="form-group">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <label for="reason">Instructions</label>
-                                    <input type="text" name="reason" autofocus id="reason" class="form-control" required>
+                                    <label for="instructions">Instructions</label>
+                                    <input type="text" name="instructions" autofocus id="instructions" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -752,6 +784,36 @@
                             
 
                        <button type="submit" class="btn btn-primary">Add Instruction</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--modal add instructions-->
+<!--modal add iNstructions-->
+      <div class="modal fade" id="addNonClientStatusModal" tabindex="-1" role="dialog" aria-labelledby="addNonClientStatusLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNonClientStatusLabel">Add Non-Client Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" >
+                        <div class="form-group">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <label for="nonclientstatus"></label>Status</label>
+                                    <input type="text" name="nonstatclientstatus" autofocus id="nonclientstatus" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                             
+                            
+
+                       <button type="submit" class="btn btn-primary">Add Status</button>
                    </form>
                 </div>
             </div>
@@ -833,4 +895,6 @@
         }
     });
 </script>
+
+
    @endsection

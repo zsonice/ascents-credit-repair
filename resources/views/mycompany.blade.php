@@ -252,7 +252,8 @@
                                         <div>
                                             <h3>Agent Info</h3>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="row">
+                                        <div class="col">
                                             <div class="agentinfobody">
                                                 <div class="agentimg">
                                                     <img src="/img/agent-info.png" alt="agent" >
@@ -263,28 +264,29 @@
                                                 </div>
                                             </div>
                                         </div><!--col-->
-                                        <div class="col-md-2">
+                                        <div class="col">
                                             <div class="agentinfobody">
                                                 <div class="agentimg">
                                                     <img src="/img/agent-info.png" alt="agent" >
                                                 </div>
                                                 <div class="agentname">
                                                     <h5>Lala Chan</h5>
-                                                    <h6>GHL Specialist</h6>
+                                                    <h6>Account Manager</h6>
                                                 </div>
                                             </div>
                                         </div><!--col-->
-                                        <div class="col-md-2">
+                                        <div class="col">
                                             <div class="agentinfobody">
                                                 <div class="agentimg">
                                                     <img src="/img/agent-info.png" alt="agent" >
                                                 </div>
                                                 <div class="agentname">
                                                     <h5>Duan Chan</h5>
-                                                    <h6>Developer</h6>
+                                                    <h6>Account Manager</h6>
                                                 </div>
                                             </div>
                                         </div><!--col-->
+                                    </div><!--row-->
                                     </div> <!--cardbody-->
                                 </div><!--card-->
                             </div><!--cagent info-->
@@ -370,9 +372,7 @@
                                 <h3>Billing Payments</h3>
                                 <p>Update your billing payments here.</p>
                             </div>
-                            <div class="col-md-3" id="CLetterbtn">
-                                <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#"></i>&nbsp;&nbsp;EDIT ROLES</button>
-                            </div>
+                          
                         </div> <!--row-->
                 
 

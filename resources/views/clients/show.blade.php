@@ -2938,14 +2938,15 @@
                 <div class="row">
                     <div class="col" id="UploadDocuments">
                          <h3>Documents</h3>
+                         <p>Upload all your documents here.</p>
                     </div>
-                    <div class="col">
-                    <div class="uploadDocu">
-            <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#uploadDocuments"><i class='bx bx-upload'></i>&nbsp;&nbsp;Upload Documents</button>
-                 
-        </div>
-                    </div>
-                </div>
+                
+                <div class="col-md-3" id="CLetterbtn">
+                    <button class="btn btn-primary" id="CLetterbtn" type="button" data-toggle="modal" data-target="#uploadDocuments"></i>&nbsp;&nbsp;UPLOAD DOCUMENTS</button>
+               </div> 
+    
+                    
+                </div>    <br>
                 <div class="UDTable" style='overflow-x:auto'>
                     <table class="table table-hover">
                     <thead>
