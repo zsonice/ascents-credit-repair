@@ -509,6 +509,19 @@ div.p{
     align-items: center;
     justify-content: center;
 }
+.modal .btn-primary:hover{
+    background: var(--dark-primary);
+    border-style: none;
+}
+.modal .btn-primary{
+    background: var(--primary-color);
+    border-style: none;
+}
+.modal .btn-primary i{
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
 /* Th */
 .table tr th{
     font-size:14px;
@@ -645,8 +658,8 @@ body.dark .card .card-body .navbar{
    }
    /* Container fluid */
 .card-body .navbar .container-fluid{
-    padding-left:0px;
-    padding-right:0px;
+ 
+   
     transform:translatex(0px) translatey(0px);
    }
    .card-body .nav .nav-item{
@@ -656,6 +669,7 @@ body.dark .card .card-body .navbar{
    .card-body .nav .btn-app{
     color: var(--side-bar-color);
     font-size: 14px;
+
    }
 
    
@@ -1035,6 +1049,7 @@ transition: var(--tran-03);
    text-align: left;
 }
 .modal .form-group .col-md-2 select,
+
 .provider select{
     font-size: 14px;
     border-radius: 2px;
@@ -1042,7 +1057,17 @@ transition: var(--tran-03);
    text-align: left;
 
 }
+
+.form-group .col-md-2 {
+        font-size: 14px;
+    border-radius: 2px;
+  
+   text-align: left;
+   margin-bottom: 3px;
+}
 .modal .form-group .col select,
+.form-group .col-md-2 select,
+.form-group .col select,
 .modal .form-group select,
 .provider select,
 .modal .fields select
@@ -1054,6 +1079,7 @@ transition: var(--tran-03);
    cursor: pointer;
 
 }
+.modal .form-group select:focus,
 .modal .form-group select:focus,
 .provider select:focus{
 border-radius: 3px;
@@ -1069,7 +1095,7 @@ border-radius: 3px;
 .form-group .col-md-2{
    
     justify-content: space-between;
-    margin-top: -50;
+    margin-top: 0;
 }
 .form-group .col-md-6{
    
@@ -1085,6 +1111,7 @@ border-radius: 3px;
     color: #7c7c7c!important;
 }
 .form-group #statediv,
+.form-group #companystatediv,
 .form-group #statusdiv,
 .form-group #referreddiv,
 .form-group #assigneddiv,
@@ -1092,7 +1119,9 @@ border-radius: 3px;
 .form-group #billingdiv,
 .form-group #plandiv,
 .form-group #cmsdiv,
-.form-group #letterdiv
+.form-group #letterdiv,
+.form-group #lettercat,
+.form-group #lettercontent
 {
 padding-bottom: 8px!important;
 
@@ -1563,7 +1592,7 @@ color: var(--primary-color)!important;
 
   
  }
- .iAlerts h6{
+ .iAlerts h6,.iMessageBody h6{
 color: var(--dark-text);
 font-size: 14px;
  }
@@ -1644,6 +1673,7 @@ padding: 10px;
 #notesTab h3,
 #UploadDocuments h3,
 #agentinfo h3,
+#cagentinfo h3,
 #Reminders h3,
 #Messages h3{
     font-size: 18px;
@@ -1833,6 +1863,10 @@ color: var(--side-bar-color)!important;
     display:flex;
     padding-top: 10px;
    }
+   #cagentinfo .card .agentinfobody {
+display:flex;
+    padding-top: 10px;
+   }
    .agentimg{
     padding: 5px;
     align-items: center;
@@ -1843,6 +1877,21 @@ color: var(--side-bar-color)!important;
     margin-right:10px ;
     transition: var(--tran-04);
 
+   }
+    #cagentinfo.agentimg{
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--side-bar-color);
+    border-radius: 50% ;
+    align-self:center;
+    margin-right:10px ;
+    transition: var(--tran-04);
+
+   }
+   #cagentinfo .col-md-2{
+    display: inline-block;
    }
    .agentimg img{
     width: 60px;
@@ -1862,7 +1911,9 @@ color: var(--side-bar-color)!important;
 #agentinfo .card .agentname{
     align-self:center;
    }
-
+#cagentinfo .card .agentname{
+    align-self:center;
+   }
    
    .progressbar {
     margin: 50px 0 50px 0;
@@ -1923,7 +1974,11 @@ color: var(--side-bar-color)!important;
     margin-bottom:20px;
    }
    .clientname h1{
+    
+    padding-left: 10px;
     font-weight: 700;
+    font-size: 32px;
+    
     color: var(--dark-text)!important;
     text-transform: capitalize;
    }
@@ -1933,13 +1988,16 @@ color: var(--side-bar-color)!important;
     transform:translatex(0px) translatey(0px);
    }
    #clientinfo .card .card-body{
-    margin-top:0px;
+    margin-top:20px;
    }
 
 .clientinfo h6{
 font-size: 12px;
 align-self: center;
 padding-left:10px;
+}
+#clientedit{
+    margin-bottom: 10px;
 }
 
 .clientinfo2 h6{
@@ -2012,6 +2070,11 @@ font-size: 22px;
 }
 /* Agentinfobody */
 #agentinfo .card .agentinfobody{
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+   }
+   #cagentinfo .card .agentinfobody{
     padding-left:10px;
     padding-right:10px;
     padding-bottom:10px;
@@ -2470,7 +2533,7 @@ align-items: end!important;
     color: var(--dark-primary);
 }
 #loginActivity a{
-    color: var(--primary-color);
+    color: #7d7d7d;
 }
 #loginActivity a p{
     font-size: 12px;
@@ -3312,5 +3375,356 @@ padding-right: 10px!important;
  margin-right: 10px;
  padding-left: 0px;
  padding-right: 0px;
+}
+#CLoanHeader{
+    margin: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+#CLoanHeader h1{
+    font-size: 35px;
+  
+}
+#CLoanHeader h4{
+    font-size: 20px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+#CLoanHeader #houseimg{
+
+max-width: fit-content;
+
+}
+
+#CLoanHeader  img#head{
+max-width: 100px;
+
+}
+#CLoanHeader  img#cscoreimg{
+max-width: 300px;
+justify-content: left;
+
+}
+
+#Setbacks{
+    margin: 20px;
+
+    color: var(--dark-text);
+
+}
+#Setbacks .col{
+ margin-right: 10px;
+padding: 20px;
+border: #d7d7d8 1px solid;
+border-radius: 5px;
+
+}
+#Setbacks h4{
+      font-size: 16px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+}
+
+
+#LoanEx h1{
+
+    color: #775dd0;
+    font-size: 30px;
+    text-align:center;
+    
+}
+#LoanEx h6{
+   
+    color: #775dd0;
+    font-size: 12px;
+    text-align:center;
+    font-weight: 600;
+
+}
+#CScoreTable tr td h5{
+    
+    color: var(--dark-text);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+
+}
+#CScoreTable tr td {
+  padding: 10px;
+  border-bottom: 1px solid #9b9b9b;
+}
+#CScoreTable thead th{
+    padding: 10px;
+    background-color:var(--primary-color);
+    color: var(--text-color);
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 600;
+    border: none!important;
+    text-align: center;
+}
+#CScoreTable{
+    margin: 20px;
+ 
+    justify-content: center;
+
+}
+#CScoreTable table{
+   width: 70%;
+}
+#LoanTable{
+    margin: 20px;
+ 
+
+}
+#LoanTable .col{
+     margin-right: 10px;
+padding: 20px;
+border: #d7d7d8 1px solid;
+border-radius: 5px;
+}
+
+#LoanTable #LowScore{
+    color: #ad0404!important;
+}
+#LoanTable #AvgScore{
+    color: #37a4d6!important;
+}
+
+
+#LoanTable h1{
+
+    font-size: 40px;
+    text-align:center;
+        padding: 5px;
+}
+#LoanTable h2{
+    font-size: 30px;
+    text-align:center;
+      font-weight: 700;
+          padding: 5px;
+
+}
+#LoanTable #LowScore h1{
+    color: #ad0404;
+}
+#LoanTable #AvgScore h1{
+    color: #37a4d6;
+}
+#LoanTable h6{
+    
+    font-size: 14px;
+    text-align:center;
+    font-weight: 600;
+    padding: 5px;
+
+}
+#LoanTable img{
+    max-width: 150px;
+}
+
+#LoanTable h4{
+    padding-top: 15px!important;
+    padding: 5px;
+    font-size: 25px;
+    text-align:center;
+    font-weight: 700;
+    color: #ffffff;
+    background: #ad0404;
+    border-radius: 15px;
+    margin-top: 10px;
+
+}
+#LoanTable p{
+    color: var(--text-color);
+    font-weight: 500;
+}
+#LowScore{
+    background-color: #f5d8d8;
+}
+#LoanTable #AvgScore{
+    color:var(--dark-text);
+    background-color: #d8e8f5;
+}
+
+#LoanTable #ExcellentScore{
+    color:#775dd0;
+    background-color: #eee5f6;
+}
+#LoanTable #ExcellentScore h1{
+    color:#775dd0;
+
+}
+
+#CLoanHeader2{
+    margin: 20px;
+    justify-self: center;
+ 
+    margin-top: 30px;
+    width:70%;
+   
+
+}
+#CLoanHeader2 h1{
+    font-size: 35px;
+  
+}
+#CLoanHeader2 h4{
+    font-size: 20px;
+    color: var(--dark-text);
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+
+#CLoanHeader2  img#head{
+max-width: 100px;
+
+}
+#CLoanHeader2  img#cscoreimg{
+max-width: 250px;
+justify-content: left;
+
+
+}
+
+#CLoanHeader #Bureaus{
+    width: 70%;
+}
+
+#divfooter .primary{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+td.left{
+    text-align: right;
+}
+button.btn-bnw{
+    color: #818181;
+    font-size: 18px;
+    justify-content: center;
+    padding-right: 20px;
+}
+td.left a{
+    font-size: 14px;
+}
+#PLogo{
+    margin-left: 20px;
+
+}
+#PLogo .col{
+  display: grid;
+
+}
+#PLogo p{
+    margin-bottom: 10px;
+}
+
+#uploadimg input[type=file]:focus{
+outline: none!important;
+box-shadow: none!important;
+}
+#uploadimg input[type=file]{
+    border: 1px solid #7c7c7c;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#uploadimg input[type=file]:hover{
+    border: 2px solid var(--primary-color);
+}
+
+#uploadcolor input[type=file]:focus{
+outline: none!important;
+box-shadow: none!important;
+}
+#uploadcolor input[type=file]{
+    border: 1px solid #7c7c7c;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#uploadcolor input[type=file]:hover{
+    border: 2px solid var(--primary-color);
+}
+
+#lettercontent textarea,
+#flettercontent textarea{
+    min-height: 500!important;
+}
+
+#loginActivity a{
+    color: #7d7d7d;
+}
+
+
+.popover-message a.btn {
+    margin-top: 15px;
+  width: 100%;
+  background-color: var(--primary-color);
+  font-size: 14px;
+}
+.popover-message a.btn:hover{
+
+  background-color: var(--dark-primary);
+}
+.popover-message h6{
+    font-weight: 600;
+    font-size: 13px;
+    padding-bottom: 2px;
+    color: #343B3C;
+}
+.popover-message p {
+  margin: 0;
+  font-size: 11px;
+  padding-bottom: 10px;
+  color: #7d7d7d;
+  font-weight: 500;
+
+}
+.popover-message p.note {
+  margin: 0;
+  font-size: 11px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
+
+}
+.home .text .container-fluid{
+ margin-right:80px;
+}
+ .popover {
+    max-width: 220px !important; /* You can adjust this */
+    width: 220px !important;
+  }
+
+#loginActivity tr a.btn{
+ color:var(--primary-color);
+}
+/* Search form */
+#search-form{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+}
+
+/* Button */
+.card-body .nav .btn-primary{
+ display:flex;
+ align-items:center;
+ margin-left:10px;
+}
+
+/* Container fluid */
+.card-body .navbar .container-fluid{
+ padding-right:0px;
+ padding-left: 0px;
+ width:100%;
+ margin-right:0px !important;
 }
 

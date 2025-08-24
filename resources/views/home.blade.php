@@ -212,7 +212,7 @@
                         <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">View</a>
                       </td>
                     </tr> @empty <tr>
-                      <td colspan="4">No new clients found.</td>
+                      <td colspan="5"><span class="skeleton">No new clients found.</span></td>
                     </tr> @endforelse </tbody>
                 </table>
                 <div class="iView">
@@ -252,7 +252,7 @@
                         <a href="{{ route('clients.show', $client->id) }}" class="btn btn-primary">View</a>
                       </td>
                     </tr> @empty <tr>
-                      <td colspan="4"><span class="skeleton">No new clients found.</span></td>
+                      <td colspan="5"><span class="skeleton">No new clients found.</span></td>
                     </tr> @endforelse </tbody>
             </table>
             <div class="iView">

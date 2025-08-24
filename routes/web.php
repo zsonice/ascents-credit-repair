@@ -91,6 +91,11 @@ Route::get('/mycompany', function () {
     return view('mycompany');
 })->middleware(['auth', 'verified'])->name('mycompany');
 
+Route::get('/affiliatesettings', function () {
+    return view('affiliatesettings');
+})->middleware(['auth', 'verified'])->name('affiliatesettings');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

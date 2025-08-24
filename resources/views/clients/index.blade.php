@@ -61,11 +61,11 @@
                                         </form>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="btn btn-app"> 
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">
-                                                    ADD CLIENT / LEAD
-                                            </button> 
-                                        </a> 
+                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClientModal"> ADD CLIENT / LEAD</button>
+            
+                                    
+                                            
+</button> 
                                     </li>
                                 </ul>
                             </div>
