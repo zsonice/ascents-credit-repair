@@ -7,6 +7,7 @@ use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,8 @@ Route::middleware('auth')->group(function () {
 //metro2
 Route::post('/metro2/upload', [ClientController::class, 'uploadMetro2'])->name('metro2.upload');
 
+//pdfConverter
+Route::get('/download-pdf', [PdfController::class, 'generate']);
 
 //upload
 // Route::get('/report/upload', function () {
